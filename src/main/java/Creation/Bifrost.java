@@ -75,6 +75,7 @@ public class Bifrost {
                 .build();
 
         String out = tryGetResponse(request);
+        if(out == null) throw new BadResponseException("problem with server connection");
         if(out.equals("[]")) throw new BadResponseException("Body Data invalid");
 
         return out;
