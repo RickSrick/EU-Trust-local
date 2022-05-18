@@ -1,5 +1,4 @@
 package Creation;
-
 import java.net.URI;
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -22,7 +21,7 @@ public class Bifrost {
 
     public static Bifrost newBifrost() {
 
-        if(instance == null) return new Bifrost();
+        if(instance == null) instance = new Bifrost();
         return instance;
     }
 
@@ -41,23 +40,14 @@ public class Bifrost {
         return response.body();
     }
 
-    private String getFlagImageLink(String countryCode) {
+    public String getFlagImageURL(String countryCode) {
         return "https://flagsapi.com/"+countryCode.toUpperCase()+"/flat/64.png";
     }
 
     //#region CRUD operation
     public String getCountries() throws BadResponseException {
 
-        HttpRequest request = makeGETRequest("countries_list");
-        String response = tryGetResponse(request);
-
-        if(response == null) throw new BadResponseException("problem with server connection");
-        return  response;
-    }
-
-    public String getTrustProviders() throws BadResponseException {
-
-        HttpRequest request = makeGETRequest("tsp_list");
+        HttpRequest request = makeGETRequest("countries_list_no_lotl_territory");
         String response = tryGetResponse(request);
 
         if(response == null) throw new BadResponseException("problem with server connection");
