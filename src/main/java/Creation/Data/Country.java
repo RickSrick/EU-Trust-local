@@ -2,17 +2,22 @@ package Creation.Data;
 
 public class Country {
 
-    private String name;
+    private String countryName;
     private String countryID;
-    private String flagURL;
+    private String flagLink;
 
-    public Country (String n, String c, String f) {
-        name = n;
-        countryID = c;
-        flagURL = f;
+    public Country(String _name, String _ID, String _flagLink) {
+
+        countryName = _name;
+        countryID = _ID;
+        flagLink = _flagLink;
+
     }
 
-    public String getCountryID() { return countryID; }
-    public String getName() { return name; }
-    public String getFlagURL() { return flagURL; }
+    public String getName() { return countryName; }
+
+    public String getID() { return countryID; }
+
+    public String getFlagLink() { return flagLink; }
+    
 }

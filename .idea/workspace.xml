@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d264684-aadd-46fd-80fd-0176f6f366d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Creation/DataArchive.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterCountry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterServiceStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterServiceType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Query/Query.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Commands/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Country.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Provider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/DataArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/DataArchive.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,29 +49,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/EU-Trust-local/src/main/resources/Json.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/user/Desktop/EU-Trust-local/src/main/resources/Json.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Creation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\EU-Trust-local\src\main\java\Query\Filter" />
       <recent name="C:\Users\user\Desktop\EU-Trust-local\src\main\java\Creation" />
+      <recent name="C:\Users\user\Desktop\EU-Trust-local\src\main\java\Creation\Data" />
       <recent name="C:\Users\user\Desktop\EU-Trust-local\src\main\resources" />
     </key>
   </component>
@@ -80,6 +91,7 @@
       <workItem from="1652860974122" duration="387000" />
       <workItem from="1652894926914" duration="1536000" />
       <workItem from="1652975421236" duration="1920000" />
+      <workItem from="1652979801863" duration="4130000" />
     </task>
     <servers />
   </component>

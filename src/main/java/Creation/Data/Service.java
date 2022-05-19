@@ -1,7 +1,35 @@
 package Creation.Data;
 
-public class Service {
+import java.util.Vector;
 
-    public Service(String serviceName, String[] serviceTypes, String serviceStatus) {
+public class Service  {
+
+    private String serviceName;
+    private String status;
+    private Vector<String> serviceType;
+
+    public Service(String _name, String[] _type, String _status) {
+
+        serviceName = _name;
+        serviceType = new Vector<>();
+        for (int i = 0; i < _type.length; i++) serviceType.add(_type[i]);        
+        status = _status;
+
     }
+
+    public String getName() { return serviceName; }
+
+    public Vector<String> getServiceType() { return serviceType; }
+
+    public String getStatus() { return status; }
+
+    @Override
+    public boolean equals(Object _service) {
+        
+        if (_service == null) return false;
+
+        return serviceName == ((Service)_service).serviceName;
+    
+    }
+    
 }
