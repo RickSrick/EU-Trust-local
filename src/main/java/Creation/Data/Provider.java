@@ -8,4 +8,9 @@ public class Provider {
     private Vector<String> ServiceTypes;
     private Vector<Service> services;
 
+    public Provider(String name) {
+    }
+
+    public void addService(Service service) {
+    }
 }

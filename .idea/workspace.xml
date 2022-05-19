@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d264684-aadd-46fd-80fd-0176f6f366d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Creation/DataArchive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Bifrost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Bifrost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/CountryDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Commands/Command.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/DataManager.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +59,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Creation" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\EU-Trust-local\src\main\java\Creation" />
       <recent name="C:\Users\user\Desktop\EU-Trust-local\src\main\resources" />
@@ -79,7 +78,8 @@
       <workItem from="1652728310154" duration="4831000" />
       <workItem from="1652813704561" duration="7707000" />
       <workItem from="1652860974122" duration="387000" />
-      <workItem from="1652894926914" duration="1459000" />
+      <workItem from="1652894926914" duration="1536000" />
+      <workItem from="1652975421236" duration="1920000" />
     </task>
     <servers />
   </component>
