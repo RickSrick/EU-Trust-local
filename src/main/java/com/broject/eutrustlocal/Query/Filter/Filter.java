@@ -25,11 +25,11 @@ public abstract class Filter {
 
     /**
      * Returns all the parameters of the filter
-     * Will be overrided in some filters
+     * Could be overridden
      * @return the parameters of the filter
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getParameters() throws BadResponseException { return (Vector<String>)parameters.clone(); }
+    public Vector<String> getParameters() throws BadResponseException { return new Vector<>(parameters); }
 
     /**
      * Checks if there are no parameters in the filter
@@ -75,7 +75,7 @@ public abstract class Filter {
 
     /**
      * Method that filters a given vector of providers following the existing parameters stored in the filter
-     * To be overrided
+     * To override
      * @param _response the vector to be filtered
      * @return a filtered vector
      */

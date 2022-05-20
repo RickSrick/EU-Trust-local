@@ -1,6 +1,5 @@
 package com.broject.eutrustlocal.Creation.Data;
 
-import com.broject.eutrustlocal.Creation.Data.Service;
 import java.util.Vector;
 
 /**
@@ -33,13 +32,13 @@ public class Provider {
 
     public Vector<Service> getServices() {
         
-        return (Vector<Service>)services.clone();
+        return new Vector<>(services);
 
     }
 
     public Vector<String> getServiceTypes() {
         
-        return (Vector<String>)serviceTypes.clone();
+        return new Vector<>(serviceTypes);
 
     }
 
@@ -61,7 +60,7 @@ public class Provider {
         
         if (_provider == null) return false;
 
-        return providerName == ((Provider)_provider).providerName;
+        return providerName.equals(((Provider)_provider).providerName);
     
     }
     
