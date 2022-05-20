@@ -83,7 +83,8 @@ public class DataArchive {
     public Vector<Country> getCountries() throws BadResponseException {
         
         jsonToCountries(connection.getCountries());
-        return (Vector<Country>)countries.clone();
+
+        return new Vector<>(countries);
     
     }
 
@@ -124,7 +125,7 @@ public class DataArchive {
      * then converts the json file obtained in a Vector of providers
      * @param _countries countries selected
      * @param _serviceTypes service types selected
-     * @return all the providers corrisponding to the given filter
+     * @return all the providers that respond to the given filter
      * @throws BadResponseException if there is a problem with the POST request
      */
     public Vector<Provider> getProviders(String[] _countries, String[] _serviceTypes) throws BadResponseException {

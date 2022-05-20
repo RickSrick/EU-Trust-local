@@ -53,7 +53,7 @@ public class Query {
     /**
      * Creates a Query out of a criteria sheet;
      * It's suggested to use only criteria sheets made by <Query.getCriteria()> to guarantee the proper functioning of the constructor;
-     * If the criteria sheet is not recognised or it's null, the Query will be created normaly from scratch, ignoring the criteria sheet
+     * If the criteria sheet is not recognised, or it's null, the Query will be created normally from scratch, ignoring the criteria sheet
      * @param _criteria the criteria sheet
      * @throws BadResponseException if there is a problem with the POST request
      */
@@ -98,7 +98,7 @@ public class Query {
     /**
      * Edits a filter by adding/removing a parameter;
      * If the parameter already exists inside the filter, it will be removed;
-     * If the parameter doesn't exists inside the filter, it will be added;
+     * If the parameter doesn't exist inside the filter, it will be added;
      * If the _filterType doesn't exist, the Query won't be modified;
      * If the _filterType or the _parameter are null, nothing will happen and the Query won't change
      * @param _filterType the filter to be removed
@@ -206,7 +206,7 @@ public class Query {
     }
 
     /**
-     * Returns all of the valid service types due to the current parameters selected
+     * Returns all the valid service types due to the current parameters selected
      * IF NECESSARY, makes a post request
      * @return all the service types that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
@@ -232,7 +232,7 @@ public class Query {
     }
 
     /**
-     * Returns all of the valid service statuses due to the current parameters selected
+     * Returns all the valid service statuses due to the current parameters selected
      * IF NECESSARY, makes a post request
      * @return all the service statuses that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
@@ -310,7 +310,7 @@ public class Query {
     private Vector<Provider> executeQuery() throws BadResponseException {
 
         if (newRequestNeeded) {
-            System.out.println("Comunicating with the server...");                                                                  /*------------------------------------------------------------------*/
+            System.out.println("Contacting the server...");                                                                  /*------------------------------------------------------------------*/
             response = DataArchive.newDataArchive().getProviders(filters.get(0).getParameters().toArray(new String[0]), filters.get(2).getParameters().toArray(new String[0]));
             newRequestNeeded = false;
         }
@@ -324,7 +324,7 @@ public class Query {
 
     }
 
-    //Converts the criteria sheed into an array of parameters divided by type of filter
+    //Converts the criteria sheet into an array of parameters divided by type of filter
     private String[] criteriaToParameters(String _criteria) {
 
         Scanner tokenizer = new Scanner(_criteria);
@@ -334,7 +334,7 @@ public class Query {
             return new String[0];
         }
 
-        String line = "";
+        String line;
         String[] parameters = new String[4];
 
         for (int i = 0; i < filters.size(); i++) {
@@ -342,7 +342,7 @@ public class Query {
             StringBuilder filter = new StringBuilder();
 
             if (tokenizer.hasNextLine())
-                line = tokenizer.nextLine();
+                tokenizer.nextLine();
             else {
                 tokenizer.close();
                 return new String[0];

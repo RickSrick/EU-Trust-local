@@ -33,7 +33,7 @@ public class Service  {
         
         if (_service == null) return false;
 
-        return serviceName == ((Service)_service).serviceName;
+        return serviceName.equals(((Service)_service).serviceName);
     
     }
     
