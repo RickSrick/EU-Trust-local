@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d264684-aadd-46fd-80fd-0176f6f366d8" name="Changes" comment="Excpetions handling">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/DataArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/DataArchive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Query/Filter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterCountry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterCountry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterServiceStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterServiceStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Query/Filter/FilterServiceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Query/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Query/Query.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Provider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creation/Data/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creation/Data/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,8 +85,16 @@
       <workItem from="1652975421236" duration="1920000" />
       <workItem from="1652979801863" duration="4130000" />
       <workItem from="1652987538523" duration="164000" />
-      <workItem from="1653046192665" duration="933000" />
+      <workItem from="1653046192665" duration="1032000" />
     </task>
+    <task id="LOCAL-00001" summary="Excpetions handling">
+      <created>1653047162213</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653047162213</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

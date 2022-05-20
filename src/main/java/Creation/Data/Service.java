@@ -1,6 +1,11 @@
 package Creation.Data;
 
+import java.util.Collections;
 import java.util.Vector;
+
+/**
+ * @author Zanella Matteo
+ */
 
 public class Service  {
 
@@ -12,7 +17,7 @@ public class Service  {
 
         serviceName = _name;
         serviceType = new Vector<>();
-        for (int i = 0; i < _type.length; i++) serviceType.add(_type[i]);        
+        Collections.addAll(serviceType, _type);
         status = _status;
 
     }

@@ -3,6 +3,9 @@ package Creation.Data;
 import Creation.Data.Service;
 import java.util.Vector;
 
+/**
+ * @author Zanella Matteo
+ */
 
 public class Provider {
 
