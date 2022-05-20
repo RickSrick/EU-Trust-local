@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eu_trust_local" />
+        <module name="EU-Trust-local" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="eu_trust_local" target="15" />
+      <module name="EU-Trust-local" target="15" />
     </bytecodeTargetLevel>
   </component>
 </project>

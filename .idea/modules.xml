@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/eu_trust_local.iml" filepath="$PROJECT_DIR$/eu_trust_local.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EU-Trust-local.iml" filepath="$PROJECT_DIR$/EU-Trust-local.iml" />
     </modules>
   </component>
 </project>
