@@ -8,6 +8,10 @@ import Creation.Data.Service;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * @author Zanella Matteo
+ */
+
 public class DataArchive {
 
     private Vector<Country> countries;
@@ -40,7 +44,7 @@ public class DataArchive {
         "CertUndefined"
     };
 
-    private DataArchive() {
+    private DataArchive() throws BadResponseException {
         
         countries = new Vector<>();
         update();
@@ -50,8 +54,9 @@ public class DataArchive {
     /**
      * Returns the only DataArchive with default settings.
      * @return the only DataArchive
+     * @throws BadResponseException if there is a problem with the POST request
      */
-    public static DataArchive newDataArchive() {
+    public static DataArchive newDataArchive() throws BadResponseException {
 
         if (instance == null) instance = new DataArchive();
         return instance;
@@ -60,8 +65,9 @@ public class DataArchive {
 
     /**
      * Method that updates the connection with the server and the country list
+     * @throws BadResponseException if there is a problem with the POST request
      */
-    public void update() {
+    public void update() throws BadResponseException {
 
         connection = Bifrost.newBifrost();
 
@@ -72,8 +78,9 @@ public class DataArchive {
     /**
      * Returns a vector containing all the countries in the UE
      * @return all the countries in the UE
+     * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<Country> getCountries() {
+    public Vector<Country> getCountries() throws BadResponseException {
         
         jsonToCountries(connection.getCountries());
         return (Vector<Country>)countries.clone();
@@ -83,19 +90,25 @@ public class DataArchive {
     /**
      * Returns a vector containing all the countries in the UE
      * @return all the countries in the UE
+     * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getCountriesID() {
-        
-        getCountries();
+    public Vector<String> getCountriesID() throws BadResponseException {
+
+        jsonToCountries(connection.getCountries());
         Vector<String> countriesID = new Vector<>();
-        for (int i = 0; i < countries.size(); i++)
-            countriesID.add(countries.get(i).getID());
+        for (Country country : countries)
+            countriesID.add(country.getID());
 
         return countriesID;
     
     }
 
-    public int getCountriesSize() {
+    /**
+     * Returns the number of countries in the UE
+     * @return the number of countries in the UE
+     * @throws BadResponseException if there is a problem with the POST request
+     */
+    public int getCountriesSize() throws BadResponseException {
 
         if (countries.isEmpty())
             jsonToCountries(connection.getCountries());
@@ -112,8 +125,9 @@ public class DataArchive {
      * @param _countries countries selected
      * @param _serviceTypes service types selected
      * @return all the providers corrisponding to the given filter
+     * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<Provider> getProviders(String[] _countries, String[] _serviceTypes) {
+    public Vector<Provider> getProviders(String[] _countries, String[] _serviceTypes) throws BadResponseException {
 
         StringBuilder jsonPOST = new StringBuilder();
         

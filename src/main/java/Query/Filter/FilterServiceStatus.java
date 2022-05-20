@@ -5,6 +5,10 @@ import Creation.Data.Service;
 
 import java.util.Vector;
 
+/**
+ * @author Zanella Matteo
+ */
+
 public class FilterServiceStatus extends Filter {
     
     public FilterServiceStatus() { 
@@ -22,35 +26,35 @@ public class FilterServiceStatus extends Filter {
 
         Vector<Provider> filteredProviders = new Vector<>();
 
-        for (int i = 0; i < _response.size(); i++) {
+        for (Provider provider : _response) {
 
-            Vector<Service> unfilteredProviderServices = _response.get(i).getServices();
+            Vector<Service> unfilteredProviderServices = provider.getServices();
             Vector<Service> filteredProviderServices = new Vector<>();
 
-            for (int j = 0; j < unfilteredProviderServices.size(); j++) {
+            for (Service unfilteredProviderService : unfilteredProviderServices) {
 
-                for (int k = 0; k < parameters.size(); k++) {
-                 
-                    if (unfilteredProviderServices.get(j).getStatus().equals(parameters.get(k))) {
+                for (String parameter : parameters) {
 
-                        filteredProviderServices.add(unfilteredProviderServices.get(j));
+                    if (unfilteredProviderService.getStatus().equals(parameter)) {
+
+                        filteredProviderServices.add(unfilteredProviderService);
                         break;
 
                     }
-                
+
                 }
 
             }
 
-            Provider newProvider = new Provider(_response.get(i).getName(), _response.get(i).getCountryCode(), _response.get(i).getFlagLink());
+            Provider newProvider = new Provider(provider.getName(), provider.getCountryCode(), provider.getFlagLink());
             for (int j = 0; j < filteredProviderServices.size(); j++) {
                 newProvider.addService(filteredProviderServices.get(j));
                 Vector<String> serviceTypes = filteredProviderServices.get(j).getServiceType();
                 for (int k = 0; k < serviceTypes.size(); k++)
                     newProvider.addServiceType(serviceTypes.get(k));
             }
-                
-            if(!filteredProviderServices.isEmpty())
+
+            if (!filteredProviderServices.isEmpty())
                 filteredProviders.add(newProvider);
 
         }

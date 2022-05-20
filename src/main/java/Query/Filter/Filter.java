@@ -1,8 +1,13 @@
 package Query.Filter;
 
+import Creation.BadResponseException;
 import Creation.Data.Provider;
 
 import java.util.Vector;
+
+/**
+ * @author Zanella Matteo
+ */
 
 public abstract class Filter {
 
@@ -21,9 +26,10 @@ public abstract class Filter {
     /**
      * Returns all the parameters of the filter
      * Will be overrided in some filters
-     * @return
+     * @return the parameters of the filter
+     * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getParameters() { return (Vector<String>)parameters.clone(); }
+    public Vector<String> getParameters() throws BadResponseException { return (Vector<String>)parameters.clone(); }
 
     /**
      * Checks if there are no parameters in the filter
@@ -43,9 +49,9 @@ public abstract class Filter {
      */
     public void addParameters(String[] _parameters) {
 
-        for (int i = 0; i < _parameters.length; i++)
-            if (!parameters.contains(_parameters[i]))
-                parameters.add(_parameters[i]);
+        for (String parameter : _parameters)
+            if (!parameters.contains(parameter))
+                parameters.add(parameter);
     
     }
 

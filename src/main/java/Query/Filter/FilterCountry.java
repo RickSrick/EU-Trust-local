@@ -1,9 +1,14 @@
 package Query.Filter;
 
 import Creation.Data.Provider;
+import Creation.BadResponseException;
 import Creation.DataArchive;
 
 import java.util.Vector;
+
+/**
+ * @author Zanella Matteo
+ */
 
 public class FilterCountry extends Filter{
 
@@ -15,7 +20,7 @@ public class FilterCountry extends Filter{
     }
 
     @Override
-    public Vector<String> getParameters() {
+    public Vector<String> getParameters() throws BadResponseException {
 
         if (!parameters.isEmpty())
             return parameters;
@@ -32,9 +37,9 @@ public class FilterCountry extends Filter{
         
         Vector<Provider> filteredProviders = new Vector<>();
 
-        for (int i = 0; i < _response.size(); i++)
-            if (parameters.contains(_response.get(i).getCountryCode()))
-                filteredProviders.add(_response.get(i));
+        for (Provider provider : _response)
+            if (parameters.contains(provider.getCountryCode()))
+                filteredProviders.add(provider);
 
         return filteredProviders;
 

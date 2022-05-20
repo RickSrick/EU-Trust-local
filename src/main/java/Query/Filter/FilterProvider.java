@@ -4,6 +4,10 @@ import Creation.Data.Provider;
 
 import java.util.Vector;
 
+/**
+ * @author Zanella Matteo
+ */
+
 public class FilterProvider extends Filter {
     
     public FilterProvider() { 
@@ -21,10 +25,10 @@ public class FilterProvider extends Filter {
 
         Vector<Provider> filteredProviders = new Vector<>();
 
-        for (int i = 0; i < _response.size(); i++) {
-            for (int j = 0; j < parameters.size(); j++) {
-                if (_response.get(i).getName().equals(parameters.get(j))) {
-                    filteredProviders.add(_response.get(i));
+        for (Provider provider : _response) {
+            for (String parameter : parameters) {
+                if (provider.getName().equals(parameter)) {
+                    filteredProviders.add(provider);
                     break;
                 }
             }

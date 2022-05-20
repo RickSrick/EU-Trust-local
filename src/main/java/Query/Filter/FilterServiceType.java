@@ -4,7 +4,12 @@ import Creation.Data.Provider;
 import Creation.Data.Service;
 import Creation.DataArchive;
 
+import java.util.Collections;
 import java.util.Vector;
+
+/**
+ * @author Zanella Matteo
+ */
 
 public class FilterServiceType extends Filter {
     
@@ -23,8 +28,7 @@ public class FilterServiceType extends Filter {
 
         Vector<String> tempParameters = new Vector<>();
 
-        for (int i = 0; i < DataArchive.SERVICE_TYPES.length; i++)
-            tempParameters.add(DataArchive.SERVICE_TYPES[i]);
+        Collections.addAll(tempParameters, DataArchive.SERVICE_TYPES);
 
         return tempParameters;
 
@@ -38,35 +42,35 @@ public class FilterServiceType extends Filter {
 
         Vector<Provider> filteredProviders = new Vector<>();
 
-        for (int i = 0; i < _response.size(); i++) {
+        for (Provider provider : _response) {
 
-            Vector<Service> unfilteredProviderServices = _response.get(i).getServices();
+            Vector<Service> unfilteredProviderServices = provider.getServices();
             Vector<Service> filteredProviderServices = new Vector<>();
 
-            for (int j = 0; j < unfilteredProviderServices.size(); j++) {
+            for (Service unfilteredProviderService : unfilteredProviderServices) {
 
-                for (int k = 0; k < parameters.size(); k++) {
-                 
-                    if (unfilteredProviderServices.get(j).getServiceType().contains(parameters.get(k))) {
+                for (String parameter : parameters) {
 
-                        filteredProviderServices.add(unfilteredProviderServices.get(j));
+                    if (unfilteredProviderService.getServiceType().contains(parameter)) {
+
+                        filteredProviderServices.add(unfilteredProviderService);
                         break;
 
                     }
-                
+
                 }
 
             }
 
-            Provider newProvider = new Provider(_response.get(i).getName(), _response.get(i).getCountryCode(), _response.get(i).getFlagLink());
-            for (int j = 0; j < filteredProviderServices.size(); j++) {
-                newProvider.addService(filteredProviderServices.get(j));
-                Vector<String> serviceTypes = filteredProviderServices.get(j).getServiceType();
-                for (int k = 0; k < serviceTypes.size(); k++)
-                    newProvider.addServiceType(serviceTypes.get(k));
+            Provider newProvider = new Provider(provider.getName(), provider.getCountryCode(), provider.getFlagLink());
+            for (Service filteredProviderService : filteredProviderServices) {
+                newProvider.addService(filteredProviderService);
+                Vector<String> serviceTypes = filteredProviderService.getServiceType();
+                for (String serviceType : serviceTypes)
+                    newProvider.addServiceType(serviceType);
             }
-                
-            if(!filteredProviderServices.isEmpty())
+
+            if (!filteredProviderServices.isEmpty())
                 filteredProviders.add(newProvider);
 
         }
