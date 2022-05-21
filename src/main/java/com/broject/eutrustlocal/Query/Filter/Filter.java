@@ -110,6 +110,6 @@ public abstract class Filter {
      * @param _response the vector to be filtered
      * @return a filtered vector
      */
-    public abstract Vector<Provider> execute(Vector<Provider> _response);
+    public abstract Vector<Provider> applyFilter(Vector<Provider> _response);
 
 }

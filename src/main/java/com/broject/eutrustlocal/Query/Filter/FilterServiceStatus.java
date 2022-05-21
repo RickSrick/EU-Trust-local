@@ -19,7 +19,7 @@ public class FilterServiceStatus extends Filter {
     }
 
     @Override
-    public Vector<Provider> execute(Vector<Provider> _response) {
+    public Vector<Provider> applyFilter(Vector<Provider> _response) {
 
         if (parameters.isEmpty()) return _response;
 

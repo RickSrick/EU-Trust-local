@@ -173,7 +173,7 @@ public class Query {
         Vector<Provider> providers = filteredResponse;
 
         if (newFilteringNeeded)
-            providers = executeQuery();
+            providers = applyFilters();
 
         Vector<String> services = new Vector<>();
 
@@ -199,7 +199,7 @@ public class Query {
         Vector<Provider> providers = filteredResponse;
 
         if (newFilteringNeeded)
-            providers = executeQuery();
+            providers = applyFilters();
 
         Vector<String> validProviders = new Vector<>();
 
@@ -222,7 +222,7 @@ public class Query {
         Vector<Provider> providers = filteredResponse;
 
         if (newFilteringNeeded)
-            providers = executeQuery();
+            providers = applyFilters();
 
         Vector<String> validServiceTypes = new Vector<>();
 
@@ -246,14 +246,12 @@ public class Query {
      */
     public Vector<String> getValidServiceStatuses() throws BadResponseException {
 
-        Vector<Provider> providers = filteredResponse;
-
         if (newFilteringNeeded)
-            providers = executeQuery();
+            applyFilters();
 
         Vector<String> validServiceStatuses = new Vector<>();
 
-        for (Provider provider : providers) {
+        for (Provider provider : filteredResponse) {
             Vector<Service> providerServices = provider.getServices();
             for (Service providerService : providerServices) {
                 if (!validServiceStatuses.contains(providerService.getStatus()))
@@ -262,6 +260,22 @@ public class Query {
         }
 
         return validServiceStatuses;
+
+    }
+
+    /**
+     * Returns the full response of the Query
+     * IF NECESSARY, filters again the response
+     *
+     * @return a vector of Provider, the response of the Query
+     * @throws BadResponseException if there is a problem with the POST request
+     */
+    public Vector<Provider> getResponse() throws BadResponseException {
+
+        if (newFilteringNeeded)
+            applyFilters();
+
+        return filteredResponse;
 
     }
 
@@ -314,7 +328,7 @@ public class Query {
     }
 
     //IF NEEDED creates a post request and IF NEEDED filters the response
-    private Vector<Provider> executeQuery() throws BadResponseException {
+    private Vector<Provider> applyFilters() throws BadResponseException {
 
         if (newRequestNeeded) {
             System.out.println("Contacting the server...");                                                                  /*------------------------------------------------------------------*/
@@ -325,7 +339,7 @@ public class Query {
         filteredResponse = response;
 
         for (Filter filter : filters)
-            filteredResponse = filter.execute(filteredResponse);
+            filteredResponse = filter.applyFilter(filteredResponse);
 
         return filteredResponse;
 
