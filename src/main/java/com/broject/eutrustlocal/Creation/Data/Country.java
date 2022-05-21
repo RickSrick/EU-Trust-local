@@ -6,9 +6,9 @@ package com.broject.eutrustlocal.Creation.Data;
 
 public class Country {
 
-    private String countryName;
-    private String countryID;
-    private String flagLink;
+    private final String countryName;
+    private final String countryID;
+    private final String flagLink;
 
     public Country(String _name, String _ID, String _flagLink) {
 

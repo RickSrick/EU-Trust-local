@@ -8,11 +8,11 @@ import java.util.Vector;
 
 public class Provider {
 
-    private String providerName;
-    private String countryCode;
-    private String flagLink;
-    private Vector<Service> services;
-    private Vector<String> serviceTypes;
+    private final String providerName;
+    private final String countryCode;
+    private final String flagLink;
+    private final Vector<Service> services;
+    private final Vector<String> serviceTypes;
 
     public Provider(String _name, String _countryCode, String _flagLink) {
     

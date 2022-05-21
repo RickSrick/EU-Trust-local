@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 public class DataArchive {
 
-    private Vector<Country> countries;
+    private final Vector<Country> countries;
     private Bifrost connection;
     private static DataArchive instance = null;
 

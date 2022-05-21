@@ -9,9 +9,9 @@ import java.util.Vector;
 
 public class Service  {
 
-    private String serviceName;
-    private String status;
-    private Vector<String> serviceType;
+    private final String serviceName;
+    private final String status;
+    private final Vector<String> serviceType;
 
     public Service(String _name, String[] _type, String _status) {
 
