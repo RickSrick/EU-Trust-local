@@ -18,7 +18,7 @@ public class DataArchive {
     private Bifrost connection;
     private static DataArchive instance = null;
 
-    //All the service types
+    //#region All the service types
     public static final String[] SERVICE_TYPES = {
         "QCertESig",
         "QCertESeal",
@@ -43,6 +43,7 @@ public class DataArchive {
         "NonRegulatory",
         "CertUndefined"
     };
+    //#endregion
 
     private DataArchive() throws BadResponseException {
         
