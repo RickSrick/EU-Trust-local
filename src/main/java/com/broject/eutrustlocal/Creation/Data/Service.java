@@ -7,7 +7,7 @@ import java.util.Vector;
  * @author Zanella Matteo
  */
 
-public class Service  {
+public class Service {
 
     private final String serviceName;
     private final String status;
@@ -22,19 +22,31 @@ public class Service  {
 
     }
 
-    public String getName() { return serviceName; }
+    public String getName() {
 
-    public Vector<String> getServiceType() { return serviceType; }
+        return serviceName;
 
-    public String getStatus() { return status; }
+    }
+
+    public Vector<String> getServiceType() {
+
+        return serviceType;
+
+    }
+
+    public String getStatus() {
+
+        return status;
+
+    }
 
     @Override
     public boolean equals(Object _service) {
-        
+
         if (_service == null) return false;
 
-        return serviceName.equals(((Service)_service).serviceName);
-    
+        return serviceName.equals(((Service) _service).serviceName);
+
     }
-    
+
 }

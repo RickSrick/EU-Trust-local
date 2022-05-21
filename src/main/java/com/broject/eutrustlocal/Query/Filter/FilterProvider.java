@@ -1,4 +1,5 @@
 package com.broject.eutrustlocal.Query.Filter;
+
 import com.broject.eutrustlocal.Creation.Data.Provider;
 
 import java.util.Vector;
@@ -8,19 +9,18 @@ import java.util.Vector;
  */
 
 public class FilterProvider extends Filter {
-    
-    public FilterProvider() { 
-    
+
+    public FilterProvider() {
+
         super();
         filterID = 1;
 
     }
-    
+
     @Override
     public Vector<Provider> execute(Vector<Provider> _response) {
-        
-        if (parameters.isEmpty())
-            return _response;
+
+        if (parameters.isEmpty()) return _response;
 
         Vector<Provider> filteredProviders = new Vector<>();
 
@@ -36,5 +36,5 @@ public class FilterProvider extends Filter {
         return filteredProviders;
 
     }
-    
+
 }

@@ -18,10 +18,22 @@ public class Country {
 
     }
 
-    public String getName() { return countryName; }
+    public String getName() {
 
-    public String getID() { return countryID; }
+        return countryName;
 
-    public String getFlagLink() { return flagLink; }
-    
+    }
+
+    public String getID() {
+
+        return countryID;
+
+    }
+
+    public String getFlagLink() {
+
+        return flagLink;
+
+    }
+
 }

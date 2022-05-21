@@ -12,9 +12,9 @@ import java.util.Vector;
  */
 
 public class FilterServiceType extends Filter {
-    
-    public FilterServiceType() { 
-    
+
+    public FilterServiceType() {
+
         super();
         filterID = 2;
 
@@ -23,8 +23,7 @@ public class FilterServiceType extends Filter {
     @Override
     public Vector<String> getParameters() {
 
-        if (!parameters.isEmpty())
-            return parameters;
+        if (!parameters.isEmpty()) return parameters;
 
         Vector<String> tempParameters = new Vector<>();
 
@@ -33,12 +32,11 @@ public class FilterServiceType extends Filter {
         return tempParameters;
 
     }
-    
+
     @Override
     public Vector<Provider> execute(Vector<Provider> _response) {
 
-        if (parameters.isEmpty())
-            return _response;
+        if (parameters.isEmpty()) return _response;
 
         Vector<Provider> filteredProviders = new Vector<>();
 
@@ -70,13 +68,12 @@ public class FilterServiceType extends Filter {
                     newProvider.addServiceType(serviceType);
             }
 
-            if (!filteredProviderServices.isEmpty())
-                filteredProviders.add(newProvider);
+            if (!filteredProviderServices.isEmpty()) filteredProviders.add(newProvider);
 
         }
 
         return filteredProviders;
 
     }
-    
+
 }
