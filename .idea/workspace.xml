@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/ConcreteCommand/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/ConcreteCommand/Search/SearchCountriesCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/ConcreteCommand/Search/SearchProvidersCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/ConcreteCommand/Search/SearchStatusCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/ConcreteCommand/Search/SearchTypesCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/ConcreteCommand/Search/VirtualSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/ConcreteCommand/ViewCountriesCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/ConcreteCommand/ViewProvidersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/DataArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/DataArchive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/Invoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -46,25 +33,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "last_opened_file_path": "F:/AA - Documenti/UNI/EU-Trust-local/src/main/resources/Json.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/AA - Documenti/UNI/EU-Trust-local/src/main/resources/Json.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\Downloads\EU-Trust-local\src\main\resources" />
@@ -74,6 +61,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.broject.eutrustlocal.Creation" />
       <recent name="com.broject.eutrustlocal" />
     </key>
   </component>
@@ -108,7 +96,8 @@
       <workItem from="1653054890890" duration="1254000" />
       <workItem from="1653056262396" duration="475000" />
       <workItem from="1653056804482" duration="125000" />
-      <workItem from="1653112054302" duration="4591000" />
+      <workItem from="1653112054302" duration="5906000" />
+      <workItem from="1653135290982" duration="1061000" />
     </task>
     <servers />
   </component>

@@ -11,8 +11,8 @@ import java.net.http.HttpResponse;
 
 public class Bifrost {
 
-    private HttpClient client;
-    private static String rootRequest = "https://esignature.ec.europa.eu/efda/tl-browser/api/v1/search/";
+    private final HttpClient client;
+    private final String rootRequest = "https://esignature.ec.europa.eu/efda/tl-browser/api/v1/search/";
     private static Bifrost instance = null;
 
     private Bifrost() {
@@ -23,10 +23,6 @@ public class Bifrost {
 
         if(instance == null) instance = new Bifrost();
         return instance;
-    }
-
-    private HttpRequest makeGETRequest(String end) {
-        return HttpRequest.newBuilder().uri(URI.create(rootRequest + end)).build();
     }
 
     private String tryGetResponse(HttpRequest request) {
@@ -47,7 +43,7 @@ public class Bifrost {
     //#region CRUD operation
     public String getCountries() throws BadResponseException {
 
-        HttpRequest request = makeGETRequest("countries_list_no_lotl_territory");
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(rootRequest + "countries_list_no_lotl_territory")).build();
         String response = tryGetResponse(request);
 
         if(response == null) throw new BadResponseException("problem with server connection");
