@@ -14,9 +14,9 @@ public class Provider {
     private final Vector<Service> services;
     private final Vector<String> serviceTypes;
 
-    public Provider(String _name, String _countryCode, String _flagLink) {
+    public Provider(String _providerName, String _countryCode, String _flagLink) {
 
-        providerName = _name;
+        providerName = _providerName;
         countryCode = _countryCode;
         flagLink = _flagLink;
         services = new Vector<>();
@@ -56,20 +56,23 @@ public class Provider {
 
     public void addService(Service _service) {
 
-        if (!services.contains(_service)) services.add(_service);
+        if (!services.contains(_service))
+            services.add(_service);
 
     }
 
     public void addServiceType(String _serviceType) {
 
-        if (!serviceTypes.contains(_serviceType)) serviceTypes.add(_serviceType);
+        if (!serviceTypes.contains(_serviceType))
+            serviceTypes.add(_serviceType);
 
     }
 
     @Override
     public boolean equals(Object _provider) {
 
-        if (_provider == null) return false;
+        if (_provider == null || _provider.getClass() != Provider.class)
+            return false;
 
         return providerName.equals(((Provider) _provider).providerName);
 

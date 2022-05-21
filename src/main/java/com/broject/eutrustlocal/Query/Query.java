@@ -62,7 +62,8 @@ public class Query {
 
         newQuery();
 
-        if (_criteria == null) throw new BadResponseException();
+        if (_criteria == null)
+            throw new BadResponseException();
 
         String[] parameters = criteriaToParameters(_criteria);
 
@@ -109,7 +110,8 @@ public class Query {
      */
     public void editFilterParameter(String _filterType, String _parameter) throws BadResponseException {
 
-        if (_filterType == null || _parameter == null) return;
+        if (_filterType == null || _parameter == null)
+            return;
 
         int filterIndex = nameToID(_filterType);
 
@@ -146,7 +148,7 @@ public class Query {
                 newRequestNeeded = true;
 
             if (filters.get(0).isEmpty() && !fullCountriesArchive) {
-                countriesArchive = DataArchive.newDataArchive().getCountriesID();
+                countriesArchive = DataArchive.newDataArchive().getCountryCodes();
                 fullCountriesArchive = true;
             }
             if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {
@@ -170,7 +172,8 @@ public class Query {
 
         Vector<Provider> providers = filteredResponse;
 
-        if (newFilteringNeeded) providers = executeQuery();
+        if (newFilteringNeeded)
+            providers = executeQuery();
 
         Vector<String> services = new Vector<>();
 
@@ -195,7 +198,8 @@ public class Query {
 
         Vector<Provider> providers = filteredResponse;
 
-        if (newFilteringNeeded) providers = executeQuery();
+        if (newFilteringNeeded)
+            providers = executeQuery();
 
         Vector<String> validProviders = new Vector<>();
 
@@ -217,14 +221,16 @@ public class Query {
 
         Vector<Provider> providers = filteredResponse;
 
-        if (newFilteringNeeded) providers = executeQuery();
+        if (newFilteringNeeded)
+            providers = executeQuery();
 
         Vector<String> validServiceTypes = new Vector<>();
 
         for (Provider provider : providers) {
             Vector<String> providerServiceTypes = provider.getServiceTypes();
             for (String providerServiceType : providerServiceTypes)
-                if (!validServiceTypes.contains(providerServiceType)) validServiceTypes.add(providerServiceType);
+                if (!validServiceTypes.contains(providerServiceType))
+                    validServiceTypes.add(providerServiceType);
         }
 
         return validServiceTypes;
@@ -242,7 +248,8 @@ public class Query {
 
         Vector<Provider> providers = filteredResponse;
 
-        if (newFilteringNeeded) providers = executeQuery();
+        if (newFilteringNeeded)
+            providers = executeQuery();
 
         Vector<String> validServiceStatuses = new Vector<>();
 
@@ -352,7 +359,8 @@ public class Query {
                 return new String[0];
             }
 
-            while (!(line = tokenizer.nextLine()).equals(CRITERIA_LINE)) filter.append(line).append("\n");
+            while (!(line = tokenizer.nextLine()).equals(CRITERIA_LINE))
+                filter.append(line).append("\n");
 
             parameters[i] = filter.toString();
 
@@ -371,7 +379,8 @@ public class Query {
 
         Scanner tokenizer = new Scanner(_parameters);
 
-        while (tokenizer.hasNextLine()) parameters.add(tokenizer.nextLine());
+        while (tokenizer.hasNextLine())
+            parameters.add(tokenizer.nextLine());
 
         tokenizer.close();
 
@@ -383,7 +392,8 @@ public class Query {
     private int nameToID(String _name) {
 
         for (int i = 0; i < CRITERIA_FILTERS.length; i++)
-            if (CRITERIA_FILTERS[i].equals(_name)) return i;
+            if (CRITERIA_FILTERS[i].equals(_name))
+                return i;
 
         return -1;
 

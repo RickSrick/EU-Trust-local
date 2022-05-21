@@ -7,13 +7,13 @@ package com.broject.eutrustlocal.Creation.Data;
 public class Country {
 
     private final String countryName;
-    private final String countryID;
+    private final String countryCode;
     private final String flagLink;
 
-    public Country(String _name, String _ID, String _flagLink) {
+    public Country(String _countryName, String _countryCode, String _flagLink) {
 
-        countryName = _name;
-        countryID = _ID;
+        countryName = _countryName;
+        countryCode = _countryCode;
         flagLink = _flagLink;
 
     }
@@ -24,9 +24,9 @@ public class Country {
 
     }
 
-    public String getID() {
+    public String getCountryCode() {
 
-        return countryID;
+        return countryCode;
 
     }
 

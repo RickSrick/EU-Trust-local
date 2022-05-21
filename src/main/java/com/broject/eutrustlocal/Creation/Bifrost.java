@@ -16,13 +16,18 @@ public class Bifrost {
     private static Bifrost instance = null;
 
     private Bifrost() {
+
         client = HttpClient.newHttpClient();
+
     }
 
     public static Bifrost newBifrost() {
 
-        if(instance == null) instance = new Bifrost();
+        if(instance == null)
+            instance = new Bifrost();
+
         return instance;
+
     }
 
     private String tryGetResponse(HttpRequest request) {
@@ -34,10 +39,13 @@ public class Bifrost {
         catch ( IOException | InterruptedException e){ return null; }
 
         return response.body();
+
     }
 
-    public String getFlagImageURL(String countryCode) {
+    public String getFlagImageLink(String countryCode) {
+
         return "https://flagsapi.com/"+countryCode.toUpperCase()+"/flat/64.png";
+
     }
 
     //#region CRUD operation
@@ -46,13 +54,17 @@ public class Bifrost {
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(rootRequest + "countries_list_no_lotl_territory")).build();
         String response = tryGetResponse(request);
 
-        if(response == null) throw new BadResponseException("problem with server connection");
+        if(response == null)
+            throw new BadResponseException("problem with server connection");
+
         return  response;
+
     }
 
     public String findTrustServices(String body) throws BadResponseException {
 
-        if(body.equals("") || body == null) throw new BadResponseException();
+        if(body == null || body.equals(""))
+            throw new BadResponseException();
 
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(body))
@@ -66,7 +78,9 @@ public class Bifrost {
         if(out.contains("UNEXPECTED_ERROR")) throw new BadResponseException("Body Data invalid");
 
         System.out.println(out);
+
         return out;
+
     }
     //#endregion
 

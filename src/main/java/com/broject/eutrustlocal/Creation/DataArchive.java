@@ -59,7 +59,9 @@ public class DataArchive {
      */
     public static DataArchive newDataArchive() throws BadResponseException {
 
-        if (instance == null) instance = new DataArchive();
+        if (instance == null)
+            instance = new DataArchive();
+
         return instance;
 
     }
@@ -113,14 +115,14 @@ public class DataArchive {
      * @return all the countries in the UE
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getCountriesID() throws BadResponseException {
+    public Vector<String> getCountryCodes() throws BadResponseException {
 
         jsonToCountries(connection.getCountries());
-        Vector<String> countriesID = new Vector<>();
+        Vector<String> countryCodes = new Vector<>();
         for (Country country : countries)
-            countriesID.add(country.getID());
+            countryCodes.add(country.getCountryCode());
 
-        return countriesID;
+        return countryCodes;
 
     }
 
@@ -158,12 +160,14 @@ public class DataArchive {
         jsonPOST.append("{ \"countries\": [");
         for (int i = 0; i < _countries.length; i++) {
             jsonPOST.append("\"").append(_countries[i]).append("\"");
-            if (i != _countries.length - 1) jsonPOST.append(" , ");
+            if (i != _countries.length - 1)
+                jsonPOST.append(" , ");
         }
         jsonPOST.append("], \"qServiceTypes\": [ ");
         for (int i = 0; i < _serviceTypes.length; i++) {
             jsonPOST.append("\"").append(_serviceTypes[i]).append("\"");
-            if (i != _serviceTypes.length - 1) jsonPOST.append(" , ");
+            if (i != _serviceTypes.length - 1)
+                jsonPOST.append(" , ");
         }
         jsonPOST.append(" ] }");
 
@@ -185,20 +189,23 @@ public class DataArchive {
 
             JSONObject JSONProvider = jsonPOST.getJSONObject(i);
 
-            Provider provider = new Provider(JSONProvider.getString("name"), JSONProvider.getString("countryCode"), connection.getFlagImageURL(JSONProvider.getString("countryCode")));
+            Provider provider = new Provider(JSONProvider.getString("name"), JSONProvider.getString("countryCode"), connection.getFlagImageLink(JSONProvider.getString("countryCode")));
 
-            JSONArray services = JSONProvider.getJSONArray("services");
+            JSONArray JSONServices = JSONProvider.getJSONArray("services");
+            JSONArray JSONProviderServiceTypes = new JSONArray();
 
             //for each service in current provider
-            for (int j = 0; j < services.length(); j++) {
+            for (int j = 0; j < JSONServices.length(); j++) {
 
-                JSONObject JSONService = services.getJSONObject(j);
+                JSONObject JSONService = JSONServices.getJSONObject(j);
 
                 String serviceName = JSONService.getString("serviceName");
 
                 JSONArray JSONServiceTypes = JSONService.getJSONArray("qServiceTypes");
+                JSONProviderServiceTypes.put(JSONServiceTypes);
                 String[] serviceTypes = new String[JSONServiceTypes.length()];
-                for (int k = 0; k < serviceTypes.length; k++) serviceTypes[k] = JSONServiceTypes.getString(k);
+                for (int k = 0; k < serviceTypes.length; k++)
+                    serviceTypes[k] = JSONServiceTypes.getString(k);
 
                 String serviceStatus = JSONService.getString("currentStatus").substring(50);
 
@@ -208,10 +215,8 @@ public class DataArchive {
 
             }
 
-            JSONArray JSONServiceTypes = JSONProvider.getJSONArray("qServiceTypes");
-
-            for (int j = 0; j < JSONServiceTypes.length(); j++)
-                provider.addServiceType(JSONServiceTypes.getString(j));
+            for (int j = 0; j < JSONProviderServiceTypes.length(); j++)
+                provider.addServiceType(JSONProviderServiceTypes.getString(j));
 
             providers.add(provider);
 
@@ -226,13 +231,14 @@ public class DataArchive {
 
         JSONArray jsonCountryList = jsonToArray(_json);
 
-        if (jsonCountryList.length() == countries.size()) return;
+        if (jsonCountryList.length() == countries.size())
+            return;
 
         countries.clear();
 
         for (int i = 0; i < jsonCountryList.length(); i++) {
             String countryCode = jsonCountryList.getJSONObject(i).getString("countryCode");
-            Country country = new Country(jsonCountryList.getJSONObject(i).getString("countryName"), countryCode, connection.getFlagImageURL(countryCode));
+            Country country = new Country(jsonCountryList.getJSONObject(i).getString("countryName"), countryCode, connection.getFlagImageLink(countryCode));
             countries.add(country);
         }
 

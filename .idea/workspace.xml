@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Fixing warnings">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Formatting files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Provider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/DataArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/DataArchive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterCountry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterCountry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Query.java" afterDir="false" />
@@ -107,6 +107,7 @@
       <workItem from="1653056804482" duration="125000" />
       <workItem from="1653112054302" duration="5906000" />
       <workItem from="1653135290982" duration="1061000" />
+      <workItem from="1653139419805" duration="2015000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing warnings">
       <created>1653138493688</created>
@@ -115,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653138493688</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Formatting files">
+      <created>1653139281788</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653139281788</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,7 +142,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixing warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing warnings" />
+    <MESSAGE value="Formatting files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatting files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

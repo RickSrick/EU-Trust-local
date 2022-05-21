@@ -10,15 +10,15 @@ import java.util.Vector;
 public class Service {
 
     private final String serviceName;
-    private final String status;
+    private final String serviceStatus;
     private final Vector<String> serviceType;
 
-    public Service(String _name, String[] _type, String _status) {
+    public Service(String _serviceName, String[] _serviceTypes, String _serviceStatus) {
 
-        serviceName = _name;
+        serviceName = _serviceName;
         serviceType = new Vector<>();
-        Collections.addAll(serviceType, _type);
-        status = _status;
+        Collections.addAll(serviceType, _serviceTypes);
+        serviceStatus = _serviceStatus;
 
     }
 
@@ -28,7 +28,7 @@ public class Service {
 
     }
 
-    public Vector<String> getServiceType() {
+    public Vector<String> getServiceTypes() {
 
         return serviceType;
 
@@ -36,14 +36,15 @@ public class Service {
 
     public String getStatus() {
 
-        return status;
+        return serviceStatus;
 
     }
 
     @Override
     public boolean equals(Object _service) {
 
-        if (_service == null) return false;
+        if (_service == null || _service.getClass() != Service.class)
+            return false;
 
         return serviceName.equals(((Service) _service).serviceName);
 

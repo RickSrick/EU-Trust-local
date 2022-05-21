@@ -22,10 +22,10 @@ public class FilterCountry extends Filter {
     @Override
     public Vector<String> getParameters() throws BadResponseException {
 
-        if (!parameters.isEmpty())
-            return parameters;
+        if (parameters.isEmpty())
+            return DataArchive.newDataArchive().getCountryCodes();
 
-        return DataArchive.newDataArchive().getCountriesID();
+        return parameters;
 
     }
 

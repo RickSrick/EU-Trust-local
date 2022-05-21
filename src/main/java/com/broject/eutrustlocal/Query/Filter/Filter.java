@@ -66,7 +66,8 @@ public abstract class Filter {
     public void addParameters(String[] _parameters) {
 
         for (String parameter : _parameters)
-            if (!parameters.contains(parameter)) parameters.add(parameter);
+            if (!parameters.contains(parameter))
+                parameters.add(parameter);
 
     }
 

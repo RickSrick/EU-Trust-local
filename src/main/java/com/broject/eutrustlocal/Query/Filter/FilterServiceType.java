@@ -23,20 +23,23 @@ public class FilterServiceType extends Filter {
     @Override
     public Vector<String> getParameters() {
 
-        if (!parameters.isEmpty()) return parameters;
+        if (parameters.isEmpty()) {
 
-        Vector<String> tempParameters = new Vector<>();
+            Vector<String> tempParameters = new Vector<>();
+            Collections.addAll(tempParameters, DataArchive.SERVICE_TYPES);
+            return tempParameters;
 
-        Collections.addAll(tempParameters, DataArchive.SERVICE_TYPES);
+        }
 
-        return tempParameters;
+        return parameters;
 
     }
 
     @Override
     public Vector<Provider> execute(Vector<Provider> _response) {
 
-        if (parameters.isEmpty()) return _response;
+        if (parameters.isEmpty())
+            return _response;
 
         Vector<Provider> filteredProviders = new Vector<>();
 
@@ -49,7 +52,7 @@ public class FilterServiceType extends Filter {
 
                 for (String parameter : parameters) {
 
-                    if (unfilteredProviderService.getServiceType().contains(parameter)) {
+                    if (unfilteredProviderService.getServiceTypes().contains(parameter)) {
 
                         filteredProviderServices.add(unfilteredProviderService);
                         break;
@@ -63,12 +66,13 @@ public class FilterServiceType extends Filter {
             Provider newProvider = new Provider(provider.getName(), provider.getCountryCode(), provider.getFlagLink());
             for (Service filteredProviderService : filteredProviderServices) {
                 newProvider.addService(filteredProviderService);
-                Vector<String> serviceTypes = filteredProviderService.getServiceType();
+                Vector<String> serviceTypes = filteredProviderService.getServiceTypes();
                 for (String serviceType : serviceTypes)
                     newProvider.addServiceType(serviceType);
             }
 
-            if (!filteredProviderServices.isEmpty()) filteredProviders.add(newProvider);
+            if (!filteredProviderServices.isEmpty())
+                filteredProviders.add(newProvider);
 
         }
 

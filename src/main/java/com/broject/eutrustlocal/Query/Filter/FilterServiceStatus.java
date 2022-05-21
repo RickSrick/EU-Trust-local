@@ -48,11 +48,13 @@ public class FilterServiceStatus extends Filter {
             Provider newProvider = new Provider(provider.getName(), provider.getCountryCode(), provider.getFlagLink());
             for (Service filteredProviderService : filteredProviderServices) {
                 newProvider.addService(filteredProviderService);
-                Vector<String> serviceTypes = filteredProviderService.getServiceType();
-                for (String serviceType : serviceTypes) newProvider.addServiceType(serviceType);
+                Vector<String> serviceTypes = filteredProviderService.getServiceTypes();
+                for (String serviceType : serviceTypes)
+                    newProvider.addServiceType(serviceType);
             }
 
-            if (!filteredProviderServices.isEmpty()) filteredProviders.add(newProvider);
+            if (!filteredProviderServices.isEmpty())
+                filteredProviders.add(newProvider);
 
         }
 
