@@ -3,11 +3,9 @@ package com.broject.eutrustlocal.View;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.DataArchive;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -21,12 +19,12 @@ import java.util.Vector;
  */
 public class HomeView {
 
-    private final int GAP=20;
-    private final int COL_NUM=4;
-    private final int ROW_NUM=8;
-    private Scene home;
+    private static final int GAP=20;
+    private static final int COL_NUM=4;
+    private static final int ROW_NUM=8;
+    private final Scene home;
 
-    public HomeView(DataArchive data,Parent node, int width, int height) throws BadResponseException {
+    public HomeView(DataArchive data,Parent node, double width, double height) throws BadResponseException {
        Vector<Country> countries= data.getCountries();
        GridPane countryGrid = new GridPane();
        countryGrid.setStyle("-fx-font-family: Arial");
@@ -47,7 +45,7 @@ public class HomeView {
         VBox rightPane= new VBox();
         rightPane.getChildren().add(new Label("Service type available: "));
 
-        for(String s: data.SERVICE_TYPES){
+        for(String s: DataArchive.SERVICE_TYPES){
             rightPane.getChildren().add(new Label("• "+s));
         }
         ((Pane) ((Pane) node).getChildren().get(1)).getChildren().add(rightPane);

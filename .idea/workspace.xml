@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="First draft of HomeView. ErrorView done.">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="First draft of ContryListSelection.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectCountryView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/countryList-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ErrorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ErrorView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HomeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/home-view.fxml" afterDir="false" />
     </list>
@@ -18,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -42,15 +46,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/francescobiscacciacarrara/IdeaProjects/EU-Trust-local/src/main/resources/com/broject/eutrustlocal&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/francescobiscacciacarrara/IdeaProjects/EU-Trust-local/src/main/resources/com/broject/eutrustlocal/xml_view"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal" />
       <recent name="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal" />
       <recent name="C:\Users\user\Downloads\EU-Trust-local\src\main\resources" />
@@ -128,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653211641336</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ServiceType list added.">
+      <created>1653214302889</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653214302889</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +162,9 @@
     <MESSAGE value="Formatting files" />
     <MESSAGE value="Formatting files and Variables Name" />
     <MESSAGE value="First draft of HomeView. ErrorView done." />
-    <option name="LAST_COMMIT_MESSAGE" value="First draft of HomeView. ErrorView done." />
+    <MESSAGE value="ServiceType list added." />
+    <MESSAGE value="First draft of ContryListSelection." />
+    <option name="LAST_COMMIT_MESSAGE" value="First draft of ContryListSelection." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -8,9 +8,9 @@ import javafx.scene.Scene;
  */
 public class ErrorView {
 
-    private Scene errorScreen;
+    private final Scene errorScreen;
 
-    public ErrorView(Parent node, int width, int height){
+    public ErrorView(Parent node, double width, double height){
         errorScreen = new Scene(node,width,height);
     }
 
