@@ -3,13 +3,16 @@ package com.broject.eutrustlocal.View;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.DataArchive;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.util.Vector;
 
@@ -19,8 +22,8 @@ import java.util.Vector;
 public class HomeView {
 
     private final int GAP=20;
-    private final int COL_NUM=6;
-    private final int ROW__NUM=6;
+    private final int COL_NUM=4;
+    private final int ROW_NUM=8;
     private Scene home;
 
     public HomeView(DataArchive data,Parent node, int width, int height) throws BadResponseException {
@@ -31,7 +34,7 @@ public class HomeView {
        countryGrid.setVgap(GAP);
        int el=0;
         for(int i =0; i<COL_NUM & el<countries.size();i++){
-            for(int j =0; j<ROW__NUM & el<countries.size();j++){
+            for(int j =0; j<ROW_NUM & el<countries.size();j++){
                 ImageView flag = new ImageView(new Image(countries.get(el).getFlagLink(),true));
                 flag.setFitHeight(30);
                 flag.setFitWidth(30);
@@ -40,7 +43,15 @@ public class HomeView {
             }
         }
        ((Pane) ((Pane) node).getChildren().get(1)).getChildren().add(countryGrid);
-       home = new Scene(node,width,height);
+
+        VBox rightPane= new VBox();
+        rightPane.getChildren().add(new Label("Service type available: "));
+
+        for(String s: data.SERVICE_TYPES){
+            rightPane.getChildren().add(new Label("• "+s));
+        }
+        ((Pane) ((Pane) node).getChildren().get(1)).getChildren().add(rightPane);
+        home = new Scene(node,width,height);
     }
 
     public Scene getScene(){
