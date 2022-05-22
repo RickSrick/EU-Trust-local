@@ -43,9 +43,15 @@ public class Bifrost {
     }
 
     public String getFlagImageLink(String countryCode) {
+        return "https://flagsapi.com/"+CheckISOStandard(countryCode)+"/flat/64.png";
 
-        return "https://flagsapi.com/"+countryCode.toUpperCase()+"/flat/64.png";
+    }
 
+    private String CheckISOStandard(String countryCode) {
+        String out = countryCode.toUpperCase();
+        if(out.equals("UK")) return "GB";
+        if(out.equals("EL")) return "GR";
+        return out;
     }
 
     //#region CRUD operation
