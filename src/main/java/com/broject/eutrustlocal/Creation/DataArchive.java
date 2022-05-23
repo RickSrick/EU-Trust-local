@@ -66,6 +66,16 @@ public class DataArchive {
 
     }
 
+    public static boolean checkOfflineStatus() {
+        try {
+            Bifrost.checkConnection();
+        }
+        catch (BadResponseException e) {
+            return true;
+        }
+        return false;
+    }
+
     //Conversion from json file to an array of jsonObjects
     private static JSONArray jsonToArray(String _json) {
 
@@ -90,7 +100,6 @@ public class DataArchive {
     public void update() throws BadResponseException {
 
         connection = Bifrost.newBifrost();
-
         jsonToCountries(connection.getCountries());
 
     }
@@ -99,14 +108,10 @@ public class DataArchive {
      * Returns a vector containing all the countries in the UE
      *
      * @return all the countries in the UE
-     * @throws BadResponseException if there is a problem with the POST request
      */
     public Vector<Country> getCountries() throws BadResponseException {
-
         jsonToCountries(connection.getCountries());
-
         return new Vector<>(countries);
-
     }
 
     /**

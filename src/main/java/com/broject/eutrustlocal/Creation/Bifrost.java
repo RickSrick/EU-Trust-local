@@ -1,9 +1,12 @@
 package com.broject.eutrustlocal.Creation;
 import java.net.URI;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 
 /**
  * @author Riccardo Modolo
@@ -31,7 +34,6 @@ public class Bifrost {
     }
 
     private String tryGetResponse(HttpRequest request) {
-
         HttpResponse<String> response;
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -39,7 +41,17 @@ public class Bifrost {
         catch ( IOException | InterruptedException e){ return null; }
 
         return response.body();
+    }
 
+    public static void checkConnection() throws BadResponseException {
+        try
+        {
+            URL u = new URL("https://www.google.com");
+            URLConnection conn = u.openConnection();
+            conn.connect();
+        }catch (Exception e){
+            throw new BadResponseException();
+        }
     }
 
     public String getFlagImageLink(String countryCode) {
@@ -57,6 +69,7 @@ public class Bifrost {
     //#region CRUD operation
     public String getCountries() throws BadResponseException {
 
+        checkConnection();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(rootRequest + "countries_list_no_lotl_territory")).build();
         String response = tryGetResponse(request);
 
@@ -69,6 +82,7 @@ public class Bifrost {
 
     public String findTrustServices(String body) throws BadResponseException {
 
+        checkConnection();
         if(body == null || body.equals(""))
             throw new BadResponseException();
 

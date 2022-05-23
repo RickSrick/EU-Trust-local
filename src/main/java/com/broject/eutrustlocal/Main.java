@@ -4,6 +4,7 @@ import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.HomeView;
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,10 +19,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         try {
             boolean RESIZE_FLAG = false;
             stage.setResizable(RESIZE_FLAG);
             stage.setTitle("EU Trust Local");
+            Image icon = new Image(String.valueOf(Main.class.getResource("img/stage-icon.png")));
+            stage.getIcons().add(icon);
             stage.setScene(HomeView.newHomeView().getScene());
         } catch (BadResponseException e) {
             stage.setScene(ErrorView.newErrorView().getScene());

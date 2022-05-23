@@ -39,9 +39,9 @@ public class HomeView {
        int elem=0;
         for(int i =0; i<COL_NUM & elem<countries.size();i++){
             for(int j =0; j<ROW_NUM & elem<countries.size();j++){
-                ImageView flag = new ImageView(new Image(countries.get(elem).getFlagLink(),true));
-                flag.setFitHeight(30);
-                flag.setFitWidth(30);
+                ImageView flag = new ImageView(countries.get(elem).getFlag());
+                flag.setFitHeight(45);
+                flag.setFitWidth(45);
                 countryGrid.add(new Label(countries.get(elem).getName(),flag),i,j);
                 elem++;
             }
@@ -62,6 +62,7 @@ public class HomeView {
 
     public static HomeView newHomeView() throws BadResponseException,IOException {
 
+        if(DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)
             instance = new HomeView();
 

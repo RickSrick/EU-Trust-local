@@ -52,6 +52,7 @@ public class SelectCountryView {
 
     public static SelectCountryView newSelectionCountryView() throws BadResponseException,IOException {
 
+        if(DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)
             instance = new SelectCountryView();
 
