@@ -1,7 +1,5 @@
 package com.broject.eutrustlocal.View;
 
-import com.broject.eutrustlocal.Creation.BadResponseException;
-import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Main;
 import javafx.scene.Scene;
 

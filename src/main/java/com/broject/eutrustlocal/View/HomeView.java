@@ -9,12 +9,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.util.Vector;
 
@@ -32,8 +31,6 @@ public class HomeView {
     private HomeView() throws BadResponseException, IOException {
 
        Vector<Country> countries= DataArchive.newDataArchive().getCountries();
-
-
 
        GridPane countryGrid = new GridPane();
        countryGrid.setStyle("-fx-font-family: Arial");

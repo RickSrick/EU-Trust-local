@@ -24,8 +24,7 @@ public class Main extends Application {
             boolean RESIZE_FLAG = false;
             stage.setResizable(RESIZE_FLAG);
             stage.setTitle("EU Trust Local");
-            Image icon = new Image(String.valueOf(Main.class.getResource("img/stage-icon.png")));
-            stage.getIcons().add(icon);
+            stage.getIcons().add(new Image(String.valueOf(Main.class.getResource("img/stage-icon.png"))));
             stage.setScene(HomeView.newHomeView().getScene());
         } catch (BadResponseException e) {
             stage.setScene(ErrorView.newErrorView().getScene());

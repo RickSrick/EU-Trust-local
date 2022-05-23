@@ -3,6 +3,7 @@ package com.broject.eutrustlocal.Command.ConcreteCommand;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.DataArchive;
+
 import java.util.Vector;
 
 public class ViewCountriesCommand implements Command {

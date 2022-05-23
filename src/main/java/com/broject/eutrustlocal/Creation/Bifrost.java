@@ -1,12 +1,12 @@
 package com.broject.eutrustlocal.Creation;
-import java.net.URI;
+
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.time.Duration;
 
 /**
  * @author Riccardo Modolo

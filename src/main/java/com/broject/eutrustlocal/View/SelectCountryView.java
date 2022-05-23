@@ -9,12 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.util.Vector;
 
 /**
@@ -40,8 +38,8 @@ public class SelectCountryView {
         int elem=0;
         for(int i =0; i<COL_NUM & elem<countries.size();i++){
             for(int j =0; j<ROW_NUM & elem<countries.size();j++){
-                countryGrid.add(new ImageView(countries.get(elem).getFlag()),i,j);
-                //countryGrid.add(new CheckBox(countries.get(elem).getName()),i,j);
+                //countryGrid.add(new ImageView(countries.get(elem).getFlag()),i,j);
+                countryGrid.add(new CheckBox(countries.get(elem).getName()),i,j);
                 elem++;
             }
         }

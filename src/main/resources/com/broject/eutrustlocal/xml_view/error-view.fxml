@@ -6,9 +6,29 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="25.0" xmlns:fx="http://javafx.com/fxml/"  fx:controller="com.broject.eutrustlocal.Controller">
-
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+<?import javafx.scene.control.Label?>
+<VBox alignment="CENTER" spacing="25.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller">
+    <Label text=" !" textFill="#4a86e8">
+        <font>
+            <Font name="Arial Bold" size="48.0" />
+        </font>
+        <graphic>
+            <Label text="lost">
+                <graphic>
+                    <Label text="Connection " textFill="#4a86e8">
+                        <font>
+                            <Font name="Arial Bold" size="48.0" />
+                        </font>
+                    </Label>
+                </graphic>
+                <font>
+                    <Font name="Arial Bold" size="48.0" />
+                </font>
+            </Label>
+        </graphic></Label>
+      <ImageView fx:id="errorImage" fitHeight="456.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+          <Image url="@../gif/error-1.gif" />
+      </ImageView>
       <Button mnemonicParsing="false" style="-fx-background-color: #4a86e8;" text="Try again" textFill="WHITE" onAction="#onRepeatButtonClick">
          <font>
             <Font name="Arial" size="18.0" />
