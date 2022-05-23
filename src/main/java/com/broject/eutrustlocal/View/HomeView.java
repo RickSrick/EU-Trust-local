@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.util.Vector;
@@ -48,7 +49,9 @@ public class HomeView {
         }
 
         VBox rightPane= new VBox();
-        rightPane.getChildren().add(new Label("Service type available: "));
+        Text text1=new Text("Service type available:");
+        text1.setStyle("-fx-font-weight: bold");
+        rightPane.getChildren().add(text1);
         for(String s: DataArchive.SERVICE_TYPES){
             rightPane.getChildren().add(new Label("• "+s));
         }
