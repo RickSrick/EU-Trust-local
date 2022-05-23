@@ -1,11 +1,9 @@
 package com.broject.eutrustlocal;
 
 import com.broject.eutrustlocal.Creation.BadResponseException;
-import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.HomeView;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,23 +13,18 @@ import java.io.IOException;
  */
 public class Main extends Application {
 
-    private final int WIDTH=1080;
-    private final int HEIGHT=720;
-    private final boolean RESIZE_FLAG=false;
+    public static final int LAYOUT_WIDTH =1080;
+    public static final int LAYOUT_HEIGHT =720;
 
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            final DataArchive data = DataArchive.newDataArchive();
-            FXMLLoader homeLoader = new FXMLLoader(Main.class.getResource("xml_view/home-view.fxml"));
-            HomeView home= new HomeView(data,homeLoader.load(),WIDTH,HEIGHT);
+            boolean RESIZE_FLAG = false;
             stage.setResizable(RESIZE_FLAG);
             stage.setTitle("EU Trust Local");
-            stage.setScene(home.getScene());
+            stage.setScene(HomeView.newHomeView().getScene());
         } catch (BadResponseException e) {
-            FXMLLoader errorPageLoader = new FXMLLoader(Main.class.getResource("xml_view/error-view.fxml"));
-            ErrorView error= new ErrorView(errorPageLoader.load(),WIDTH,HEIGHT);
-            stage.setScene(error.getScene());
+            stage.setScene(ErrorView.newErrorView().getScene());
         }
         stage.show();
     }

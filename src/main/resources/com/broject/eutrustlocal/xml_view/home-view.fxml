@@ -7,6 +7,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox alignment="CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller" >
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -36,5 +38,10 @@
         <font>
             <Font name="Arial Bold" size="25.0" />
         </font>
+        <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0">
+                <Image url="@../img/search-icon.png" />
+            </ImageView>
+        </graphic>
     </Button>
 </VBox>
