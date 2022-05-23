@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -32,6 +33,8 @@ public class HomeView {
 
        Vector<Country> countries= DataArchive.newDataArchive().getCountries();
 
+
+
        GridPane countryGrid = new GridPane();
        countryGrid.setStyle("-fx-font-family: Arial");
        countryGrid.setHgap(GAP);
@@ -40,8 +43,8 @@ public class HomeView {
         for(int i =0; i<COL_NUM & elem<countries.size();i++){
             for(int j =0; j<ROW_NUM & elem<countries.size();j++){
                 ImageView flag = new ImageView(countries.get(elem).getFlag());
-                flag.setFitHeight(45);
-                flag.setFitWidth(45);
+                flag.setFitHeight(40);
+                flag.setFitWidth(40);
                 countryGrid.add(new Label(countries.get(elem).getName(),flag),i,j);
                 elem++;
             }
@@ -58,6 +61,7 @@ public class HomeView {
         dynamicList.add(countryGrid);
         dynamicList.add(rightPane);
         home = new Scene(node,Main.LAYOUT_WIDTH,Main.LAYOUT_HEIGHT);
+
     }
 
     public static HomeView newHomeView() throws BadResponseException,IOException {

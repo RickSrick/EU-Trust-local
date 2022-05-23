@@ -36,10 +36,10 @@
    </HBox>
     <Button onAction="#onSearchByCriteriaClick" style="-fx-background-color: #4a86e8;" text="Search by criteria" textFill="white">
         <font>
-            <Font name="Arial Bold" size="25.0" />
+            <Font name="Arial Bold" size="20.0" />
         </font>
         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0">
+            <ImageView fitHeight="25.0" fitWidth="25.0">
                 <Image url="@../img/search-icon.png" />
             </ImageView>
         </graphic>
