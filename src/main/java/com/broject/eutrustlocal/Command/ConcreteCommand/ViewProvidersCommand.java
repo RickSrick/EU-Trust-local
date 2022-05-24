@@ -1,4 +1,5 @@
 package com.broject.eutrustlocal.Command.ConcreteCommand;
+import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Query.Query;
 
 public class ViewProvidersCommand implements Command{
@@ -12,8 +13,9 @@ public class ViewProvidersCommand implements Command{
     }
 
     @Override
-    public void execute() {
-        //make query
+    public void execute() throws BadResponseException {
+        query.editFilterParameter("COUNTRIES", countryCode);
+
         //send Data
     }
 }
