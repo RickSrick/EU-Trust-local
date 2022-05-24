@@ -22,6 +22,7 @@ import java.util.Vector;
  */
 public class HomeView {
 
+    private static final int IMG_SIZE=40;
     private static final int GAP=20;
     private static final int COL_NUM=4;
     private static final int ROW_NUM=8;
@@ -40,8 +41,8 @@ public class HomeView {
         for(int i =0; i<COL_NUM & elem<countries.size();i++){
             for(int j =0; j<ROW_NUM & elem<countries.size();j++){
                 ImageView flag = new ImageView(countries.get(elem).getFlag());
-                flag.setFitHeight(40);
-                flag.setFitWidth(40);
+                flag.setFitHeight(IMG_SIZE);
+                flag.setFitWidth(IMG_SIZE);
                 countryGrid.add(new Label(countries.get(elem).getName(),flag),i,j);
                 elem++;
             }
@@ -55,10 +56,8 @@ public class HomeView {
 
         Parent node = XMLArchive.HOME_SCENE.load();
         ObservableList<Node> dynamicList = ((Pane) ((Pane) node).getChildren().get(1)).getChildren();
-        dynamicList.add(countryGrid);
-        dynamicList.add(rightPane);
+        dynamicList.addAll(countryGrid,rightPane);
         home = new Scene(node,Main.LAYOUT_WIDTH,Main.LAYOUT_HEIGHT);
-
     }
 
     public static HomeView newHomeView() throws BadResponseException,IOException {

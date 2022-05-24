@@ -21,7 +21,6 @@ public class Controller  {
 
     @FXML
     protected ImageView errorImage;
-
     @FXML
     protected void onRepeatButtonClick(ActionEvent actionEvent) throws IOException{
         Stage mainStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -31,7 +30,6 @@ public class Controller  {
             Random rand = new Random();
             int randomNum = rand.nextInt((MAX_RAND -MIN_RAND) + 1) + MIN_RAND;
             errorImage.setImage(new Image(String.valueOf(Main.class.getResource("gif/error-"+randomNum+".gif"))));
-
         }
     }
     @FXML
