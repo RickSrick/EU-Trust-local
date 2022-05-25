@@ -1,6 +1,9 @@
 package com.broject.eutrustlocal.Creation;
-import java.net.URI;
+
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -16,17 +19,21 @@ public class Bifrost {
     private static Bifrost instance = null;
 
     private Bifrost() {
+
         client = HttpClient.newHttpClient();
+
     }
 
     public static Bifrost newBifrost() {
 
-        if(instance == null) instance = new Bifrost();
+        if(instance == null)
+            instance = new Bifrost();
+
         return instance;
+
     }
 
     private String tryGetResponse(HttpRequest request) {
-
         HttpResponse<String> response;
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -36,23 +43,48 @@ public class Bifrost {
         return response.body();
     }
 
-    public String getFlagImageURL(String countryCode) {
-        return "https://flagsapi.com/"+countryCode.toUpperCase()+"/flat/64.png";
+    public static void checkConnection() throws BadResponseException {
+        try
+        {
+            URL u = new URL("https://www.google.com");
+            URLConnection conn = u.openConnection();
+            conn.connect();
+        }catch (Exception e){
+            throw new BadResponseException();
+        }
+    }
+
+    public String getFlagImageLink(String countryCode) {
+        return "https://flagsapi.com/"+CheckISOStandard(countryCode)+"/flat/64.png";
+
+    }
+
+    private String CheckISOStandard(String countryCode) {
+        String out = countryCode.toUpperCase();
+        if(out.equals("UK")) return "GB";
+        if(out.equals("EL")) return "GR";
+        return out;
     }
 
     //#region CRUD operation
     public String getCountries() throws BadResponseException {
 
+        checkConnection();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(rootRequest + "countries_list_no_lotl_territory")).build();
         String response = tryGetResponse(request);
 
-        if(response == null) throw new BadResponseException("problem with server connection");
+        if(response == null)
+            throw new BadResponseException("problem with server connection");
+
         return  response;
+
     }
 
     public String findTrustServices(String body) throws BadResponseException {
 
-        if(body.equals("") || body == null) throw new BadResponseException();
+        checkConnection();
+        if(body == null || body.equals(""))
+            throw new BadResponseException();
 
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(body))
@@ -66,7 +98,9 @@ public class Bifrost {
         if(out.contains("UNEXPECTED_ERROR")) throw new BadResponseException("Body Data invalid");
 
         System.out.println(out);
+
         return out;
+
     }
     //#endregion
 

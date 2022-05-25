@@ -1,6 +1,8 @@
 package com.broject.eutrustlocal.Command.ConcreteCommand.Search;
+
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Query.Query;
+
 import java.util.Vector;
 
 public abstract class VirtualSearch {

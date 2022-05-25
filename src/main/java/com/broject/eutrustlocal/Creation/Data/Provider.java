@@ -8,15 +8,15 @@ import java.util.Vector;
 
 public class Provider {
 
-    private String providerName;
-    private String countryCode;
-    private String flagLink;
-    private Vector<Service> services;
-    private Vector<String> serviceTypes;
+    private final String providerName;
+    private final String countryCode;
+    private final String flagLink;
+    private final Vector<Service> services;
+    private final Vector<String> serviceTypes;
 
-    public Provider(String _name, String _countryCode, String _flagLink) {
-    
-        providerName = _name;
+    public Provider(String _providerName, String _countryCode, String _flagLink) {
+
+        providerName = _providerName;
         countryCode = _countryCode;
         flagLink = _flagLink;
         services = new Vector<>();
@@ -24,27 +24,40 @@ public class Provider {
 
     }
 
-    public String getName() { return providerName; }
+    public String getName() {
 
-    public String getCountryCode() { return countryCode; }
+        return providerName;
 
-    public String getFlagLink() { return flagLink; }
+    }
+
+    public String getCountryCode() {
+
+        return countryCode;
+
+    }
+
+    public String getFlagLink() {
+
+        return flagLink;
+
+    }
 
     public Vector<Service> getServices() {
-        
+
         return new Vector<>(services);
 
     }
 
     public Vector<String> getServiceTypes() {
-        
+
         return new Vector<>(serviceTypes);
 
     }
 
     public void addService(Service _service) {
-        
-        if (!services.contains(_service)) services.add(_service);
+
+        if (!services.contains(_service))
+            services.add(_service);
 
     }
 
@@ -57,11 +70,12 @@ public class Provider {
 
     @Override
     public boolean equals(Object _provider) {
-        
-        if (_provider == null) return false;
 
-        return providerName.equals(((Provider)_provider).providerName);
-    
+        if (_provider == null || _provider.getClass() != Provider.class)
+            return false;
+
+        return providerName.equals(((Provider) _provider).providerName);
+
     }
-    
+
 }

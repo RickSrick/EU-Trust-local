@@ -10,19 +10,18 @@ import java.util.Vector;
  */
 
 public class FilterServiceStatus extends Filter {
-    
-    public FilterServiceStatus() { 
-    
+
+    public FilterServiceStatus() {
+
         super();
         filterID = 3;
 
     }
-    
+
     @Override
-    public Vector<Provider> execute(Vector<Provider> _response) {
-        
-        if (parameters.isEmpty())
-            return _response;
+    public Vector<Provider> applyFilter(Vector<Provider> _response) {
+
+        if (parameters.isEmpty()) return _response;
 
         Vector<Provider> filteredProviders = new Vector<>();
 
@@ -49,8 +48,9 @@ public class FilterServiceStatus extends Filter {
             Provider newProvider = new Provider(provider.getName(), provider.getCountryCode(), provider.getFlagLink());
             for (Service filteredProviderService : filteredProviderServices) {
                 newProvider.addService(filteredProviderService);
-                Vector<String> serviceTypes = filteredProviderService.getServiceType();
-                for (String serviceType : serviceTypes) newProvider.addServiceType(serviceType);
+                Vector<String> serviceTypes = filteredProviderService.getServiceTypes();
+                for (String serviceType : serviceTypes)
+                    newProvider.addServiceType(serviceType);
             }
 
             if (!filteredProviderServices.isEmpty())
@@ -61,5 +61,5 @@ public class FilterServiceStatus extends Filter {
         return filteredProviders;
 
     }
-    
+
 }

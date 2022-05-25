@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Added ImageError on ErrorView. UI changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectCountryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectCountryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/countryList-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/countryList-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,13 +20,21 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -37,25 +48,21 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/AA - Documenti/UNI/EU-Trust-local/src/main/resources/Json.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/francescobiscacciacarrara/IdeaProjects/EU-Trust-local/src/main/resources/com/broject/eutrustlocal/gif&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/gif" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal" />
       <recent name="C:\Users\user\Downloads\EU-Trust-local\src\main\resources" />
-      <recent name="C:\Users\user\Downloads\EU-Trust-local\src\main\java\com\broject\eutrustlocal" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -66,8 +73,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.HelloApplication" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Main" />
       <module name="EU-Trust-local" />
       <extension name="coverage">
         <pattern>
@@ -81,7 +88,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -98,7 +105,53 @@
       <workItem from="1653056804482" duration="125000" />
       <workItem from="1653112054302" duration="5906000" />
       <workItem from="1653135290982" duration="1061000" />
+      <workItem from="1653139419805" duration="2087000" />
+      <workItem from="1653141943452" duration="1214000" />
+      <workItem from="1653335109431" duration="9337000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixing warnings">
+      <created>1653138493688</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653138493688</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Formatting files">
+      <created>1653139281788</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653139281788</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Formatting files and Variables Name">
+      <created>1653141478854</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653141478854</updated>
+    </task>
+    <task id="LOCAL-00004" summary="First draft of HomeView. ErrorView done.">
+      <created>1653211641336</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653211641336</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ServiceType list added.">
+      <created>1653214302889</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653214302889</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added ImageError on ErrorView. UI changes.">
+      <created>1653346377018</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653346377018</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,5 +167,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixing warnings" />
+    <MESSAGE value="Formatting files" />
+    <MESSAGE value="Formatting files and Variables Name" />
+    <MESSAGE value="First draft of HomeView. ErrorView done." />
+    <MESSAGE value="ServiceType list added." />
+    <MESSAGE value="First draft of ContryListSelection." />
+    <MESSAGE value="Added ImageError on ErrorView. UI changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ImageError on ErrorView. UI changes." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

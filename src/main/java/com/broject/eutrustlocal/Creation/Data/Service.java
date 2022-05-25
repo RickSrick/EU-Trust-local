@@ -7,34 +7,47 @@ import java.util.Vector;
  * @author Zanella Matteo
  */
 
-public class Service  {
+public class Service {
 
-    private String serviceName;
-    private String status;
-    private Vector<String> serviceType;
+    private final String serviceName;
+    private final String serviceStatus;
+    private final Vector<String> serviceType;
 
-    public Service(String _name, String[] _type, String _status) {
+    public Service(String _serviceName, String[] _serviceTypes, String _serviceStatus) {
 
-        serviceName = _name;
+        serviceName = _serviceName;
         serviceType = new Vector<>();
-        Collections.addAll(serviceType, _type);
-        status = _status;
+        Collections.addAll(serviceType, _serviceTypes);
+        serviceStatus = _serviceStatus;
 
     }
 
-    public String getName() { return serviceName; }
+    public String getName() {
 
-    public Vector<String> getServiceType() { return serviceType; }
+        return serviceName;
 
-    public String getStatus() { return status; }
+    }
+
+    public Vector<String> getServiceTypes() {
+
+        return serviceType;
+
+    }
+
+    public String getStatus() {
+
+        return serviceStatus;
+
+    }
 
     @Override
     public boolean equals(Object _service) {
-        
-        if (_service == null) return false;
 
-        return serviceName.equals(((Service)_service).serviceName);
-    
+        if (_service == null || _service.getClass() != Service.class)
+            return false;
+
+        return serviceName.equals(((Service) _service).serviceName);
+
     }
-    
+
 }

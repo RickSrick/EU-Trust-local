@@ -1,12 +1,12 @@
 package com.broject.eutrustlocal.Creation;
 
-import java.util.Vector;
-
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.Data.Service;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.Vector;
 
 /**
  * @author Zanella Matteo
@@ -14,99 +14,126 @@ import org.json.JSONObject;
 
 public class DataArchive {
 
-    private Vector<Country> countries;
-    private Bifrost connection;
-    private static DataArchive instance = null;
-
     //#region All the service types
     public static final String[] SERVICE_TYPES = {
-        "QCertESig",
-        "QCertESeal",
-        "QWAC",
-        "QValQESig",
-        "QPresQESig",
-        "QValQESeal",
-        "QPresQESeal",
-        "QTimestamp",
-        "QeRDS",
-        "CertESig",
-        "CertESeal",
-        "WAC",
-        "ValESig",
-        "GenESig",
-        "PresESig",
-        "ValESeal",
-        "GenESeal",
-        "PresESeal",
-        "Timestamp",
-        "eRDS",
-        "NonRegulatory",
-        "CertUndefined"
+            "QCertESig",
+            "QCertESeal",
+            "QWAC",
+            "QValQESig",
+            "QPresQESig",
+            "QValQESeal",
+            "QPresQESeal",
+            "QTimestamp",
+            "QeRDS",
+            "CertESig",
+            "CertESeal",
+            "WAC",
+            "ValESig",
+            "GenESig",
+            "PresESig",
+            "ValESeal",
+            "GenESeal",
+            "PresESeal",
+            "Timestamp",
+            "eRDS",
+            "NonRegulatory",
+            "CertUndefined"
     };
+    private static DataArchive instance = null;
+    private final Vector<Country> countries;
+    private Bifrost connection;
     //#endregion
 
     private DataArchive() throws BadResponseException {
-        
+
         countries = new Vector<>();
         update();
-    
+
     }
 
     /**
      * Returns the only DataArchive with default settings.
+     *
      * @return the only DataArchive
      * @throws BadResponseException if there is a problem with the POST request
      */
     public static DataArchive newDataArchive() throws BadResponseException {
 
-        if (instance == null) instance = new DataArchive();
+        if (instance == null)
+            instance = new DataArchive();
+
         return instance;
+
+    }
+
+    public static boolean checkOfflineStatus() {
+        try {
+            Bifrost.checkConnection();
+        }
+        catch (BadResponseException e) {
+            return true;
+        }
+        return false;
+    }
+
+    //Conversion from json file to an array of jsonObjects
+    private static JSONArray jsonToArray(String _json) {
+
+        if (_json == null)
+            return new JSONArray(0);
+
+        if (_json.charAt(0) == '[')
+            return new JSONArray(_json);
+
+        JSONObject element = new JSONObject(_json);
+        JSONArray data = new JSONArray();
+        data.put(element);
+        return data;
 
     }
 
     /**
      * Method that updates the connection with the server and the country list
+     *
      * @throws BadResponseException if there is a problem with the POST request
      */
     public void update() throws BadResponseException {
 
         connection = Bifrost.newBifrost();
-
         jsonToCountries(connection.getCountries());
 
     }
 
     /**
      * Returns a vector containing all the countries in the UE
+     *
      * @return all the countries in the UE
-     * @throws BadResponseException if there is a problem with the POST request
      */
     public Vector<Country> getCountries() throws BadResponseException {
-        
         jsonToCountries(connection.getCountries());
-
         return new Vector<>(countries);
-    
     }
 
     /**
      * Returns a vector containing all the countries in the UE
+     *
      * @return all the countries in the UE
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getCountriesID() throws BadResponseException {
+    public Vector<String> getCountryCodes() throws BadResponseException {
 
         jsonToCountries(connection.getCountries());
-        Vector<String> countriesID = new Vector<>();
+        Vector<String> countryCodes = new Vector<>();
         for (Country country : countries)
-            countriesID.add(country.getID());
+            countryCodes.add(country.getCountryCode());
 
-        return countriesID;
-    
+        return countryCodes;
+
     }
 
     /**
      * Returns the number of countries in the UE
+     *
      * @return the number of countries in the UE
      * @throws BadResponseException if there is a problem with the POST request
      */
@@ -121,10 +148,11 @@ public class DataArchive {
 
     /**
      * Create a POST request with the following filters:
-     *  - selected countries
-     *  - selected types
+     * - selected countries
+     * - selected types
      * then converts the json file obtained in a Vector of providers
-     * @param _countries countries selected
+     *
+     * @param _countries    countries selected
      * @param _serviceTypes service types selected
      * @return all the providers that respond to the given filter
      * @throws BadResponseException if there is a problem with the POST request
@@ -132,17 +160,19 @@ public class DataArchive {
     public Vector<Provider> getProviders(String[] _countries, String[] _serviceTypes) throws BadResponseException {
 
         StringBuilder jsonPOST = new StringBuilder();
-        
+
         //Composing POST request
         jsonPOST.append("{ \"countries\": [");
         for (int i = 0; i < _countries.length; i++) {
             jsonPOST.append("\"").append(_countries[i]).append("\"");
-            if (i != _countries.length - 1) jsonPOST.append(" , ");
+            if (i != _countries.length - 1)
+                jsonPOST.append(" , ");
         }
         jsonPOST.append("], \"qServiceTypes\": [ ");
         for (int i = 0; i < _serviceTypes.length; i++) {
             jsonPOST.append("\"").append(_serviceTypes[i]).append("\"");
-            if (i != _serviceTypes.length - 1) jsonPOST.append(" , ");
+            if (i != _serviceTypes.length - 1)
+                jsonPOST.append(" , ");
         }
         jsonPOST.append(" ] }");
 
@@ -164,21 +194,24 @@ public class DataArchive {
 
             JSONObject JSONProvider = jsonPOST.getJSONObject(i);
 
-            Provider provider = new Provider(JSONProvider.getString("name"), JSONProvider.getString("countryCode"), connection.getFlagImageURL(JSONProvider.getString("countryCode")));
+            Provider provider = new Provider(JSONProvider.getString("name"), JSONProvider.getString("countryCode"), connection.getFlagImageLink(JSONProvider.getString("countryCode")));
 
-            JSONArray services = JSONProvider.getJSONArray("services");
+            JSONArray JSONServices = JSONProvider.getJSONArray("services");
+            JSONArray JSONProviderServiceTypes = new JSONArray();
 
             //for each service in current provider
-            for (int j = 0; j < services.length(); j++) {
+            for (int j = 0; j < JSONServices.length(); j++) {
 
-                JSONObject JSONService = services.getJSONObject(j);
+                JSONObject JSONService = JSONServices.getJSONObject(j);
 
                 String serviceName = JSONService.getString("serviceName");
 
                 JSONArray JSONServiceTypes = JSONService.getJSONArray("qServiceTypes");
+                JSONProviderServiceTypes.put(JSONServiceTypes);
                 String[] serviceTypes = new String[JSONServiceTypes.length()];
-                for (int k = 0; k < serviceTypes.length; k++) serviceTypes[k] = JSONServiceTypes.getString(k);
-                
+                for (int k = 0; k < serviceTypes.length; k++)
+                    serviceTypes[k] = JSONServiceTypes.getString(k);
+
                 String serviceStatus = JSONService.getString("currentStatus").substring(50);
 
                 Service service = new Service(serviceName, serviceTypes, serviceStatus);
@@ -187,10 +220,8 @@ public class DataArchive {
 
             }
 
-            JSONArray JSONServiceTypes = JSONProvider.getJSONArray("qServiceTypes");
-
-            for (int j = 0; j < JSONServiceTypes.length(); j++)
-                provider.addServiceType(JSONServiceTypes.getString(j));
+            for (int j = 0; j < JSONProviderServiceTypes.length(); j++)
+                provider.addServiceType(JSONProviderServiceTypes.getString(j));
 
             providers.add(provider);
 
@@ -205,31 +236,16 @@ public class DataArchive {
 
         JSONArray jsonCountryList = jsonToArray(_json);
 
-        if (jsonCountryList.length() == countries.size()) return;
+        if (jsonCountryList.length() == countries.size())
+            return;
 
         countries.clear();
 
         for (int i = 0; i < jsonCountryList.length(); i++) {
             String countryCode = jsonCountryList.getJSONObject(i).getString("countryCode");
-            Country country = new Country(jsonCountryList.getJSONObject(i).getString("countryName"), countryCode, connection.getFlagImageURL(countryCode));
+            Country country = new Country(jsonCountryList.getJSONObject(i).getString("countryName"), countryCode, connection.getFlagImageLink(countryCode));
             countries.add(country);
         }
-
-    }
-
-    //Conversion from json file to an array of jsonObjects
-    private static JSONArray jsonToArray(String _json) {
-
-        if (_json == null)
-            return new JSONArray(0);
-
-        if (_json.charAt(0)=='[')
-            return new JSONArray(_json);
-
-        JSONObject element = new JSONObject(_json);
-        JSONArray data = new JSONArray();
-        data.put(element);
-        return data;
 
     }
 
