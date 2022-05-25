@@ -4,9 +4,11 @@ import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Main;
+import com.broject.eutrustlocal.Query.Query;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.HomeView;
 import com.broject.eutrustlocal.View.SelectCountryView;
+import com.broject.eutrustlocal.View.SelectTypeServiceView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -14,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -23,10 +26,10 @@ public class SelectCountryController {
 
     private final double RATIO=0.75;
 
-    private Vector<CheckBox> checkBoxes;
+    private static Vector<CheckBox> checkBoxes;
     private Vector<Country> countries;
     @FXML
-    private Button btnForward;
+    private Button btnCountryForward;
     @FXML
     private GridPane selCountryPane;
 
@@ -68,7 +71,7 @@ public class SelectCountryController {
                             for (CheckBox el : checkBoxes) {
                                 disable = disable || el.isSelected();
                             }
-                            btnForward.setDisable(!disable);
+                            btnCountryForward.setDisable(!disable);
                         }
                 );
             }
@@ -80,8 +83,7 @@ public class SelectCountryController {
     @FXML
     protected void onHomeButtonClick() throws IOException {
         try {
-            checkBoxes.lastElement().setSelected(true);
-            checkBoxes.lastElement().setSelected(false);
+            reset();
             Main.STAGE.setScene(HomeView.newHomeView().getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());
@@ -91,22 +93,30 @@ public class SelectCountryController {
     @FXML
     protected void onForwardButtonClick() throws IOException {
         try {
-            Vector<String> countryID = new Vector<>();
+            Query mainQuery = new Query();
+            ArrayList<String> countryCodes = new ArrayList<>();
             if (checkBoxes.lastElement().isSelected()) {
                 for (Country c : countries) {
-                    countryID.add(c.getCountryCode());
+                    countryCodes.add(c.getCountryCode());
                 }
             } else {
                 for (int i = 0; i < checkBoxes.size() - 1; i++) {
                     if (checkBoxes.get(i).isSelected()) {
-                        countryID.add(countries.get(i).getCountryCode());
+                        countryCodes.add(countries.get(i).getCountryCode());
                     }
                 }
             }
-            System.out.println(countryID);
-            Main.STAGE.setScene(HomeView.newHomeView().getScene());
+            System.out.println(countryCodes);
+            mainQuery.editFilterParameter(Query.CRITERIA_FILTERS[0],countryCodes.toString());
+            // TODO: Wait Zanzi adjustment
+            Main.STAGE.setScene(SelectTypeServiceView.newSelectTypeServiceView(mainQuery).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());
         }
+    }
+    @FXML
+    public static void reset(){
+        checkBoxes.lastElement().setSelected(true);
+        checkBoxes.lastElement().setSelected(false);
     }
 }

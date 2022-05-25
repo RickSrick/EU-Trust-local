@@ -10,5 +10,5 @@ public final class XMLArchive {
     public static final FXMLLoader HOME_SCENE = new FXMLLoader(Main.class.getResource("xml_view/home-view.fxml"));
     public static final FXMLLoader ERROR_SCENE = new FXMLLoader(Main.class.getResource("xml_view/error-view.fxml"));
     public static final FXMLLoader COUNTRY_LIST_SCENE = new FXMLLoader(Main.class.getResource("xml_view/countryList-view.fxml"));
-
+    public static  final FXMLLoader SERVICE_TYPE_LIST_SCENE= new FXMLLoader(Main.class.getResource("xml_view/serviceTypeList-view.fxml"));
 }
