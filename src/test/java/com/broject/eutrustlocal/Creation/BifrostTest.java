@@ -57,6 +57,14 @@ class BifrostTest {
         Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices(""); });
         Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices("Patate"); });
         Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices("IT"); });
-        Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices("Sossole"); });
+        Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices("{\n" +
+                "  \"countries\": [\n" +
+                "    \"IT\"\n" +
+                "  ],\n" +
+                "  \"qServiceTypes\": [\n" +
+                "    \"WAC\"\n" +
+                "  ]\n" +
+                "}");
+        });
     }
 }
