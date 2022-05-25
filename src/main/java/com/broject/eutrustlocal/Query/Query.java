@@ -173,7 +173,7 @@ public class Query {
         Vector<Provider> providers = filteredResponse;
 
         if (newFilteringNeeded)
-            providers = applyFilters();
+            applyFilters();
 
         Vector<String> services = new Vector<>();
 
@@ -199,7 +199,7 @@ public class Query {
         Vector<Provider> providers = filteredResponse;
 
         if (newFilteringNeeded)
-            providers = applyFilters();
+            applyFilters();
 
         Vector<String> validProviders = new Vector<>();
 
@@ -222,7 +222,7 @@ public class Query {
         Vector<Provider> providers = filteredResponse;
 
         if (newFilteringNeeded)
-            providers = applyFilters();
+            applyFilters();
 
         Vector<String> validServiceTypes = new Vector<>();
 
@@ -328,7 +328,7 @@ public class Query {
     }
 
     //IF NEEDED creates a post request and IF NEEDED filters the response
-    private Vector<Provider> applyFilters() throws BadResponseException {
+    private void applyFilters() throws BadResponseException {
 
         if (newRequestNeeded) {
             System.out.println("Contacting the server...");                                                                  /*------------------------------------------------------------------*/
@@ -340,8 +340,6 @@ public class Query {
 
         for (Filter filter : filters)
             filteredResponse = filter.applyFilter(filteredResponse);
-
-        return filteredResponse;
 
     }
 
