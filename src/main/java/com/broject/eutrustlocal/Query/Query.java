@@ -170,14 +170,12 @@ public class Query {
      */
     public Vector<String> getValidServices() throws BadResponseException {
 
-        Vector<Provider> providers = filteredResponse;
-
         if (newFilteringNeeded)
             applyFilters();
 
         Vector<String> services = new Vector<>();
 
-        for (Provider provider : providers) {
+        for (Provider provider : filteredResponse) {
             Vector<Service> providerServices = provider.getServices();
             for (Service providerService : providerServices)
                 services.add(providerService.getName());
@@ -196,14 +194,12 @@ public class Query {
      */
     public Vector<String> getValidProviders() throws BadResponseException {
 
-        Vector<Provider> providers = filteredResponse;
-
         if (newFilteringNeeded)
             applyFilters();
 
         Vector<String> validProviders = new Vector<>();
 
-        for (Provider provider : providers)
+        for (Provider provider : filteredResponse)
             validProviders.add(provider.getName());
 
         return validProviders;
@@ -219,14 +215,12 @@ public class Query {
      */
     public Vector<String> getValidServiceTypes() throws BadResponseException {
 
-        Vector<Provider> providers = filteredResponse;
-
         if (newFilteringNeeded)
             applyFilters();
 
         Vector<String> validServiceTypes = new Vector<>();
 
-        for (Provider provider : providers) {
+        for (Provider provider : filteredResponse) {
             Vector<String> providerServiceTypes = provider.getServiceTypes();
             for (String providerServiceType : providerServiceTypes)
                 if (!validServiceTypes.contains(providerServiceType))
