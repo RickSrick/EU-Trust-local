@@ -9,7 +9,8 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox alignment="CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller" >
+<?import javafx.scene.layout.GridPane?>
+<VBox alignment="CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller.HomeController" >
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -33,6 +34,10 @@
          </Label>
       </graphic></Label>
    <HBox prefHeight="100.0" prefWidth="200.0" alignment="CENTER" spacing="50">
+       <GridPane fx:id="countryGrid" hgap="20" vgap="20" style="-fx-font-family: Arial"/>
+       <VBox fx:id="serTypePane">
+           <Label text="Service type available:" style="-fx-font-weight: bold"/>
+       </VBox>
    </HBox>
     <Button onAction="#onSearchByCriteriaClick" style="-fx-background-color: #4a86e8;" text="Search by criteria" textFill="white">
         <font>
