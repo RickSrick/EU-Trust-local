@@ -108,6 +108,7 @@ public class DataArchive {
      * Returns a vector containing all the countries in the UE
      *
      * @return all the countries in the UE
+     * @throws BadResponseException if there is a problem with the POST request
      */
     public Vector<Country> getCountries() throws BadResponseException {
         jsonToCountries(connection.getCountries());
@@ -115,9 +116,9 @@ public class DataArchive {
     }
 
     /**
-     * Returns a vector containing all the countries in the UE
+     * Returns a vector containing all the country codes in the UE
      *
-     * @return all the countries in the UE
+     * @return all the country codes in the UE
      * @throws BadResponseException if there is a problem with the POST request
      */
     public Vector<String> getCountryCodes() throws BadResponseException {
