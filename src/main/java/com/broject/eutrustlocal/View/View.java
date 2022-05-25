@@ -12,7 +12,6 @@ import java.io.IOException;
  */
 
 public abstract class View {
-
     public static final int IMG_SIZE=40;
     public static final int COL_NUM=4;
     public static final int ROW_NUM=8;

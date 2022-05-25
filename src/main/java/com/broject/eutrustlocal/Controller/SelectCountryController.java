@@ -80,6 +80,8 @@ public class SelectCountryController {
     @FXML
     protected void onHomeButtonClick() throws IOException {
         try {
+            checkBoxes.lastElement().setSelected(true);
+            checkBoxes.lastElement().setSelected(false);
             Main.STAGE.setScene(HomeView.newHomeView().getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());
