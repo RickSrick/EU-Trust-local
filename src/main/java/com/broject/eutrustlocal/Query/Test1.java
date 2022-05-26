@@ -15,24 +15,9 @@ public class Test1 {
         ArrayList<String> types = new ArrayList<>();
         ArrayList<String> statuses = new ArrayList<>();
 
-        countries.add("AT");
         countries.add("IT");
-
-        executeRequest(query, countries , providers, types, statuses);
-
-        countries.clear();
-        countries.add("AT");
-
-        executeRequest(query, countries , providers, types, statuses);
-
-        countries.clear();
-        countries.add("IT");
-        countries.add("AT");
-
-        executeRequest(query, countries , providers, types, statuses);
-
-        countries.clear();
-        countries.add("UK");
+        types.add("QTimestamp");
+        statuses.add("granted");
 
         executeRequest(query, countries , providers, types, statuses);
 
@@ -56,23 +41,23 @@ public class Test1 {
         ArrayList<String> providers = _query.getValidProviders();
         ArrayList<String> services = _query.getValidServices();
 
-        /*System.out.println("\n-------- RESULTS: --------");
+        System.out.println("\n-------- RESULTS: --------");
 
         System.out.println("-- SERVICE TYPES: --");
-        for (int i = 0; i < types.size(); i++)
-            System.out.println(types.get(i));
+        for (String type : types)
+            System.out.println(type);
 
         System.out.println("-- SERVICE STATUSES: --");
-        for (int i = 0; i < statuses.size(); i++)
-            System.out.println(statuses.get(i));
+        for (String status : statuses)
+            System.out.println(status);
 
         System.out.println("-- PROVIDERS: --");
-        for (int i = 0; i < providers.size(); i++)
-            System.out.println(providers.get(i));
+        for (String provider : providers)
+            System.out.println(provider);
 
         System.out.println("-- SERVICES: --");
-        for (int i = 0; i < services.size(); i++)
-            System.out.println(services.get(i));*/
+        for (String service : services)
+            System.out.println(service);
 
 
         System.out.println("----------------------------");

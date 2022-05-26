@@ -11,13 +11,13 @@ public class Service {
 
     private final String serviceName;
     private final String serviceStatus;
-    private final ArrayList<String> serviceType;
+    private final ArrayList<String> serviceTypes;
 
     public Service(String _serviceName, String[] _serviceTypes, String _serviceStatus) {
 
         serviceName = _serviceName;
-        serviceType = new ArrayList<>();
-        Collections.addAll(serviceType, _serviceTypes);
+        serviceTypes = new ArrayList<>();
+        Collections.addAll(serviceTypes, _serviceTypes);
         serviceStatus = _serviceStatus;
 
     }
@@ -30,7 +30,7 @@ public class Service {
 
     public ArrayList<String> getServiceTypes() {
 
-        return serviceType;
+        return serviceTypes;
 
     }
 
@@ -46,7 +46,7 @@ public class Service {
         if (_service == null || _service.getClass() != Service.class)
             return false;
 
-        return serviceName.equals(((Service) _service).serviceName);
+        return serviceName.equals(((Service) _service).serviceName) && serviceStatus.equals(((Service)_service).serviceStatus) && serviceTypes.equals(((Service)_service).getServiceTypes());
 
     }
 
