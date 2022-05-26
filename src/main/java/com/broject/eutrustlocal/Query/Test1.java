@@ -16,8 +16,12 @@ public class Test1 {
         ArrayList<String> statuses = new ArrayList<>();
 
         countries.add("IT");
-        types.add("QTimestamp");
-        statuses.add("granted");
+
+        executeRequest(query, countries , providers, types, statuses);
+
+        types.clear();
+
+        countries.add("UK");
 
         executeRequest(query, countries , providers, types, statuses);
 
@@ -55,10 +59,10 @@ public class Test1 {
         for (String provider : providers)
             System.out.println(provider);
 
-        System.out.println("-- SERVICES: --");
+        /*System.out.println("-- SERVICES: --");
         for (String service : services)
             System.out.println(service);
-
+        */
 
         System.out.println("----------------------------");
         System.out.println("------- ENDING QUERY -------");
