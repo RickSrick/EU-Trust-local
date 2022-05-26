@@ -4,6 +4,7 @@ import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.DataArchive;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class ViewCountriesCommand implements Command {
@@ -17,7 +18,7 @@ public class ViewCountriesCommand implements Command {
 
         try {
             archive = DataArchive.newDataArchive();
-            Vector<Country> response = archive.getCountries();
+            ArrayList<Country> response = archive.getCountries();
         } catch (BadResponseException e) {
             //open error page
         }

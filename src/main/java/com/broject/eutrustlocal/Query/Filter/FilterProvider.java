@@ -2,7 +2,7 @@ package com.broject.eutrustlocal.Query.Filter;
 
 import com.broject.eutrustlocal.Creation.Data.Provider;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Zanella Matteo
@@ -18,11 +18,11 @@ public class FilterProvider extends Filter {
     }
 
     @Override
-    public Vector<Provider> applyFilter(Vector<Provider> _response) {
+    public ArrayList<Provider> applyFilter(ArrayList<Provider> _response) {
 
         if (parameters.isEmpty()) return _response;
 
-        Vector<Provider> filteredProviders = new Vector<>();
+        ArrayList<Provider> filteredProviders = new ArrayList<>();
 
         for (Provider provider : _response) {
             for (String parameter : parameters) {

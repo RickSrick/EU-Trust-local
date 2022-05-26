@@ -4,7 +4,7 @@ import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.DataArchive;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Zanella Matteo
@@ -20,7 +20,7 @@ public class FilterCountry extends Filter {
     }
 
     @Override
-    public Vector<String> getParameters() throws BadResponseException {
+    public ArrayList<String> getParameters() throws BadResponseException {
 
         if (parameters.isEmpty())
             return DataArchive.newDataArchive().getCountryCodes();
@@ -30,12 +30,12 @@ public class FilterCountry extends Filter {
     }
 
     @Override
-    public Vector<Provider> applyFilter(Vector<Provider> _response) {
+    public ArrayList<Provider> applyFilter(ArrayList<Provider> _response) {
 
         if (parameters.isEmpty())
             return _response;
 
-        Vector<Provider> filteredProviders = new Vector<>();
+        ArrayList<Provider> filteredProviders = new ArrayList<>();
 
         for (Provider provider : _response)
             if (parameters.contains(provider.getCountryCode()))

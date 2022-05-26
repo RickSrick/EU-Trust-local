@@ -3,7 +3,7 @@ package com.broject.eutrustlocal.Query.Filter;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.Data.Service;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Zanella Matteo
@@ -19,16 +19,16 @@ public class FilterServiceStatus extends Filter {
     }
 
     @Override
-    public Vector<Provider> applyFilter(Vector<Provider> _response) {
+    public ArrayList<Provider> applyFilter(ArrayList<Provider> _response) {
 
         if (parameters.isEmpty()) return _response;
 
-        Vector<Provider> filteredProviders = new Vector<>();
+        ArrayList<Provider> filteredProviders = new ArrayList<>();
 
         for (Provider provider : _response) {
 
-            Vector<Service> unfilteredProviderServices = provider.getServices();
-            Vector<Service> filteredProviderServices = new Vector<>();
+            ArrayList<Service> unfilteredProviderServices = provider.getServices();
+            ArrayList<Service> filteredProviderServices = new ArrayList<>();
 
             for (Service unfilteredProviderService : unfilteredProviderServices) {
 
@@ -48,7 +48,7 @@ public class FilterServiceStatus extends Filter {
             Provider newProvider = new Provider(provider.getName(), provider.getCountryCode(), provider.getFlagLink());
             for (Service filteredProviderService : filteredProviderServices) {
                 newProvider.addService(filteredProviderService);
-                Vector<String> serviceTypes = filteredProviderService.getServiceTypes();
+                ArrayList<String> serviceTypes = filteredProviderService.getServiceTypes();
                 for (String serviceType : serviceTypes)
                     newProvider.addServiceType(serviceType);
             }

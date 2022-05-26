@@ -1,7 +1,7 @@
 package com.broject.eutrustlocal.Creation.Data;
 
 import java.util.Collections;
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Zanella Matteo
@@ -11,12 +11,12 @@ public class Service {
 
     private final String serviceName;
     private final String serviceStatus;
-    private final Vector<String> serviceType;
+    private final ArrayList<String> serviceType;
 
     public Service(String _serviceName, String[] _serviceTypes, String _serviceStatus) {
 
         serviceName = _serviceName;
-        serviceType = new Vector<>();
+        serviceType = new ArrayList<>();
         Collections.addAll(serviceType, _serviceTypes);
         serviceStatus = _serviceStatus;
 
@@ -28,7 +28,7 @@ public class Service {
 
     }
 
-    public Vector<String> getServiceTypes() {
+    public ArrayList<String> getServiceTypes() {
 
         return serviceType;
 

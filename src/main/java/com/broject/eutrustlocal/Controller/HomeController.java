@@ -14,7 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Biscaccia Carrara Francesco
@@ -29,7 +29,7 @@ public class HomeController {
 
     @FXML
     protected void initialize() throws IOException {
-        Vector<Country> countries;
+        ArrayList<Country> countries;
         try {
             countries = DataArchive.newDataArchive().getCountries();
             int elem = 0;

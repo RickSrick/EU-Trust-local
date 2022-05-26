@@ -3,7 +3,7 @@ package com.broject.eutrustlocal.Command.ConcreteCommand.Search;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Query.Query;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public abstract class VirtualSearch {
 
@@ -17,7 +17,7 @@ public abstract class VirtualSearch {
         return query;
     }
 
-    public Vector<String> getValidType() {
+    public ArrayList<String> getValidType() {
         try {
             return query.getValidServiceTypes();
         } catch (BadResponseException e) {
@@ -26,7 +26,7 @@ public abstract class VirtualSearch {
         return null;
     }
 
-    public Vector<String> getValidStatus() {
+    public ArrayList<String> getValidStatus() {
         try {
             return query.getValidServiceStatuses();
         } catch (BadResponseException e) {
@@ -35,7 +35,7 @@ public abstract class VirtualSearch {
         return null;
     }
 
-    public Vector<String> getValidProviders() {
+    public ArrayList<String> getValidProviders() {
         try {
             return query.getValidProviders();
         } catch (BadResponseException e) {

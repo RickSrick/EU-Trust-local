@@ -6,7 +6,7 @@ import com.broject.eutrustlocal.Creation.Data.Service;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Zanella Matteo
@@ -40,13 +40,13 @@ public class DataArchive {
             "CertUndefined"
     };
     private static DataArchive instance = null;
-    private final Vector<Country> countries;
+    private final ArrayList<Country> countries;
     private Bifrost connection;
     //#endregion
 
     private DataArchive() throws BadResponseException {
 
-        countries = new Vector<>();
+        countries = new ArrayList<>();
         update();
 
     }
@@ -105,26 +105,28 @@ public class DataArchive {
     }
 
     /**
-     * Returns a vector containing all the countries in the UE
+     * Returns a ArrayList containing all the countries in the UE
      *
      * @return all the countries in the UE
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<Country> getCountries() throws BadResponseException {
+    public ArrayList<Country> getCountries() throws BadResponseException {
+
         jsonToCountries(connection.getCountries());
-        return new Vector<>(countries);
+        return new ArrayList<>(countries);
+
     }
 
     /**
-     * Returns a vector containing all the country codes in the UE
+     * Returns a ArrayList containing all the country codes in the UE
      *
      * @return all the country codes in the UE
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getCountryCodes() throws BadResponseException {
+    public ArrayList<String> getCountryCodes() throws BadResponseException {
 
         jsonToCountries(connection.getCountries());
-        Vector<String> countryCodes = new Vector<>();
+        ArrayList<String> countryCodes = new ArrayList<>();
         for (Country country : countries)
             countryCodes.add(country.getCountryCode());
 
@@ -151,14 +153,14 @@ public class DataArchive {
      * Create a POST request with the following filters:
      * - selected countries
      * - selected types
-     * then converts the json file obtained in a Vector of providers
+     * then converts the json file obtained in a ArrayList of providers
      *
      * @param _countries    countries selected
      * @param _serviceTypes service types selected
      * @return all the providers that respond to the given filter
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<Provider> getProviders(String[] _countries, String[] _serviceTypes) throws BadResponseException {
+    public ArrayList<Provider> getProviders(String[] _countries, String[] _serviceTypes) throws BadResponseException {
 
         StringBuilder jsonPOST = new StringBuilder();
 
@@ -177,6 +179,8 @@ public class DataArchive {
         }
         jsonPOST.append(" ] }");
 
+        System.out.println(jsonPOST.toString());
+
         String json = connection.findTrustServices(jsonPOST.toString());
 
         return jsonToProviders(json);
@@ -184,11 +188,11 @@ public class DataArchive {
     }
 
     //Conversion from json file, obtained from POST request, into a list of providers populated by services
-    private Vector<Provider> jsonToProviders(String _json) {
+    private ArrayList<Provider> jsonToProviders(String _json) {
 
         JSONArray jsonPOST = jsonToArray(_json);
 
-        Vector<Provider> providers = new Vector<>();
+        ArrayList<Provider> providers = new ArrayList<>();
 
         //for each provider
         for (int i = 0; i < jsonPOST.length(); i++) {
@@ -221,8 +225,11 @@ public class DataArchive {
 
             }
 
-            for (int j = 0; j < JSONProviderServiceTypes.length(); j++)
-                provider.addServiceType(JSONProviderServiceTypes.getString(j));
+            for (int j = 0; j < JSONProviderServiceTypes.length(); j++) {
+                JSONArray temp = JSONProviderServiceTypes.getJSONArray(j);
+                for (int k = 0; k < temp.length(); k++)
+                    provider.addServiceType(temp.getString(k));
+            }
 
             providers.add(provider);
 
@@ -243,8 +250,9 @@ public class DataArchive {
         countries.clear();
 
         for (int i = 0; i < jsonCountryList.length(); i++) {
+            String countryName = jsonCountryList.getJSONObject(i).getString("countryName");
             String countryCode = jsonCountryList.getJSONObject(i).getString("countryCode");
-            Country country = new Country(jsonCountryList.getJSONObject(i).getString("countryName"), countryCode, connection.getFlagImageLink(countryCode));
+            Country country = new Country(countryName, countryCode, connection.getFlagImageLink(countryCode));
             countries.add(country);
         }
 

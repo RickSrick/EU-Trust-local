@@ -1,6 +1,6 @@
 package com.broject.eutrustlocal.Creation.Data;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Zanella Matteo
@@ -11,16 +11,16 @@ public class Provider {
     private final String providerName;
     private final String countryCode;
     private final String flagLink;
-    private final Vector<Service> services;
-    private final Vector<String> serviceTypes;
+    private final ArrayList<Service> services;
+    private final ArrayList<String> serviceTypes;
 
     public Provider(String _providerName, String _countryCode, String _flagLink) {
 
         providerName = _providerName;
         countryCode = _countryCode;
         flagLink = _flagLink;
-        services = new Vector<>();
-        serviceTypes = new Vector<>();
+        services = new ArrayList<>();
+        serviceTypes = new ArrayList<>();
 
     }
 
@@ -42,15 +42,15 @@ public class Provider {
 
     }
 
-    public Vector<Service> getServices() {
+    public ArrayList<Service> getServices() {
 
-        return new Vector<>(services);
+        return new ArrayList<>(services);
 
     }
 
-    public Vector<String> getServiceTypes() {
+    public ArrayList<String> getServiceTypes() {
 
-        return new Vector<>(serviceTypes);
+        return new ArrayList<>(serviceTypes);
 
     }
 

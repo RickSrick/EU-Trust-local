@@ -3,7 +3,7 @@ package com.broject.eutrustlocal.Query.Filter;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Zanella Matteo
@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public abstract class Filter {
 
-    protected Vector<String> parameters;
+    protected ArrayList<String> parameters;
     protected int filterID;
 
     /**
@@ -19,7 +19,7 @@ public abstract class Filter {
      */
     protected Filter() {
 
-        parameters = new Vector<>();
+        parameters = new ArrayList<>();
 
     }
 
@@ -30,9 +30,9 @@ public abstract class Filter {
      * @return the parameters of the filter
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getParameters() throws BadResponseException {
+    public ArrayList<String> getParameters() throws BadResponseException {
 
-        return new Vector<>(parameters);
+        return new ArrayList<>(parameters);
 
     }
 
@@ -104,12 +104,12 @@ public abstract class Filter {
     }
 
     /**
-     * Method that filters a given vector of providers following the existing parameters stored in the filter
+     * Method that filters a given ArrayList of providers following the existing parameters stored in the filter
      * To override
      *
-     * @param _response the vector to be filtered
-     * @return a filtered vector
+     * @param _response the ArrayList to be filtered
+     * @return a filtered ArrayList
      */
-    public abstract Vector<Provider> applyFilter(Vector<Provider> _response);
+    public abstract ArrayList<Provider> applyFilter(ArrayList<Provider> _response);
 
 }

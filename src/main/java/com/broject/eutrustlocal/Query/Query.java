@@ -6,9 +6,9 @@ import com.broject.eutrustlocal.Creation.Data.Service;
 import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Query.Filter.*;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-import java.util.Vector;
 
 /**
  * @author Zanella Matteo
@@ -28,12 +28,12 @@ public class Query {
 
     private static final String CRITERIA_LINE = "--------";
 
-    private Vector<Provider> response;
-    private Vector<Provider> filteredResponse;
-    private Vector<Filter> filters;
+    private ArrayList<Provider> response;
+    private ArrayList<Provider> filteredResponse;
+    private ArrayList<Filter> filters;
 
-    private Vector<String> countriesArchive;
-    private Vector<String> serviceTypesArchive;
+    private ArrayList<String> countriesArchive;
+    private ArrayList<String> serviceTypesArchive;
 
     private boolean newFilteringNeeded;
     private boolean newRequestNeeded;
@@ -85,7 +85,7 @@ public class Query {
 
         for (int i = 0; i < filters.size(); i++) {
 
-            Vector<String> parameters = filters.get(i).getParameters();
+            ArrayList<String> parameters = filters.get(i).getParameters();
             criteria.append(CRITERIA_FILTERS[i]).append("\n");
             for (String parameter : parameters)
                 criteria.append(parameter).append("\n");
@@ -105,42 +105,43 @@ public class Query {
      * If the _filterType or the _parameter are null, nothing will happen and the Query won't change
      *
      * @param _filterType the filter to be removed
-     * @param _parameter  the parameter to be added/removed
+     * @param _parameters  the parameters to be added/removed
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public void editFilterParameter(String _filterType, String _parameter) throws BadResponseException {
+    public void editFilterParameter(String _filterType, ArrayList<String> _parameters) throws BadResponseException {
 
-        if (_filterType == null || _parameter == null)
+        if (_filterType == null || _parameters == null || _parameters.size() == 0)
             return;
 
         int filterIndex = nameToID(_filterType);
 
-        //updating the archives
-        if (filters.get(filterIndex).has(_parameter)) {
-            filters.get(filterIndex).removeParameter(_parameter);
-            newFilteringNeeded = true;
-        } else {
-            String[] parameter = {_parameter};
-            filters.get(filterIndex).addParameters(parameter);
-            switch (filterIndex) {
-                case 0:
-                    if (!countriesArchive.contains(_parameter)) {
-                        countriesArchive.add(_parameter);
-                        newRequestNeeded = true;
-                        newFilteringNeeded = true;
-                    }
-                    break;
-                case 2:
-                    if (!serviceTypesArchive.contains(_parameter)) {
-                        serviceTypesArchive.add(_parameter);
-                        newRequestNeeded = true;
-                        newFilteringNeeded = true;
-                    }
-                    break;
-                default:
-                    return;
+        for (String _parameter : _parameters)
+            //updating the archives
+            if (filters.get(filterIndex).has(_parameter)) {
+                filters.get(filterIndex).removeParameter(_parameter);
+                newFilteringNeeded = true;
+            } else {
+                String[] parameter = {_parameter};
+                filters.get(filterIndex).addParameters(parameter);
+                switch (filterIndex) {
+                    case 0:
+                        if (!countriesArchive.contains(_parameter)) {
+                            countriesArchive.add(_parameter);
+                            newRequestNeeded = true;
+                            newFilteringNeeded = true;
+                        }
+                        break;
+                    case 2:
+                        if (!serviceTypesArchive.contains(_parameter)) {
+                            serviceTypesArchive.add(_parameter);
+                            newRequestNeeded = true;
+                            newFilteringNeeded = true;
+                        }
+                        break;
+                    default:
+                        return;
+                }
             }
-        }
 
         if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
 
@@ -168,15 +169,15 @@ public class Query {
      * @return all the services that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getValidServices() throws BadResponseException {
+    public ArrayList<String> getValidServices() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
 
-        Vector<String> services = new Vector<>();
+        ArrayList<String> services = new ArrayList<>();
 
         for (Provider provider : filteredResponse) {
-            Vector<Service> providerServices = provider.getServices();
+            ArrayList<Service> providerServices = provider.getServices();
             for (Service providerService : providerServices)
                 services.add(providerService.getName());
         }
@@ -192,12 +193,12 @@ public class Query {
      * @return all the providers that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getValidProviders() throws BadResponseException {
+    public ArrayList<String> getValidProviders() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
 
-        Vector<String> validProviders = new Vector<>();
+        ArrayList<String> validProviders = new ArrayList<>();
 
         for (Provider provider : filteredResponse)
             validProviders.add(provider.getName());
@@ -213,15 +214,15 @@ public class Query {
      * @return all the service types that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getValidServiceTypes() throws BadResponseException {
+    public ArrayList<String> getValidServiceTypes() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
 
-        Vector<String> validServiceTypes = new Vector<>();
+        ArrayList<String> validServiceTypes = new ArrayList<>();
 
         for (Provider provider : filteredResponse) {
-            Vector<String> providerServiceTypes = provider.getServiceTypes();
+            ArrayList<String> providerServiceTypes = provider.getServiceTypes();
             for (String providerServiceType : providerServiceTypes)
                 if (!validServiceTypes.contains(providerServiceType))
                     validServiceTypes.add(providerServiceType);
@@ -238,15 +239,15 @@ public class Query {
      * @return all the service statuses that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<String> getValidServiceStatuses() throws BadResponseException {
+    public ArrayList<String> getValidServiceStatuses() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
 
-        Vector<String> validServiceStatuses = new Vector<>();
+        ArrayList<String> validServiceStatuses = new ArrayList<>();
 
         for (Provider provider : filteredResponse) {
-            Vector<Service> providerServices = provider.getServices();
+            ArrayList<Service> providerServices = provider.getServices();
             for (Service providerService : providerServices) {
                 if (!validServiceStatuses.contains(providerService.getStatus()))
                     validServiceStatuses.add(providerService.getStatus());
@@ -261,15 +262,15 @@ public class Query {
      * Returns the full response of the Query
      * IF NECESSARY, filters again the response
      *
-     * @return a vector of Provider, the response of the Query
+     * @return a ArrayList of Provider, the response of the Query
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public Vector<Provider> getResponse() throws BadResponseException {
+    public ArrayList<Provider> getResponse() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
 
-        return filteredResponse;
+        return new ArrayList<>(filteredResponse);
 
     }
 
@@ -303,17 +304,17 @@ public class Query {
     //Basic commands to create a Query from scratch
     private void newQuery() {
 
-        response = new Vector<>();
-        filteredResponse = new Vector<>();
+        response = new ArrayList<>();
+        filteredResponse = new ArrayList<>();
 
-        filters = new Vector<>();
+        filters = new ArrayList<>();
         filters.add(new FilterCountry());
         filters.add(new FilterProvider());
         filters.add(new FilterServiceType());
         filters.add(new FilterServiceStatus());
 
-        countriesArchive = new Vector<>();
-        serviceTypesArchive = new Vector<>();
+        countriesArchive = new ArrayList<>();
+        serviceTypesArchive = new ArrayList<>();
 
         fullCountriesArchive = false;
         fullServiceTypesArchive = false;
@@ -381,7 +382,7 @@ public class Query {
     //Converts a string containing all the parameters into an array of parameters
     private String[] split(String _parameters) {
 
-        Vector<String> parameters = new Vector<>();
+        ArrayList<String> parameters = new ArrayList<>();
 
         Scanner tokenizer = new Scanner(_parameters);
 

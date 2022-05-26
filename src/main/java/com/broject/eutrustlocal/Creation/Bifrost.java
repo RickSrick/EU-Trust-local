@@ -56,7 +56,6 @@ public class Bifrost {
 
     public String getFlagImageLink(String countryCode) {
         return "https://flagsapi.com/"+CheckISOStandard(countryCode)+"/flat/64.png";
-
     }
 
     private String CheckISOStandard(String countryCode) {
@@ -96,8 +95,6 @@ public class Bifrost {
         if(out == null) throw new BadResponseException("problem with server connection");
         if(out.equals("[]")) throw new BadResponseException("Body Data invalid");
         if(out.contains("UNEXPECTED_ERROR")) throw new BadResponseException("Body Data invalid");
-
-        System.out.println(out);
 
         return out;
 

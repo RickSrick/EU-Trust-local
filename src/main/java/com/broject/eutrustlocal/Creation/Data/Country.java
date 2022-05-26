@@ -33,6 +33,7 @@ public class Country {
     }
 
     public Image getFlag() {
+
         return flag;
 
     }
