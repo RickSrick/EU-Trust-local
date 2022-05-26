@@ -1,5 +1,6 @@
 package com.broject.eutrustlocal.Controller;
 
+import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Query.Query;
@@ -15,16 +16,12 @@ import java.util.ArrayList;
 
 public abstract class SelectController {
 
-    private final Query query = new Query();
+    protected static final Query query = new Query();
+    protected static void reset(){};
 
-    protected static void reset(){}
+    protected static void update() throws BadResponseException {};
 
-    protected static void update(){}
-    protected Query getQuery(){
-        return query;
-    }
-
-    protected void initCheckBoxArray(ArrayList<String> data,ArrayList<CheckBox> arrayToFill, Button btnId){
+    protected static void initCheckBoxArray(ArrayList<String> data,ArrayList<CheckBox> arrayToFill, Button btnId){
         for(String s: data){
             CheckBox checkBox = new CheckBox(s);
             checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
@@ -46,14 +43,13 @@ public abstract class SelectController {
         );
         arrayToFill.add(allChecked);
     }
-    @FXML
-    protected void populateGrid(GridPane pane, ArrayList<CheckBox> data){
+
+    protected static void populateGrid(GridPane pane, ArrayList<CheckBox> data,int colNumber,int rowNumber){
         int elem=0;
         pane.add(data.get(data.size() - 1), 0, 0);
-        for (int i = 0; i < View.COL_NUM & elem < data.size(); i++) {
-            for (int j = 1; j < View.ROW_NUM & elem < data.size(); j++) {
-                pane.add(data.get(elem), i, j);
-                elem++;
+        for (int i = 0; i <= colNumber & elem< data.size()-1; i++) {
+            for (int j = 1; j < rowNumber & elem< data.size()-1; j++) {
+                pane.add(data.get(elem++), i, j);
             }
         }
     }

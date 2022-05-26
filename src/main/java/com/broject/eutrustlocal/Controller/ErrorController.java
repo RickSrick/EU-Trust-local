@@ -24,6 +24,7 @@ public class ErrorController {
     protected void onRepeatButtonClick() throws IOException {
         try {
             SelectCountryController.reset();
+            SelectTypeServiceController.reset();
             Main.STAGE.setScene(HomeView.newHomeView().getScene());
         } catch (BadResponseException e) {
             Random rand = new Random();

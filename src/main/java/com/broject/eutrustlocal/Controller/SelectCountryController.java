@@ -5,10 +5,7 @@ import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.Query.Query;
-import com.broject.eutrustlocal.View.ErrorView;
-import com.broject.eutrustlocal.View.HomeView;
-import com.broject.eutrustlocal.View.SelectCountryView;
-import com.broject.eutrustlocal.View.SelectTypeServiceView;
+import com.broject.eutrustlocal.View.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -17,6 +14,8 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * @author Biscaccia Carrara Francesco
@@ -34,8 +33,8 @@ public class SelectCountryController extends SelectController{
 
     @FXML
     private void initialize() throws IOException {
+        checkBoxes = new ArrayList<>();
         try {
-            checkBoxes = new ArrayList<>();
             countries = DataArchive.newDataArchive().getCountries();
 
             for (Country c : countries) {
@@ -43,6 +42,7 @@ public class SelectCountryController extends SelectController{
                 ImageView flag = new ImageView(c.getFlag());
                 flag.setFitHeight(SelectCountryView.IMG_SIZE*RATIO);
                 flag.setFitWidth(SelectCountryView.IMG_SIZE*RATIO);
+                checkBox.setId(c.getCountryCode());
                 checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
                             boolean disable = false;
                             for (CheckBox el : checkBoxes) {
@@ -62,9 +62,7 @@ public class SelectCountryController extends SelectController{
                     }
             );
             checkBoxes.add(allChecked);
-
-            populateGrid(selCountryPane,checkBoxes);
-
+            populateGrid(selCountryPane,checkBoxes, View.COL_NUM,View.ROW_NUM);
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());
         }
@@ -83,20 +81,7 @@ public class SelectCountryController extends SelectController{
     @FXML
     protected void onForwardButtonClick() throws IOException {
         try {
-            ArrayList<String> countryCodes = new ArrayList<>();
-            if (checkBoxes.get(checkBoxes.size() - 1).isSelected()) {
-                for (Country c : countries) {
-                    countryCodes.add(c.getCountryCode());
-                }
-            } else {
-                for (int i = 0; i < checkBoxes.size() - 1; i++) {
-                    if (checkBoxes.get(i).isSelected()) {
-                        countryCodes.add(countries.get(i).getCountryCode());
-                    }
-                }
-            }
-            System.out.println(countryCodes);
-            getQuery().editFilterParameter(Query.CRITERIA_FILTERS[0],countryCodes);
+            //query.editFilterParameter(Query.CRITERIA_FILTERS[0],sas);
             Main.STAGE.setScene(SelectTypeServiceView.newSelectTypeServiceView().getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());

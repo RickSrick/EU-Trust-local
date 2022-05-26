@@ -38,8 +38,7 @@ public class HomeController {
                     ImageView flag = new ImageView(countries.get(elem).getFlag());
                     flag.setFitHeight(HomeView.IMG_SIZE);
                     flag.setFitWidth(HomeView.IMG_SIZE);
-                    countryGrid.add(new Label(countries.get(elem).getName(), flag), i, j);
-                    elem++;
+                    countryGrid.add(new Label(countries.get(elem++).getName(), flag), i, j);
                 }
             }
 

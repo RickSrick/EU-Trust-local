@@ -52,7 +52,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="btnSerTypeForward" onAction="#onForwardButtonClick" style="-fx-background-color: #4a86e8; -fx-content-display: right;" text="Go forward" textFill="white" alignment="BOTTOM_LEFT" disable="true">
+        <Button fx:id="btnServiceTypeForward" onAction="#onForwardButtonClick" style="-fx-background-color: #4a86e8; -fx-content-display: right;" text="Go forward" textFill="white" alignment="BOTTOM_LEFT" disable="true">
             <font>
                 <Font name="Arial Bold" size="15.0" />
             </font>
