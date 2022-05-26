@@ -4,26 +4,23 @@ import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.HomeView;
-import com.broject.eutrustlocal.View.SelectProviderView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SelectTypeServiceController extends SelectController{
-
-    private static final int COLUMNS=3;
-    private static final int ROWS=7;
+public class SelectProviderController extends SelectController{
 
     private static ArrayList<CheckBox> checkBoxes;
     @FXML
-    private GridPane selServiceTypePane;
+    private ScrollPane selProviderPane;
     @FXML
-    private Button btnServiceTypeForward;
-    private static GridPane aux;
+    private Button btnProviderForward;
+    private static ScrollPane aux;
     private static Button auxBtn;
 
 
@@ -31,10 +28,10 @@ public class SelectTypeServiceController extends SelectController{
     private void initialize() throws IOException {
         try {
             checkBoxes=new ArrayList<>();
-            initCheckBoxArray(QUERY.getValidServiceTypes(),checkBoxes, btnServiceTypeForward,0);
-            populateGrid(selServiceTypePane,checkBoxes,COLUMNS,ROWS);
-            aux=selServiceTypePane;
-            auxBtn=btnServiceTypeForward;
+            initCheckBoxArray(QUERY.getValidProviders(),checkBoxes, btnProviderForward,1);
+            initPane(selProviderPane,checkBoxes);
+            aux=selProviderPane;
+            auxBtn=btnProviderForward;
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());
         }
@@ -42,21 +39,17 @@ public class SelectTypeServiceController extends SelectController{
 
     @FXML
     public static void update() throws BadResponseException {
-        initCheckBoxArray(QUERY.getValidServiceTypes(),checkBoxes, auxBtn,0);
-        aux.getChildren().clear();
-        populateGrid(aux,checkBoxes,COLUMNS,ROWS);
+        initCheckBoxArray(QUERY.getValidProviders(),checkBoxes, auxBtn,1);
+        ((Pane)aux.getContent()).getChildren().clear();
+        initPane(aux,checkBoxes);
     }
-    public void onForwardButtonClick() throws IOException {
-        try {
-            Main.STAGE.setScene(SelectProviderView.newSelectProviderView().getScene());
-        } catch (BadResponseException e) {
-            Main.STAGE.setScene(ErrorView.newErrorView().getScene());
-        }
+    public void onForwardButtonClick() {
+
     }
 
     public void onBackButtonClick() throws IOException {
         try {
-            SelectTypeServiceController.reset();
+            SelectProviderController.reset();
             Main.STAGE.setScene(HomeView.newHomeView().getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());

@@ -7,7 +7,6 @@ import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Query.Filter.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -34,12 +33,13 @@ public class Query {
 
     private ArrayList<String> countriesArchive;
     private ArrayList<String> serviceTypesArchive;
+    private ArrayList<String> addedCountries;
 
     private boolean newFilteringNeeded;
     private boolean newRequestNeeded;
 
     private boolean fullCountriesArchive;
-    private boolean fullServiceTypesArchive;
+    //private boolean fullServiceTypesArchive;
 
     /**
      * Default Query constructor
@@ -105,59 +105,41 @@ public class Query {
      * If the _filterType or the _parameter are null, nothing will happen and the Query won't change
      *
      * @param _filterType the filter to be removed
-     * @param _parameters  the parameters to be added/removed
-     * @throws BadResponseException if there is a problem with the POST request
+     * @param _parameter  the parameters to be added/removed
      */
-    public void editFilterParameter(String _filterType, ArrayList<String> _parameters) throws BadResponseException {
+    public void editFilterParameter(String _filterType, String _parameter) {
 
-        if (_filterType == null || _parameters == null || _parameters.size() == 0)
+        if (_filterType == null || _parameter == null)
             return;
 
         int filterIndex = nameToID(_filterType);
 
-        for (String parameter : _parameters)
-            //updating the archives
-            if (filters.get(filterIndex).has(parameter)) {
-                filters.get(filterIndex).removeParameter(parameter);
-                newFilteringNeeded = true;
-            } else {
-                String[] parameterArray = {parameter};
-                filters.get(filterIndex).addParameters(parameterArray);
-                switch (filterIndex) {
-                    case 0:
-                        if (!countriesArchive.contains(parameter)) {
-                            countriesArchive.add(parameter);
-                            newRequestNeeded = true;
-                            newFilteringNeeded = true;
-                        }
-                        break;
-                    case 2:
-                        if (!serviceTypesArchive.contains(parameter)) {
-                            serviceTypesArchive.add(parameter);
-                            newRequestNeeded = true;
-                            newFilteringNeeded = true;
-                        }
-                        break;
-                    default:
-                        return;
-                }
+        //updating the archives
+        if (filters.get(filterIndex).has(_parameter)) {
+            filters.get(filterIndex).removeParameter(_parameter);
+            newFilteringNeeded = true;
+        } else {
+            String[] parameterArray = {_parameter};
+            filters.get(filterIndex).addParameters(parameterArray);
+            switch (filterIndex) {
+                case 0:
+                    if (!countriesArchive.contains(_parameter)) {
+                        countriesArchive.add(_parameter);
+                        addedCountries.add(_parameter);
+                        newRequestNeeded = true;
+                        newFilteringNeeded = true;
+                    }
+                    break;
+                case 2:
+                    if (!serviceTypesArchive.contains(_parameter)) {
+                        serviceTypesArchive.add(_parameter);
+                        //newRequestNeeded = true;
+                        newFilteringNeeded = true;
+                    }
+                    break;
+                default:
+                    return;
             }
-
-        if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
-
-            if (filters.get(0).isEmpty() && !fullCountriesArchive || filters.get(2).isEmpty() && !fullServiceTypesArchive)
-                newRequestNeeded = true;
-
-            if (filters.get(0).isEmpty() && !fullCountriesArchive) {
-                countriesArchive = DataArchive.newDataArchive().getCountryCodes();
-                fullCountriesArchive = true;
-            }
-            if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {
-                serviceTypesArchive.clear();
-                Collections.addAll(serviceTypesArchive, DataArchive.SERVICE_TYPES);
-                fullServiceTypesArchive = true;
-            }
-
         }
 
     }
@@ -287,7 +269,7 @@ public class Query {
         newRequestNeeded = true;
         newFilteringNeeded = true;
         fullCountriesArchive = false;
-        fullServiceTypesArchive = false;
+        //fullServiceTypesArchive = false;
 
     }
 
@@ -315,9 +297,10 @@ public class Query {
 
         countriesArchive = new ArrayList<>();
         serviceTypesArchive = new ArrayList<>();
+        addedCountries = new ArrayList<>();
 
         fullCountriesArchive = false;
-        fullServiceTypesArchive = false;
+        //fullServiceTypesArchive = false;
         newRequestNeeded = true;
 
     }
@@ -325,11 +308,32 @@ public class Query {
     //IF NEEDED creates a post request and IF NEEDED filters the response
     private void applyFilters() throws BadResponseException {
 
+        if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
+
+            if (filters.get(0).isEmpty() && !fullCountriesArchive/* || filters.get(2).isEmpty() && !fullServiceTypesArchive*/)
+                newRequestNeeded = true;
+
+            if (filters.get(0).isEmpty() && !fullCountriesArchive) {
+                countriesArchive = DataArchive.getCountryCodes();
+                fullCountriesArchive = true;
+            }
+            /*if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {
+                serviceTypesArchive.clear();
+                Collections.addAll(serviceTypesArchive, DataArchive.SERVICE_TYPES);
+                fullServiceTypesArchive = true;
+            }*/
+
+        }
+
         if (newRequestNeeded) {
-            System.out.println("Contacting the server...");                                                                  /*------------------------------------------------------------------*/
-            response = DataArchive.newDataArchive().getProviders(filters.get(0).getParameters().toArray(new String[0]), filters.get(2).getParameters().toArray(new String[0]));
+            System.out.println("Contacting the server; asking for: ");
+            System.out.println(addedCountries);                                                                                             /*------------------------------------------------------------------*/
+            ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), DataArchive.SERVICE_TYPES);
+            response.addAll(newResponse);
             newRequestNeeded = false;
         }
+
+        addedCountries.clear();
 
         filteredResponse = response;
 

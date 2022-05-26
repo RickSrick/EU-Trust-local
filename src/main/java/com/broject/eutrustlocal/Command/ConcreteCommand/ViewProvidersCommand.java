@@ -1,8 +1,7 @@
 package com.broject.eutrustlocal.Command.ConcreteCommand;
+
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Query.Query;
-
-import java.util.ArrayList;
 
 public class ViewProvidersCommand implements Command{
 
@@ -17,9 +16,7 @@ public class ViewProvidersCommand implements Command{
     @Override
     public void execute() throws BadResponseException {
 
-        ArrayList<String> cc = new ArrayList<>();
-        cc.add(countryCode);
-        query.editFilterParameter("COUNTRIES", cc);
+        query.editFilterParameter("COUNTRIES", countryCode);
 
         //send Data
     }

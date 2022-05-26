@@ -10,14 +10,31 @@ public class Test1 {
 
         Query query = new Query();
 
-        ArrayList<String> countries1 = new ArrayList<>();
-        ArrayList<String> providers1 = new ArrayList<>();
-        ArrayList<String> types1 = new ArrayList<>();
-        ArrayList<String> statuses1 = new ArrayList<>();
+        ArrayList<String> countries = new ArrayList<>();
+        ArrayList<String> providers = new ArrayList<>();
+        ArrayList<String> types = new ArrayList<>();
+        ArrayList<String> statuses = new ArrayList<>();
 
-        countries1.add("AT");
+        countries.add("AT");
+        countries.add("IT");
 
-        executeRequest(query, countries1 , providers1, types1, statuses1);
+        executeRequest(query, countries , providers, types, statuses);
+
+        countries.clear();
+        countries.add("AT");
+
+        executeRequest(query, countries , providers, types, statuses);
+
+        countries.clear();
+        countries.add("IT");
+        countries.add("AT");
+
+        executeRequest(query, countries , providers, types, statuses);
+
+        countries.clear();
+        countries.add("UK");
+
+        executeRequest(query, countries , providers, types, statuses);
 
     }
 
@@ -27,10 +44,10 @@ public class Test1 {
         System.out.println("------ STARTING QUERY ------");
         System.out.println("----------------------------");
 
-        _query.editFilterParameter(Query.CRITERIA_FILTERS[0], _countries);
-        _query.editFilterParameter(Query.CRITERIA_FILTERS[1], _providers);
-        _query.editFilterParameter(Query.CRITERIA_FILTERS[2], _types);
-        _query.editFilterParameter(Query.CRITERIA_FILTERS[3], _statuses);
+        for (String country : _countries) _query.editFilterParameter(Query.CRITERIA_FILTERS[0], country);
+        for (String provider : _providers) _query.editFilterParameter(Query.CRITERIA_FILTERS[1], provider);
+        for (String type : _types) _query.editFilterParameter(Query.CRITERIA_FILTERS[2], type);
+        for (String status : _statuses) _query.editFilterParameter(Query.CRITERIA_FILTERS[3], status);
 
         System.out.println("SEARCH CRITERIA:\n"+_query.getCriteria()+"\n");
 
@@ -39,7 +56,7 @@ public class Test1 {
         ArrayList<String> providers = _query.getValidProviders();
         ArrayList<String> services = _query.getValidServices();
 
-        System.out.println("\n-------- RESULTS: --------");
+        /*System.out.println("\n-------- RESULTS: --------");
 
         System.out.println("-- SERVICE TYPES: --");
         for (int i = 0; i < types.size(); i++)
@@ -55,7 +72,7 @@ public class Test1 {
 
         System.out.println("-- SERVICES: --");
         for (int i = 0; i < services.size(); i++)
-            System.out.println(services.get(i));
+            System.out.println(services.get(i));*/
 
 
         System.out.println("----------------------------");
