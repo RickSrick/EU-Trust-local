@@ -141,23 +141,6 @@ public class Query {
             }
         }
 
-        if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
-
-            if (filters.get(0).isEmpty() && !fullCountriesArchive || filters.get(2).isEmpty() && !fullServiceTypesArchive)
-                newRequestNeeded = true;
-
-            if (filters.get(0).isEmpty() && !fullCountriesArchive) {
-                countriesArchive = DataArchive.getCountryCodes();
-                fullCountriesArchive = true;
-            }
-            if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {
-                serviceTypesArchive.clear();
-                Collections.addAll(serviceTypesArchive, DataArchive.SERVICE_TYPES);
-                fullServiceTypesArchive = true;
-            }
-
-        }
-
     }
 
     /**
@@ -322,6 +305,23 @@ public class Query {
 
     //IF NEEDED creates a post request and IF NEEDED filters the response
     private void applyFilters() throws BadResponseException {
+
+        if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
+
+            if (filters.get(0).isEmpty() && !fullCountriesArchive || filters.get(2).isEmpty() && !fullServiceTypesArchive)
+                newRequestNeeded = true;
+
+            if (filters.get(0).isEmpty() && !fullCountriesArchive) {
+                countriesArchive = DataArchive.getCountryCodes();
+                fullCountriesArchive = true;
+            }
+            if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {
+                serviceTypesArchive.clear();
+                Collections.addAll(serviceTypesArchive, DataArchive.SERVICE_TYPES);
+                fullServiceTypesArchive = true;
+            }
+
+        }
 
         if (newRequestNeeded) {
             System.out.println("Contacting the server...");                                                                  /*------------------------------------------------------------------*/
