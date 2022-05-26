@@ -329,7 +329,7 @@ public class Query {
         if (newRequestNeeded) {
             System.out.println("Contacting the server; asking for: ");
             System.out.println(addedCountries);                                                                                             /*------------------------------------------------------------------*/
-            ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), filters.get(2).getParameters().toArray(new String[0]));
+            ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), DataArchive.SERVICE_TYPES);
             response.addAll(newResponse);
             newRequestNeeded = false;
         }
