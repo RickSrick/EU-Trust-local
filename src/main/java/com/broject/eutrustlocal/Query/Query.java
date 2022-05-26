@@ -115,25 +115,25 @@ public class Query {
 
         int filterIndex = nameToID(_filterType);
 
-        for (String _parameter : _parameters)
+        for (String parameter : _parameters)
             //updating the archives
-            if (filters.get(filterIndex).has(_parameter)) {
-                filters.get(filterIndex).removeParameter(_parameter);
+            if (filters.get(filterIndex).has(parameter)) {
+                filters.get(filterIndex).removeParameter(parameter);
                 newFilteringNeeded = true;
             } else {
-                String[] parameter = {_parameter};
-                filters.get(filterIndex).addParameters(parameter);
+                String[] parameterArray = {parameter};
+                filters.get(filterIndex).addParameters(parameterArray);
                 switch (filterIndex) {
                     case 0:
-                        if (!countriesArchive.contains(_parameter)) {
-                            countriesArchive.add(_parameter);
+                        if (!countriesArchive.contains(parameter)) {
+                            countriesArchive.add(parameter);
                             newRequestNeeded = true;
                             newFilteringNeeded = true;
                         }
                         break;
                     case 2:
-                        if (!serviceTypesArchive.contains(_parameter)) {
-                            serviceTypesArchive.add(_parameter);
+                        if (!serviceTypesArchive.contains(parameter)) {
+                            serviceTypesArchive.add(parameter);
                             newRequestNeeded = true;
                             newFilteringNeeded = true;
                         }
