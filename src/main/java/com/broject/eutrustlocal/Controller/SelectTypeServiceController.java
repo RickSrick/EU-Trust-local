@@ -4,13 +4,11 @@ import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.SelectCountryView;
-import com.broject.eutrustlocal.View.SelectTypeServiceView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,19 +18,17 @@ public class SelectTypeServiceController extends SelectController{
     private static final int COLUMNS=3;
     private static final int ROWS=7;
 
-    private static ArrayList<CheckBox> checkBoxes;
-
-    private static GridPane aux;
-    private static Button auxBtn;
+    private final static ArrayList<CheckBox> checkBoxes= new ArrayList<>();
     @FXML
     private GridPane selServiceTypePane;
     @FXML
     private Button btnServiceTypeForward;
+    private static GridPane aux;
+    private static Button auxBtn;
 
 
     @FXML
     private void initialize() throws IOException {
-        checkBoxes= new ArrayList<>();
         try {
             initCheckBoxArray(query.getValidServiceTypes(),checkBoxes, btnServiceTypeForward);
             populateGrid(selServiceTypePane,checkBoxes,COLUMNS,ROWS);

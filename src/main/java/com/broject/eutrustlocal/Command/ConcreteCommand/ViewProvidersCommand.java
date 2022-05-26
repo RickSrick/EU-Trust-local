@@ -1,8 +1,7 @@
 package com.broject.eutrustlocal.Command.ConcreteCommand;
+
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Query.Query;
-
-import java.util.ArrayList;
 
 public class ViewProvidersCommand implements Command{
 
