@@ -106,9 +106,8 @@ public class Query {
      *
      * @param _filterType the filter to be removed
      * @param _parameter  the parameters to be added/removed
-     * @throws BadResponseException if there is a problem with the POST request
      */
-    public void editFilterParameter(String _filterType, String _parameter) throws BadResponseException {
+    public void editFilterParameter(String _filterType, String _parameter) {
 
         if (_filterType == null || _parameter == null)
             return;
@@ -148,7 +147,7 @@ public class Query {
                 newRequestNeeded = true;
 
             if (filters.get(0).isEmpty() && !fullCountriesArchive) {
-                countriesArchive = DataArchive.newDataArchive().getCountryCodes();
+                countriesArchive = DataArchive.getCountryCodes();
                 fullCountriesArchive = true;
             }
             if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {

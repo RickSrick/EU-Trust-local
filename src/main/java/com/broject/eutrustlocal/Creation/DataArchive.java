@@ -40,13 +40,12 @@ public class DataArchive {
             "CertUndefined"
     };
     private static DataArchive instance = null;
-    private final ArrayList<Country> countries;
-    private Bifrost connection;
+    private static final ArrayList<Country> countries = new ArrayList<>();
+    private static Bifrost connection;
     //#endregion
 
     private DataArchive() throws BadResponseException {
 
-        countries = new ArrayList<>();
         update();
 
     }
@@ -108,11 +107,9 @@ public class DataArchive {
      * Returns a ArrayList containing all the countries in the UE
      *
      * @return all the countries in the UE
-     * @throws BadResponseException if there is a problem with the POST request
      */
-    public ArrayList<Country> getCountries() throws BadResponseException {
+    public ArrayList<Country> getCountries() {
 
-        jsonToCountries(connection.getCountries());
         return new ArrayList<>(countries);
 
     }
@@ -121,11 +118,9 @@ public class DataArchive {
      * Returns a ArrayList containing all the country codes in the UE
      *
      * @return all the country codes in the UE
-     * @throws BadResponseException if there is a problem with the POST request
      */
-    public ArrayList<String> getCountryCodes() throws BadResponseException {
+    public static ArrayList<String> getCountryCodes() {
 
-        jsonToCountries(connection.getCountries());
         ArrayList<String> countryCodes = new ArrayList<>();
         for (Country country : countries)
             countryCodes.add(country.getCountryCode());
@@ -240,7 +235,7 @@ public class DataArchive {
     }
 
     //Conversion from json file, obtained from GET request, into a list of countries
-    private void jsonToCountries(String _json) {
+    private static void jsonToCountries(String _json) {
 
         JSONArray jsonCountryList = jsonToArray(_json);
 
