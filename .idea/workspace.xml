@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Incremental POST request">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="ProviderView ProviderController added. &#10;Note: now back button take u home, i'll adjust.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectProviderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectProviderView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/providerList-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectCountryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectCountryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectTypeServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectTypeServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Query.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/XMLArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/XMLArchive.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +80,7 @@
       <recent name="com.broject.eutrustlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test1">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Main" />
       <module name="EU-Trust-local" />
@@ -147,8 +157,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test1" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test1" />
         <item itemvalue="JUnit.DataArchiveTest.newDataArchive" />
         <item itemvalue="JUnit.QueryTest.newQueryFromCriteria" />
         <item itemvalue="JUnit.QueryTest.getValidProviders" />
@@ -288,7 +298,8 @@
     <MESSAGE value="Superclass SelectController added." />
     <MESSAGE value="Little Changes" />
     <MESSAGE value="Incremental POST request" />
-    <option name="LAST_COMMIT_MESSAGE" value="Incremental POST request" />
+    <MESSAGE value="ProviderView ProviderController added. &#10;Note: now back button take u home, i'll adjust." />
+    <option name="LAST_COMMIT_MESSAGE" value="ProviderView ProviderController added. &#10;Note: now back button take u home, i'll adjust." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

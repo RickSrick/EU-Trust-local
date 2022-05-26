@@ -7,7 +7,6 @@ import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Query.Filter.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**

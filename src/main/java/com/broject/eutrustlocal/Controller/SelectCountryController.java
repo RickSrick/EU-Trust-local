@@ -46,7 +46,7 @@ public class SelectCountryController extends SelectController {
                             for (CheckBox el : checkBoxes) {
                                 disable = disable || el.isSelected();
                             }
-                            query.editFilterParameter(Query.CRITERIA_FILTERS[0], checkBox.getId());
+                            QUERY.editFilterParameter(Query.CRITERIA_FILTERS[0], checkBox.getId());
                             btnCountryForward.setDisable(!disable);
                         });
                 checkBox.setGraphic(flag);

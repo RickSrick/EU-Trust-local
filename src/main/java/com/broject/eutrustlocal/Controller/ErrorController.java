@@ -25,6 +25,7 @@ public class ErrorController {
         try {
             SelectCountryController.reset();
             SelectTypeServiceController.reset();
+            SelectProviderController.reset();
             Main.STAGE.setScene(HomeView.newHomeView().getScene());
         } catch (BadResponseException e) {
             Random rand = new Random();
