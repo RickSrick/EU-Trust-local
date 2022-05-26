@@ -27,10 +27,10 @@ public class Test1 {
         System.out.println("------ STARTING QUERY ------");
         System.out.println("----------------------------");
 
-        _query.editFilterParameter(Query.CRITERIA_FILTERS[0], _countries);
+        /*_query.editFilterParameter(Query.CRITERIA_FILTERS[0], _countries);
         _query.editFilterParameter(Query.CRITERIA_FILTERS[1], _providers);
         _query.editFilterParameter(Query.CRITERIA_FILTERS[2], _types);
-        _query.editFilterParameter(Query.CRITERIA_FILTERS[3], _statuses);
+        _query.editFilterParameter(Query.CRITERIA_FILTERS[3], _statuses);*/
 
         System.out.println("SEARCH CRITERIA:\n"+_query.getCriteria()+"\n");
 

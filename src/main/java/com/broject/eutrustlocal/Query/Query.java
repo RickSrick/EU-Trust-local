@@ -105,43 +105,42 @@ public class Query {
      * If the _filterType or the _parameter are null, nothing will happen and the Query won't change
      *
      * @param _filterType the filter to be removed
-     * @param _parameters  the parameters to be added/removed
+     * @param _parameter  the parameters to be added/removed
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public void editFilterParameter(String _filterType, ArrayList<String> _parameters) throws BadResponseException {
+    public void editFilterParameter(String _filterType, String _parameter) throws BadResponseException {
 
-        if (_filterType == null || _parameters == null || _parameters.size() == 0)
+        if (_filterType == null || _parameter == null)
             return;
 
         int filterIndex = nameToID(_filterType);
 
-        for (String parameter : _parameters)
-            //updating the archives
-            if (filters.get(filterIndex).has(parameter)) {
-                filters.get(filterIndex).removeParameter(parameter);
-                newFilteringNeeded = true;
-            } else {
-                String[] parameterArray = {parameter};
-                filters.get(filterIndex).addParameters(parameterArray);
-                switch (filterIndex) {
-                    case 0:
-                        if (!countriesArchive.contains(parameter)) {
-                            countriesArchive.add(parameter);
-                            newRequestNeeded = true;
-                            newFilteringNeeded = true;
-                        }
-                        break;
-                    case 2:
-                        if (!serviceTypesArchive.contains(parameter)) {
-                            serviceTypesArchive.add(parameter);
-                            newRequestNeeded = true;
-                            newFilteringNeeded = true;
-                        }
-                        break;
-                    default:
-                        return;
-                }
+        //updating the archives
+        if (filters.get(filterIndex).has(_parameter)) {
+            filters.get(filterIndex).removeParameter(_parameter);
+            newFilteringNeeded = true;
+        } else {
+            String[] parameterArray = {_parameter};
+            filters.get(filterIndex).addParameters(parameterArray);
+            switch (filterIndex) {
+                case 0:
+                    if (!countriesArchive.contains(_parameter)) {
+                        countriesArchive.add(_parameter);
+                        newRequestNeeded = true;
+                        newFilteringNeeded = true;
+                    }
+                    break;
+                case 2:
+                    if (!serviceTypesArchive.contains(_parameter)) {
+                        serviceTypesArchive.add(_parameter);
+                        newRequestNeeded = true;
+                        newFilteringNeeded = true;
+                    }
+                    break;
+                default:
+                    return;
             }
+        }
 
         if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
 
