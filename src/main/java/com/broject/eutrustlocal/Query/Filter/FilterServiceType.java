@@ -4,8 +4,8 @@ import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.Data.Service;
 import com.broject.eutrustlocal.Creation.DataArchive;
 
-import java.util.Collections;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @author Zanella Matteo

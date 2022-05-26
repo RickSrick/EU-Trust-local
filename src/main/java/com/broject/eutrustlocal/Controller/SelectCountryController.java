@@ -17,16 +17,13 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.ArrayList;
 
 /**
  * @author Biscaccia Carrara Francesco
  */
-public class SelectCountryController {
+public class SelectCountryController extends SelectController{
 
     private final double RATIO=0.75;
-
-    private final Query mainQuery = new Query();
 
     private static ArrayList<CheckBox> checkBoxes;
     private ArrayList<Country> countries;
@@ -37,8 +34,8 @@ public class SelectCountryController {
 
     @FXML
     private void initialize() throws IOException {
-        checkBoxes = new ArrayList<>();
         try {
+            checkBoxes = new ArrayList<>();
             countries = DataArchive.newDataArchive().getCountries();
 
             for (Country c : countries) {
@@ -46,6 +43,14 @@ public class SelectCountryController {
                 ImageView flag = new ImageView(c.getFlag());
                 flag.setFitHeight(SelectCountryView.IMG_SIZE*RATIO);
                 flag.setFitWidth(SelectCountryView.IMG_SIZE*RATIO);
+                checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                            boolean disable = false;
+                            for (CheckBox el : checkBoxes) {
+                                disable = disable || el.isSelected();
+                            }
+                            btnCountryForward.setDisable(!disable);
+                        }
+                );
                 checkBox.setGraphic(flag);
                 checkBoxes.add(checkBox);
             }
@@ -58,25 +63,8 @@ public class SelectCountryController {
             );
             checkBoxes.add(allChecked);
 
-            int elem = 0;
-            selCountryPane.add(checkBoxes.get(checkBoxes.size() - 1), 0, 0);
-            for (int i = 0; i < SelectCountryView.COL_NUM & elem < countries.size(); i++) {
-                for (int j = 1; j < SelectCountryView.ROW_NUM & elem < countries.size(); j++) {
-                    selCountryPane.add(checkBoxes.get(elem), i, j);
-                    elem++;
-                }
-            }
+            populateGrid(selCountryPane,checkBoxes);
 
-            for (int i = 0; i < checkBoxes.size() - 1; i++) {
-                checkBoxes.get(i).selectedProperty().addListener((observable, oldValue, newValue) -> {
-                            boolean disable = false;
-                            for (CheckBox el : checkBoxes) {
-                                disable = disable || el.isSelected();
-                            }
-                            btnCountryForward.setDisable(!disable);
-                        }
-                );
-            }
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());
         }
@@ -107,8 +95,9 @@ public class SelectCountryController {
                     }
                 }
             }
-            mainQuery.editFilterParameter(Query.CRITERIA_FILTERS[0],countryCodes);
-            Main.STAGE.setScene(SelectTypeServiceView.newSelectTypeServiceView(mainQuery).getScene());
+            System.out.println(countryCodes);
+            getQuery().editFilterParameter(Query.CRITERIA_FILTERS[0],countryCodes);
+            Main.STAGE.setScene(SelectTypeServiceView.newSelectTypeServiceView().getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.newErrorView().getScene());
         }
@@ -118,4 +107,5 @@ public class SelectCountryController {
         checkBoxes.get(checkBoxes.size() - 1).setSelected(true);
         checkBoxes.get(checkBoxes.size() - 1).setSelected(false);
     }
+
 }

@@ -1,7 +1,7 @@
 package com.broject.eutrustlocal.Creation.Data;
 
-import java.util.Collections;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @author Zanella Matteo

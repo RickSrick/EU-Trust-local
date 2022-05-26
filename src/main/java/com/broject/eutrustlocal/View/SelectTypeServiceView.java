@@ -9,27 +9,20 @@ import java.io.IOException;
 
 public class SelectTypeServiceView extends View {
 
-    private Query countryCodesQuery;
-
     private static SelectTypeServiceView instance = null;
 
-    private SelectTypeServiceView(Query _countryCodesQuery) throws IOException {
+    private SelectTypeServiceView() throws IOException {
         super(XMLArchive.SERVICE_TYPE_LIST_SCENE);
-        countryCodesQuery=_countryCodesQuery;
     }
 
-    public static SelectTypeServiceView newSelectTypeServiceView(Query _countryCodesQuery) throws BadResponseException, IOException {
+    public static SelectTypeServiceView newSelectTypeServiceView() throws BadResponseException, IOException {
 
         if (DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)
-            instance = new SelectTypeServiceView(_countryCodesQuery);
+            instance = new SelectTypeServiceView();
 
         update();
         return instance;
-    }
-
-    public Query getCountryCodes(){
-        return countryCodesQuery;
     }
 
     private static void update(){
