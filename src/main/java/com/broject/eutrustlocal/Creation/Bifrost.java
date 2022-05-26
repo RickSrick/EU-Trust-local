@@ -24,6 +24,11 @@ public class Bifrost {
 
     }
 
+    /**
+     * Returns the only Bifrost with default settings, or create one in first call.
+     *
+     * @return the only Bifrost
+     */
     public static Bifrost newBifrost() {
 
         if(instance == null)
@@ -33,6 +38,12 @@ public class Bifrost {
 
     }
 
+    /**
+     * Try to ask response from a httpRequest
+     *
+     * @param request
+     * @return response body if connection was established, or null when you are offline
+     */
     private String tryGetResponse(HttpRequest request) {
         HttpResponse<String> response;
         try {
@@ -43,6 +54,11 @@ public class Bifrost {
         return response.body();
     }
 
+    /**
+     * This function is a fast method to check connection
+     *
+     * @throws BadResponseException when you are offline.
+     */
     public static void checkConnection() throws BadResponseException {
         try
         {
@@ -54,18 +70,37 @@ public class Bifrost {
         }
     }
 
+    /**
+     * This function use https://flagsapi.com/ to provide link to flag png file
+     *
+     * @param countryCode the code of the country whose flag you wish to obtain
+     * @return the link to the flag, if it exists
+     */
     public String getFlagImageLink(String countryCode) {
         return "https://flagsapi.com/"+CheckISOStandard(countryCode)+"/flat/64.png";
     }
 
+    /**
+     * A converter for unstandardized EU API countryCode format, to correct ISO 3166 format
+     *
+     * @param countryCode from EU API
+     * @return the correct version according to ISO3166
+     */
     private String CheckISOStandard(String countryCode) {
         String out = countryCode.toUpperCase();
         if(out.equals("UK")) return "GB";
-        if(out.equals("EL")) return "GR";
+        else if(out.equals("EL")) return "GR";
         return out;
     }
 
     //#region CRUD operation
+
+    /**
+     * this method provide response from the following server GET request: https://esignature.ec.europa.eu/efda/tl-browser/api/v1/search/countries_list_no_lotl_territory
+     *
+     * @return the body of response
+     * @throws BadResponseException when you are offline
+     */
     public String getCountries() throws BadResponseException {
 
         checkConnection();
@@ -79,6 +114,13 @@ public class Bifrost {
 
     }
 
+    /**
+     * this method provide response from the following server POST request: https://esignature.ec.europa.eu/efda/tl-browser/api/v1/search/find_by_type
+     *
+     * @param body in json format string
+     * @return the body of response
+     * @throws BadResponseException when you are offline, insert invalid body, or the query return zero values
+     */
     public String findTrustServices(String body) throws BadResponseException {
 
         checkConnection();
