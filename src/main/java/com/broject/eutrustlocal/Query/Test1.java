@@ -56,7 +56,7 @@ public class Test1 {
         ArrayList<String> providers = _query.getValidProviders();
         ArrayList<String> services = _query.getValidServices();
 
-        System.out.println("\n-------- RESULTS: --------");
+        /*System.out.println("\n-------- RESULTS: --------");
 
         System.out.println("-- SERVICE TYPES: --");
         for (int i = 0; i < types.size(); i++)
@@ -72,7 +72,7 @@ public class Test1 {
 
         System.out.println("-- SERVICES: --");
         for (int i = 0; i < services.size(); i++)
-            System.out.println(services.get(i));
+            System.out.println(services.get(i));*/
 
 
         System.out.println("----------------------------");

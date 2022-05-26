@@ -34,12 +34,13 @@ public class Query {
 
     private ArrayList<String> countriesArchive;
     private ArrayList<String> serviceTypesArchive;
+    private ArrayList<String> addedCountries;
 
     private boolean newFilteringNeeded;
     private boolean newRequestNeeded;
 
     private boolean fullCountriesArchive;
-    private boolean fullServiceTypesArchive;
+    //private boolean fullServiceTypesArchive;
 
     /**
      * Default Query constructor
@@ -125,6 +126,7 @@ public class Query {
                 case 0:
                     if (!countriesArchive.contains(_parameter)) {
                         countriesArchive.add(_parameter);
+                        addedCountries.add(_parameter);
                         newRequestNeeded = true;
                         newFilteringNeeded = true;
                     }
@@ -132,7 +134,7 @@ public class Query {
                 case 2:
                     if (!serviceTypesArchive.contains(_parameter)) {
                         serviceTypesArchive.add(_parameter);
-                        newRequestNeeded = true;
+                        //newRequestNeeded = true;
                         newFilteringNeeded = true;
                     }
                     break;
@@ -268,7 +270,7 @@ public class Query {
         newRequestNeeded = true;
         newFilteringNeeded = true;
         fullCountriesArchive = false;
-        fullServiceTypesArchive = false;
+        //fullServiceTypesArchive = false;
 
     }
 
@@ -296,9 +298,10 @@ public class Query {
 
         countriesArchive = new ArrayList<>();
         serviceTypesArchive = new ArrayList<>();
+        addedCountries = new ArrayList<>();
 
         fullCountriesArchive = false;
-        fullServiceTypesArchive = false;
+        //fullServiceTypesArchive = false;
         newRequestNeeded = true;
 
     }
@@ -308,26 +311,30 @@ public class Query {
 
         if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
 
-            if (filters.get(0).isEmpty() && !fullCountriesArchive || filters.get(2).isEmpty() && !fullServiceTypesArchive)
+            if (filters.get(0).isEmpty() && !fullCountriesArchive/* || filters.get(2).isEmpty() && !fullServiceTypesArchive*/)
                 newRequestNeeded = true;
 
             if (filters.get(0).isEmpty() && !fullCountriesArchive) {
                 countriesArchive = DataArchive.getCountryCodes();
                 fullCountriesArchive = true;
             }
-            if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {
+            /*if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {
                 serviceTypesArchive.clear();
                 Collections.addAll(serviceTypesArchive, DataArchive.SERVICE_TYPES);
                 fullServiceTypesArchive = true;
-            }
+            }*/
 
         }
 
         if (newRequestNeeded) {
-            System.out.println("Contacting the server...");                                                                  /*------------------------------------------------------------------*/
-            response = DataArchive.newDataArchive().getProviders(filters.get(0).getParameters().toArray(new String[0]), filters.get(2).getParameters().toArray(new String[0]));
+            System.out.println("Contacting the server; asking for: ");
+            System.out.println(addedCountries);                                                                                             /*------------------------------------------------------------------*/
+            ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), filters.get(2).getParameters().toArray(new String[0]));
+            response.addAll(newResponse);
             newRequestNeeded = false;
         }
+
+        addedCountries.clear();
 
         filteredResponse = response;
 
