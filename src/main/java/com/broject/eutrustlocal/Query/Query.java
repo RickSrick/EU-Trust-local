@@ -128,7 +128,7 @@ public class Query {
             String[] parameterArray = {_parameter};
             filters.get(filterIndex).addParameters(parameterArray);
             if (filterIndex == 0 && !fullCountriesArchive && !countriesArchive.contains(_parameter)) {
-                System.out.println("Adding parameter: "+_parameter);                                                                        /*------------------------------------------------------------------*/
+                System.out.println("Adding " + _parameter + " : " + addedCountries);                                                        /*------------------------------------------------------------------*/
                 countriesArchive.add(_parameter);
                 addedCountries.add(_parameter);
                 newRequestNeeded = true;
