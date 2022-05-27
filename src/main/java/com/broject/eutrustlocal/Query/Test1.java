@@ -1,12 +1,14 @@
 package com.broject.eutrustlocal.Query;
 
+import com.broject.eutrustlocal.History.History;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Test1 {
 
-    public static void main(String args[]) throws BadResponseException {
+    public static void main(String args[]) throws BadResponseException, FileNotFoundException {
 
         Query query = new Query();
 
@@ -18,6 +20,9 @@ public class Test1 {
         countries.add("IT");
 
         executeRequest(query, countries , providers, types, statuses);
+        History.clearHistory();
+        History.binWriter(query.getCriteria());
+        ArrayList<String> response = History.binReader();
 
         types.clear();
 

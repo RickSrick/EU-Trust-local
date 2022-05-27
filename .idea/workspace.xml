@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/Invoker.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" afterDir="false" />
     </list>
@@ -73,6 +77,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Test1">
+    <configuration name="History" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Command.History" />
+      <module name="EU-Trust-local" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.broject.eutrustlocal.Command.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Main" />
       <module name="EU-Trust-local" />
@@ -115,22 +132,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QueryTest.getValidProviders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EU-Trust-local" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.broject.eutrustlocal.Query.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.broject.eutrustlocal.Query" />
-      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Query.QueryTest" />
-      <option name="METHOD_NAME" value="getValidProviders" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="QueryTest.newQueryFromCriteria" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EU-Trust-local" />
       <extension name="coverage">
@@ -150,10 +151,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test1" />
+        <item itemvalue="Application.History" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.DataArchiveTest.newDataArchive" />
         <item itemvalue="JUnit.QueryTest.newQueryFromCriteria" />
-        <item itemvalue="JUnit.QueryTest.getValidProviders" />
       </list>
     </recent_temporary>
   </component>
