@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Test1 {
 
-    public static void main(String args[]) throws BadResponseException, FileNotFoundException {
+    public static void main(String[] args) throws BadResponseException, FileNotFoundException {
 
         Query query = new Query();
 
@@ -65,10 +65,10 @@ public class Test1 {
         for (String provider : providers)
             System.out.println(provider);
 
-        /*System.out.println("-- SERVICES: --");
+        System.out.println("-- SERVICES: --");
         for (String service : services)
             System.out.println(service);
-        */
+
 
         System.out.println("----------------------------");
         System.out.println("------- ENDING QUERY -------");

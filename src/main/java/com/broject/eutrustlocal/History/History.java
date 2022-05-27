@@ -16,13 +16,13 @@ public class History {
 
 
         for (byte criteriaByte : criteriaBytes) {
-            String binary = "";
+            StringBuilder binary = new StringBuilder();
             int x = criteriaByte;
             int change;
             while (x > 0) {
                 change = x % 2;
                 x /= 2;
-                binary = change + binary;
+                binary.insert(0, change);
             }
             writer.print(binary + " ");
 
