@@ -32,14 +32,12 @@ public class Query {
     private ArrayList<Filter> filters;
 
     private ArrayList<String> countriesArchive;
-    private ArrayList<String> serviceTypesArchive;
     private ArrayList<String> addedCountries;
 
     private boolean newFilteringNeeded;
     private boolean newRequestNeeded;
 
     private boolean fullCountriesArchive;
-    //private boolean fullServiceTypesArchive;
 
     /**
      * Default Query constructor
@@ -117,30 +115,27 @@ public class Query {
         //updating the archives
         if (filters.get(filterIndex).has(_parameter)) {
             filters.get(filterIndex).removeParameter(_parameter);
-            newFilteringNeeded = true;
+            if (filterIndex == 0 && newRequestNeeded && addedCountries.contains(_parameter)) {
+                countriesArchive.remove(_parameter);
+                addedCountries.remove(_parameter);
+                System.out.println("Removing " + _parameter + " : " + addedCountries);                                                      /*------------------------------------------------------------------*/
+                if (addedCountries.isEmpty()) {
+                    newRequestNeeded = false;
+                    System.out.println("Now addedCountries is empty");                                                                      /*------------------------------------------------------------------*/
+                }
+            }
         } else {
             String[] parameterArray = {_parameter};
             filters.get(filterIndex).addParameters(parameterArray);
-            switch (filterIndex) {
-                case 0:
-                    if (!countriesArchive.contains(_parameter)) {
-                        countriesArchive.add(_parameter);
-                        addedCountries.add(_parameter);
-                        newRequestNeeded = true;
-                        newFilteringNeeded = true;
-                    }
-                    break;
-                case 2:
-                    if (!serviceTypesArchive.contains(_parameter)) {
-                        serviceTypesArchive.add(_parameter);
-                        //newRequestNeeded = true;
-                        newFilteringNeeded = true;
-                    }
-                    break;
-                default:
-                    return;
+            if (filterIndex == 0 && !fullCountriesArchive && !countriesArchive.contains(_parameter)) {
+                System.out.println("Adding parameter: "+_parameter);                                                                        /*------------------------------------------------------------------*/
+                countriesArchive.add(_parameter);
+                addedCountries.add(_parameter);
+                newRequestNeeded = true;
             }
         }
+
+        newFilteringNeeded = true;
 
     }
 
@@ -264,12 +259,10 @@ public class Query {
     public void clear() {
 
         countriesArchive.clear();
-        serviceTypesArchive.clear();
 
         newRequestNeeded = true;
         newFilteringNeeded = true;
         fullCountriesArchive = false;
-        //fullServiceTypesArchive = false;
 
     }
 
@@ -296,11 +289,9 @@ public class Query {
         filters.add(new FilterServiceStatus());
 
         countriesArchive = new ArrayList<>();
-        serviceTypesArchive = new ArrayList<>();
         addedCountries = new ArrayList<>();
 
         fullCountriesArchive = false;
-        //fullServiceTypesArchive = false;
         newRequestNeeded = true;
 
     }
@@ -308,20 +299,15 @@ public class Query {
     //IF NEEDED creates a post request and IF NEEDED filters the response
     private void applyFilters() throws BadResponseException {
 
+        System.out.println(getCriteria());                                                                                                  /*------------------------------------------------------------------*/
+
         if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
 
-            if (filters.get(0).isEmpty() && !fullCountriesArchive/* || filters.get(2).isEmpty() && !fullServiceTypesArchive*/)
-                newRequestNeeded = true;
-
-            if (filters.get(0).isEmpty() && !fullCountriesArchive) {
-                countriesArchive = DataArchive.getCountryCodes();
+            if (!fullCountriesArchive && filters.get(0).isEmpty()) {
+                countriesArchive.clear();
                 fullCountriesArchive = true;
+                newRequestNeeded = true;
             }
-            /*if (filters.get(2).isEmpty() && !fullServiceTypesArchive) {
-                serviceTypesArchive.clear();
-                Collections.addAll(serviceTypesArchive, DataArchive.SERVICE_TYPES);
-                fullServiceTypesArchive = true;
-            }*/
 
         }
 
@@ -339,6 +325,8 @@ public class Query {
 
         for (Filter filter : filters)
             filteredResponse = filter.applyFilter(filteredResponse);
+
+        newFilteringNeeded = false;
 
     }
 

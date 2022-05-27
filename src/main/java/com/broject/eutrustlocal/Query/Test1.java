@@ -20,14 +20,10 @@ public class Test1 {
         countries.add("IT");
 
         executeRequest(query, countries , providers, types, statuses);
-        History.clearHistory();
-        History.binWriter(query.getCriteria());
-        ArrayList<String> response = History.binReader();
-        System.out.println(response);
 
-        types.clear();
-
+        countries.clear();
         countries.add("UK");
+        types.add("NonRegulatory");
 
         executeRequest(query, countries , providers, types, statuses);
 
@@ -65,9 +61,9 @@ public class Test1 {
         for (String provider : providers)
             System.out.println(provider);
 
-        System.out.println("-- SERVICES: --");
+        /*System.out.println("-- SERVICES: --");
         for (String service : services)
-            System.out.println(service);
+            System.out.println(service);*/
 
 
         System.out.println("----------------------------");

@@ -6,8 +6,6 @@ import com.broject.eutrustlocal.Creation.Data.Service;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -176,7 +174,7 @@ public class DataArchive {
         }
         jsonPOST.append(" ] }");
 
-        System.out.println(jsonPOST.toString());
+        System.out.println(jsonPOST);                                                                                            /*------------------------------------------------------------------*/
 
         String json = connection.findTrustServices(jsonPOST.toString());
 
