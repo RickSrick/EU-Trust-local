@@ -1,4 +1,4 @@
-package com.broject.eutrustlocal.Command.ConcreteCommand;
+package com.broject.eutrustlocal.Command;
 
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;

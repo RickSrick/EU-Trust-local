@@ -23,6 +23,7 @@ public class Test1 {
         History.clearHistory();
         History.binWriter(query.getCriteria());
         ArrayList<String> response = History.binReader();
+        System.out.println(response);
 
         types.clear();
 

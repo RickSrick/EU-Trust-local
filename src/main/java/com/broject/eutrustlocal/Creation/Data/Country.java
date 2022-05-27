@@ -10,13 +10,13 @@ public class Country {
 
     private final String countryName;
     private final String countryCode;
-    private final Image flag;
+    //private final Image flag;
 
     public Country(String _countryName, String _countryCode, String _flagLink) {
 
         countryName = _countryName;
         countryCode = _countryCode;
-        flag = new Image(_flagLink, true);
+        //flag = new Image(_flagLink, true);
 
     }
 
@@ -34,7 +34,7 @@ public class Country {
 
     public Image getFlag() {
 
-        return flag;
+        return null;
 
     }
 

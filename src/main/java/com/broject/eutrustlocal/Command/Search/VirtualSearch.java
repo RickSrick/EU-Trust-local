@@ -1,4 +1,4 @@
-package com.broject.eutrustlocal.Command.ConcreteCommand.Search;
+package com.broject.eutrustlocal.Command.Search;
 
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Query.Query;

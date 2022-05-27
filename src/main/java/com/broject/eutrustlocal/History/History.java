@@ -8,16 +8,16 @@ import java.util.stream.Collectors;
 
 public class History {
 
-    private static String path = "src/main/java/com/broject/eutrustlocal/History/History.bin";
+    private static final String path = "src/main/java/com/broject/eutrustlocal/History/History.bin";
     public static void binWriter(String criteria) throws FileNotFoundException {
-        PrintWriter writer = new PrintWriter( new FileOutputStream(new File(path), true));
+        PrintWriter writer = new PrintWriter( new FileOutputStream(path, true));
 
         byte[] criteriaBytes = criteria.getBytes();
 
 
-        for (int i = 0; i < criteriaBytes.length; i++) {
+        for (byte criteriaByte : criteriaBytes) {
             String binary = "";
-            int x = criteriaBytes[i];
+            int x = criteriaByte;
             int change;
             while (x > 0) {
                 change = x % 2;
@@ -32,14 +32,14 @@ public class History {
     }
 
     public static ArrayList<String> binReader() throws FileNotFoundException {
-        ArrayList<String> historycommand = new ArrayList<>();
+        ArrayList<String> history = new ArrayList<>();
         Scanner in = new Scanner(new FileReader(path));
         while(in.hasNextLine()){
             String line = in.nextLine();
-            historycommand.add(binaryConverter(line));
+            history.add(binaryConverter(line));
         }
         in.close();
-        return historycommand;
+        return history;
     }
 
     private static String binaryConverter(String in){
@@ -51,7 +51,7 @@ public class History {
     }
 
     public static void clearHistory() throws FileNotFoundException {
-        PrintWriter writer = new PrintWriter( new FileOutputStream(new File(path), false));
+        PrintWriter writer = new PrintWriter( new FileOutputStream(path, false));
         writer.close();
     }
 }
