@@ -312,6 +312,8 @@ public class Query {
         }
 
         if (newRequestNeeded) {
+            if (addedCountries.isEmpty())
+                addedCountries = filters.get(0).getParameters();
             System.out.println("Contacting the server; asking for: ");
             System.out.println(addedCountries);                                                                                             /*------------------------------------------------------------------*/
             ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), DataArchive.SERVICE_TYPES);
