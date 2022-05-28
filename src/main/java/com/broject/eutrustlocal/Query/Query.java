@@ -101,6 +101,7 @@ public class Query {
      * If the parameter doesn't exist inside the filter, it will be added;
      * If the _filterType doesn't exist, the Query won't be modified;
      * If the _filterType or the _parameter are null, nothing will happen and the Query won't change
+     * It's suggested to use the <Query.CRITERIA_FILTERS[]> array to choose the _filterType
      *
      * @param _filterType the filter to be removed
      * @param _parameter  the parameters to be added/removed
@@ -110,12 +111,15 @@ public class Query {
         if (_filterType == null || _parameter == null)
             return;
 
-        int filterIndex = nameToID(_filterType);
+        int filterID = nameToID(_filterType);
+
+        if (filterID < 0)
+            return;
 
         //updating the archives
-        if (filters.get(filterIndex).has(_parameter)) {
-            filters.get(filterIndex).removeParameter(_parameter);
-            if (filterIndex == 0 && newRequestNeeded && addedCountries.contains(_parameter)) {
+        if (filters.get(filterID).has(_parameter)) {
+            filters.get(filterID).removeParameter(_parameter);
+            if (filterID == 0 && newRequestNeeded && addedCountries.contains(_parameter)) {
                 countriesArchive.remove(_parameter);
                 addedCountries.remove(_parameter);
                 System.out.println("Removing " + _parameter + " : " + addedCountries);                                                      /*------------------------------------------------------------------*/
@@ -126,8 +130,8 @@ public class Query {
             }
         } else {
             String[] parameterArray = {_parameter};
-            filters.get(filterIndex).addParameters(parameterArray);
-            if (filterIndex == 0 && !fullCountriesArchive && !countriesArchive.contains(_parameter)) {
+            filters.get(filterID).addParameters(parameterArray);
+            if (filterID == 0 && !fullCountriesArchive && !countriesArchive.contains(_parameter)) {
                 countriesArchive.add(_parameter);
                 addedCountries.add(_parameter);
                 newRequestNeeded = true;
@@ -242,14 +246,14 @@ public class Query {
      * @return a ArrayList of Provider, the response of the Query
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public ArrayList<Provider> getResponse() throws BadResponseException {
+    /*public ArrayList<Provider> getResponse() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
 
         return new ArrayList<>(filteredResponse);
 
-    }
+    }*/
 
     /**
      * This method clears all the temporary archives contained in the Query;
@@ -267,12 +271,34 @@ public class Query {
     }
 
     /**
+     * This method clears a selected filter, maintaining unaltered all the others.
+     * If the _filterType doesn't exist, the query won't be modified.
+     * It's suggested to use the <Query.CRITERIA_FILTERS[]> array to choose the _filterType
+     *
+     * @param _filterType The filter to be cleared
+     */
+    public void clearFilter(String _filterType) {
+
+        int filterID = nameToID(_filterType);
+
+        if (filterID < 0)
+            return;
+
+        filters.get(filterID).clear();
+
+        newFilteringNeeded = true;
+
+    }
+
+    /**
      * This method erases all the parameters from the filters
      */
-    public void clearFilters() {
+    public void clearAllFilters() {
 
         for (Filter filter : filters)
             filter.clear();
+
+        newFilteringNeeded = true;
 
     }
 

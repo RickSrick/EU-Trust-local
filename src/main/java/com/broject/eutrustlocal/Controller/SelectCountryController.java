@@ -75,7 +75,7 @@ public class SelectCountryController extends SelectController {
             SelectTypeServiceController.reset();
             SelectProviderController.reset();
             SelectStatusesController.reset();
-            QUERY.clearFilters();
+            QUERY.clearAllFilters();
             QUERY.clear();
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
