@@ -174,7 +174,7 @@ public class Query {
      * @return all the providers that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public ArrayList<String> getValidProviders() throws BadResponseException {
+    /*public ArrayList<String> getValidProviders() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
@@ -186,7 +186,7 @@ public class Query {
 
         return validProviders;
 
-    }
+    }*/
 
     /**
      * Returns all the valid service types due to the current parameters selected
@@ -246,14 +246,14 @@ public class Query {
      * @return a ArrayList of Provider, the response of the Query
      * @throws BadResponseException if there is a problem with the POST request
      */
-    /*public ArrayList<Provider> getResponse() throws BadResponseException {
+    public ArrayList<Provider> getValidProviders() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
 
         return new ArrayList<>(filteredResponse);
 
-    }*/
+    }
 
     /**
      * This method clears all the temporary archives contained in the Query;
