@@ -168,25 +168,20 @@ public class Query {
     }
 
     /**
-     * Returns the names of all the valid providers due to the current parameters selected
+     * Returns all the valid providers due to the current parameters selected
      * IF NECESSARY, makes a post request
      *
      * @return all the providers that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
      */
-    /*public ArrayList<String> getValidProviders() throws BadResponseException {
+    public ArrayList<Provider> getValidProviders() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
 
-        ArrayList<String> validProviders = new ArrayList<>();
+        return new ArrayList<>(filteredResponse);
 
-        for (Provider provider : filteredResponse)
-            validProviders.add(provider.getName());
-
-        return validProviders;
-
-    }*/
+    }
 
     /**
      * Returns all the valid service types due to the current parameters selected
@@ -236,22 +231,6 @@ public class Query {
         }
 
         return validServiceStatuses;
-
-    }
-
-    /**
-     * Returns the full response of the Query
-     * IF NECESSARY, filters again the response
-     *
-     * @return a ArrayList of Provider, the response of the Query
-     * @throws BadResponseException if there is a problem with the POST request
-     */
-    public ArrayList<Provider> getValidProviders() throws BadResponseException {
-
-        if (newFilteringNeeded)
-            applyFilters();
-
-        return new ArrayList<>(filteredResponse);
 
     }
 
