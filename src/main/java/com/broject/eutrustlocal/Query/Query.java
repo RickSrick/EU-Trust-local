@@ -241,6 +241,9 @@ public class Query {
      */
     public void clear() {
 
+        response.clear();
+        filteredResponse.clear();
+
         countriesArchive.clear();
 
         newRequestNeeded = true;
