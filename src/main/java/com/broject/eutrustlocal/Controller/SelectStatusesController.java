@@ -2,6 +2,7 @@ package com.broject.eutrustlocal.Controller;
 
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
+import com.broject.eutrustlocal.Query.Query;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.ResultView;
 import com.broject.eutrustlocal.View.SelectProviderView;
@@ -31,7 +32,7 @@ public class SelectStatusesController extends SelectController{
     private void initialize() throws IOException {
         checkBoxes=new ArrayList<>();
         try {
-            initCheckBoxArray(QUERY.getValidServiceStatuses(), checkBoxes, btnFinishQueryForward,3);
+            initCheckBoxArrayString(QUERY.getValidServiceStatuses(), checkBoxes, btnFinishQueryForward,3);
             populateGrid(selStatusesPane,checkBoxes,COLUMNS,ROWS);
             aux= selStatusesPane;
             auxBtn= btnFinishQueryForward;
@@ -42,7 +43,7 @@ public class SelectStatusesController extends SelectController{
 
     @FXML
     public static void update() throws BadResponseException {
-        initCheckBoxArray(QUERY.getValidServiceStatuses(), checkBoxes,auxBtn,3);
+        initCheckBoxArrayString(QUERY.getValidServiceStatuses(), checkBoxes,auxBtn,3);
         aux.getChildren().clear();
         populateGrid(aux,checkBoxes,COLUMNS,ROWS);
     }
@@ -56,6 +57,7 @@ public class SelectStatusesController extends SelectController{
 
     public void onBackButtonClick() throws IOException {
         try {
+            QUERY.clearFilter(Query.CRITERIA_FILTERS[3]);
             Main.STAGE.setScene(SelectProviderView.getInstance(false).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());

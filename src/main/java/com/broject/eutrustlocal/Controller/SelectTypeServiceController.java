@@ -2,6 +2,7 @@ package com.broject.eutrustlocal.Controller;
 
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
+import com.broject.eutrustlocal.Query.Query;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.SelectCountryView;
 import com.broject.eutrustlocal.View.SelectProviderView;
@@ -31,7 +32,7 @@ public class SelectTypeServiceController extends SelectController{
     private void initialize() throws IOException {
         checkBoxes=new ArrayList<>();
         try {
-            initCheckBoxArray(QUERY.getValidServiceTypes(), checkBoxes,btnServiceTypeForward,2);
+            initCheckBoxArrayString(QUERY.getValidServiceTypes(), checkBoxes,btnServiceTypeForward,2);
             populateGrid(selServiceTypePane,checkBoxes,COLUMNS,ROWS);
             aux=selServiceTypePane;
             auxBtn=btnServiceTypeForward;
@@ -42,14 +43,13 @@ public class SelectTypeServiceController extends SelectController{
 
     @FXML
     public static void update() throws BadResponseException {
-        initCheckBoxArray(QUERY.getValidServiceTypes(), checkBoxes,auxBtn,2);
+        initCheckBoxArrayString(QUERY.getValidServiceTypes(), checkBoxes,auxBtn,2);
         aux.getChildren().clear();
         populateGrid(aux,checkBoxes,COLUMNS,ROWS);
     }
     public void onForwardButtonClick() throws IOException {
         try {
             Main.STAGE.setScene(SelectProviderView.getInstance(true).getScene());
-            System.out.println(QUERY.getCriteria());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
@@ -57,6 +57,7 @@ public class SelectTypeServiceController extends SelectController{
 
     public void onBackButtonClick() throws IOException {
         try {
+            QUERY.clearFilter(Query.CRITERIA_FILTERS[2]);
             Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());

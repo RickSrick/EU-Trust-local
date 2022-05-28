@@ -35,13 +35,13 @@ public abstract class VirtualSearch {
         return null;
     }
 
-    public ArrayList<String> getValidProviders() {
+   /* public ArrayList<String> getValidProviders() {
         try {
             return query.getValidProviders();
         } catch (BadResponseException e) {
             //open Error page
         }
         return null;
-    }
+    }*/
 
 }
