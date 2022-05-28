@@ -1,9 +1,12 @@
 package com.broject.eutrustlocal.Controller;
 
+import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Query.Query;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -13,12 +16,45 @@ public abstract class SelectController {
 
     protected static final Query QUERY = new Query();
 
-    protected static void initCheckBoxArray(ArrayList<String> data, ArrayList<CheckBox> arrayToFill,Button btnId, int filter_type) {
+    protected static void initCheckBoxArrayString(ArrayList<String> data, ArrayList<CheckBox> arrayToFill, Button btnId, int filter_type) {
         arrayToFill.clear();
 
         for (String s : data) {
             CheckBox checkBox = new CheckBox(s);
             checkBox.setId(s);
+            checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                boolean disable = false;
+                for (CheckBox el : arrayToFill) {
+                    disable = disable || el.isSelected();
+                }
+                QUERY.editFilterParameter(Query.CRITERIA_FILTERS[filter_type], checkBox.getId());
+                btnId.setDisable(!disable);
+            });
+            arrayToFill.add(checkBox);
+        }
+
+        if(arrayToFill.size()!=1) {
+            CheckBox allChecked = new CheckBox("All");
+            allChecked.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                        for (CheckBox checkBox : arrayToFill) {
+                            checkBox.setSelected(allChecked.isSelected());
+                        }
+                    }
+            );
+            arrayToFill.add(allChecked);
+        }
+    }
+
+    protected static void initCheckBoxArrayProvider(ArrayList<Provider> data, ArrayList<CheckBox> arrayToFill, Button btnId, int filter_type) {
+        arrayToFill.clear();
+
+        for (Provider s : data) {
+            CheckBox checkBox = new CheckBox(s.getName());
+            checkBox.setId(s.getName());
+            ImageView flag= new ImageView(new Image(s.getFlagLink(),true));
+            flag.setFitHeight(20);
+            flag.setFitWidth(20);
+            checkBox.setGraphic(flag);
             checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
                 boolean disable = false;
                 for (CheckBox el : arrayToFill) {
@@ -67,10 +103,13 @@ public abstract class SelectController {
         }
     }
 
-    protected static void initLabel(ArrayList<String> data, ArrayList<Label> arrayToFill) {
+    protected static void initLabel(ArrayList<Provider> data, ArrayList<Label> arrayToFill) {
         arrayToFill.clear();
-        for (String s : data) {
-            Label label = new Label(s);
+        for (Provider s : data) {
+            ImageView flag = new ImageView(new Image(s.getFlagLink(),true));
+            flag.setFitWidth(30);
+            flag.setFitHeight(30);
+            Label label = new Label(s.getName(),flag);
             arrayToFill.add(label);
         }
     }
