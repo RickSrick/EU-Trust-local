@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Last views added. Founded some bugs on navigation.">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Navigation problems fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/Search/VirtualSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Command/Search/VirtualSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ResultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectProviderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectStatusesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectStatusesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectTypeServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectTypeServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/resultList-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/resultList-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653643465804</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Navigation problems fixed.">
+      <created>1653748894997</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1653748894997</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +315,8 @@
     <MESSAGE value="ProviderView ProviderController added. &#10;Note: now back button take u home, i'll adjust." />
     <MESSAGE value="Little Changes" />
     <MESSAGE value="Last views added. Founded some bugs on navigation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Last views added. Founded some bugs on navigation." />
+    <MESSAGE value="Navigation problems fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Navigation problems fixed." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

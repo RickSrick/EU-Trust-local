@@ -1,10 +1,9 @@
 package com.broject.eutrustlocal.Controller;
 
 import com.broject.eutrustlocal.Creation.Data.Provider;
+import com.broject.eutrustlocal.Creation.Data.Service;
 import com.broject.eutrustlocal.Query.Query;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -95,22 +94,18 @@ public abstract class SelectController {
         }
     }
 
-    protected static void initPaneLabel(VBox vBox, ArrayList<Label> data) {
-        vBox.setSpacing(25);
-        vBox.getChildren().add(data.get(data.size()-1));
-        for(int i=0;i<data.size()-1;i++){
-            vBox.getChildren().add(data.get(i));
+    protected static void initPaneLabel(TreeView<Label> treeView, ArrayList<Provider> data) {
+        TreeItem<Label> start = new TreeItem<>(new Label("ONLY FOR START"));
+        for(int i=0;i<data.size();i++){
+            ImageView flag=new ImageView(new Image(data.get(i).getFlagLink(),true));
+            flag.setFitHeight(25);
+            flag.setFitWidth(25);
+            TreeItem<Label> treeItem = new TreeItem<>(new Label(data.get(i).getName(),flag));
+            for (Service s: data.get(i).getServices()) {
+                treeItem.getChildren().add(new TreeItem<>(new Label(s.getName())));
+            }
+            start.getChildren().add(treeItem);
         }
-    }
-
-    protected static void initLabel(ArrayList<Provider> data, ArrayList<Label> arrayToFill) {
-        arrayToFill.clear();
-        for (Provider s : data) {
-            ImageView flag = new ImageView(new Image(s.getFlagLink(),true));
-            flag.setFitWidth(30);
-            flag.setFitHeight(30);
-            Label label = new Label(s.getName(),flag);
-            arrayToFill.add(label);
-        }
+        treeView.setRoot(start);
     }
 }

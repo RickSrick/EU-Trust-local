@@ -8,28 +8,24 @@ import com.broject.eutrustlocal.View.SelectCountryView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TreeView;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class ResultController extends SelectController{
 
-    private static ArrayList<Label> Labels;
     @FXML
-    private VBox resultPane;
+    private TreeView<Label> resultPane;
     @FXML
     private Button btnResultNewSearch;
-    private static VBox aux;
+    private static TreeView aux;
     private static Button auxBtn;
 
 
     @FXML
     private void initialize() throws IOException {
-        Labels =new ArrayList<>();
         try {
-            initLabel(QUERY.getValidProviders(), Labels);
-            initPaneLabel(resultPane, Labels);
+            initPaneLabel(resultPane, QUERY.getValidProviders());
             aux= resultPane;
             auxBtn= btnResultNewSearch;
         } catch (BadResponseException e) {
@@ -39,9 +35,8 @@ public class ResultController extends SelectController{
 
     @FXML
     public static void update() throws BadResponseException {
-        initLabel(QUERY.getValidProviders(), Labels);
-        aux.getChildren().clear();
-        initPaneLabel(aux, Labels);
+        aux.getRoot().getChildren().clear();
+        initPaneLabel(aux, QUERY.getValidProviders());
     }
     public void onSearchByCriteriaClick() throws IOException{
         try {

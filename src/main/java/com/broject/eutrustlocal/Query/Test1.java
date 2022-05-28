@@ -44,7 +44,7 @@ public class Test1 {
         ArrayList<String> types = _query.getValidServiceTypes();
         ArrayList<String> statuses = _query.getValidServiceStatuses();
         //ArrayList<String> providers = _query.getValidProviders();
-        ArrayList<String> services = _query.getValidServices();
+        //ArrayList<String> services = _query.getValidServices();
 
         System.out.println("\n-------- RESULTS: --------");
 

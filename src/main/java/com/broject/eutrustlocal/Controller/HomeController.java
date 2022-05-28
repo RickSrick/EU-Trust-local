@@ -57,6 +57,7 @@ public class HomeController {
     protected void onSearchByCriteriaClick() throws IOException {
         try {
             Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
+
         } catch (Exception e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
