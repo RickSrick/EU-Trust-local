@@ -150,7 +150,7 @@ public class Query {
      * @return all the services that respect the filters
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public ArrayList<String> getValidServices() throws BadResponseException {
+    /*public ArrayList<String> getValidServices() throws BadResponseException {
 
         if (newFilteringNeeded)
             applyFilters();
@@ -165,7 +165,7 @@ public class Query {
 
         return services;
 
-    }
+    }*/
 
     /**
      * Returns all the valid providers due to the current parameters selected
