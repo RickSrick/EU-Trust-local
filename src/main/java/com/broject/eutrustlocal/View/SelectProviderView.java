@@ -14,12 +14,12 @@ public class SelectProviderView extends View{
         super(XMLArchive. PROVIDER_LIST_SCENE);
     }
 
-    public static SelectProviderView newSelectProviderView() throws BadResponseException, IOException {
+    public static SelectProviderView getInstance(boolean goFoward) throws BadResponseException, IOException {
 
         if (DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)
             instance = new SelectProviderView();
-
+        else if(goFoward) update();
         return instance;
     }
 

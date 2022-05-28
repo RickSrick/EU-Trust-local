@@ -16,7 +16,7 @@ public class SelectCountryView extends View {
         super(XMLArchive.COUNTRY_LIST_SCENE);
     }
 
-    public static SelectCountryView newSelectionCountryView() throws BadResponseException, IOException {
+    public static SelectCountryView getInstance() throws BadResponseException, IOException {
 
         if (DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)

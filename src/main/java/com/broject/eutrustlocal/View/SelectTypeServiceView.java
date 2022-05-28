@@ -14,12 +14,11 @@ public class SelectTypeServiceView extends View {
         super(XMLArchive.SERVICE_TYPE_LIST_SCENE);
     }
 
-    public static SelectTypeServiceView newSelectTypeServiceView() throws BadResponseException, IOException {
-
+    public static SelectTypeServiceView getInstance(boolean goFoward) throws BadResponseException, IOException {
         if (DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)
             instance = new SelectTypeServiceView();
-        else update();
+        else if(goFoward) update();
         return instance;
     }
 

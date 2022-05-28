@@ -23,10 +23,11 @@ public class ErrorController {
     @FXML
     protected void onRepeatButtonClick() throws IOException {
         try {
+            Main.STAGE.setScene(HomeView.getInstance().getScene());
             SelectCountryController.reset();
             SelectTypeServiceController.reset();
             SelectProviderController.reset();
-            Main.STAGE.setScene(HomeView.newHomeView().getScene());
+            SelectStatusesController.reset();
         } catch (BadResponseException e) {
             Random rand = new Random();
             int randomNum = rand.nextInt((MAX_RAND - MIN_RAND) + 1) + MIN_RAND;

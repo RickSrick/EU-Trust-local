@@ -3,7 +3,7 @@ package com.broject.eutrustlocal.Controller;
 import com.broject.eutrustlocal.Query.Query;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -13,11 +13,12 @@ public abstract class SelectController {
 
     protected static final Query QUERY = new Query();
 
-    protected static void initCheckBoxArray(ArrayList<String> data, ArrayList<CheckBox> arrayToFill, Button btnId, int filter_type) {
+    protected static void initCheckBoxArray(ArrayList<String> data, ArrayList<CheckBox> arrayToFill,Button btnId, int filter_type) {
         arrayToFill.clear();
 
         for (String s : data) {
             CheckBox checkBox = new CheckBox(s);
+            checkBox.setId(s);
             checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
                 boolean disable = false;
                 for (CheckBox el : arrayToFill) {
@@ -29,14 +30,16 @@ public abstract class SelectController {
             arrayToFill.add(checkBox);
         }
 
-        CheckBox allChecked = new CheckBox("All");
-        allChecked.selectedProperty().addListener((observable, oldValue, newValue) -> {
-                    for (CheckBox checkBox : arrayToFill) {
-                        checkBox.setSelected(allChecked.isSelected());
+        if(arrayToFill.size()!=1) {
+            CheckBox allChecked = new CheckBox("All");
+            allChecked.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                        for (CheckBox checkBox : arrayToFill) {
+                            checkBox.setSelected(allChecked.isSelected());
+                        }
                     }
-                }
-        );
-        arrayToFill.add(allChecked);
+            );
+            arrayToFill.add(allChecked);
+        }
     }
 
     protected static void populateGrid(GridPane pane, ArrayList<CheckBox> data, int colNumber, int rowNumber) {
@@ -48,14 +51,27 @@ public abstract class SelectController {
             }
         }
     }
-    protected static void initPane(ScrollPane _pane, ArrayList<CheckBox> data) {
-        VBox root = new VBox();
-        root.setPrefWidth(600);
-        root.setPrefHeight(700);
-        root.getChildren().add(data.get(data.size()-1));
+    protected static void initPaneCheckBoxes(VBox vBox, ArrayList<CheckBox> data) {
+        vBox.setSpacing(25);
+        vBox.getChildren().add(data.get(data.size()-1));
         for(int i=0;i<data.size()-1;i++){
-            root.getChildren().add(data.get(i));
+            vBox.getChildren().add(data.get(i));
         }
-        _pane.setContent(root);
+    }
+
+    protected static void initPaneLabel(VBox vBox, ArrayList<Label> data) {
+        vBox.setSpacing(25);
+        vBox.getChildren().add(data.get(data.size()-1));
+        for(int i=0;i<data.size()-1;i++){
+            vBox.getChildren().add(data.get(i));
+        }
+    }
+
+    protected static void initLabel(ArrayList<String> data, ArrayList<Label> arrayToFill) {
+        arrayToFill.clear();
+        for (String s : data) {
+            Label label = new Label(s);
+            arrayToFill.add(label);
+        }
     }
 }

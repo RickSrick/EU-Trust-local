@@ -22,6 +22,8 @@ import java.util.ArrayList;
 public class HomeController {
 
     @FXML
+    private VBox homeRoot;
+    @FXML
     private GridPane countryGrid;
 
     @FXML
@@ -47,16 +49,16 @@ public class HomeController {
             }
 
         } catch (BadResponseException e) {
-            Main.STAGE.setScene(ErrorView.newErrorView().getScene());
+            Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
     @FXML
     protected void onSearchByCriteriaClick() throws IOException {
         try {
-            Main.STAGE.setScene(SelectCountryView.newSelectionCountryView().getScene());
-        } catch (BadResponseException e) {
-            Main.STAGE.setScene(ErrorView.newErrorView().getScene());
+            Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
+        } catch (Exception e) {
+            Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 }

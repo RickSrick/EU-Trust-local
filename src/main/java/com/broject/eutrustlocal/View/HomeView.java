@@ -15,7 +15,7 @@ public class HomeView extends View {
         super(XMLArchive.HOME_SCENE);
     }
 
-    public static HomeView newHomeView() throws BadResponseException, IOException {
+    public static HomeView getInstance() throws BadResponseException, IOException {
 
         if (DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)

@@ -1,6 +1,5 @@
 package com.broject.eutrustlocal.Query;
 
-import com.broject.eutrustlocal.History.History;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 
 import java.io.FileNotFoundException;

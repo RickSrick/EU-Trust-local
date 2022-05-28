@@ -13,7 +13,7 @@ public class ErrorView extends View {
         super(XMLArchive.ERROR_SCENE);
     }
 
-    public static ErrorView newErrorView() throws IOException {
+    public static ErrorView getInstance() throws IOException {
 
         if (instance == null) instance = new ErrorView();
 

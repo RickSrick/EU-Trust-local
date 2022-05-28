@@ -4,11 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Little Changes">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Last views added. Founded some bugs on navigation.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ResultController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectStatusesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ResultView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectStatusesView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/resultList-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/statusesList-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectCountryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectCountryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectProviderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectTypeServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectTypeServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ErrorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ErrorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectCountryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectCountryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectProviderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectProviderView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectTypeServiceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectTypeServiceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/XMLArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/XMLArchive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/countryList-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/countryList-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/error-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/error-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/home-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/providerList-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/providerList-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/serviceTypeList-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view/serviceTypeList-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +50,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -43,24 +68,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/francescobiscacciacarrara/IdeaProjects/EU-Trust-local/src/main/resources/com/broject/eutrustlocal/gif&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/Users/francescobiscacciacarrara/IdeaProjects/EU-Trust-local/src/main/resources/com/broject/eutrustlocal/xml_view",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/gif" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/gif" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal" />
       <recent name="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal" />
       <recent name="C:\Users\user\Downloads\EU-Trust-local\src\main\resources" />
@@ -73,7 +98,7 @@
       <recent name="com.broject.eutrustlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test1">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="History" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Command.History" />
       <module name="EU-Trust-local" />
@@ -147,8 +172,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test1" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test1" />
         <item itemvalue="Application.History" />
         <item itemvalue="JUnit.DataArchiveTest.newDataArchive" />
         <item itemvalue="JUnit.QueryTest.newQueryFromCriteria" />
@@ -297,7 +322,8 @@
     <MESSAGE value="Incremental POST request" />
     <MESSAGE value="ProviderView ProviderController added. &#10;Note: now back button take u home, i'll adjust." />
     <MESSAGE value="Little Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Little Changes" />
+    <MESSAGE value="Last views added. Founded some bugs on navigation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Last views added. Founded some bugs on navigation." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

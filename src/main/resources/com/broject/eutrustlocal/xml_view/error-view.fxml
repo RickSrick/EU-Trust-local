@@ -7,6 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.Cursor?>
 <VBox alignment="CENTER" spacing="25.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller.ErrorController">
     <Label text="lost">
                 <graphic>
@@ -32,6 +33,9 @@
                   <Image url="@../img/repeat-icon.png" />
             </ImageView>
          </graphic>
+          <cursor>
+              <Cursor fx:constant="HAND"/>
+          </cursor>
       </Button>
 
 </VBox>

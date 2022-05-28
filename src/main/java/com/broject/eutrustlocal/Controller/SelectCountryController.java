@@ -62,31 +62,38 @@ public class SelectCountryController extends SelectController {
             checkBoxes.add(allChecked);
             populateGrid(selCountryPane, checkBoxes, View.COL_NUM, View.ROW_NUM);
         } catch (BadResponseException e) {
-            Main.STAGE.setScene(ErrorView.newErrorView().getScene());
+            Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
     @FXML
     protected void onHomeButtonClick() throws IOException {
         try {
+            //QUERY.clearFilters();
+            Main.STAGE.setScene(HomeView.getInstance().getScene());
             reset();
-            Main.STAGE.setScene(HomeView.newHomeView().getScene());
+            SelectTypeServiceController.reset();
+            SelectProviderController.reset();
+            SelectStatusesController.reset();
+            QUERY.clearFilters();
+            QUERY.clear();
         } catch (BadResponseException e) {
-            Main.STAGE.setScene(ErrorView.newErrorView().getScene());
+            Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
     @FXML
     protected void onForwardButtonClick() throws IOException {
         try {
-            Main.STAGE.setScene(SelectTypeServiceView.newSelectTypeServiceView().getScene());
-        } catch (BadResponseException e) {
-            Main.STAGE.setScene(ErrorView.newErrorView().getScene());
+            Main.STAGE.setScene(SelectTypeServiceView.getInstance(true).getScene());
+        } catch (Exception e) {
+            Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
     @FXML
     public static void reset() {
+        if(checkBoxes==null) return;
         checkBoxes.get(checkBoxes.size() - 1).setSelected(true);
         checkBoxes.get(checkBoxes.size() - 1).setSelected(false);
     }

@@ -10,7 +10,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.GridPane?>
-<VBox alignment="CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller.HomeController" >
+<?import javafx.scene.Cursor?>
+<VBox fx:id="homeRoot" alignment="CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller.HomeController" >
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -39,7 +40,7 @@
            <Label text="Service type available:" style="-fx-font-weight: bold"/>
        </VBox>
    </HBox>
-    <Button onAction="#onSearchByCriteriaClick" style="-fx-background-color: #4a86e8;" text="Search by criteria" textFill="white">
+    <Button onAction="#onSearchByCriteriaClick" style="-fx-background-color: #4a86e8; " text="Search by criteria" textFill="white">
         <font>
             <Font name="Arial Bold" size="20.0" />
         </font>
@@ -48,5 +49,8 @@
                 <Image url="@../img/search-icon.png" />
             </ImageView>
         </graphic>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
     </Button>
 </VBox>
