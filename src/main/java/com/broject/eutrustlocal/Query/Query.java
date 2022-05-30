@@ -116,26 +116,35 @@ public class Query {
         if (filterID < 0)
             return;
 
+        String parameter = _parameter;
+        if (filterID == 1) {
+            Scanner tokenizer = new Scanner(parameter);
+            tokenizer.useDelimiter("/");
+            tokenizer.next();
+            parameter = tokenizer.next();
+            tokenizer.close();
+        }
+
         //updating the archives
-        if (filters.get(filterID).has(_parameter)) {
-            filters.get(filterID).removeParameter(_parameter);
-            if (filterID == 0 && newRequestNeeded && addedCountries.contains(_parameter)) {
-                countriesArchive.remove(_parameter);
-                addedCountries.remove(_parameter);
-                System.out.println("Removing " + _parameter + " : " + addedCountries);                                                      /*------------------------------------------------------------------*/
+        if (filters.get(filterID).has(parameter)) {
+            filters.get(filterID).removeParameter(parameter);
+            if (filterID == 0 && newRequestNeeded && addedCountries.contains(parameter)) {
+                countriesArchive.remove(parameter);
+                addedCountries.remove(parameter);
+                System.out.println("Removing " + parameter + " : " + addedCountries);                                                      /*------------------------------------------------------------------*/
                 if (addedCountries.isEmpty()) {
                     newRequestNeeded = false;
                     System.out.println("Now addedCountries is empty");                                                                      /*------------------------------------------------------------------*/
                 }
             }
         } else {
-            String[] parameterArray = {_parameter};
+            String[] parameterArray = {parameter};
             filters.get(filterID).addParameters(parameterArray);
-            if (filterID == 0 && !fullCountriesArchive && !countriesArchive.contains(_parameter)) {
-                countriesArchive.add(_parameter);
-                addedCountries.add(_parameter);
+            if (filterID == 0 && !fullCountriesArchive && !countriesArchive.contains(parameter)) {
+                countriesArchive.add(parameter);
+                addedCountries.add(parameter);
                 newRequestNeeded = true;
-                System.out.println("Adding " + _parameter + " : " + addedCountries);                                                        /*------------------------------------------------------------------*/
+                System.out.println("Adding " + parameter + " : " + addedCountries);                                                        /*------------------------------------------------------------------*/
             }
         }
 
