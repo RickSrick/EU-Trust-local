@@ -19,10 +19,8 @@ import java.util.ArrayList;
 /**
  * @author Biscaccia Carrara Francesco
  */
-public class HomeController {
+public class HomeController extends SelectController{
 
-    @FXML
-    private VBox homeRoot;
     @FXML
     private GridPane countryGrid;
 
@@ -40,14 +38,14 @@ public class HomeController {
                     ImageView flag = new ImageView(countries.get(elem).getFlag());
                     flag.setFitHeight(HomeView.IMG_SIZE);
                     flag.setFitWidth(HomeView.IMG_SIZE);
-                    countryGrid.add(new Label(countries.get(elem++).getName(), flag), i, j);
+                    Label label=new Label(countries.get(elem++).getName(), flag);
+                    countryGrid.add(label, i, j);
                 }
             }
 
             for (String s : DataArchive.SERVICE_TYPES) {
                 serTypePane.getChildren().add(new Label("• " + s));
             }
-
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
@@ -57,7 +55,6 @@ public class HomeController {
     protected void onSearchByCriteriaClick() throws IOException {
         try {
             Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
-
         } catch (Exception e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }

@@ -27,13 +27,14 @@ public class SelectProviderController extends SelectController{
 
     @FXML
     private void initialize() throws IOException {
+
         checkBoxes=new ArrayList<>();
         try {
-            initCheckBoxArrayProvider(QUERY.getValidProviders(),checkBoxes,btnProviderForward,1);
-            initPaneCheckBoxes(selProviderPane,checkBoxes);
-            aux=selProviderPane;
-            auxBtn=btnProviderForward;
-        } catch (BadResponseException e) {
+            initCheckBoxArrayProvider(QUERY.getValidProviders(), checkBoxes, btnProviderForward, 1);
+            initPaneCheckBoxes(selProviderPane, checkBoxes);
+            aux = selProviderPane;
+            auxBtn = btnProviderForward;
+        }catch (BadResponseException e){
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }

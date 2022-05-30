@@ -122,10 +122,10 @@ public class Query {
             if (filterID == 0 && newRequestNeeded && addedCountries.contains(_parameter)) {
                 countriesArchive.remove(_parameter);
                 addedCountries.remove(_parameter);
-                System.out.println("Removing " + _parameter + " : " + addedCountries);                                                      /*------------------------------------------------------------------*/
+                //System.out.println("Removing " + _parameter + " : " + addedCountries);                                                      /*------------------------------------------------------------------*/
                 if (addedCountries.isEmpty()) {
                     newRequestNeeded = false;
-                    System.out.println("Now addedCountries is empty");                                                                      /*------------------------------------------------------------------*/
+                    //System.out.println("Now addedCountries is empty");                                                                      /*------------------------------------------------------------------*/
                 }
             }
         } else {
@@ -135,7 +135,7 @@ public class Query {
                 countriesArchive.add(_parameter);
                 addedCountries.add(_parameter);
                 newRequestNeeded = true;
-                System.out.println("Adding " + _parameter + " : " + addedCountries);                                                        /*------------------------------------------------------------------*/
+                //System.out.println("Adding " + _parameter + " : " + addedCountries);                                                        /*------------------------------------------------------------------*/
             }
         }
 
@@ -307,7 +307,7 @@ public class Query {
     //IF NEEDED creates a post request and IF NEEDED filters the response
     private void applyFilters() throws BadResponseException {
 
-        System.out.println(getCriteria());                                                                                                  /*------------------------------------------------------------------*/
+        //System.out.println(getCriteria());                                                                                                  /*------------------------------------------------------------------*/
 
         if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
 
@@ -322,8 +322,8 @@ public class Query {
         if (newRequestNeeded) {
             if (addedCountries.isEmpty())
                 addedCountries = filters.get(0).getParameters();
-            System.out.println("Contacting the server; asking for: ");
-            System.out.println(addedCountries);                                                                                             /*------------------------------------------------------------------*/
+            //System.out.println("Contacting the server; asking for: ");
+            //System.out.println(addedCountries);                                                                                             /*------------------------------------------------------------------*/
             ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), DataArchive.SERVICE_TYPES);
             response.addAll(newResponse);
             newRequestNeeded = false;

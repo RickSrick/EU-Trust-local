@@ -1,5 +1,6 @@
 package com.broject.eutrustlocal.Controller;
 
+import com.broject.eutrustlocal.Controller.BackgroundTasks.TaskData;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.DataArchive;
@@ -69,14 +70,12 @@ public class SelectCountryController extends SelectController {
     @FXML
     protected void onHomeButtonClick() throws IOException {
         try {
-            //QUERY.clearFilters();
             Main.STAGE.setScene(HomeView.getInstance().getScene());
             reset();
             SelectTypeServiceController.reset();
             SelectProviderController.reset();
             SelectStatusesController.reset();
             QUERY.clearAllFilters();
-            QUERY.clear();
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
@@ -84,10 +83,16 @@ public class SelectCountryController extends SelectController {
 
     @FXML
     protected void onForwardButtonClick() throws IOException {
-        try {
+        try{
+            Thread th = new Thread(new TaskData(QUERY));
+            th.setDaemon(true);
+            th.start();
+            th.join();
             Main.STAGE.setScene(SelectTypeServiceView.getInstance(true).getScene());
-        } catch (Exception e) {
+        } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 

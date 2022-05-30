@@ -1,0 +1,44 @@
+package com.broject.eutrustlocal.Controller.BackgroundTasks;
+
+import com.broject.eutrustlocal.Creation.BadResponseException;
+import com.broject.eutrustlocal.Creation.DataArchive;
+import com.broject.eutrustlocal.Main;
+import com.broject.eutrustlocal.View.ErrorView;
+import com.broject.eutrustlocal.View.HomeView;
+import javafx.concurrent.Task;
+
+import java.io.IOException;
+
+public class TaskCountry extends Task<Void> {
+
+    @Override
+    protected Void call() throws Exception {
+        try{
+            DataArchive.newDataArchive().getCountries();
+            Thread.sleep(1000);
+        }catch (BadResponseException e){
+            failed();
+        }
+        return null;
+    }
+
+    @Override
+    protected void succeeded() {
+        super.succeeded();
+        try {
+            Main.STAGE.setScene(HomeView.getInstance().getScene());
+        } catch (BadResponseException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    protected void failed() {
+        super.failed();
+        try {
+            Main.STAGE.setScene(ErrorView.getInstance().getScene());
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+}

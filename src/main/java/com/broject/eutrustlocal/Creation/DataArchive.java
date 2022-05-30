@@ -189,7 +189,7 @@ public class DataArchive {
         }
         jsonPOST.append(" ] }");
 
-        System.out.println(jsonPOST);                                                                                            /*------------------------------------------------------------------*/
+        //System.out.println(jsonPOST);                                                                                            /*------------------------------------------------------------------*/
 
         String json = connection.findTrustServices(jsonPOST.toString());
 

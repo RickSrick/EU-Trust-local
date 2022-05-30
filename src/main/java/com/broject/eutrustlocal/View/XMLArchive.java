@@ -12,7 +12,7 @@ public final class XMLArchive {
     public static final FXMLLoader COUNTRY_LIST_SCENE = new FXMLLoader(Main.class.getResource("xml_view/countryList-view.fxml"));
     public static  final FXMLLoader SERVICE_TYPE_LIST_SCENE= new FXMLLoader(Main.class.getResource("xml_view/serviceTypeList-view.fxml"));
     public static  final FXMLLoader PROVIDER_LIST_SCENE= new FXMLLoader(Main.class.getResource("xml_view/providerList-view.fxml"));
-
     public static  final FXMLLoader STATUSES_LIST_SCENE = new FXMLLoader(Main.class.getResource("xml_view/statusesList-view.fxml"));
     public static  final FXMLLoader RESULT_LIST_SCENE = new FXMLLoader(Main.class.getResource("xml_view/resultList-view.fxml"));
+    public static final FXMLLoader SPLASH_SCREEN_SCENE= new FXMLLoader(Main.class.getResource("xml_view/splashScreen-view.fxml"));
 }

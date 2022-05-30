@@ -1,10 +1,11 @@
 package com.broject.eutrustlocal.Controller;
 
+import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.Data.Service;
+import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Query.Query;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -44,13 +45,13 @@ public abstract class SelectController {
         }
     }
 
-    protected static void initCheckBoxArrayProvider(ArrayList<Provider> data, ArrayList<CheckBox> arrayToFill, Button btnId, int filter_type) {
+    protected static void initCheckBoxArrayProvider(ArrayList<Provider> data, ArrayList<CheckBox> arrayToFill, Button btnId, int filter_type) throws BadResponseException {
         arrayToFill.clear();
 
         for (Provider s : data) {
             CheckBox checkBox = new CheckBox(s.getName());
-            checkBox.setId(s.getName());
-            ImageView flag= new ImageView(new Image(s.getFlagLink(),true));
+            checkBox.setId(s.getCountryCode()+"/"+s.getName());
+            ImageView flag= new ImageView(DataArchive.newDataArchive().getCountry(s.getCountryCode()).getFlag());
             flag.setFitHeight(20);
             flag.setFitWidth(20);
             checkBox.setGraphic(flag);
@@ -94,15 +95,23 @@ public abstract class SelectController {
         }
     }
 
-    protected static void initPaneLabel(TreeView<Label> treeView, ArrayList<Provider> data) {
+    protected static void initPaneLabel(TreeView<Label> treeView, ArrayList<Provider> data) throws BadResponseException {
         TreeItem<Label> start = new TreeItem<>(new Label("ONLY FOR START"));
         for(int i=0;i<data.size();i++){
-            ImageView flag=new ImageView(new Image(data.get(i).getFlagLink(),true));
+            ImageView flag=new ImageView(DataArchive.newDataArchive().getCountry(data.get(i).getCountryCode()).getFlag());
             flag.setFitHeight(25);
             flag.setFitWidth(25);
             TreeItem<Label> treeItem = new TreeItem<>(new Label(data.get(i).getName(),flag));
             for (Service s: data.get(i).getServices()) {
-                treeItem.getChildren().add(new TreeItem<>(new Label(s.getName())));
+                Label status = new Label(s.getStatus()+" ");
+                status.setStyle("-fx-text-fill:white;-fx-background-color:black;-fx-background-radius:0.2em;");
+                if(s.getStatus().equalsIgnoreCase("granted")){
+                    status.setStyle("-fx-text-fill:white;-fx-background-color:green;-fx-background-radius:0.2em");
+                }
+                if(s.getStatus().equalsIgnoreCase("deprecatedatnationallevel")){
+                    status.setStyle("-fx-text-fill:white;-fx-background-color:firebrick;-fx-background-radius:0.2em");
+                }
+                treeItem.getChildren().add(new TreeItem<>(new Label(s.getName(),status)));
             }
             start.getChildren().add(treeItem);
         }

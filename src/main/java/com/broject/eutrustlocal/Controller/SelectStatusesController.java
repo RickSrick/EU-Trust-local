@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class SelectStatusesController extends SelectController{
 
     private static final int COLUMNS=1;
-    private static final int ROWS=4;
+    private static final int ROWS=5;
 
     private static ArrayList<CheckBox> checkBoxes;
     @FXML

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller.SplashScreenController" >
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Local" textFill="#4a86e8">
+      <font>
+          <Font name="Arial Bold" size="48.0" />
+      </font>
+      <graphic>
+         <Label text="Trust Service">
+            <graphic>
+               <Label text="EU" textFill="#4a86e8">
+                  <font>
+                     <Font name="Arial Bold" size="48.0" />
+                  </font>
+                   <graphic>
+                   <ImageView fitHeight="96.0" fitWidth="96.0" >
+                       <Image url="@../img/logo-icon.png" />
+                   </ImageView>
+               </graphic>
+               </Label>
+            </graphic>
+            <font>
+                <Font name="Arial Bold" size="48.0" />
+            </font>
+
+         </Label>
+      </graphic></Label>
+    <ImageView fx:id="loadingImage" fitHeight="100.0" fitWidth="100.0">
+        <Image url="@../img/loading-icon.png" />
+    </ImageView>
+    <Label text="Connection to the server..." textFill="#4a86e8">
+    <font>
+        <Font name="Arial Bold" size="24.0" />
+    </font></Label>
+</VBox>

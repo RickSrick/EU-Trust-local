@@ -6,7 +6,6 @@ import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.HomeView;
 import com.broject.eutrustlocal.View.SelectCountryView;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeView;
 
@@ -16,10 +15,7 @@ public class ResultController extends SelectController{
 
     @FXML
     private TreeView<Label> resultPane;
-    @FXML
-    private Button btnResultNewSearch;
-    private static TreeView aux;
-    private static Button auxBtn;
+    private static TreeView<Label> aux;
 
 
     @FXML
@@ -27,7 +23,6 @@ public class ResultController extends SelectController{
         try {
             initPaneLabel(resultPane, QUERY.getValidProviders());
             aux= resultPane;
-            auxBtn= btnResultNewSearch;
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
@@ -36,7 +31,7 @@ public class ResultController extends SelectController{
     @FXML
     public static void update() throws BadResponseException {
         aux.getRoot().getChildren().clear();
-        initPaneLabel(aux, QUERY.getValidProviders());
+        initPaneLabel(aux,QUERY.getValidProviders());
     }
     public void onSearchByCriteriaClick() throws IOException{
         try {
@@ -46,7 +41,6 @@ public class ResultController extends SelectController{
             SelectProviderController.reset();
             SelectStatusesController.reset();
             QUERY.clearAllFilters();
-            QUERY.clear();
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
@@ -60,7 +54,6 @@ public class ResultController extends SelectController{
             SelectProviderController.reset();
             SelectStatusesController.reset();
             QUERY.clearAllFilters();
-            QUERY.clear();
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }

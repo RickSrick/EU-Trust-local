@@ -31,6 +31,7 @@ public class FilterProvider extends Filter {
                 tokenizer.useDelimiter("/");
                 tokenizer.next();
                 parameter = tokenizer.next();
+                tokenizer.close();
                 if (provider.getName().equals(parameter)) {
                     filteredProviders.add(provider);
                     break;
