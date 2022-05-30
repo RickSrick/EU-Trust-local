@@ -3,6 +3,7 @@ package com.broject.eutrustlocal.Query.Filter;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * @author Zanella Matteo
@@ -26,6 +27,10 @@ public class FilterProvider extends Filter {
 
         for (Provider provider : _response) {
             for (String parameter : parameters) {
+                Scanner tokenizer = new Scanner(parameter);
+                tokenizer.useDelimiter("/");
+                tokenizer.next();
+                parameter = tokenizer.next();
                 if (provider.getName().equals(parameter)) {
                     filteredProviders.add(provider);
                     break;
