@@ -23,7 +23,7 @@ public class FilterCountry extends Filter {
     public ArrayList<String> getParameters() throws BadResponseException {
 
         if (parameters.isEmpty())
-            return DataArchive.newDataArchive().getCountryCodes();
+            return DataArchive.getCountryCodes();
 
         return parameters;
 

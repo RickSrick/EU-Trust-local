@@ -13,14 +13,16 @@ public class Provider {
     private final String flagLink;
     private final ArrayList<Service> services;
     private final ArrayList<String> serviceTypes;
+    private final int providerID;
 
-    public Provider(String _providerName, String _countryCode, String _flagLink) {
+    public Provider(String _providerName, String _countryCode, String _flagLink, int _providerID) {
 
         providerName = _providerName;
         countryCode = _countryCode;
         flagLink = _flagLink;
         services = new ArrayList<>();
         serviceTypes = new ArrayList<>();
+        providerID = _providerID;
 
     }
 
@@ -54,6 +56,12 @@ public class Provider {
 
     }
 
+    public int getProviderID() {
+
+        return providerID;
+
+    }
+
     public void addService(Service _service) {
 
         if (!services.contains(_service))
@@ -74,7 +82,7 @@ public class Provider {
         if (_provider == null || _provider.getClass() != Provider.class)
             return false;
 
-        return providerName.equals(((Provider) _provider).providerName);
+        return providerName.equals(((Provider) _provider).providerName) && countryCode.equals(((Provider)_provider).getCountryCode()) && providerID == ((Provider)_provider).getProviderID();
 
     }
 

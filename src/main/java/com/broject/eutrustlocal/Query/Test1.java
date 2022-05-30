@@ -1,6 +1,8 @@
 package com.broject.eutrustlocal.Query;
 
 import com.broject.eutrustlocal.Creation.BadResponseException;
+import com.broject.eutrustlocal.Creation.Data.Provider;
+import com.broject.eutrustlocal.Creation.Data.Service;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -16,13 +18,9 @@ public class Test1 {
         ArrayList<String> types = new ArrayList<>();
         ArrayList<String> statuses = new ArrayList<>();
 
-        countries.add("IT");
-
-        executeRequest(query, countries , providers, types, statuses);
-
-        countries.clear();
-        countries.add("UK");
-        types.add("NonRegulatory");
+        countries.add("CZ");
+        countries.add("SK");
+        providers.add("First certification authority, a.s.");
 
         executeRequest(query, countries , providers, types, statuses);
 
@@ -43,7 +41,7 @@ public class Test1 {
 
         ArrayList<String> types = _query.getValidServiceTypes();
         ArrayList<String> statuses = _query.getValidServiceStatuses();
-        //ArrayList<String> providers = _query.getValidProviders();
+        ArrayList<Provider> providers = _query.getValidProviders();
         //ArrayList<String> services = _query.getValidServices();
 
         System.out.println("\n-------- RESULTS: --------");
@@ -57,12 +55,13 @@ public class Test1 {
             System.out.println(status);
 
         System.out.println("-- PROVIDERS: --");
-        /*for (String provider : providers)
-            System.out.println(provider);*/
+        for (Provider provider : providers)
+            System.out.println(provider.getName());
 
-        /*System.out.println("-- SERVICES: --");
-        for (String service : services)
-            System.out.println(service);*/
+        System.out.println("-- SERVICES: --");
+        for (Provider provider : providers)
+            for (Service service : provider.getServices())
+                System.out.println(service.getName());
 
 
         System.out.println("----------------------------");

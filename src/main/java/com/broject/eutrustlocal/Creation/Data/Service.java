@@ -12,13 +12,15 @@ public class Service {
     private final String serviceName;
     private final String serviceStatus;
     private final ArrayList<String> serviceTypes;
+    private final int serviceID;
 
-    public Service(String _serviceName, String[] _serviceTypes, String _serviceStatus) {
+    public Service(String _serviceName, String[] _serviceTypes, String _serviceStatus, int _serviceID) {
 
         serviceName = _serviceName;
         serviceTypes = new ArrayList<>();
         Collections.addAll(serviceTypes, _serviceTypes);
         serviceStatus = _serviceStatus;
+        serviceID = _serviceID;
 
     }
 
@@ -40,13 +42,19 @@ public class Service {
 
     }
 
+    public int getServiceID() {
+
+        return serviceID;
+
+    }
+
     @Override
     public boolean equals(Object _service) {
 
         if (_service == null || _service.getClass() != Service.class)
             return false;
 
-        return serviceName.equals(((Service) _service).serviceName) && serviceStatus.equals(((Service)_service).serviceStatus) && serviceTypes.equals(((Service)_service).getServiceTypes());
+        return serviceName.equals(((Service) _service).serviceName) && serviceID == ((Service)_service).getServiceID();
 
     }
 

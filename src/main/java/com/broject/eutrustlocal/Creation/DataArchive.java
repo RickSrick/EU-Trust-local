@@ -129,6 +129,21 @@ public class DataArchive {
 
     }
 
+    public Country getCountry(String _countryCode) {
+
+        int index = -1;
+
+        for (int i = 0; i < countries.size(); i++)
+            if (countries.get(i).getCountryCode().equals(_countryCode))
+                index = i;
+
+        if (index == -1)
+            throw new IllegalArgumentException("Country Code not found");
+
+        return countries.get(index);
+
+    }
+
     /**
      * Returns the number of countries in the UE
      *
@@ -194,7 +209,7 @@ public class DataArchive {
 
             JSONObject JSONProvider = jsonPOST.getJSONObject(i);
 
-            Provider provider = new Provider(JSONProvider.getString("name"), JSONProvider.getString("countryCode"), connection.getFlagImageLink(JSONProvider.getString("countryCode")));
+            Provider provider = new Provider(JSONProvider.getString("name"), JSONProvider.getString("countryCode"), connection.getFlagImageLink(JSONProvider.getString("countryCode")), JSONProvider.getInt("tspId"));
 
             JSONArray JSONServices = JSONProvider.getJSONArray("services");
             JSONArray JSONProviderServiceTypes = new JSONArray();
@@ -213,8 +228,9 @@ public class DataArchive {
                     serviceTypes[k] = JSONServiceTypes.getString(k);
 
                 String serviceStatus = JSONService.getString("currentStatus").substring(50);
+                int serviceID = JSONService.getInt("serviceId");
 
-                Service service = new Service(serviceName, serviceTypes, serviceStatus);
+                Service service = new Service(serviceName, serviceTypes, serviceStatus, serviceID);
 
                 provider.addService(service);
 
