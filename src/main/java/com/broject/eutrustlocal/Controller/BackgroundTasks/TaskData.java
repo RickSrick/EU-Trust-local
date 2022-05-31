@@ -18,7 +18,6 @@ public class TaskData extends Task<Void> {
 
     @Override
     protected Void call(){
-        Main.STAGE.getScene().getRoot().setCursor(Cursor.WAIT);
         try{
             query.getValidProviders();
         }catch (BadResponseException e){
@@ -30,7 +29,6 @@ public class TaskData extends Task<Void> {
     @Override
     protected void succeeded() {
         super.succeeded();
-        Main.STAGE.getScene().setCursor(Cursor.DEFAULT);
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.Query.Query;
 import com.broject.eutrustlocal.View.*;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
@@ -84,10 +85,12 @@ public class SelectCountryController extends SelectController {
     @FXML
     protected void onForwardButtonClick() throws IOException {
         try{
+            Main.STAGE.getScene().getRoot().setCursor(Cursor.WAIT);
             Thread th = new Thread(new TaskData(QUERY));
             th.setDaemon(true);
             th.start();
             th.join();
+            Main.STAGE.getScene().getRoot().setCursor(Cursor.DEFAULT);
             Main.STAGE.setScene(SelectTypeServiceView.getInstance(true).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
