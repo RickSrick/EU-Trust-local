@@ -1,27 +1,21 @@
-package com.broject.eutrustlocal.Controller.BackgroundTasks;
+package com.broject.eutrustlocal.Controller.Utility.BackgroundTasks;
 
 import com.broject.eutrustlocal.Creation.BadResponseException;
+import com.broject.eutrustlocal.Creation.DataArchive;
 import com.broject.eutrustlocal.Main;
-import com.broject.eutrustlocal.Query.Query;
 import com.broject.eutrustlocal.View.ErrorView;
+import com.broject.eutrustlocal.View.HomeView;
 import javafx.concurrent.Task;
-import javafx.scene.Cursor;
 
 import java.io.IOException;
 
-public class TaskData extends Task<Void> {
-
-    private final Query query;
-    public TaskData(Query _query){
-        query=_query;
-    }
+public class TaskCountry extends Task<Void> {
 
     @Override
-    protected Void call(){
+    protected Void call() throws Exception {
         try{
-            Main.STAGE.getScene().getRoot().setCursor(Cursor.WAIT);
-            query.getValidProviders();
-            Main.STAGE.getScene().getRoot().setCursor(Cursor.DEFAULT);
+            DataArchive.newDataArchive().getCountries();
+            Thread.sleep(1000);
         }catch (BadResponseException e){
             failed();
         }
@@ -31,6 +25,11 @@ public class TaskData extends Task<Void> {
     @Override
     protected void succeeded() {
         super.succeeded();
+        try {
+            Main.STAGE.setScene(HomeView.getInstance().getScene());
+        } catch (BadResponseException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -42,5 +41,4 @@ public class TaskData extends Task<Void> {
             throw new RuntimeException(ex);
         }
     }
-
 }

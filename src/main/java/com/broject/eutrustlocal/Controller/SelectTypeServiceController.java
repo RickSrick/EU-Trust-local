@@ -1,5 +1,7 @@
 package com.broject.eutrustlocal.Controller;
 
+import com.broject.eutrustlocal.Controller.Utility.DataParsing;
+import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.Query.Query;
@@ -12,12 +14,15 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class SelectTypeServiceController extends SelectController{
+public class SelectTypeServiceController extends DataController {
 
     private static final int COLUMNS=3;
     private static final int ROWS=7;
+    private static final int FILTER_TYPE=2; //SERVICE_TYPE
 
     private static ArrayList<CheckBox> checkBoxes;
     @FXML
@@ -29,23 +34,23 @@ public class SelectTypeServiceController extends SelectController{
 
 
     @FXML
-    private void initialize() throws IOException {
+    public void initialize() throws IOException {
         checkBoxes=new ArrayList<>();
         try {
-            initCheckBoxArrayString(QUERY.getValidServiceTypes(), checkBoxes,btnServiceTypeForward,2);
-            populateGrid(selServiceTypePane,checkBoxes,COLUMNS,ROWS);
+            DataParsing.checkBoxesFromStrings(QUERY.getValidServiceTypes(),checkBoxes,btnServiceTypeForward,QUERY,FILTER_TYPE);
+            ViewRender.gridPaneFromCheckBoxes(selServiceTypePane,checkBoxes,COLUMNS,ROWS);
             aux=selServiceTypePane;
             auxBtn=btnServiceTypeForward;
         } catch (BadResponseException e) {
-            Main.STAGE.setScene(ErrorView.getInstance().getScene());
+                Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
     @FXML
     public static void update() throws BadResponseException {
-        initCheckBoxArrayString(QUERY.getValidServiceTypes(), checkBoxes,auxBtn,2);
+        DataParsing.checkBoxesFromStrings(QUERY.getValidServiceTypes(),checkBoxes,auxBtn,QUERY,FILTER_TYPE);
         aux.getChildren().clear();
-        populateGrid(aux,checkBoxes,COLUMNS,ROWS);
+        ViewRender.gridPaneFromCheckBoxes(aux,checkBoxes,COLUMNS,ROWS);
     }
     public void onForwardButtonClick() throws IOException {
         try {
@@ -57,16 +62,14 @@ public class SelectTypeServiceController extends SelectController{
 
     public void onBackButtonClick() throws IOException {
         try {
-            QUERY.clearFilter(Query.CRITERIA_FILTERS[2]);
+            QUERY.clearFilter(Query.CRITERIA_FILTERS[FILTER_TYPE]);
             Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
     @FXML
-    public static void reset(){
-        if(checkBoxes==null) return;
-        checkBoxes.get(checkBoxes.size() - 1).setSelected(true);
-        checkBoxes.get(checkBoxes.size() - 1).setSelected(false);
+    public void reset() {
+        reset(checkBoxes);
     }
 }

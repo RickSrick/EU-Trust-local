@@ -24,6 +24,6 @@ public class SelectProviderView extends View{
     }
 
     public static void update() throws BadResponseException {
-        SelectProviderController.update();
+        new SelectProviderController().update();
     }
 }

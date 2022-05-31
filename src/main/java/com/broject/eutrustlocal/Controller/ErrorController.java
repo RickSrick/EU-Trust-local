@@ -1,5 +1,6 @@
 package com.broject.eutrustlocal.Controller;
 
+import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.View.HomeView;
@@ -27,22 +28,19 @@ public class ErrorController {
     private ImageView repeatImg;
 
     @FXML
-    public void initialize(){
+    private void initialize(){
         int randomNum = rand.nextInt((MAX_RAND - MIN_RAND) + 1) + MIN_RAND;
         errorImage.setImage(new Image(String.valueOf(Main.class.getResource("gif/error-" + randomNum + ".gif"))));
 
     }
     @FXML
-    protected void onRepeatButtonClick() {
-        RotateTransition transition = new RotateTransition(Duration.millis(700),repeatImg);
+    public void onRepeatButtonClick() {
+        RotateTransition transition = new RotateTransition(Duration.millis(600),repeatImg);
         transition.setByAngle(360);
         transition.setOnFinished(actionEvent -> {
             try {
                 Main.STAGE.setScene(HomeView.getInstance().getScene());
-                SelectCountryController.reset();
-                SelectTypeServiceController.reset();
-                SelectProviderController.reset();
-                SelectStatusesController.reset();
+                ViewRender.resetAllSelectView();
             } catch (BadResponseException e) {
                 int randomNum = rand.nextInt((MAX_RAND - MIN_RAND) + 1) + MIN_RAND;
                 errorImage.setImage(new Image(String.valueOf(Main.class.getResource("gif/error-" + randomNum + ".gif"))));

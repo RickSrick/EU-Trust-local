@@ -10,8 +10,6 @@ module com.broject.eutrustlocal {
 
     opens com.broject.eutrustlocal to javafx.fxml;
     exports com.broject.eutrustlocal;
-    exports com.broject.eutrustlocal.Command;
-    opens com.broject.eutrustlocal.Command to javafx.fxml;
     exports com.broject.eutrustlocal.Controller;
     opens com.broject.eutrustlocal.Controller to javafx.fxml;
 }

@@ -1,5 +1,7 @@
 package com.broject.eutrustlocal.Controller;
 
+import com.broject.eutrustlocal.Controller.Utility.DataParsing;
+import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.Query.Query;
@@ -12,12 +14,15 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class SelectStatusesController extends SelectController{
+public class SelectStatusesController extends DataController {
 
     private static final int COLUMNS=1;
     private static final int ROWS=5;
+    private  static final int FILTER_TYPE=3; //SERVICE_STATUS
 
     private static ArrayList<CheckBox> checkBoxes;
     @FXML
@@ -32,8 +37,8 @@ public class SelectStatusesController extends SelectController{
     private void initialize() throws IOException {
         checkBoxes=new ArrayList<>();
         try {
-            initCheckBoxArrayString(QUERY.getValidServiceStatuses(), checkBoxes, btnFinishQueryForward,3);
-            populateGrid(selStatusesPane,checkBoxes,COLUMNS,ROWS);
+            DataParsing.checkBoxesFromStrings(QUERY.getValidServiceStatuses(),checkBoxes,btnFinishQueryForward,QUERY,FILTER_TYPE);
+            ViewRender.gridPaneFromCheckBoxes(selStatusesPane,checkBoxes,COLUMNS,ROWS);
             aux= selStatusesPane;
             auxBtn= btnFinishQueryForward;
         } catch (BadResponseException e) {
@@ -43,9 +48,9 @@ public class SelectStatusesController extends SelectController{
 
     @FXML
     public static void update() throws BadResponseException {
-        initCheckBoxArrayString(QUERY.getValidServiceStatuses(), checkBoxes,auxBtn,3);
+        DataParsing.checkBoxesFromStrings(QUERY.getValidServiceStatuses(),checkBoxes,auxBtn,QUERY,FILTER_TYPE);
         aux.getChildren().clear();
-        populateGrid(aux,checkBoxes,COLUMNS,ROWS);
+        ViewRender.gridPaneFromCheckBoxes(aux,checkBoxes,COLUMNS,ROWS);
     }
     public void onForwardButtonClick() throws IOException {
         try {
@@ -57,16 +62,14 @@ public class SelectStatusesController extends SelectController{
 
     public void onBackButtonClick() throws IOException {
         try {
-            QUERY.clearFilter(Query.CRITERIA_FILTERS[3]);
+            QUERY.clearFilter(Query.CRITERIA_FILTERS[FILTER_TYPE]);
             Main.STAGE.setScene(SelectProviderView.getInstance(false).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
     @FXML
-    public static void reset(){
-        if(checkBoxes==null) return;
-        checkBoxes.get(checkBoxes.size() - 1).setSelected(true);
-        checkBoxes.get(checkBoxes.size() - 1).setSelected(false);
+    public void reset() {
+        reset(checkBoxes);
     }
 }
