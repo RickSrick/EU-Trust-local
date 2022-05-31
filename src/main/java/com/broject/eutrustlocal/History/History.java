@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+
+
 public class History {
 
     private static final String path = "src/main/java/com/broject/eutrustlocal/History/History.bin";
@@ -34,7 +36,7 @@ public class History {
         writer.close();
     }
 
-    public static ArrayList<String> binReader() throws FileNotFoundException {
+    private static ArrayList<String> binReader() throws FileNotFoundException {
         ArrayList<String> history = new ArrayList<>();
         Scanner in = new Scanner(new FileReader(path));
         while(in.hasNextLine()){
@@ -45,6 +47,10 @@ public class History {
         return history;
     }
 
+    public static String binArrayAccess( int i) throws FileNotFoundException {
+        String out = binReader().get(i);
+        return out;
+    }
     private static String binaryConverter(String in){
 
         return  Arrays.stream(in.split(" "))

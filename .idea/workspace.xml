@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String)).">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Navigation problems fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +77,7 @@
       <recent name="com.broject.eutrustlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Test1">
     <configuration name="History" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Command.History" />
       <module name="EU-Trust-local" />
@@ -148,8 +151,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test1" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.History" />
         <item itemvalue="JUnit.DataArchiveTest.newDataArchive" />
         <item itemvalue="JUnit.QueryTest.newQueryFromCriteria" />
@@ -343,6 +346,16 @@
     <MESSAGE value="Added method to DataArchive to get a Country given it's countryCode.&#10;Added functionality that recognise two providers as differents even if they have the same name (same with services)&#10;TODO: recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
     <MESSAGE value="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
     <option name="LAST_COMMIT_MESSAGE" value="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

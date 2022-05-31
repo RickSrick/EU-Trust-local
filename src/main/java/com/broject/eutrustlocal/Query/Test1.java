@@ -3,6 +3,7 @@ package com.broject.eutrustlocal.Query;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.Data.Service;
+import com.broject.eutrustlocal.History.History;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -20,9 +21,12 @@ public class Test1 {
 
         countries.add("CZ");
         countries.add("SK");
-        providers.add("First certification authority, a.s.");
+        //providers.add("First certification authority, a.s.");
 
         executeRequest(query, countries , providers, types, statuses);
+        History.binWriter(query.getCriteria());
+
+        System.out.println("KABIR " + History.binArrayAccess(1));
 
     }
 
