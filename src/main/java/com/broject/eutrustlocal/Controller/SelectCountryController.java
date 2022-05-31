@@ -85,12 +85,10 @@ public class SelectCountryController extends SelectController {
     @FXML
     protected void onForwardButtonClick() throws IOException {
         try{
-            Main.STAGE.getScene().getRoot().setCursor(Cursor.WAIT);
             Thread th = new Thread(new TaskData(QUERY));
             th.setDaemon(true);
             th.start();
             th.join();
-            Main.STAGE.getScene().getRoot().setCursor(Cursor.DEFAULT);
             Main.STAGE.setScene(SelectTypeServiceView.getInstance(true).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());

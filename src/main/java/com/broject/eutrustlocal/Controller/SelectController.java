@@ -105,14 +105,11 @@ public abstract class SelectController {
             for (Service s: data.get(i).getServices()) {
                 Label status = new Label(s.getStatus()+" ");
                 status.getStyleClass().add("status");
-                //status.setStyle("-fx-text-fill:white;-fx-background-color:black;-fx-background-radius:0.2em;");
                 if(s.getStatus().equalsIgnoreCase("granted")){
                     status.getStyleClass().add("granted");
-                    //status.setStyle("-fx-text-fill:white;-fx-background-color:green;-fx-background-radius:0.2em");
                 }
                 if(s.getStatus().equalsIgnoreCase("deprecatedatnationallevel")){
                     status.getStyleClass().add("deprecated");
-                    //status.setStyle("-fx-text-fill:white;-fx-background-color:firebrick;-fx-background-radius:0.2em");
                 }
                 treeItem.getChildren().add(new TreeItem<>(new Label(s.getName(),status)));
             }

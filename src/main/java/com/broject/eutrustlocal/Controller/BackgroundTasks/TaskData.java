@@ -19,7 +19,9 @@ public class TaskData extends Task<Void> {
     @Override
     protected Void call(){
         try{
+            Main.STAGE.getScene().getRoot().setCursor(Cursor.WAIT);
             query.getValidProviders();
+            Main.STAGE.getScene().getRoot().setCursor(Cursor.DEFAULT);
         }catch (BadResponseException e){
             failed();
         }
