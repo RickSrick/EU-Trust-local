@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Little Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String)).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/DataArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/DataArchive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterCountry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterCountry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +74,7 @@
       <recent name="com.broject.eutrustlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test1">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="History" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Command.History" />
       <module name="EU-Trust-local" />
@@ -156,8 +148,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test1" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test1" />
         <item itemvalue="Application.History" />
         <item itemvalue="JUnit.DataArchiveTest.newDataArchive" />
         <item itemvalue="JUnit.QueryTest.newQueryFromCriteria" />
@@ -188,6 +180,7 @@
       <workItem from="1653741462588" duration="228000" />
       <workItem from="1653745101497" duration="360000" />
       <workItem from="1653745479642" duration="862000" />
+      <workItem from="1653926662494" duration="2070000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing warnings">
       <created>1653138493688</created>
@@ -287,7 +280,35 @@
       <option name="project" value="LOCAL" />
       <updated>1653748894997</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added method to DataArchive to get a Country given it's countryCode.&#10;Added functionality that recognise two providers as differents even if they have the same name (same with services)&#10;TODO: recognise as different two providers with the same name when editing the query (editFilterParameter(String, String)).">
+      <created>1653910928785</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1653910928785</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String)).">
+      <created>1653927312832</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1653927312832</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String)).">
+      <created>1653927531270</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1653927531270</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String)).">
+      <created>1653927702820</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1653927702820</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +340,9 @@
     <MESSAGE value="Little Changes" />
     <MESSAGE value="Last views added. Founded some bugs on navigation." />
     <MESSAGE value="Navigation problems fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Navigation problems fixed." />
+    <MESSAGE value="Added method to DataArchive to get a Country given it's countryCode.&#10;Added functionality that recognise two providers as differents even if they have the same name (same with services)&#10;TODO: recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
+    <MESSAGE value="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
+    <option name="LAST_COMMIT_MESSAGE" value="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

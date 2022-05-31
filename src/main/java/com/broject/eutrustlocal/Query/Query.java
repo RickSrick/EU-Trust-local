@@ -122,11 +122,8 @@ public class Query {
             if (filterID == 0 && newRequestNeeded && addedCountries.contains(_parameter)) {
                 countriesArchive.remove(_parameter);
                 addedCountries.remove(_parameter);
-                //System.out.println("Removing " + _parameter + " : " + addedCountries);                                                      /*------------------------------------------------------------------*/
-                if (addedCountries.isEmpty()) {
+                if (addedCountries.isEmpty())
                     newRequestNeeded = false;
-                    //System.out.println("Now addedCountries is empty");                                                                      /*------------------------------------------------------------------*/
-                }
             }
         } else {
             String[] parameterArray = {_parameter};
@@ -135,37 +132,12 @@ public class Query {
                 countriesArchive.add(_parameter);
                 addedCountries.add(_parameter);
                 newRequestNeeded = true;
-                //System.out.println("Adding " + _parameter + " : " + addedCountries);                                                        /*------------------------------------------------------------------*/
             }
         }
 
         newFilteringNeeded = true;
 
     }
-
-    /**
-     * Returns the names of all the valid services due to the current parameters selected
-     * IF NECESSARY, makes a post request
-     *
-     * @return all the services that respect the filters
-     * @throws BadResponseException if there is a problem with the POST request
-     */
-    /*public ArrayList<String> getValidServices() throws BadResponseException {
-
-        if (newFilteringNeeded)
-            applyFilters();
-
-        ArrayList<String> services = new ArrayList<>();
-
-        for (Provider provider : filteredResponse) {
-            ArrayList<Service> providerServices = provider.getServices();
-            for (Service providerService : providerServices)
-                services.add(providerService.getName());
-        }
-
-        return services;
-
-    }*/
 
     /**
      * Returns all the valid providers due to the current parameters selected
@@ -307,8 +279,6 @@ public class Query {
     //IF NEEDED creates a post request and IF NEEDED filters the response
     private void applyFilters() throws BadResponseException {
 
-        //System.out.println(getCriteria());                                                                                                  /*------------------------------------------------------------------*/
-
         if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
 
             if (!fullCountriesArchive && filters.get(0).isEmpty()) {
@@ -322,8 +292,6 @@ public class Query {
         if (newRequestNeeded) {
             if (addedCountries.isEmpty())
                 addedCountries = filters.get(0).getParameters();
-            //System.out.println("Contacting the server; asking for: ");
-            //System.out.println(addedCountries);                                                                                             /*------------------------------------------------------------------*/
             ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), DataArchive.SERVICE_TYPES);
             response.addAll(newResponse);
             newRequestNeeded = false;
