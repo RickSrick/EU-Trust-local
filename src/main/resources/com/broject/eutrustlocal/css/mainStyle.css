@@ -45,12 +45,19 @@
     -fx-background-color: derive(#4a86e8,0.0%);
 }
 
-.tree-view, .tree-cell {
-    -fx-background-color: transparent ;
+.countrySrc:hover{
+        -fx-scale-x: 1.1;
+        -fx-scale-y: 1.1;
 }
-.tree-cell:expanded, .tree-cell:sub-tree-item {
-    -fx-background-color: transparent ;
+.status{
+    -fx-text-fill:white;
+    -fx-background-color:#4b4b4b;
+    -fx-background-radius:0.2em;
 }
-.tree-cell:selected {
-    -fx-fill-color: black ;
+
+.status.granted{
+-fx-background-color:#48bf91;
+}
+.status.deprecated{
+-fx-background-color:#E2365D;
 }

@@ -16,8 +16,6 @@ public class ResultController extends SelectController{
     @FXML
     private TreeView<Label> resultPane;
     private static TreeView<Label> aux;
-
-
     @FXML
     private void initialize() throws IOException {
         try {

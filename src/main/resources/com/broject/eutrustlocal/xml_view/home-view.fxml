@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox fx:id="homeRoot" alignment="CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller.HomeController" >
+<?import javafx.scene.shape.CubicCurve?>
+<VBox fx:id="homeRoot" alignment="CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.broject.eutrustlocal.Controller.HomeController" stylesheets="@../css/mainStyle.css">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -33,7 +34,11 @@
          </Label>
       </graphic></Label>
    <HBox prefHeight="100.0" prefWidth="200.0" alignment="CENTER" spacing="50">
-       <GridPane fx:id="countryGrid" hgap="20" vgap="20" style="-fx-font-family: Arial"/>
+       <GridPane fx:id="countryGrid" hgap="20" vgap="20" style="-fx-font-family: Arial">
+           <cursor>
+               <Cursor fx:constant="HAND"/>
+           </cursor>
+       </GridPane>
        <VBox fx:id="serTypePane">
            <Label text="Service type available:" style="-fx-font-weight: bold"/>
        </VBox>
