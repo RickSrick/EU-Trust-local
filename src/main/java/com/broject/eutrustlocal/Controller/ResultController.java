@@ -12,32 +12,25 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TreeView;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ResultController extends DataController {
 
     @FXML
     private TreeView<Label> resultPane;
-    private static TreeView<Label> aux;
+    private static TreeView<Label> dummyTreeView;
 
     @FXML
-    public void initialize() throws IOException {
+    private void initialize() throws IOException {
         try {
             ViewRender.treeViewFromProviders(resultPane, QUERY.getValidProviders());
-            aux = resultPane;
+            dummyTreeView = resultPane;
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
     @FXML
-    public static void update() throws BadResponseException {
-        aux.getRoot().getChildren().clear();
-        ViewRender.treeViewFromProviders(aux, QUERY.getValidProviders());
-    }
-
-    public void onSearchByCriteriaClick() throws IOException {
+    protected void onSearchByCriteriaClick() throws IOException {
         try {
             History.binWriter(QUERY.getCriteria());
             Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
@@ -48,7 +41,8 @@ public class ResultController extends DataController {
         }
     }
 
-    public void onHomeButtonClick() throws IOException {
+    @FXML
+    protected void onHomeButtonClick() throws IOException {
         try {
             History.binWriter(QUERY.getCriteria());
             Main.STAGE.setScene(HomeView.getInstance().getScene());
@@ -57,5 +51,10 @@ public class ResultController extends DataController {
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+    }
+
+    public void update() throws BadResponseException {
+        dummyTreeView.getRoot().getChildren().clear();
+        ViewRender.treeViewFromProviders(dummyTreeView, QUERY.getValidProviders());
     }
 }

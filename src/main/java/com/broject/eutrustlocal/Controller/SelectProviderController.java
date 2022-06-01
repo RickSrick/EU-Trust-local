@@ -15,50 +15,45 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class SelectProviderController extends DataController {
 
-    private static final int SPACING=20;
-    private static final int IMG_SIZE= HomeView.IMG_SIZE/2;
-    private static final int FILTER_TYPE=1; //SERVICE_PROVIDER
+    private static final int SPACING = 20;
+    private static final int IMG_SIZE = HomeView.IMG_SIZE / 2;
+    private static final int FILTER_TYPE = 1; //SERVICE_PROVIDER
     private static ArrayList<CheckBox> checkBoxes;
     @FXML
-    public VBox selProviderPane;
+    private VBox selProviderPane;
     @FXML
     private Button btnProviderForward;
-    private static VBox aux;
-    private static Button auxBtn;
+    private static VBox dummyVBox;
+    private static Button dummyBtn;
 
 
     @FXML
     private void initialize() throws IOException {
-        checkBoxes=new ArrayList<>();
+        checkBoxes = new ArrayList<>();
         try {
-            DataParsing.checkBoxesFromProviders(QUERY.getValidProviders(),checkBoxes,btnProviderForward,QUERY,FILTER_TYPE,IMG_SIZE);
-            ViewRender.vBoxFromCheckBoxes(selProviderPane, checkBoxes,SPACING);
-            aux = selProviderPane;
-            auxBtn = btnProviderForward;
-        }catch (BadResponseException e){
+            DataParsing.checkBoxesFromProviders(QUERY.getValidProviders(), checkBoxes, btnProviderForward, QUERY, FILTER_TYPE, IMG_SIZE);
+            ViewRender.vBoxFromCheckBoxes(selProviderPane, checkBoxes, SPACING);
+            dummyVBox = selProviderPane;
+            dummyBtn = btnProviderForward;
+        } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
-    public void update() throws BadResponseException {
-        DataParsing.checkBoxesFromProviders(QUERY.getValidProviders(),checkBoxes,auxBtn,QUERY,FILTER_TYPE,IMG_SIZE);
-        aux.getChildren().clear();
-        ViewRender.vBoxFromCheckBoxes(aux, checkBoxes,SPACING);
-    }
+
     @FXML
-    public void onForwardButtonClick() throws IOException{
+    protected void onForwardButtonClick() throws IOException {
         try {
             Main.STAGE.setScene(SelectStatusesView.getInstance(true).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
+
     @FXML
     protected void onBackButtonClick() throws IOException {
         try {
@@ -68,8 +63,15 @@ public class SelectProviderController extends DataController {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
-    @FXML
+
+    public static void update() throws BadResponseException {
+        DataParsing.checkBoxesFromProviders(QUERY.getValidProviders(), checkBoxes, dummyBtn, QUERY, FILTER_TYPE, IMG_SIZE);
+        dummyVBox.getChildren().clear();
+        ViewRender.vBoxFromCheckBoxes(dummyVBox, checkBoxes, SPACING);
+    }
+
     public void reset() {
         reset(checkBoxes);
     }
+
 }

@@ -15,4 +15,5 @@ public final class XMLArchive {
     public static  final FXMLLoader STATUSES_LIST_SCENE = new FXMLLoader(Main.class.getResource("xml_view/statusesList-view.fxml"));
     public static  final FXMLLoader RESULT_LIST_SCENE = new FXMLLoader(Main.class.getResource("xml_view/resultList-view.fxml"));
     public static final FXMLLoader SPLASH_SCREEN_SCENE= new FXMLLoader(Main.class.getResource("xml_view/splashScreen-view.fxml"));
+    public static final FXMLLoader HISTORY_SCENE = new FXMLLoader(Main.class.getResource("xml_view/history-view.fxml"));
 }

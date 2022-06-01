@@ -14,15 +14,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class SelectStatusesController extends DataController {
 
-    private static final int COLUMNS=1;
-    private static final int ROWS=5;
-    private  static final int FILTER_TYPE=3; //SERVICE_STATUS
+    private static final int COLUMNS = 1;
+    private static final int ROWS = 5;
+    private static final int FILTER_TYPE = 3; //SERVICE_STATUS
 
     private static ArrayList<CheckBox> checkBoxes;
     @FXML
@@ -35,24 +33,20 @@ public class SelectStatusesController extends DataController {
 
     @FXML
     private void initialize() throws IOException {
-        checkBoxes=new ArrayList<>();
+        checkBoxes = new ArrayList<>();
         try {
-            DataParsing.checkBoxesFromStrings(QUERY.getValidServiceStatuses(),checkBoxes,btnFinishQueryForward,QUERY,FILTER_TYPE);
-            ViewRender.gridPaneFromCheckBoxes(selStatusesPane,checkBoxes,COLUMNS,ROWS);
-            aux= selStatusesPane;
-            auxBtn= btnFinishQueryForward;
+            DataParsing.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, btnFinishQueryForward, QUERY, FILTER_TYPE);
+            ViewRender.gridPaneFromCheckBoxes(selStatusesPane, checkBoxes, COLUMNS, ROWS);
+            aux = selStatusesPane;
+            auxBtn = btnFinishQueryForward;
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
+
     @FXML
-    public static void update() throws BadResponseException {
-        DataParsing.checkBoxesFromStrings(QUERY.getValidServiceStatuses(),checkBoxes,auxBtn,QUERY,FILTER_TYPE);
-        aux.getChildren().clear();
-        ViewRender.gridPaneFromCheckBoxes(aux,checkBoxes,COLUMNS,ROWS);
-    }
-    public void onForwardButtonClick() throws IOException {
+    protected void onForwardButtonClick() throws IOException {
         try {
             Main.STAGE.setScene(ResultView.getInstance(true).getScene());
         } catch (BadResponseException e) {
@@ -60,7 +54,8 @@ public class SelectStatusesController extends DataController {
         }
     }
 
-    public void onBackButtonClick() throws IOException {
+    @FXML
+    protected void onBackButtonClick() throws IOException {
         try {
             QUERY.clearFilter(Query.CRITERIA_FILTERS[FILTER_TYPE]);
             Main.STAGE.setScene(SelectProviderView.getInstance(false).getScene());
@@ -68,7 +63,13 @@ public class SelectStatusesController extends DataController {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
-    @FXML
+
+    public static void update() throws BadResponseException {
+        DataParsing.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, auxBtn, QUERY, FILTER_TYPE);
+        aux.getChildren().clear();
+        ViewRender.gridPaneFromCheckBoxes(aux, checkBoxes, COLUMNS, ROWS);
+    }
+
     public void reset() {
         reset(checkBoxes);
     }

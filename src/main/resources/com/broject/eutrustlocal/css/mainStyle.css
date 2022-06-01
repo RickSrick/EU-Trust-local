@@ -65,3 +65,8 @@
 .status.deprecated{
 -fx-background-color:#E2365D;
 }
+
+#historyIcon:hover{
+        -fx-scale-x: 1.1;
+        -fx-scale-y: 1.1;
+}

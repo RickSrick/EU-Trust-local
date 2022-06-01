@@ -23,6 +23,6 @@ public class ResultView extends View{
     }
 
     public static void update() throws BadResponseException {
-        ResultController.update();
+        new ResultController().update();
     }
 }

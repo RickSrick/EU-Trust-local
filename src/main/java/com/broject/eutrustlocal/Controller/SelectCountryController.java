@@ -13,9 +13,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 /**
  * @author Biscaccia Carrara Francesco
@@ -24,7 +22,7 @@ public class SelectCountryController extends DataController {
 
     private final double RATIO = 0.75;
 
-    private static ArrayList<CheckBox> checkBoxes;
+    private ArrayList<CheckBox> checkBoxes;
     @FXML
     private Button btnCountryForward;
     @FXML
@@ -32,8 +30,8 @@ public class SelectCountryController extends DataController {
 
     @FXML
     private void initialize() throws IOException {
-        checkBoxes = new ArrayList<>();
         try {
+            checkBoxes = new ArrayList<>();
             DataParsing.checkBoxesFromCountries(DataArchive.newDataArchive().getCountries(), checkBoxes, btnCountryForward, QUERY, SelectCountryView.IMG_SIZE * RATIO);
             ViewRender.gridPaneFromCheckBoxes(selCountryPane, checkBoxes, View.COL_NUM, View.ROW_NUM);
         } catch (BadResponseException e) {
@@ -67,7 +65,6 @@ public class SelectCountryController extends DataController {
         }
     }
 
-    @FXML
     public void reset() {
         reset(checkBoxes);
     }

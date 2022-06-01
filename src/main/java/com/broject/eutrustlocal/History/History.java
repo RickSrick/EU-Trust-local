@@ -36,7 +36,7 @@ public class History {
         writer.close();
     }
 
-    private static ArrayList<String> binReader() throws FileNotFoundException {
+    public static ArrayList<String> binReader() throws FileNotFoundException {
         ArrayList<String> history = new ArrayList<>();
         Scanner in = new Scanner(new FileReader(path));
         while(in.hasNextLine()){

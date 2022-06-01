@@ -34,7 +34,7 @@ public class ErrorController {
 
     }
     @FXML
-    public void onRepeatButtonClick() {
+    protected void onRepeatButtonClick() {
         RotateTransition transition = new RotateTransition(Duration.millis(600),repeatImg);
         transition.setByAngle(360);
         transition.setOnFinished(actionEvent -> {
