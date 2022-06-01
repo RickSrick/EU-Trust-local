@@ -54,7 +54,7 @@
         -fx-scale-y: 1.1;
 }
 .status{
-    -fx-text-fill:white;
+    -fx-text-fill:#FFFFFF;
     -fx-background-color:#4b4b4b;
     -fx-background-radius:0.2em;
 }

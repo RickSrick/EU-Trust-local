@@ -22,7 +22,7 @@ public class SelectCountryController extends DataController {
 
     private final double RATIO = 0.75;
 
-    private ArrayList<CheckBox> checkBoxes;
+    private static ArrayList<CheckBox> checkBoxes;
     @FXML
     private Button btnCountryForward;
     @FXML

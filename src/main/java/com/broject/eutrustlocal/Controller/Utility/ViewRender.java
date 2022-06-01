@@ -31,8 +31,8 @@ public final class ViewRender {
     }
     public static void gridPaneFromLabels(GridPane pane, ArrayList<Label> data, int colNumber, int rowNumber) {
         int elem = 0;
-        for (int i = 0; i <= colNumber & elem < data.size() - 1; i++) {
-            for (int j = 0; j < rowNumber & elem < data.size() - 1; j++) {
+        for (int i = 0; i <= colNumber & elem < data.size(); i++) {
+            for (int j = 0; j < rowNumber & elem < data.size(); j++) {
                 pane.add(data.get(elem++), i, j);
             }
         }
