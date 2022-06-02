@@ -14,33 +14,12 @@ import java.util.ArrayList;
 
 public class DataArchive {
 
-    //#region All the service types
-    public static final String[] SERVICE_TYPES = {
-            "QCertESig",
-            "QCertESeal",
-            "QWAC",
-            "QValQESig",
-            "QPresQESig",
-            "QValQESeal",
-            "QPresQESeal",
-            "QTimestamp",
-            "QeRDS",
-            "CertESig",
-            "CertESeal",
-            "WAC",
-            "ValESig",
-            "GenESig",
-            "PresESig",
-            "ValESeal",
-            "GenESeal",
-            "PresESeal",
-            "Timestamp",
-            "eRDS",
-            "NonRegulatory",
-            "CertUndefined"
-    };
-    private static DataArchive instance = null;
+    /**
+     * All the service types currently saved in the DataArchive.
+     */
+    public static final String[] SERVICE_TYPES = {"QCertESig", "QCertESeal", "QWAC", "QValQESig", "QPresQESig", "QValQESeal", "QPresQESeal", "QTimestamp", "QeRDS", "CertESig", "CertESeal", "WAC", "ValESig", "GenESig", "PresESig", "ValESeal", "GenESeal", "PresESeal", "Timestamp", "eRDS", "NonRegulatory", "CertUndefined"};
     private static final ArrayList<Country> countries = new ArrayList<>();
+    private static DataArchive instance = null;
     private static Bifrost connection;
     //#endregion
 
@@ -58,36 +37,38 @@ public class DataArchive {
      */
     public static DataArchive newDataArchive() throws BadResponseException {
 
-        if (instance == null)
-            instance = new DataArchive();
+        if (instance == null) instance = new DataArchive();
 
         return instance;
 
     }
 
+    /**
+     * Checks if the connection with the server can be made
+     *
+     * @return true/false due to the state of the connection
+     */
     public static boolean checkOfflineStatus() {
         try {
             Bifrost.checkConnection();
-        }
-        catch (BadResponseException e) {
+        } catch (BadResponseException e) {
             return true;
         }
         return false;
     }
 
-    //Conversion from json file to an array of jsonObjects
-    private static JSONArray jsonToArray(String _json) {
+    /**
+     * Returns an ArrayList containing all the country codes in the UE
+     *
+     * @return all the country codes in the UE
+     */
+    public static ArrayList<String> getCountryCodes() {
 
-        if (_json == null)
-            return new JSONArray(0);
+        ArrayList<String> countryCodes = new ArrayList<>();
+        for (Country country : countries)
+            countryCodes.add(country.getCountryCode());
 
-        if (_json.charAt(0) == '[')
-            return new JSONArray(_json);
-
-        JSONObject element = new JSONObject(_json);
-        JSONArray data = new JSONArray();
-        data.put(element);
-        return data;
+        return countryCodes;
 
     }
 
@@ -115,47 +96,22 @@ public class DataArchive {
     }
 
     /**
-     * Returns a ArrayList containing all the country codes in the UE
+     * Returns the Country object related to the country code
      *
-     * @return all the country codes in the UE
+     * @param _countryCode the country code of the country needed
+     * @return the Country object related to the country code
+     * @throws IllegalArgumentException if the country code is not valid
      */
-    public static ArrayList<String> getCountryCodes() {
-
-        ArrayList<String> countryCodes = new ArrayList<>();
-        for (Country country : countries)
-            countryCodes.add(country.getCountryCode());
-
-        return countryCodes;
-
-    }
-
-    public Country getCountry(String _countryCode) {
+    public Country getCountry(String _countryCode) throws IllegalArgumentException {
 
         int index = -1;
 
         for (int i = 0; i < countries.size(); i++)
-            if (countries.get(i).getCountryCode().equals(_countryCode))
-                index = i;
+            if (countries.get(i).getCountryCode().equals(_countryCode)) index = i;
 
-        if (index == -1)
-            throw new IllegalArgumentException("Country Code not found");
+        if (index == -1) throw new IllegalArgumentException("Country Code not found");
 
         return countries.get(index);
-
-    }
-
-    /**
-     * Returns the number of countries in the UE
-     *
-     * @return the number of countries in the UE
-     * @throws BadResponseException if there is a problem with the POST request
-     */
-    public int getCountriesSize() throws BadResponseException {
-
-        if (countries.isEmpty())
-            jsonToCountries(connection.getCountries());
-
-        return countries.size();
 
     }
 
@@ -178,14 +134,12 @@ public class DataArchive {
         jsonPOST.append("{ \"countries\": [");
         for (int i = 0; i < _countries.length; i++) {
             jsonPOST.append("\"").append(_countries[i]).append("\"");
-            if (i != _countries.length - 1)
-                jsonPOST.append(" , ");
+            if (i != _countries.length - 1) jsonPOST.append(" , ");
         }
         jsonPOST.append("], \"qServiceTypes\": [ ");
         for (int i = 0; i < _serviceTypes.length; i++) {
             jsonPOST.append("\"").append(_serviceTypes[i]).append("\"");
-            if (i != _serviceTypes.length - 1)
-                jsonPOST.append(" , ");
+            if (i != _serviceTypes.length - 1) jsonPOST.append(" , ");
         }
         jsonPOST.append(" ] }");
 
@@ -207,7 +161,7 @@ public class DataArchive {
 
             JSONObject JSONProvider = jsonPOST.getJSONObject(i);
 
-            Provider provider = new Provider(JSONProvider.getString("name"), JSONProvider.getString("countryCode"), connection.getFlagImageLink(JSONProvider.getString("countryCode")), JSONProvider.getInt("tspId"));
+            Provider provider = new Provider(JSONProvider.getString("name"), JSONProvider.getString("countryCode"), JSONProvider.getInt("tspId"));
 
             JSONArray JSONServices = JSONProvider.getJSONArray("services");
             JSONArray JSONProviderServiceTypes = new JSONArray();
@@ -253,8 +207,7 @@ public class DataArchive {
 
         JSONArray jsonCountryList = jsonToArray(_json);
 
-        if (jsonCountryList.length() == countries.size())
-            return;
+        if (jsonCountryList.length() == countries.size()) return;
 
         countries.clear();
 
@@ -264,6 +217,20 @@ public class DataArchive {
             Country country = new Country(countryName, countryCode, connection.getFlagImageLink(countryCode));
             countries.add(country);
         }
+
+    }
+
+    //Conversion from json file to an array of jsonObjects
+    private static JSONArray jsonToArray(String _json) {
+
+        if (_json == null) return new JSONArray(0);
+
+        if (_json.charAt(0) == '[') return new JSONArray(_json);
+
+        JSONObject element = new JSONObject(_json);
+        JSONArray data = new JSONArray();
+        data.put(element);
+        return data;
 
     }
 
