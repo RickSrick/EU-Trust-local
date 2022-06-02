@@ -59,32 +59,16 @@ public class Query {
 
         newQuery();
 
-        if (_criteria == null)
-            return;
+        if (_criteria == null) return;
 
-        String[] parameters = criteriaToParameters(_criteria);
+        try {
+            String[] parameters = criteriaToParameters(_criteria);
 
-        for (int i = 0; i < parameters.length; i++)
-            filters.get(i).addParameters(split(parameters[i]));
+            for (int i = 0; i < parameters.length; i++)
+                filters.get(i).addParameters(split(parameters[i]));
 
-    }
-
-    /**
-     * Clears the Query filters and fills them with the new parameters contained in the criteria sheet
-     *
-     * @param _criteria the criteria sheet the Query must respect
-     */
-    public void setCriteria(String _criteria) {
-
-        if (_criteria == null)
-            return;
-
-        clearAllFilters();
-
-        String[] parameters = criteriaToParameters(_criteria);
-
-        for (int i = 0; i < parameters.length; i++)
-            filters.get(i).addParameters(split(parameters[i]));
+        } catch (IllegalArgumentException ignored) {
+        }
 
     }
 
@@ -101,8 +85,7 @@ public class Query {
         for (int i = 0; i < filters.size(); i++) {
 
             ArrayList<String> parameters = filters.get(i).getParameters();
-            if (i == 2 && filters.get(i).isEmpty())
-                parameters.clear();
+            if (i == 2 && filters.get(i).isEmpty()) parameters.clear();
             criteria.append(CRITERIA_FILTERS[i]).append("\n");
             for (String parameter : parameters)
                 criteria.append(parameter).append("\n");
@@ -111,6 +94,32 @@ public class Query {
         }
 
         return criteria.toString();
+
+    }
+
+    /**
+     * Clears the Query filters and fills them with the new parameters contained in the criteria sheet
+     * It's suggested to use only criteria sheets made by <Query.getCriteria()> to guarantee the proper functioning of the constructor;
+     * If the criteria sheet is not recognised, or it's null, the Query won't be modified, ignoring the criteria sheet
+     *
+     * @param _criteria the criteria sheet the Query must respect
+     */
+    public void setCriteria(String _criteria) {
+
+        if (_criteria == null) return;
+
+        String[] parameters;
+
+        try {
+            parameters = criteriaToParameters(_criteria);
+        } catch (IllegalArgumentException e) {
+            return;
+        }
+
+        clearAllFilters();
+
+        for (int i = 0; i < parameters.length; i++)
+            filters.get(i).addParameters(split(parameters[i]));
 
     }
 
@@ -127,13 +136,11 @@ public class Query {
      */
     public void editFilterParameter(String _filterType, String _parameter) {
 
-        if (_filterType == null || _parameter == null)
-            return;
+        if (_filterType == null || _parameter == null) return;
 
         int filterID = nameToID(_filterType);
 
-        if (filterID < 0)
-            return;
+        if (filterID < 0) return;
 
         //updating the archives
         if (filters.get(filterID).has(_parameter)) {
@@ -141,8 +148,7 @@ public class Query {
             if (filterID == 0 && newRequestNeeded && addedCountries.contains(_parameter)) {
                 countriesArchive.remove(_parameter);
                 addedCountries.remove(_parameter);
-                if (addedCountries.isEmpty())
-                    newRequestNeeded = false;
+                if (addedCountries.isEmpty()) newRequestNeeded = false;
             }
         } else {
             String[] parameterArray = {_parameter};
@@ -167,8 +173,7 @@ public class Query {
      */
     public ArrayList<Provider> getValidProviders() throws BadResponseException {
 
-        if (newFilteringNeeded)
-            applyFilters();
+        if (newFilteringNeeded) applyFilters();
 
         return new ArrayList<>(filteredResponse);
 
@@ -183,16 +188,14 @@ public class Query {
      */
     public ArrayList<String> getValidServiceTypes() throws BadResponseException {
 
-        if (newFilteringNeeded)
-            applyFilters();
+        if (newFilteringNeeded) applyFilters();
 
         ArrayList<String> validServiceTypes = new ArrayList<>();
 
         for (Provider provider : filteredResponse) {
             ArrayList<String> providerServiceTypes = provider.getServiceTypes();
             for (String providerServiceType : providerServiceTypes)
-                if (!validServiceTypes.contains(providerServiceType))
-                    validServiceTypes.add(providerServiceType);
+                if (!validServiceTypes.contains(providerServiceType)) validServiceTypes.add(providerServiceType);
         }
 
         return validServiceTypes;
@@ -208,8 +211,7 @@ public class Query {
      */
     public ArrayList<String> getValidServiceStatuses() throws BadResponseException {
 
-        if (newFilteringNeeded)
-            applyFilters();
+        if (newFilteringNeeded) applyFilters();
 
         ArrayList<String> validServiceStatuses = new ArrayList<>();
 
@@ -226,24 +228,6 @@ public class Query {
     }
 
     /**
-     * This method clears all the temporary archives contained in the Query;
-     * ! THE FILTERS WILL REMAIN UNCHANGED !;
-     * This method also prepares the Query to actuate a POST request (doesn't make it)
-     */
-    public void clear() {
-
-        response.clear();
-        filteredResponse.clear();
-
-        countriesArchive.clear();
-
-        newRequestNeeded = true;
-        newFilteringNeeded = true;
-        fullCountriesArchive = false;
-
-    }
-
-    /**
      * This method clears a selected filter, maintaining unaltered all the others.
      * If the _filterType doesn't exist, the query won't be modified.
      * It's suggested to use the <Query.CRITERIA_FILTERS[]> array to choose the _filterType
@@ -254,8 +238,7 @@ public class Query {
 
         int filterID = nameToID(_filterType);
 
-        if (filterID < 0)
-            return;
+        if (filterID < 0) return;
 
         filters.get(filterID).clear();
 
@@ -309,8 +292,7 @@ public class Query {
         }
 
         if (newRequestNeeded) {
-            if (addedCountries.isEmpty())
-                addedCountries = filters.get(0).getParameters();
+            if (addedCountries.isEmpty()) addedCountries = filters.get(0).getParameters();
             ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), DataArchive.SERVICE_TYPES);
             response.addAll(newResponse);
             newRequestNeeded = false;
@@ -344,8 +326,10 @@ public class Query {
 
             StringBuilder filter = new StringBuilder();
 
-            if (tokenizer.hasNextLine()) tokenizer.nextLine();
-            else {
+            if (tokenizer.hasNextLine()) {
+                line = tokenizer.nextLine();
+                if (!line.equals(CRITERIA_FILTERS[i])) throw new IllegalArgumentException();
+            } else {
                 tokenizer.close();
                 return new String[0];
             }
@@ -355,8 +339,7 @@ public class Query {
                 return new String[0];
             }
 
-            while (!(line = tokenizer.nextLine()).equals(CRITERIA_LINE))
-                filter.append(line).append("\n");
+            while (!(line = tokenizer.nextLine()).equals(CRITERIA_LINE)) filter.append(line).append("\n");
 
             parameters[i] = filter.toString();
 
@@ -375,8 +358,7 @@ public class Query {
 
         Scanner tokenizer = new Scanner(_parameters);
 
-        while (tokenizer.hasNextLine())
-            parameters.add(tokenizer.nextLine());
+        while (tokenizer.hasNextLine()) parameters.add(tokenizer.nextLine());
 
         tokenizer.close();
 
@@ -388,8 +370,7 @@ public class Query {
     private int nameToID(String _name) {
 
         for (int i = 0; i < CRITERIA_FILTERS.length; i++)
-            if (CRITERIA_FILTERS[i].equals(_name))
-                return i;
+            if (CRITERIA_FILTERS[i].equals(_name)) return i;
 
         return -1;
 
