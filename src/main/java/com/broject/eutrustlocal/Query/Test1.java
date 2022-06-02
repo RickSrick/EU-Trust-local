@@ -24,9 +24,10 @@ public class Test1 {
         //providers.add("First certification authority, a.s.");
 
         executeRequest(query, countries , providers, types, statuses);
+        History.binWriter(query.getCriteria());
 
 
-        System.out.println("KABIR " + History.binReader());
+
 
 
     }
