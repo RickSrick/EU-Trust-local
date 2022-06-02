@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="History.java updated with maximum size of 30">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/History/HistoryTest.java" afterDir="false" />
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="HistoryTest class modify">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/Creation/HistoryTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +25,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -45,23 +42,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/matte/Documents/UNI/EU-Trust-local&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/matte/Documents/UNI/EU-Trust-local",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/broject/eutrustlocal/xml_view" />
@@ -79,7 +77,20 @@
       <recent name="com.broject.eutrustlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HistoryTest.clearHistory">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Main" />
+      <module name="EU-Trust-local" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.broject.eutrustlocal.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Query.Test1" />
       <module name="EU-Trust-local" />
@@ -141,29 +152,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HistoryTest.emptyFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EU-Trust-local" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.broject.eutrustlocal.History.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.broject.eutrustlocal.History" />
-      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.History.HistoryTest" />
-      <option name="METHOD_NAME" value="emptyFile" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.HistoryTest.clearHistory" />
         <item itemvalue="Application.Test1" />
         <item itemvalue="JUnit.HistoryTest.binArrayAccess" />
         <item itemvalue="JUnit.HistoryTest.binReader" />
-        <item itemvalue="JUnit.HistoryTest.emptyFile" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +187,7 @@
       <workItem from="1653745101497" duration="360000" />
       <workItem from="1653745479642" duration="862000" />
       <workItem from="1653926662494" duration="2070000" />
-      <workItem from="1654183361306" duration="4693000" />
+      <workItem from="1654183361306" duration="11969000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing warnings">
       <created>1653138493688</created>
@@ -334,7 +329,28 @@
       <option name="project" value="LOCAL" />
       <updated>1654183082254</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Little changes">
+      <created>1654188507733</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1654188507733</updated>
+    </task>
+    <task id="LOCAL-00022" summary="HistoryTest class created">
+      <created>1654188565515</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654188565515</updated>
+    </task>
+    <task id="LOCAL-00023" summary="HistoryTest class modify">
+      <created>1654189824655</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654189824655</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +361,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -369,7 +391,10 @@
     <MESSAGE value="Added method to DataArchive to get a Country given it's countryCode.&#10;Added functionality that recognise two providers as differents even if they have the same name (same with services)&#10;TODO: recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
     <MESSAGE value="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
     <MESSAGE value="History.java updated with maximum size of 30" />
-    <option name="LAST_COMMIT_MESSAGE" value="History.java updated with maximum size of 30" />
+    <MESSAGE value="Little changes" />
+    <MESSAGE value="HistoryTest class created" />
+    <MESSAGE value="HistoryTest class modify" />
+    <option name="LAST_COMMIT_MESSAGE" value="HistoryTest class modify" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

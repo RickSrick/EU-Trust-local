@@ -36,15 +36,27 @@ public class History {
         }
         writer.println();
         writer.close();
+        System.out.println("BAKA" + criteria);
+
     }
 
     public static ArrayList<String> binReader() throws FileNotFoundException {
+
         ArrayList<String> history = new ArrayList<>();
+
         Scanner in = new Scanner(new FileReader(path));
-        while(in.hasNextLine()){
-            String line = in.nextLine();
-            history.add(binaryConverter(line));
+        try {
+            while (in.hasNextLine()) {
+                String line = in.nextLine();
+                history.add(binaryConverter(line));
+
+            }
         }
+        catch (Exception e){
+            System.out.println("CIAO");
+            System.out.println(e.getClass());
+        }
+
 
         in.close();
 
@@ -53,7 +65,7 @@ public class History {
             return new ArrayList<> (history.subList(history.size()-31, history.size()-1));
 
         }
-
+        System.out.println("OUTPUT" + history);
         return history;
     }
     public static boolean emptyFile() throws FileNotFoundException {
@@ -67,11 +79,23 @@ public class History {
         return out;
     }
     private static String binaryConverter(String in){
+        StringBuilder sb = new StringBuilder();
+        String[] characters = in.split(" ");
 
-        return  Arrays.stream(in.split(" "))
-                .map(binary -> Integer.parseInt(binary, 2))
-                .map(Character::toString)
-                .collect(Collectors.joining());
+
+
+        for(String character : characters) {
+            int num = 0;
+            char[] bytes = character.toCharArray();
+            for (int i = bytes.length - 1; i >= 0; i--) {
+                num += Integer.parseInt(bytes[i] + "") * Math.pow(2, bytes.length - i - 1);
+            }
+            sb.append((char)num);
+        }
+
+
+        return sb.toString();
+
     }
 
     public static void clearHistory() throws FileNotFoundException {
