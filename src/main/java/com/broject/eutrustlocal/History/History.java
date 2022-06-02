@@ -57,7 +57,10 @@ public class History {
         return history;
     }
     public static boolean emptyFile() throws FileNotFoundException {
-        return binReader().size()==0;
+        //return binReader().size()==0;
+
+        Scanner in = new Scanner(new FileReader(path));
+        return !in.hasNextLine();
     }
     public static String binArrayAccess( int i) throws FileNotFoundException {
         String out = binReader().get(i);

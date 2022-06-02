@@ -43,7 +43,7 @@ class HistoryTest {
         Assertions.assertNotEquals(History.binArrayAccess(1), 0);
         for(int i = History.binReader().size()-1; i > 0 ;i--) {
             Assertions.assertNotEquals(History.binArrayAccess(i), i-1);
-            System.out.println(i + "Numero =" + i);
+            System.out.println(i + "Number =" + i);
         }
 
     }
