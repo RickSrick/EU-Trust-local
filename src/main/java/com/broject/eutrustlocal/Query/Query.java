@@ -121,6 +121,9 @@ public class Query {
         for (int i = 0; i < parameters.length; i++)
             filters.get(i).addParameters(split(parameters[i]));
 
+        newFilteringNeeded = true;
+        newRequestNeeded = true;
+
     }
 
     /**
