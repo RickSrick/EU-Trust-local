@@ -1,7 +1,7 @@
 package com.broject.eutrustlocal.Controller;
 
 import com.broject.eutrustlocal.Controller.Utility.BackgroundTasks.TaskData;
-import com.broject.eutrustlocal.Controller.Utility.DataParsing;
+import com.broject.eutrustlocal.Controller.Utility.DataParser;
 import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.DataArchive;
@@ -32,7 +32,7 @@ public class SelectCountryController extends DataController {
     private void initialize() throws IOException {
         try {
             checkBoxes = new ArrayList<>();
-            DataParsing.checkBoxesFromCountries(DataArchive.newDataArchive().getCountries(), checkBoxes, btnCountryForward, QUERY, SelectCountryView.IMG_SIZE * RATIO);
+            DataParser.checkBoxesFromCountries(DataArchive.newDataArchive().getCountries(), checkBoxes, btnCountryForward, QUERY, SelectCountryView.IMG_SIZE * RATIO);
             ViewRender.gridPaneFromCheckBoxes(selCountryPane, checkBoxes, View.COL_NUM, View.ROW_NUM);
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
@@ -42,7 +42,7 @@ public class SelectCountryController extends DataController {
     @FXML
     protected void onHomeButtonClick() throws IOException {
         try {
-            Main.STAGE.setScene(HomeView.getInstance().getScene());
+            Main.STAGE.setScene(HomeView.getInstance(false).getScene());
             ViewRender.resetAllSelectView();
             QUERY.clearAllFilters();
         } catch (BadResponseException e) {
@@ -65,7 +65,7 @@ public class SelectCountryController extends DataController {
         }
     }
 
-    public void reset() {
+    public static void reset() {
         reset(checkBoxes);
     }
 }

@@ -1,6 +1,6 @@
 package com.broject.eutrustlocal.Controller;
 
-import com.broject.eutrustlocal.Controller.Utility.DataParsing;
+import com.broject.eutrustlocal.Controller.Utility.DataParser;
 import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
@@ -17,6 +17,9 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @author Biscaccia Carrara Francesco
+ */
 public class SelectProviderController extends DataController {
 
     private static final int SPACING = 20;
@@ -35,7 +38,7 @@ public class SelectProviderController extends DataController {
     private void initialize() throws IOException {
         checkBoxes = new ArrayList<>();
         try {
-            DataParsing.checkBoxesFromProviders(QUERY.getValidProviders(), checkBoxes, btnProviderForward, QUERY, FILTER_TYPE, IMG_SIZE);
+            DataParser.checkBoxesFromProviders(QUERY.getValidProviders(), checkBoxes, btnProviderForward, QUERY, FILTER_TYPE, IMG_SIZE);
             ViewRender.vBoxFromCheckBoxes(selProviderPane, checkBoxes, SPACING);
             dummyVBox = selProviderPane;
             dummyBtn = btnProviderForward;
@@ -65,12 +68,12 @@ public class SelectProviderController extends DataController {
     }
 
     public static void update() throws BadResponseException {
-        DataParsing.checkBoxesFromProviders(QUERY.getValidProviders(), checkBoxes, dummyBtn, QUERY, FILTER_TYPE, IMG_SIZE);
+        DataParser.checkBoxesFromProviders(QUERY.getValidProviders(), checkBoxes, dummyBtn, QUERY, FILTER_TYPE, IMG_SIZE);
         dummyVBox.getChildren().clear();
         ViewRender.vBoxFromCheckBoxes(dummyVBox, checkBoxes, SPACING);
     }
 
-    public void reset() {
+    public static void reset() {
         reset(checkBoxes);
     }
 

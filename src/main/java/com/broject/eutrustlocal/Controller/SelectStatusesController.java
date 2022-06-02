@@ -1,8 +1,9 @@
 package com.broject.eutrustlocal.Controller;
 
-import com.broject.eutrustlocal.Controller.Utility.DataParsing;
+import com.broject.eutrustlocal.Controller.Utility.DataParser;
 import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
+import com.broject.eutrustlocal.History.History;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.Query.Query;
 import com.broject.eutrustlocal.View.ErrorView;
@@ -16,6 +17,9 @@ import javafx.scene.layout.GridPane;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @author Biscaccia Carrara Francesco
+ */
 public class SelectStatusesController extends DataController {
 
     private static final int COLUMNS = 1;
@@ -35,7 +39,7 @@ public class SelectStatusesController extends DataController {
     private void initialize() throws IOException {
         checkBoxes = new ArrayList<>();
         try {
-            DataParsing.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, btnFinishQueryForward, QUERY, FILTER_TYPE);
+            DataParser.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, btnFinishQueryForward, QUERY, FILTER_TYPE);
             ViewRender.gridPaneFromCheckBoxes(selStatusesPane, checkBoxes, COLUMNS, ROWS);
             aux = selStatusesPane;
             auxBtn = btnFinishQueryForward;
@@ -49,6 +53,7 @@ public class SelectStatusesController extends DataController {
     protected void onForwardButtonClick() throws IOException {
         try {
             Main.STAGE.setScene(ResultView.getInstance(true).getScene());
+            History.binWriter(QUERY.getCriteria());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
@@ -65,12 +70,12 @@ public class SelectStatusesController extends DataController {
     }
 
     public static void update() throws BadResponseException {
-        DataParsing.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, auxBtn, QUERY, FILTER_TYPE);
+        DataParser.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, auxBtn, QUERY, FILTER_TYPE);
         aux.getChildren().clear();
         ViewRender.gridPaneFromCheckBoxes(aux, checkBoxes, COLUMNS, ROWS);
     }
 
-    public void reset() {
+    public static void reset() {
         reset(checkBoxes);
     }
 }
