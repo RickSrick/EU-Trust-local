@@ -121,8 +121,15 @@ public class Query {
         for (int i = 0; i < parameters.length; i++)
             filters.get(i).addParameters(split(parameters[i]));
 
-        newFilteringNeeded = true;
-        newRequestNeeded = true;
+        String[] countries = split(parameters[0]);
+
+        if (!fullCountriesArchive)
+            for (String country : countries)
+                if (!countriesArchive.contains(country)) {
+                    countriesArchive.add(country);
+                    addedCountries.add(country);
+                    if (!newRequestNeeded) newRequestNeeded = true;
+                }
 
     }
 
@@ -286,7 +293,7 @@ public class Query {
 
         if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
 
-            if (!fullCountriesArchive && filters.get(0).isEmpty()) {
+            if (!fullCountriesArchive && (filters.get(0).isEmpty() || countriesArchive.size() == DataArchive.getCountryCodes().size())) {
                 countriesArchive.clear();
                 fullCountriesArchive = true;
                 newRequestNeeded = true;
