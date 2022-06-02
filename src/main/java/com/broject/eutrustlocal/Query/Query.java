@@ -85,7 +85,7 @@ public class Query {
         for (int i = 0; i < filters.size(); i++) {
 
             ArrayList<String> parameters = filters.get(i).getParameters();
-            if (i == 2 && filters.get(i).isEmpty()) parameters.clear();
+            if ((i == 0 || i == 2) && filters.get(i).isEmpty()) parameters.clear();
             criteria.append(CRITERIA_FILTERS[i]).append("\n");
             for (String parameter : parameters)
                 criteria.append(parameter).append("\n");
