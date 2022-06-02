@@ -1,6 +1,6 @@
 package com.broject.eutrustlocal.Controller;
 
-import com.broject.eutrustlocal.Controller.Utility.DataParsing;
+import com.broject.eutrustlocal.Controller.Utility.DataParser;
 import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.DataArchive;
@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -32,17 +33,20 @@ public class HomeController extends DataController {
 
     @FXML
     private ImageView historyIcon;
+
+    private  static ImageView dummyImage;
     @FXML
     private void initialize() throws IOException {
         try {
             ArrayList<Label> labels = new ArrayList<>();
-            DataParsing.labelsFromCountries(DataArchive.newDataArchive().getCountries(), labels, QUERY, HomeView.IMG_SIZE);
+            DataParser.labelsFromCountries(DataArchive.newDataArchive().getCountries(), labels, QUERY, HomeView.IMG_SIZE);
             ViewRender.gridPaneFromLabels(countryGrid, labels, HomeView.COL_NUM, HomeView.ROW_NUM);
 
             for (String s : DataArchive.SERVICE_TYPES) {
                 serTypePane.getChildren().add(new Label("• " + s));
             }
-            //if(History.binReader().isEmpty()) historyIcon.setDisable(true);
+            if(History.emptyFile()) historyIcon.setDisable(true);
+            dummyImage=historyIcon;
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
@@ -63,5 +67,9 @@ public class HomeController extends DataController {
         } catch (Exception e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+    }
+
+    public static  void update() throws FileNotFoundException {
+        if(!History.emptyFile()) dummyImage.setDisable(false);
     }
 }

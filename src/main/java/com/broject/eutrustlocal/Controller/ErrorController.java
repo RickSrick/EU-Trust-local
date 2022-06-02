@@ -39,7 +39,7 @@ public class ErrorController {
         transition.setByAngle(360);
         transition.setOnFinished(actionEvent -> {
             try {
-                Main.STAGE.setScene(HomeView.getInstance().getScene());
+                Main.STAGE.setScene(HomeView.getInstance(true).getScene());
                 ViewRender.resetAllSelectView();
             } catch (BadResponseException e) {
                 int randomNum = rand.nextInt((MAX_RAND - MIN_RAND) + 1) + MIN_RAND;

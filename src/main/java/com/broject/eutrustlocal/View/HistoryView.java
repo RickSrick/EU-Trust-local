@@ -1,17 +1,17 @@
 package com.broject.eutrustlocal.View;
 
-import com.broject.eutrustlocal.Controller.SelectProviderController;
+import com.broject.eutrustlocal.Controller.HistoryController;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.DataArchive;
-import com.broject.eutrustlocal.History.History;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class HistoryView extends View{
     private static HistoryView instance = null;
 
     private HistoryView() throws IOException {
-        super(XMLArchive. HISTORY_SCENE);
+        super(XMLArchive.HISTORY_SCENE);
     }
 
     public static HistoryView getInstance(boolean goFoward) throws BadResponseException, IOException {
@@ -23,7 +23,7 @@ public class HistoryView extends View{
         return instance;
     }
 
-    public static void update() throws BadResponseException {
-        //SelectProviderController.update();
+    public static void update() throws FileNotFoundException {
+        HistoryController.update();
     }
 }

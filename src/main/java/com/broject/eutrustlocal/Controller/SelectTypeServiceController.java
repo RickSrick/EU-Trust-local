@@ -1,6 +1,6 @@
 package com.broject.eutrustlocal.Controller;
 
-import com.broject.eutrustlocal.Controller.Utility.DataParsing;
+import com.broject.eutrustlocal.Controller.Utility.DataParser;
 import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Main;
@@ -16,6 +16,9 @@ import javafx.scene.layout.GridPane;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @author Biscaccia Carrara Francesco
+ */
 public class SelectTypeServiceController extends DataController {
 
     private static final int COLUMNS=3;
@@ -34,7 +37,7 @@ public class SelectTypeServiceController extends DataController {
     private void initialize() throws IOException {
         checkBoxes=new ArrayList<>();
         try {
-            DataParsing.checkBoxesFromStrings(QUERY.getValidServiceTypes(),checkBoxes,btnServiceTypeForward,QUERY,FILTER_TYPE);
+            DataParser.checkBoxesFromStrings(QUERY.getValidServiceTypes(),checkBoxes,btnServiceTypeForward,QUERY,FILTER_TYPE);
             ViewRender.gridPaneFromCheckBoxes(selServiceTypePane,checkBoxes,COLUMNS,ROWS);
             dummyGridPane =selServiceTypePane;
             dummyBtn =btnServiceTypeForward;
@@ -62,11 +65,11 @@ public class SelectTypeServiceController extends DataController {
         }
     }
     public static void update() throws BadResponseException {
-        DataParsing.checkBoxesFromStrings(QUERY.getValidServiceTypes(),checkBoxes,dummyBtn,QUERY,FILTER_TYPE);
+        DataParser.checkBoxesFromStrings(QUERY.getValidServiceTypes(),checkBoxes,dummyBtn,QUERY,FILTER_TYPE);
         dummyGridPane.getChildren().clear();
         ViewRender.gridPaneFromCheckBoxes(dummyGridPane,checkBoxes,COLUMNS,ROWS);
     }
-    public void reset() {
+    public static void reset() {
         reset(checkBoxes);
     }
 }

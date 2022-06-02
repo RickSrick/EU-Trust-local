@@ -18,34 +18,87 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 
+/**
+ * ViewRender is an auxiliary class that has the task to convert ArrayList of CheckBox/Labels into:
+ *      - VBox
+ *      - GridPane
+ *      - TreeView
+ *
+ * @author Biscaccia Carrara Francesco
+ */
 public final class ViewRender {
 
-    public static void gridPaneFromCheckBoxes(GridPane pane, ArrayList<CheckBox> data, int colNumber, int rowNumber) {
+    /**
+     * Populate the gridPane GridPane of colNumber columns and rowNumber rows, with the data contained in the ArrayList.
+     *
+     * @param gridPane  GridPane to populate
+     * @param data      CheckBox ArrayList containing the data
+     * @param colNumber Number of columns
+     * @param rowNumber Number of rows
+     */
+    public static void gridPaneFromCheckBoxes(GridPane gridPane, ArrayList<CheckBox> data, int colNumber, int rowNumber) {
         int elem = 0;
-        pane.add(data.get(data.size() - 1), 0, 0);
+        gridPane.add(data.get(data.size() - 1), 0, 0);
         for (int i = 0; i <= colNumber & elem < data.size() - 1; i++) {
             for (int j = 1; j < rowNumber & elem < data.size() - 1; j++) {
-                pane.add(data.get(elem++), i, j);
+                gridPane.add(data.get(elem++), i, j);
             }
         }
     }
-    public static void gridPaneFromLabels(GridPane pane, ArrayList<Label> data, int colNumber, int rowNumber) {
+
+    /**
+     * Populate the gridPane GridPane of colNumber columns and rowNumber rows, with the data contained in the ArrayList.
+     *
+     * @param gridPane  GridPane to populate
+     * @param data      Label ArrayList containing the data
+     * @param colNumber Number of columns
+     * @param rowNumber Number of rows
+     */
+    public static void gridPaneFromLabels(GridPane gridPane, ArrayList<Label> data, int colNumber, int rowNumber) {
         int elem = 0;
         for (int i = 0; i <= colNumber & elem < data.size(); i++) {
             for (int j = 0; j < rowNumber & elem < data.size(); j++) {
-                pane.add(data.get(elem++), i, j);
+                gridPane.add(data.get(elem++), i, j);
             }
         }
     }
 
-    public static void vBoxFromCheckBoxes(VBox vBox, ArrayList<CheckBox> data,double spacing) {
+    /**
+     * Populate the vBox VBox with the data contained in the ArrayList.
+     *
+     * @param vBox    GridPane to populate
+     * @param data    CheckBox ArrayList containing the data
+     * @param spacing Spacing between rows
+     */
+    public static void vBoxFromCheckBoxes(VBox vBox, ArrayList<CheckBox> data, double spacing) {
         vBox.setSpacing(spacing);
-        vBox.getChildren().add(data.get(data.size()-1));
-        for(int i=0;i<data.size()-1;i++){
+        vBox.getChildren().add(data.get(data.size() - 1));
+        for (int i = 0; i < data.size() - 1; i++) {
             vBox.getChildren().add(data.get(i));
         }
     }
 
+    /**
+     * Populate the vBox VBox with the data contained in the ArrayList.
+     *
+     * @param vBox    GridPane to populate
+     * @param data    Labels ArrayList containing the data
+     * @param spacing Spacing between rows
+     */
+    public static void vBoxFromLabels(VBox vBox, ArrayList<Label> data, double spacing) {
+        vBox.setSpacing(spacing);
+        vBox.getChildren().add(data.get(data.size() - 1));
+        for (int i = 0; i < data.size() - 1; i++) {
+            vBox.getChildren().add(data.get(i));
+        }
+    }
+
+    /**
+     * Populate the treeView TreeView with the data contained in the ArrayList.
+     *
+     * @param treeView TreeView to populate
+     * @param data     Provider ArrayList containing the data
+     */
     public static void treeViewFromProviders(TreeView<Label> treeView, ArrayList<Provider> data) throws BadResponseException {
         TreeItem<Label> start = new TreeItem<>(new Label("ONLY FOR START"));
         for (Provider datum : data) {
@@ -69,11 +122,14 @@ public final class ViewRender {
         treeView.setRoot(start);
     }
 
-    public static void resetAllSelectView(){
-        new SelectCountryController().reset();
-        new SelectTypeServiceController().reset();
-        new SelectProviderController().reset();
-        new SelectStatusesController().reset();
+    /**
+     * Reset the selections of all View
+     */
+    public static void resetAllSelectView() {
+        SelectCountryController.reset();
+        SelectTypeServiceController.reset();
+        SelectProviderController.reset();
+        SelectStatusesController.reset();
     }
 
 }

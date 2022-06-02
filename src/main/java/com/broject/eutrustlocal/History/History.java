@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 public class History {
 
     private static final String path = "src/main/java/com/broject/eutrustlocal/History/History.bin";
+
+
     public static void binWriter(String criteria) throws FileNotFoundException {
         PrintWriter writer = new PrintWriter( new FileOutputStream(path, true));
 
@@ -43,10 +45,20 @@ public class History {
             String line = in.nextLine();
             history.add(binaryConverter(line));
         }
+
         in.close();
+
+        if(history.size()>30){
+
+            return new ArrayList<> (history.subList(history.size()-31, history.size()-1));
+
+        }
+
         return history;
     }
-
+    public static boolean emptyFile() throws FileNotFoundException {
+        return binReader().size()==0;
+    }
     public static String binArrayAccess( int i) throws FileNotFoundException {
         String out = binReader().get(i);
         return out;

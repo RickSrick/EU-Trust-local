@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
+/**
+ * @author Biscaccia Carrara Francesco
+ */
 public class SplashScreenController{
 
     @FXML
