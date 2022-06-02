@@ -2,7 +2,6 @@ package com.broject.eutrustlocal.Controller;
 
 import com.broject.eutrustlocal.Controller.Utility.ViewRender;
 import com.broject.eutrustlocal.Creation.BadResponseException;
-import com.broject.eutrustlocal.History.History;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.HomeView;
@@ -13,6 +12,9 @@ import javafx.scene.control.TreeView;
 
 import java.io.IOException;
 
+/**
+ * @author Biscaccia Carrara Francesco
+ */
 public class ResultController extends DataController {
 
     @FXML
@@ -32,7 +34,6 @@ public class ResultController extends DataController {
     @FXML
     protected void onSearchByCriteriaClick() throws IOException {
         try {
-            History.binWriter(QUERY.getCriteria());
             Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
             ViewRender.resetAllSelectView();
             QUERY.clearAllFilters();
@@ -44,8 +45,7 @@ public class ResultController extends DataController {
     @FXML
     protected void onHomeButtonClick() throws IOException {
         try {
-            History.binWriter(QUERY.getCriteria());
-            Main.STAGE.setScene(HomeView.getInstance().getScene());
+            Main.STAGE.setScene(HomeView.getInstance(true).getScene());
             ViewRender.resetAllSelectView();
             QUERY.clearAllFilters();
         } catch (BadResponseException e) {

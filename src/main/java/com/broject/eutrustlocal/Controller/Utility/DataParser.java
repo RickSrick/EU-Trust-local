@@ -5,6 +5,7 @@ import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Country;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.DataArchive;
+import com.broject.eutrustlocal.History.History;
 import com.broject.eutrustlocal.Main;
 import com.broject.eutrustlocal.Query.Query;
 import com.broject.eutrustlocal.View.ErrorView;
@@ -12,13 +13,22 @@ import com.broject.eutrustlocal.View.ResultView;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public final class DataParsing {
+/**
+ * DataParser is an auxiliary class that has the task to convert ArrayList given by Query/DataArchive into ArrayList of:
+ *      - CheckBox
+ *      - Labels
+ *
+ * @author Biscaccia Carrara Francesco
+ */
+
+public final class DataParser {
 
     public static void labelsFromCountries(ArrayList<Country> data, ArrayList<Label> arrayToFill, Query query, double img_size) {
         for (Country c : data) {
@@ -41,6 +51,7 @@ public final class DataParsing {
                 th.setDaemon(true);
                 th.start();
                 th.join();
+                History.binWriter(query.getCriteria());
                 Main.STAGE.setScene(ResultView.getInstance(true).getScene());
             } catch (BadResponseException | IOException e) {
                 try {
@@ -54,7 +65,6 @@ public final class DataParsing {
         });
     }
 
-
     public static void checkBoxesFromCountries(ArrayList<Country> data, ArrayList<CheckBox> arrayToFill, Button btn, Query query, double img_size) {
         for (Country c : data) {
             CheckBox checkBox = new CheckBox(c.getName());
@@ -67,31 +77,6 @@ public final class DataParsing {
             arrayToFill.add(checkBox);
         }
         addAllCheckBox(arrayToFill);
-    }
-
-    private static void setListenerForCheckBox(ArrayList<CheckBox> checkBoxes, CheckBox checkBox, Query query, Button btn, int criteria_type) {
-        checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            boolean disable = false;
-            for (CheckBox el : checkBoxes) {
-                disable = disable || el.isSelected();
-            }
-            query.editFilterParameter(Query.CRITERIA_FILTERS[criteria_type], checkBox.getId());
-            btn.setDisable(!disable);
-        });
-
-    }
-
-    private static void addAllCheckBox(ArrayList<CheckBox> checkBoxes) {
-        if (checkBoxes.size() != 1) {
-            CheckBox allChecked = new CheckBox("All");
-            allChecked.selectedProperty().addListener((observable, oldValue, newValue) -> {
-                        for (CheckBox checkBox : checkBoxes) {
-                            checkBox.setSelected(allChecked.isSelected());
-                        }
-                    }
-            );
-            checkBoxes.add(allChecked);
-        }
     }
 
     public static void checkBoxesFromStrings(ArrayList<String> data, ArrayList<CheckBox> arrayToFill, Button btnId, Query query, int filter_type) {
@@ -120,7 +105,45 @@ public final class DataParsing {
         addAllCheckBox(arrayToFill);
     }
 
-    public static String compressCriteriaSheet(String _criteria) {
+    public static void labelsFromCriteriaSheet(ArrayList<String> data, ArrayList<Label> arrayToFill, Query query, int img_size) {
+        arrayToFill.clear();
+        for (String s : data) {
+            ImageView icon = new ImageView(new Image(String.valueOf(Main.class.getResource("img/search-history-icon.png"))));
+            icon.setFitWidth(img_size);
+            icon.setFitHeight(img_size);
+            Label label = new Label(compressCriteriaSheet(s), icon);
+            label.setId(s);
+            setListenerForHistoryLabel(label, query);
+            arrayToFill.add(label);
+        }
+    }
+
+    private static void setListenerForCheckBox(ArrayList<CheckBox> checkBoxes, CheckBox checkBox, Query query, Button btn, int criteria_type) {
+        checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            boolean disable = false;
+            for (CheckBox el : checkBoxes) {
+                disable = disable || el.isSelected();
+            }
+            query.editFilterParameter(Query.CRITERIA_FILTERS[criteria_type], checkBox.getId());
+            btn.setDisable(!disable);
+        });
+
+    }
+
+    private static void addAllCheckBox(ArrayList<CheckBox> checkBoxes) {
+        if (checkBoxes.size() != 1) {
+            CheckBox allChecked = new CheckBox("All");
+            allChecked.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                        for (CheckBox checkBox : checkBoxes) {
+                            checkBox.setSelected(allChecked.isSelected());
+                        }
+                    }
+            );
+            checkBoxes.add(allChecked);
+        }
+    }
+
+    private static String compressCriteriaSheet(String _criteria) {
 
         Scanner tokenizer = new Scanner(_criteria);
         StringBuilder compressedCriteria = new StringBuilder();
@@ -145,11 +168,32 @@ public final class DataParsing {
 
         for (int i = 0; i < parameters.size(); i++) {
             compressedCriteria.append(parameters.get(i).toString());
-            if (i != 3 && parameters.get(i+1).length() != 0)
+            if (i != 3 && parameters.get(i + 1).length() != 0)
                 compressedCriteria.append(" - ");
         }
 
         return compressedCriteria.toString();
 
+    }
+
+    private static void setListenerForHistoryLabel(Label label, Query query) {
+        label.onMouseClickedProperty().set(mouseEvent -> {
+            query.setCriteria(label.getId());
+            try {
+                Thread th = new Thread(new TaskData(query));
+                th.setDaemon(true);
+                th.start();
+                th.join();
+                Main.STAGE.setScene(ResultView.getInstance(true).getScene());
+            } catch (BadResponseException | IOException e) {
+                try {
+                    Main.STAGE.setScene(ErrorView.getInstance().getScene());
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

@@ -26,7 +26,7 @@ public class TaskCountry extends Task<Void> {
     protected void succeeded() {
         super.succeeded();
         try {
-            Main.STAGE.setScene(HomeView.getInstance().getScene());
+            Main.STAGE.setScene(HomeView.getInstance(true).getScene());
         } catch (BadResponseException | IOException e) {
             throw new RuntimeException(e);
         }
