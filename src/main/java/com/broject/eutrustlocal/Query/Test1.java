@@ -26,7 +26,8 @@ public class Test1 {
         executeRequest(query, countries , providers, types, statuses);
         History.binWriter(query.getCriteria());
 
-        System.out.println("KABIR " + History.binArrayAccess(1));
+        System.out.println("KABIR " + History.binReader());
+
 
     }
 
