@@ -1,6 +1,7 @@
 package com.broject.eutrustlocal.Query.Filter;
 
 import com.broject.eutrustlocal.Creation.Data.Provider;
+import com.broject.eutrustlocal.Creation.Data.Service;
 
 import java.util.ArrayList;
 
@@ -97,5 +98,20 @@ public abstract class Filter {
      * @return a filtered ArrayList
      */
     public abstract ArrayList<Provider> applyFilter(ArrayList<Provider> _response);
+
+    protected Provider duplicateProvider(Provider _provider, ArrayList<Service> _services) {
+
+        Provider newProvider = new Provider(_provider.getName(), _provider.getCountryCode(), _provider.getProviderID());
+
+        for (Service filteredProviderService : _services) {
+            newProvider.addService(filteredProviderService);
+            ArrayList<String> serviceTypes = filteredProviderService.getServiceTypes();
+            for (String serviceType : serviceTypes)
+                newProvider.addServiceType(serviceType);
+        }
+
+        return newProvider;
+
+    }
 
 }

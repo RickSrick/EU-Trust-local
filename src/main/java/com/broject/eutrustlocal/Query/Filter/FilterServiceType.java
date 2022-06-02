@@ -62,13 +62,7 @@ public class FilterServiceType extends Filter {
 
             }
 
-            Provider newProvider = new Provider(provider.getName(), provider.getCountryCode(), provider.getFlagLink(), provider.getProviderID());
-            for (Service filteredProviderService : filteredProviderServices) {
-                newProvider.addService(filteredProviderService);
-                ArrayList<String> serviceTypes = filteredProviderService.getServiceTypes();
-                for (String serviceType : serviceTypes)
-                    newProvider.addServiceType(serviceType);
-            }
+            Provider newProvider = duplicateProvider(provider, filteredProviderServices);
 
             if (!filteredProviderServices.isEmpty()) filteredProviders.add(newProvider);
 
