@@ -1,6 +1,5 @@
 package com.broject.eutrustlocal.Query.Filter;
 
-import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 
 import java.util.ArrayList;
@@ -28,7 +27,6 @@ public abstract class Filter {
      * Could be overridden
      *
      * @return the parameters of the filter
-     * @throws BadResponseException if there is a problem with the POST request
      */
     public ArrayList<String> getParameters() {
 
@@ -48,17 +46,6 @@ public abstract class Filter {
     }
 
     /**
-     * Returns the ID of the filter, used to identify a type of filter
-     *
-     * @return the filter ID
-     */
-    public int getFilterID() {
-
-        return filterID;
-
-    }
-
-    /**
      * Method that adds a list of parameters to the existing ones
      *
      * @param _parameters parameters to be added
@@ -66,8 +53,7 @@ public abstract class Filter {
     public void addParameters(String[] _parameters) {
 
         for (String parameter : _parameters)
-            if (!parameters.contains(parameter))
-                parameters.add(parameter);
+            if (!parameters.contains(parameter)) parameters.add(parameter);
 
     }
 

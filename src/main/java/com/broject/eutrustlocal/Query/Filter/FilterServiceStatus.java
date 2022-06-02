@@ -53,8 +53,7 @@ public class FilterServiceStatus extends Filter {
                     newProvider.addServiceType(serviceType);
             }
 
-            if (!filteredProviderServices.isEmpty())
-                filteredProviders.add(newProvider);
+            if (!filteredProviderServices.isEmpty()) filteredProviders.add(newProvider);
 
         }
 

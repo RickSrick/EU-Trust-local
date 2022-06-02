@@ -1,6 +1,5 @@
 package com.broject.eutrustlocal.Query.Filter;
 
-import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.DataArchive;
 
@@ -22,8 +21,7 @@ public class FilterCountry extends Filter {
     @Override
     public ArrayList<String> getParameters() {
 
-        if (parameters.isEmpty())
-            return DataArchive.getCountryCodes();
+        if (parameters.isEmpty()) return DataArchive.getCountryCodes();
 
         return parameters;
 
@@ -32,8 +30,7 @@ public class FilterCountry extends Filter {
     @Override
     public ArrayList<Provider> applyFilter(ArrayList<Provider> _response) {
 
-        if (parameters.isEmpty())
-            return _response;
+        if (parameters.isEmpty()) return _response;
 
         ArrayList<Provider> filteredProviders = new ArrayList<>();
 

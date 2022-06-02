@@ -38,8 +38,7 @@ public class FilterServiceType extends Filter {
     @Override
     public ArrayList<Provider> applyFilter(ArrayList<Provider> _response) {
 
-        if (parameters.isEmpty())
-            return _response;
+        if (parameters.isEmpty()) return _response;
 
         ArrayList<Provider> filteredProviders = new ArrayList<>();
 
@@ -71,8 +70,7 @@ public class FilterServiceType extends Filter {
                     newProvider.addServiceType(serviceType);
             }
 
-            if (!filteredProviderServices.isEmpty())
-                filteredProviders.add(newProvider);
+            if (!filteredProviderServices.isEmpty()) filteredProviders.add(newProvider);
 
         }
 
