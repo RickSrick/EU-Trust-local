@@ -20,7 +20,7 @@ public class FilterCountry extends Filter {
     }
 
     @Override
-    public ArrayList<String> getParameters() throws BadResponseException {
+    public ArrayList<String> getParameters() {
 
         if (parameters.isEmpty())
             return DataArchive.getCountryCodes();

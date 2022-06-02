@@ -25,7 +25,7 @@ public class Query {
      */
     public static final String[] CRITERIA_FILTERS = {"COUNTRIES", "PROVIDERS", "SERVICE_TYPES", "SERVICE_STATUSES"};
 
-    private static final String CRITERIA_LINE = "--------";
+    public static final String CRITERIA_LINE = "--------";
 
     private ArrayList<Provider> response;
     private ArrayList<Provider> filteredResponse;
@@ -54,14 +54,32 @@ public class Query {
      * If the criteria sheet is not recognised, or it's null, the Query will be created normally from scratch, ignoring the criteria sheet
      *
      * @param _criteria the criteria sheet
-     * @throws BadResponseException if there is a problem with the POST request
      */
-    public Query(String _criteria) throws BadResponseException {
+    public Query(String _criteria) {
 
         newQuery();
 
         if (_criteria == null)
-            throw new BadResponseException();
+            return;
+
+        String[] parameters = criteriaToParameters(_criteria);
+
+        for (int i = 0; i < parameters.length; i++)
+            filters.get(i).addParameters(split(parameters[i]));
+
+    }
+
+    /**
+     * Clears the Query filters and fills them with the new parameters contained in the criteria sheet
+     *
+     * @param _criteria the criteria sheet the Query must respect
+     */
+    public void setCriteria(String _criteria) {
+
+        if (_criteria == null)
+            return;
+
+        clearAllFilters();
 
         String[] parameters = criteriaToParameters(_criteria);
 
@@ -75,15 +93,16 @@ public class Query {
      * Used to view the filters currently applied and to create a new Query
      *
      * @return the criteria sheet
-     * @throws BadResponseException if there is a problem with the POST request
      */
-    public String getCriteria() throws BadResponseException {
+    public String getCriteria() {
 
         StringBuilder criteria = new StringBuilder();
 
         for (int i = 0; i < filters.size(); i++) {
 
             ArrayList<String> parameters = filters.get(i).getParameters();
+            if (i == 2 && filters.get(i).isEmpty())
+                parameters.clear();
             criteria.append(CRITERIA_FILTERS[i]).append("\n");
             for (String parameter : parameters)
                 criteria.append(parameter).append("\n");

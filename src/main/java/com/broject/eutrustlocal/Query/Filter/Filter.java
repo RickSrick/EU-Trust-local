@@ -30,7 +30,7 @@ public abstract class Filter {
      * @return the parameters of the filter
      * @throws BadResponseException if there is a problem with the POST request
      */
-    public ArrayList<String> getParameters() throws BadResponseException {
+    public ArrayList<String> getParameters() {
 
         return new ArrayList<>(parameters);
 

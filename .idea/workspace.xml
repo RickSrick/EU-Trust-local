@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Navigation problems fixed.">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String)).">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/DataParsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/DataParsing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterCountry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterCountry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Query.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +79,20 @@
       <recent name="com.broject.eutrustlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test1">
+  <component name="RunManager" selected="Application.DataParsing">
+    <configuration name="DataParsing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Controller.Utility.DataParsing" />
+      <module name="EU-Trust-local" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.broject.eutrustlocal.Controller.Utility.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="History" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Command.History" />
       <module name="EU-Trust-local" />
@@ -133,29 +148,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QueryTest.newQueryFromCriteria" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EU-Trust-local" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.broject.eutrustlocal.Query.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.broject.eutrustlocal.Query" />
-      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Query.QueryTest" />
-      <option name="METHOD_NAME" value="newQueryFromCriteria" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test1" />
+        <item itemvalue="Application.DataParsing" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test1" />
         <item itemvalue="Application.History" />
         <item itemvalue="JUnit.DataArchiveTest.newDataArchive" />
-        <item itemvalue="JUnit.QueryTest.newQueryFromCriteria" />
       </list>
     </recent_temporary>
   </component>

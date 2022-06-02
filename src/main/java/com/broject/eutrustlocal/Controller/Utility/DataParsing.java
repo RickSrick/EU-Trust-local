@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public final class DataParsing {
 
@@ -117,5 +118,38 @@ public final class DataParsing {
             arrayToFill.add(checkBox);
         }
         addAllCheckBox(arrayToFill);
+    }
+
+    public static String compressCriteriaSheet(String _criteria) {
+
+        Scanner tokenizer = new Scanner(_criteria);
+        StringBuilder compressedCriteria = new StringBuilder();
+
+        ArrayList<StringBuilder> parameters = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+
+            String line = tokenizer.nextLine();
+            line = tokenizer.nextLine();
+
+            parameters.add(new StringBuilder());
+
+            while (!line.equals(Query.CRITERIA_LINE)) {
+                parameters.get(i).append(line);
+                line = tokenizer.nextLine();
+                if (!line.equals(Query.CRITERIA_LINE))
+                    parameters.get(i).append("\\");
+            }
+
+        }
+
+        for (int i = 0; i < parameters.size(); i++) {
+            compressedCriteria.append(parameters.get(i).toString());
+            if (i != 3 && parameters.get(i+1).length() != 0)
+                compressedCriteria.append(" - ");
+        }
+
+        return compressedCriteria.toString();
+
     }
 }
