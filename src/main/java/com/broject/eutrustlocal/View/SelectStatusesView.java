@@ -10,7 +10,7 @@ public class SelectStatusesView extends View {
     private static SelectStatusesView instance = null;
 
     private SelectStatusesView() throws IOException {
-        super(XMLArchive.STATUSES_LIST_SCENE);
+        super(FXMLArchive.STATUSES_LIST_SCENE);
     }
 
     public static SelectStatusesView getInstance(boolean reload) throws BadResponseException, IOException {

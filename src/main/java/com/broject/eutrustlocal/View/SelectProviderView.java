@@ -11,7 +11,7 @@ public class SelectProviderView extends View {
     private static SelectProviderView instance = null;
 
     private SelectProviderView() throws IOException {
-        super(XMLArchive.PROVIDER_LIST_SCENE);
+        super(FXMLArchive.PROVIDER_LIST_SCENE);
     }
 
     public static SelectProviderView getInstance(boolean reload) throws BadResponseException, IOException {
@@ -23,7 +23,7 @@ public class SelectProviderView extends View {
         return instance;
     }
 
-    public static void update() throws BadResponseException {
+    private static void update() throws BadResponseException {
         SelectProviderController.update();
     }
 }

@@ -10,7 +10,7 @@ public class ErrorView extends View {
     private static ErrorView instance = null;
 
     private ErrorView() throws IOException {
-        super(XMLArchive.ERROR_SCENE);
+        super(FXMLArchive.ERROR_SCENE);
     }
 
     public static ErrorView getInstance() throws IOException {

@@ -60,7 +60,7 @@ public class SelectCountryController extends DataController {
             th.setDaemon(true);
             th.start();
             th.join();
-            Main.STAGE.setScene(SelectTypeServiceView.getInstance(true).getScene());
+            Main.STAGE.setScene(SelectServiceTypeView.getInstance(true).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         } catch (InterruptedException e) {

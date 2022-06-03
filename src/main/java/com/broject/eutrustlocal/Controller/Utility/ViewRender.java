@@ -3,7 +3,7 @@ package com.broject.eutrustlocal.Controller.Utility;
 import com.broject.eutrustlocal.Controller.SelectCountryController;
 import com.broject.eutrustlocal.Controller.SelectProviderController;
 import com.broject.eutrustlocal.Controller.SelectStatusesController;
-import com.broject.eutrustlocal.Controller.SelectTypeServiceController;
+import com.broject.eutrustlocal.Controller.SelectServiceTypeController;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.Data.Service;
@@ -126,7 +126,7 @@ public final class ViewRender {
      */
     public static void resetAllSelectView() {
         SelectCountryController.reset();
-        SelectTypeServiceController.reset();
+        SelectServiceTypeController.reset();
         SelectProviderController.reset();
         SelectStatusesController.reset();
     }
