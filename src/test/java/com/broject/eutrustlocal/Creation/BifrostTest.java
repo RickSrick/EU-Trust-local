@@ -15,6 +15,7 @@ class BifrostTest {
         URL url = new URL("https://www.google.com");
         URLConnection uc = url.openConnection();
         uc.connect();
+
     }
 
     @Test
@@ -29,9 +30,7 @@ class BifrostTest {
 
         try { internetFeedback(); }
         catch (IOException e){
-            Assertions.assertThrows(BadResponseException.class, () -> {
-                Bifrost.newBifrost().checkConnection();
-            });
+            Assertions.assertThrows(BadResponseException.class, Bifrost::checkConnection);
         }
     }
 
@@ -44,9 +43,7 @@ class BifrostTest {
     void getCountries() throws BadResponseException {
         try { internetFeedback(); }
         catch (IOException e) {
-            Assertions.assertThrows(BadResponseException.class, () -> {
-                Bifrost.newBifrost().getCountries();
-            });
+            Assertions.assertThrows(BadResponseException.class, () -> Bifrost.newBifrost().getCountries());
         }
 
         Assertions.assertNotEquals("", Bifrost.newBifrost().getCountries());
@@ -54,17 +51,18 @@ class BifrostTest {
 
     @Test
     void findTrustServices() {
-        Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices(""); });
-        Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices("Patate"); });
-        Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices("IT"); });
-        Assertions.assertThrows(BadResponseException.class, () -> { Bifrost.newBifrost().findTrustServices("{\n" +
-                "  \"countries\": [\n" +
-                "    \"IT\"\n" +
-                "  ],\n" +
-                "  \"qServiceTypes\": [\n" +
-                "    \"WAC\"\n" +
-                "  ]\n" +
-                "}");
-        });
+        Assertions.assertThrows(BadResponseException.class, () -> Bifrost.newBifrost().findTrustServices(""));
+        Assertions.assertThrows(BadResponseException.class, () -> Bifrost.newBifrost().findTrustServices("Patate"));
+        Assertions.assertThrows(BadResponseException.class, () -> Bifrost.newBifrost().findTrustServices("IT"));
+        Assertions.assertThrows(BadResponseException.class, () -> Bifrost.newBifrost().findTrustServices("""
+                {
+                  "countries": [
+                    "IT"
+                  ],
+                  "qServiceTypes": [
+                    "WAC"
+                  ]
+                }""")
+        );
     }
 }
