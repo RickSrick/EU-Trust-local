@@ -290,7 +290,7 @@ public class Query {
     //IF NEEDED creates a post request and IF NEEDED filters the response
     private void applyFilters() throws BadResponseException {
 
-        if (!fullCountriesArchive && countriesArchive.size() == DataArchive.getCountryCodes().size()) {
+        if (!fullCountriesArchive && countriesArchive.size() == DataArchive.newDataArchive().getCountryCodes().size()) {
             countriesArchive.clear();
             fullCountriesArchive = true;
             newRequestNeeded = true;
