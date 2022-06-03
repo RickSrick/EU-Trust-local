@@ -17,9 +17,9 @@ import java.io.IOException;
  */
 public class ResultController extends DataController {
 
+    private static TreeView<Label> dummyTreeView;
     @FXML
     private TreeView<Label> resultPane;
-    private static TreeView<Label> dummyTreeView;
 
     @FXML
     private void initialize() throws IOException {

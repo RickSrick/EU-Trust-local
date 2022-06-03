@@ -5,9 +5,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 
 
@@ -36,8 +34,6 @@ public class History {
         }
         writer.println();
         writer.close();
-        System.out.println("BAKA" + criteria);
-
     }
 
     public static ArrayList<String> binReader() throws FileNotFoundException {
@@ -53,7 +49,6 @@ public class History {
             }
         }
         catch (Exception e){
-            System.out.println("CIAO");
             System.out.println(e.getClass());
         }
 
@@ -65,7 +60,6 @@ public class History {
             return new ArrayList<> (history.subList(history.size()-31, history.size()-1));
 
         }
-        System.out.println("OUTPUT" + history);
         return history;
     }
     public static boolean emptyFile() throws FileNotFoundException {

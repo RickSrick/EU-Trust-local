@@ -26,12 +26,12 @@ public class SelectProviderController extends DataController {
     private static final int IMG_SIZE = HomeView.IMG_SIZE / 2;
     private static final int FILTER_TYPE = 1; //SERVICE_PROVIDER
     private static ArrayList<CheckBox> checkBoxes;
+    private static VBox dummyVBox;
+    private static Button dummyBtn;
     @FXML
     private VBox selProviderPane;
     @FXML
     private Button btnProviderForward;
-    private static VBox dummyVBox;
-    private static Button dummyBtn;
 
 
     @FXML
@@ -46,7 +46,6 @@ public class SelectProviderController extends DataController {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
-
 
     @FXML
     protected void onForwardButtonClick() throws IOException {
@@ -68,13 +67,12 @@ public class SelectProviderController extends DataController {
     }
 
     public static void update() throws BadResponseException {
-        DataParser.checkBoxesFromProviders(QUERY.getValidProviders(), checkBoxes, dummyBtn, QUERY, FILTER_TYPE, IMG_SIZE);
         dummyVBox.getChildren().clear();
+        DataParser.checkBoxesFromProviders(QUERY.getValidProviders(), checkBoxes, dummyBtn, QUERY, FILTER_TYPE, IMG_SIZE);
         ViewRender.vBoxFromCheckBoxes(dummyVBox, checkBoxes, SPACING);
     }
 
     public static void reset() {
         reset(checkBoxes);
     }
-
 }

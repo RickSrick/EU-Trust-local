@@ -9,20 +9,26 @@ import javafx.scene.Cursor;
 
 import java.io.IOException;
 
+/**
+ * Task that fetch data from Query.
+ *
+ * @author Biscaccia Carrara Francesco
+ */
 public class TaskData extends Task<Void> {
 
     private final Query query;
-    public TaskData(Query _query){
-        query=_query;
+
+    public TaskData(Query _query) {
+        query = _query;
     }
 
     @Override
-    protected Void call(){
-        try{
+    protected Void call() {
+        try {
             Main.STAGE.getScene().getRoot().setCursor(Cursor.WAIT);
             query.getValidProviders();
             Main.STAGE.getScene().getRoot().setCursor(Cursor.DEFAULT);
-        }catch (BadResponseException e){
+        } catch (BadResponseException e) {
             failed();
         }
         return null;

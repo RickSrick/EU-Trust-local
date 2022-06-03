@@ -20,9 +20,9 @@ import java.util.ArrayList;
 
 /**
  * ViewRender is an auxiliary class that has the task to convert ArrayList of CheckBox/Labels into:
- *      - VBox
- *      - GridPane
- *      - TreeView
+ * - VBox
+ * - GridPane
+ * - TreeView
  *
  * @author Biscaccia Carrara Francesco
  */
@@ -81,15 +81,14 @@ public final class ViewRender {
     /**
      * Populate the vBox VBox with the data contained in the ArrayList.
      *
-     * @param vBox    GridPane to populate
+     * @param vBox    VBox to populate
      * @param data    Labels ArrayList containing the data
      * @param spacing Spacing between rows
      */
-    public static void vBoxFromLabels(VBox vBox, ArrayList<Label> data, double spacing) {
+    public static void historyVBoxFromLabels(VBox vBox, ArrayList<Label> data, double spacing) {
         vBox.setSpacing(spacing);
-        vBox.getChildren().add(data.get(data.size() - 1));
-        for (int i = 0; i < data.size() - 1; i++) {
-            vBox.getChildren().add(data.get(i));
+        for (Label label:data){
+            vBox.getChildren().add(label);
         }
     }
 

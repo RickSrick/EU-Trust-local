@@ -9,6 +9,11 @@ import javafx.concurrent.Task;
 
 import java.io.IOException;
 
+/**
+ * Task that fetch data from DataArchive.
+ *
+ * @author Biscaccia Carrara Francesco
+ */
 public class TaskCountry extends Task<Void> {
 
     @Override

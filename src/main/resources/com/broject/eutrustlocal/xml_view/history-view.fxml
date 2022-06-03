@@ -21,7 +21,7 @@
       </font></Label>
 
         <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-font-family: Arial ; -fx-background-color: transparent;">
-            <VBox fx:id="historyPane" prefHeight="380" style="-fx-font-family: Arial; -fx-font-style: italic;-fx-font-size: 16.0">
+            <VBox fx:id="historyPane" prefHeight="380" style="-fx-font-family: Arial SemiBold; -fx-font-size: 16.0">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>

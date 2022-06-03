@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @author Biscaccia Carrara Francesco
@@ -32,9 +33,10 @@ public class HistoryController extends DataController {
     @FXML
     private void initialize() throws FileNotFoundException {
         labels = new ArrayList<>();
-        DataParser.labelsFromCriteriaSheet(History.binReader(), labels,QUERY, IMG_SIZE);
-        ViewRender.vBoxFromLabels(historyPane, labels, SPACING);
-        dummyVBox=historyPane;
+        DataParser.labelsFromCriteriaSheet(History.binReader(), labels, QUERY, IMG_SIZE);
+        Collections.reverse(labels);
+        ViewRender.historyVBoxFromLabels(historyPane,labels, SPACING);
+        dummyVBox = historyPane;
     }
 
     @FXML
@@ -48,7 +50,8 @@ public class HistoryController extends DataController {
 
     public static void update() throws FileNotFoundException {
         dummyVBox.getChildren().clear();
-        DataParser.labelsFromCriteriaSheet(History.binReader(), labels,QUERY, IMG_SIZE);
-        ViewRender.vBoxFromLabels(dummyVBox, labels, SPACING);
+        DataParser.labelsFromCriteriaSheet(History.binReader(), labels, QUERY, IMG_SIZE);
+        Collections.reverse(labels);
+        ViewRender.historyVBoxFromLabels(dummyVBox, labels, SPACING);
     }
 }

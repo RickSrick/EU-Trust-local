@@ -20,13 +20,16 @@ import java.util.ArrayList;
  */
 public class SelectCountryController extends DataController {
 
-    private final double RATIO = 0.75;
-
     private static ArrayList<CheckBox> checkBoxes;
+    private final double RATIO = 0.75;
     @FXML
     private Button btnCountryForward;
     @FXML
     private GridPane selCountryPane;
+
+    public static void reset() {
+        reset(checkBoxes);
+    }
 
     @FXML
     private void initialize() throws IOException {
@@ -63,9 +66,5 @@ public class SelectCountryController extends DataController {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void reset() {
-        reset(checkBoxes);
     }
 }

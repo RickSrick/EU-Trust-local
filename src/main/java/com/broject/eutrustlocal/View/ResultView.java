@@ -6,19 +6,19 @@ import com.broject.eutrustlocal.Creation.DataArchive;
 
 import java.io.IOException;
 
-public class ResultView extends View{
+public class ResultView extends View {
     private static ResultView instance = null;
 
     private ResultView() throws IOException {
         super(XMLArchive.RESULT_LIST_SCENE);
     }
 
-    public static ResultView getInstance(boolean goFoward) throws BadResponseException, IOException {
+    public static ResultView getInstance(boolean reload) throws BadResponseException, IOException {
 
         if (DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)
             instance = new ResultView();
-        else if(goFoward) update();
+        else if (reload) update();
         return instance;
     }
 

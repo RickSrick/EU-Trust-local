@@ -21,28 +21,30 @@ import java.util.ArrayList;
  */
 public class SelectTypeServiceController extends DataController {
 
-    private static final int COLUMNS=3;
-    private static final int ROWS=7;
-    private static final int FILTER_TYPE=2; //SERVICE_TYPE
+    private static final int COLUMNS = 3;
+    private static final int ROWS = 7;
+    private static final int FILTER_TYPE = 2; //SERVICE_TYPE
 
     private static ArrayList<CheckBox> checkBoxes;
+    private static GridPane dummyGridPane;
+    private static Button dummyBtn;
     @FXML
     private GridPane selServiceTypePane;
     @FXML
     private Button btnServiceTypeForward;
-    private static GridPane dummyGridPane;
-    private static Button dummyBtn;
+
+
 
     @FXML
     private void initialize() throws IOException {
-        checkBoxes=new ArrayList<>();
+        checkBoxes = new ArrayList<>();
         try {
-            DataParser.checkBoxesFromStrings(QUERY.getValidServiceTypes(),checkBoxes,btnServiceTypeForward,QUERY,FILTER_TYPE);
-            ViewRender.gridPaneFromCheckBoxes(selServiceTypePane,checkBoxes,COLUMNS,ROWS);
-            dummyGridPane =selServiceTypePane;
-            dummyBtn =btnServiceTypeForward;
+            DataParser.checkBoxesFromStrings(QUERY.getValidServiceTypes(), checkBoxes, btnServiceTypeForward, QUERY, FILTER_TYPE);
+            ViewRender.gridPaneFromCheckBoxes(selServiceTypePane, checkBoxes, COLUMNS, ROWS);
+            dummyGridPane = selServiceTypePane;
+            dummyBtn = btnServiceTypeForward;
         } catch (BadResponseException e) {
-                Main.STAGE.setScene(ErrorView.getInstance().getScene());
+            Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
 
@@ -65,10 +67,11 @@ public class SelectTypeServiceController extends DataController {
         }
     }
     public static void update() throws BadResponseException {
-        DataParser.checkBoxesFromStrings(QUERY.getValidServiceTypes(),checkBoxes,dummyBtn,QUERY,FILTER_TYPE);
+        DataParser.checkBoxesFromStrings(QUERY.getValidServiceTypes(), checkBoxes, dummyBtn, QUERY, FILTER_TYPE);
         dummyGridPane.getChildren().clear();
-        ViewRender.gridPaneFromCheckBoxes(dummyGridPane,checkBoxes,COLUMNS,ROWS);
+        ViewRender.gridPaneFromCheckBoxes(dummyGridPane, checkBoxes, COLUMNS, ROWS);
     }
+
     public static void reset() {
         reset(checkBoxes);
     }

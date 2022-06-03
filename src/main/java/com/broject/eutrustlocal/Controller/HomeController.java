@@ -34,7 +34,8 @@ public class HomeController extends DataController {
     @FXML
     private ImageView historyIcon;
 
-    private  static ImageView dummyImage;
+    private static ImageView dummyImage;
+
     @FXML
     private void initialize() throws IOException {
         try {
@@ -45,8 +46,8 @@ public class HomeController extends DataController {
             for (String s : DataArchive.SERVICE_TYPES) {
                 serTypePane.getChildren().add(new Label("• " + s));
             }
-            if(History.emptyFile()) historyIcon.setDisable(true);
-            dummyImage=historyIcon;
+            if (History.emptyFile()) historyIcon.setDisable(true);
+            dummyImage = historyIcon;
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
@@ -60,6 +61,7 @@ public class HomeController extends DataController {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
+
     @FXML
     protected void onHistoryClick() throws IOException {
         try {
@@ -69,7 +71,7 @@ public class HomeController extends DataController {
         }
     }
 
-    public static  void update() throws FileNotFoundException {
-        if(!History.emptyFile()) dummyImage.setDisable(false);
+    public static void update() throws FileNotFoundException {
+        if (!History.emptyFile()) dummyImage.setDisable(false);
     }
 }

@@ -28,14 +28,14 @@ public class ErrorController {
     private ImageView repeatImg;
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         int randomNum = rand.nextInt((MAX_RAND - MIN_RAND) + 1) + MIN_RAND;
         errorImage.setImage(new Image(String.valueOf(Main.class.getResource("gif/error-" + randomNum + ".gif"))));
-
     }
+
     @FXML
     protected void onRepeatButtonClick() {
-        RotateTransition transition = new RotateTransition(Duration.millis(600),repeatImg);
+        RotateTransition transition = new RotateTransition(Duration.millis(600), repeatImg);
         transition.setByAngle(360);
         transition.setOnFinished(actionEvent -> {
             try {

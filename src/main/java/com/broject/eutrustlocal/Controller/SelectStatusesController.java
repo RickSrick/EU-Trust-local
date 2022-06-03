@@ -27,12 +27,13 @@ public class SelectStatusesController extends DataController {
     private static final int FILTER_TYPE = 3; //SERVICE_STATUS
 
     private static ArrayList<CheckBox> checkBoxes;
+    private static GridPane aux;
+    private static Button auxBtn;
     @FXML
     private GridPane selStatusesPane;
     @FXML
     private Button btnFinishQueryForward;
-    private static GridPane aux;
-    private static Button auxBtn;
+
 
 
     @FXML
@@ -47,7 +48,6 @@ public class SelectStatusesController extends DataController {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
     }
-
 
     @FXML
     protected void onForwardButtonClick() throws IOException {

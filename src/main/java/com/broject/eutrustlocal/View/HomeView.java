@@ -22,7 +22,7 @@ public class HomeView extends View {
         if (DataArchive.checkOfflineStatus()) throw new BadResponseException();
         if (instance == null)
             instance = new HomeView();
-        else if(reload) update();
+        else if (reload) update();
         return instance;
     }
 

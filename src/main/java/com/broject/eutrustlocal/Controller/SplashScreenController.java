@@ -10,18 +10,18 @@ import javafx.util.Duration;
 /**
  * @author Biscaccia Carrara Francesco
  */
-public class SplashScreenController{
+public class SplashScreenController {
 
     @FXML
     private ImageView loadingImage;
 
     @FXML
-    public void initialize(){
-        RotateTransition transition = new RotateTransition(Duration.millis(750),loadingImage);
+    public void initialize() {
+        RotateTransition transition = new RotateTransition(Duration.millis(750), loadingImage);
         transition.setByAngle(360);
         transition.setCycleCount(Transition.INDEFINITE);
         transition.play();
-        Thread th =new Thread(new TaskCountry());
+        Thread th = new Thread(new TaskCountry());
         th.setDaemon(true);
         th.start();
     }

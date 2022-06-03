@@ -2,7 +2,7 @@ package com.broject.eutrustlocal.View;
 
 import java.io.IOException;
 
-public class SplashScreenView extends View{
+public class SplashScreenView extends View {
 
     private static SplashScreenView instance = null;
 
