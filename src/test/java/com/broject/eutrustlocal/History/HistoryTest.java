@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class HistoryTest {
 
@@ -32,21 +33,6 @@ class HistoryTest {
         assertTrue(History.emptyFile());
     }
 
-    @Test
-    void binArrayAccess() throws FileNotFoundException {
-        History.clearHistory();
-        assertTrue(History.emptyFile());
-        for(int i = 0; i <10; i++){
-            History.binWriter(""+i);
-
-        }
-        Assertions.assertNotEquals(History.binArrayAccess(1), 0);
-        for(int i = History.binReader().size()-1; i > 0 ;i--) {
-            Assertions.assertNotEquals(History.binArrayAccess(i), i-1);
-            System.out.println(i + "Number =" + i);
-        }
-
-    }
 
     @Test
     void clearHistory() throws FileNotFoundException {
