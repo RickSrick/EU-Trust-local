@@ -62,25 +62,13 @@ public class DataArchive {
      *
      * @return all the country codes in the UE
      */
-    public static ArrayList<String> getCountryCodes() {
+    public ArrayList<String> getCountryCodes() {
 
         ArrayList<String> countryCodes = new ArrayList<>();
         for (Country country : countries)
             countryCodes.add(country.getCountryCode());
 
         return countryCodes;
-
-    }
-
-    /**
-     * Method that updates the connection with the server and the country list
-     *
-     * @throws BadResponseException if there is a problem with the POST request
-     */
-    public void update() throws BadResponseException {
-
-        connection = Bifrost.newBifrost();
-        jsonToCountries(connection.getCountries());
 
     }
 
@@ -199,6 +187,14 @@ public class DataArchive {
         }
 
         return providers;
+
+    }
+
+    //Method to update the DataArchive
+    private void update() throws BadResponseException {
+
+        connection = Bifrost.newBifrost();
+        jsonToCountries(connection.getCountries());
 
     }
 

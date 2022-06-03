@@ -15,17 +15,17 @@ class QueryTest {
     void getCriteria() {
 
         Query query = new Query();
-        String expectedCriteria = "" +
-                "COUNTRIES\n" +
-                "--------\n" +
-                "PROVIDERS\n" +
-                "--------\n" +
-                "SERVICE_TYPES\n" +
-                "--------\n" +
-                "SERVICE_STATUSES\n" +
-                "--------\n";
-        String actualCriteria = query.getCriteria();
-        Assertions.assertEquals(expectedCriteria, actualCriteria);
+        String expectedCriteria = """
+                COUNTRIES
+                --------
+                PROVIDERS
+                --------
+                SERVICE_TYPES
+                --------
+                SERVICE_STATUSES
+                --------
+                """;
+        Assertions.assertEquals(expectedCriteria, query.getCriteria());
 
     }
 
@@ -33,18 +33,19 @@ class QueryTest {
     void setCriteria() {
 
         Query query = new Query();
-        String criteria = "" +
-                "COUNTRIES\n" +
-                "AT\n" +
-                "DE\n" +
-                "--------\n" +
-                "PROVIDERS\n" +
-                "--------\n" +
-                "SERVICE_TYPES\n" +
-                "QWAC\n" +
-                "--------\n" +
-                "SERVICE_STATUSES\n" +
-                "--------\n";
+        String criteria = """
+                COUNTRIES
+                AT
+                DE
+                --------
+                PROVIDERS
+                --------
+                SERVICE_TYPES
+                QWAC
+                --------
+                SERVICE_STATUSES
+                --------
+                """;
         query.setCriteria(criteria);
         Assertions.assertEquals(criteria, query.getCriteria());
 
@@ -58,19 +59,20 @@ class QueryTest {
         query.editFilterParameter(Query.CRITERIA_FILTERS[1], "IT/Actalis S.p.A.");
         query.editFilterParameter(Query.CRITERIA_FILTERS[2], "QWAC");
         query.editFilterParameter(Query.CRITERIA_FILTERS[3], "granted");
-        String expectedCriteria = "" +
-                "COUNTRIES\n" +
-                "IT\n" +
-                "--------\n" +
-                "PROVIDERS\n" +
-                "IT/Actalis S.p.A.\n" +
-                "--------\n" +
-                "SERVICE_TYPES\n" +
-                "QWAC\n" +
-                "--------\n" +
-                "SERVICE_STATUSES\n" +
-                "granted\n" +
-                "--------\n";
+        String expectedCriteria = """
+                COUNTRIES
+                IT
+                --------
+                PROVIDERS
+                IT/Actalis S.p.A.
+                --------
+                SERVICE_TYPES
+                QWAC
+                --------
+                SERVICE_STATUSES
+                granted
+                --------
+                """;
         Assertions.assertEquals(expectedCriteria, query.getCriteria());
 
     }
@@ -139,18 +141,19 @@ class QueryTest {
         query.editFilterParameter(Query.CRITERIA_FILTERS[2], "QWAC");
         query.editFilterParameter(Query.CRITERIA_FILTERS[3], "granted");
         query.clearFilter(Query.CRITERIA_FILTERS[1]);
-        String expectedCriteria = "" +
-                "COUNTRIES\n" +
-                "IT\n" +
-                "--------\n" +
-                "PROVIDERS\n" +
-                "--------\n" +
-                "SERVICE_TYPES\n" +
-                "QWAC\n" +
-                "--------\n" +
-                "SERVICE_STATUSES\n" +
-                "granted\n" +
-                "--------\n";
+        String expectedCriteria = """
+                COUNTRIES
+                IT
+                --------
+                PROVIDERS
+                --------
+                SERVICE_TYPES
+                QWAC
+                --------
+                SERVICE_STATUSES
+                granted
+                --------
+                """;
         Assertions.assertEquals(expectedCriteria, query.getCriteria());
 
     }
@@ -164,15 +167,16 @@ class QueryTest {
         query.editFilterParameter(Query.CRITERIA_FILTERS[2], "QWAC");
         query.editFilterParameter(Query.CRITERIA_FILTERS[3], "granted");
         query.clearAllFilters();
-        String expectedCriteria = "" +
-                "COUNTRIES\n" +
-                "--------\n" +
-                "PROVIDERS\n" +
-                "--------\n" +
-                "SERVICE_TYPES\n" +
-                "--------\n" +
-                "SERVICE_STATUSES\n" +
-                "--------\n";
+        String expectedCriteria = """
+                COUNTRIES
+                --------
+                PROVIDERS
+                --------
+                SERVICE_TYPES
+                --------
+                SERVICE_STATUSES
+                --------
+                """;
         Assertions.assertEquals(expectedCriteria, query.getCriteria());
 
     }
