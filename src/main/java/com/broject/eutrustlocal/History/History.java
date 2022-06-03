@@ -15,7 +15,14 @@ import java.util.Scanner;
 public class History {
 
     private static final String PATH = "src/main/java/com/broject/eutrustlocal/History/History.bin";
-
+    /**
+     * Takes criteria from query request and convert to binary code;
+     * If History.bin doesn't exist, the file will be created automatically;
+     * Then write the binary code in .bin file;
+     *
+     * @param criteria the criteria sheet from query;
+     * @throws FileNotFoundException if there is problems with file reading
+     */
     /**
      * Method used to add a criteria to the History file
      *
@@ -44,7 +51,13 @@ public class History {
         writer.close();
 
     }
-
+    /**
+     * Scan all the history.bin file, convert the contents in String and add it to history String ArrayList
+     * If history size is more than 30, it will return only the last 30 String added;
+     *
+     * @return _history the arraylist that contains the search history
+     * @throws FileNotFoundException if there is problems with file reading
+     */
     /**
      * Method used to read from the History file
      * Reads all the file and returns only the last 30 criteria sheets found
@@ -70,7 +83,12 @@ public class History {
         return history;
 
     }
-
+    /**
+     * Check if .bin file is empty
+     *
+     * @return true if .bin file is empty, false if .bin file contains elements
+     * @throws FileNotFoundException if there is problems with file reading
+     */
     /**
      * Method that checks if the history file is empty or not
      *
@@ -82,7 +100,11 @@ public class History {
         return !(new Scanner(new FileReader(PATH))).hasNextLine();
 
     }
-
+    /**
+     * Clear history.bin file
+     *
+     * @throws FileNotFoundException if there is problems with file reading
+     */
     /**
      * Method used to clear the History file
      *
@@ -94,7 +116,12 @@ public class History {
         writer.close();
 
     }
-
+    /**
+     * Convert the input String(binary code) to alphanumerical String output
+     *
+     * @param in the String(binary code) to convert
+     * @return converted String
+     */
     //method that converts Binary to String
     private static String binaryConverter(String in) {
 
