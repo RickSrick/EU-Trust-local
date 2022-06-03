@@ -19,11 +19,14 @@ public class TaskData extends Task<Void> {
     private final Query query;
 
     public TaskData(Query _query) {
+
         query = _query;
+
     }
 
     @Override
     protected Void call() {
+
         try {
             Main.STAGE.getScene().getRoot().setCursor(Cursor.WAIT);
             query.getValidProviders();
@@ -32,6 +35,7 @@ public class TaskData extends Task<Void> {
             failed();
         }
         return null;
+
     }
 
     @Override
@@ -41,12 +45,14 @@ public class TaskData extends Task<Void> {
 
     @Override
     protected void failed() {
+
         super.failed();
         try {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+
     }
 
 }

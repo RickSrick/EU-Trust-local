@@ -16,34 +16,41 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * Class SelectCountryController
+ *
  * @author Biscaccia Carrara Francesco
  */
 public class SelectCountryController extends DataController {
 
     private static ArrayList<CheckBox> checkBoxes;
-    private final double RATIO = 0.75;
     @FXML
     private Button btnCountryForward;
     @FXML
     private GridPane selCountryPane;
 
     public static void reset() {
+
         reset(checkBoxes);
+
     }
 
     @FXML
     private void initialize() throws IOException {
+
         try {
+            double RATIO = 0.75;
             checkBoxes = new ArrayList<>();
             DataParser.checkBoxesFromCountries(DataArchive.newDataArchive().getCountries(), checkBoxes, btnCountryForward, QUERY, SelectCountryView.IMG_SIZE * RATIO);
             ViewRender.gridPaneFromCheckBoxes(selCountryPane, checkBoxes, View.COL_NUM, View.ROW_NUM);
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     @FXML
     protected void onHomeButtonClick() throws IOException {
+
         try {
             Main.STAGE.setScene(HomeView.getInstance(false).getScene());
             ViewRender.resetAllSelectView();
@@ -51,10 +58,12 @@ public class SelectCountryController extends DataController {
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     @FXML
     protected void onForwardButtonClick() throws IOException {
+
         try {
             Thread th = new Thread(new TaskData(QUERY));
             th.setDaemon(true);
@@ -66,5 +75,7 @@ public class SelectCountryController extends DataController {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
     }
+
 }

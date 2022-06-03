@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * Class HistoryController
+ *
  * @author Biscaccia Carrara Francesco
  */
 public class HistoryController extends DataController {
@@ -25,33 +27,39 @@ public class HistoryController extends DataController {
     private static final int SPACING = 20;
     private static final int IMG_SIZE = View.IMG_SIZE / 2;
     private static ArrayList<Label> labels;
-
+    private static VBox dummyVBox;
     @FXML
     private VBox historyPane;
-    private static VBox dummyVBox;
+
+    public static void update() throws FileNotFoundException {
+
+        dummyVBox.getChildren().clear();
+        DataParser.labelsFromCriteriaSheet(History.binReader(), labels, QUERY, IMG_SIZE);
+        Collections.reverse(labels);
+        ViewRender.historyVBoxFromLabels(dummyVBox, labels, SPACING);
+
+    }
 
     @FXML
     private void initialize() throws FileNotFoundException {
+
         labels = new ArrayList<>();
         DataParser.labelsFromCriteriaSheet(History.binReader(), labels, QUERY, IMG_SIZE);
         Collections.reverse(labels);
-        ViewRender.historyVBoxFromLabels(historyPane,labels, SPACING);
+        ViewRender.historyVBoxFromLabels(historyPane, labels, SPACING);
         dummyVBox = historyPane;
+
     }
 
     @FXML
     protected void onHomeButtonClick() throws IOException {
+
         try {
             Main.STAGE.setScene(HomeView.getInstance(false).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
-    public static void update() throws FileNotFoundException {
-        dummyVBox.getChildren().clear();
-        DataParser.labelsFromCriteriaSheet(History.binReader(), labels, QUERY, IMG_SIZE);
-        Collections.reverse(labels);
-        ViewRender.historyVBoxFromLabels(dummyVBox, labels, SPACING);
-    }
 }

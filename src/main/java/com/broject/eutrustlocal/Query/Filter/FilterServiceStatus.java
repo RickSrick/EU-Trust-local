@@ -6,6 +6,8 @@ import com.broject.eutrustlocal.Creation.Data.Service;
 import java.util.ArrayList;
 
 /**
+ * Class FilterServiceStatus
+ *
  * @author Zanella Matteo
  */
 

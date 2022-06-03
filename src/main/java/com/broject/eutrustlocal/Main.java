@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
+ * Class Main
+ *
  * @author Biscaccia Carrara Francesco
  */
 public class Main extends Application {
@@ -19,6 +21,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         boolean RESIZE_FLAG = false;
         STAGE = stage;
         stage.setResizable(RESIZE_FLAG);
@@ -26,9 +29,13 @@ public class Main extends Application {
         stage.getIcons().add(new Image(String.valueOf(Main.class.getResource("img/stage-icon.png"))));
         stage.setScene(SplashScreenView.getInstance().getScene());
         stage.show();
+
     }
 
     public static void main(String[] args) {
+
         launch();
+
     }
+
 }

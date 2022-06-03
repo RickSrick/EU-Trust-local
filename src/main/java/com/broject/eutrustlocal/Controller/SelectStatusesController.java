@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * Class SelectStatusesController
+ *
  * @author Biscaccia Carrara Francesco
  */
 public class SelectStatusesController extends DataController {
@@ -34,10 +36,23 @@ public class SelectStatusesController extends DataController {
     @FXML
     private Button btnFinishQueryForward;
 
+    public static void update() throws BadResponseException {
 
+        DataParser.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, auxBtn, QUERY, FILTER_TYPE);
+        aux.getChildren().clear();
+        ViewRender.gridPaneFromCheckBoxes(aux, checkBoxes, COLUMNS, ROWS);
+
+    }
+
+    public static void reset() {
+
+        reset(checkBoxes);
+
+    }
 
     @FXML
     private void initialize() throws IOException {
+
         checkBoxes = new ArrayList<>();
         try {
             DataParser.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, btnFinishQueryForward, QUERY, FILTER_TYPE);
@@ -47,35 +62,31 @@ public class SelectStatusesController extends DataController {
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     @FXML
     protected void onForwardButtonClick() throws IOException {
+
         try {
             Main.STAGE.setScene(ResultView.getInstance(true).getScene());
             History.binWriter(QUERY.getCriteria());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     @FXML
     protected void onBackButtonClick() throws IOException {
+
         try {
             QUERY.clearFilter(Query.CRITERIA_FILTERS[FILTER_TYPE]);
             Main.STAGE.setScene(SelectProviderView.getInstance(false).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
-    public static void update() throws BadResponseException {
-        DataParser.checkBoxesFromStrings(QUERY.getValidServiceStatuses(), checkBoxes, auxBtn, QUERY, FILTER_TYPE);
-        aux.getChildren().clear();
-        ViewRender.gridPaneFromCheckBoxes(aux, checkBoxes, COLUMNS, ROWS);
-    }
-
-    public static void reset() {
-        reset(checkBoxes);
-    }
 }

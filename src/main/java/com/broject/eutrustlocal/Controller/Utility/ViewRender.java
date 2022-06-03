@@ -2,8 +2,8 @@ package com.broject.eutrustlocal.Controller.Utility;
 
 import com.broject.eutrustlocal.Controller.SelectCountryController;
 import com.broject.eutrustlocal.Controller.SelectProviderController;
-import com.broject.eutrustlocal.Controller.SelectStatusesController;
 import com.broject.eutrustlocal.Controller.SelectServiceTypeController;
+import com.broject.eutrustlocal.Controller.SelectStatusesController;
 import com.broject.eutrustlocal.Creation.BadResponseException;
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.Data.Service;
@@ -37,6 +37,7 @@ public final class ViewRender {
      * @param rowNumber Number of rows
      */
     public static void gridPaneFromCheckBoxes(GridPane gridPane, ArrayList<CheckBox> data, int colNumber, int rowNumber) {
+
         int elem = 0;
         gridPane.add(data.get(data.size() - 1), 0, 0);
         for (int i = 0; i <= colNumber & elem < data.size() - 1; i++) {
@@ -44,6 +45,7 @@ public final class ViewRender {
                 gridPane.add(data.get(elem++), i, j);
             }
         }
+
     }
 
     /**
@@ -55,12 +57,14 @@ public final class ViewRender {
      * @param rowNumber Number of rows
      */
     public static void gridPaneFromLabels(GridPane gridPane, ArrayList<Label> data, int colNumber, int rowNumber) {
+
         int elem = 0;
         for (int i = 0; i <= colNumber & elem < data.size(); i++) {
             for (int j = 0; j < rowNumber & elem < data.size(); j++) {
                 gridPane.add(data.get(elem++), i, j);
             }
         }
+
     }
 
     /**
@@ -71,11 +75,13 @@ public final class ViewRender {
      * @param spacing Spacing between rows
      */
     public static void vBoxFromCheckBoxes(VBox vBox, ArrayList<CheckBox> data, double spacing) {
+
         vBox.setSpacing(spacing);
         vBox.getChildren().add(data.get(data.size() - 1));
         for (int i = 0; i < data.size() - 1; i++) {
             vBox.getChildren().add(data.get(i));
         }
+
     }
 
     /**
@@ -86,10 +92,12 @@ public final class ViewRender {
      * @param spacing Spacing between rows
      */
     public static void historyVBoxFromLabels(VBox vBox, ArrayList<Label> data, double spacing) {
+
         vBox.setSpacing(spacing);
-        for (Label label:data){
+        for (Label label : data) {
             vBox.getChildren().add(label);
         }
+
     }
 
     /**
@@ -99,6 +107,7 @@ public final class ViewRender {
      * @param data     Provider ArrayList containing the data
      */
     public static void treeViewFromProviders(TreeView<Label> treeView, ArrayList<Provider> data) throws BadResponseException {
+
         TreeItem<Label> start = new TreeItem<>(new Label("ONLY FOR START"));
         for (Provider datum : data) {
             ImageView flag = new ImageView(DataArchive.newDataArchive().getCountry(datum.getCountryCode()).getFlag());
@@ -119,16 +128,19 @@ public final class ViewRender {
             start.getChildren().add(treeItem);
         }
         treeView.setRoot(start);
+
     }
 
     /**
      * Reset the selections of all View
      */
     public static void resetAllSelectView() {
+
         SelectCountryController.reset();
         SelectServiceTypeController.reset();
         SelectProviderController.reset();
         SelectStatusesController.reset();
+
     }
 
 }

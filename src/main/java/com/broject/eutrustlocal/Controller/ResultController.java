@@ -13,6 +13,8 @@ import javafx.scene.control.TreeView;
 import java.io.IOException;
 
 /**
+ * Class ResultController
+ *
  * @author Biscaccia Carrara Francesco
  */
 public class ResultController extends DataController {
@@ -23,16 +25,19 @@ public class ResultController extends DataController {
 
     @FXML
     private void initialize() throws IOException {
+
         try {
             ViewRender.treeViewFromProviders(resultPane, QUERY.getValidProviders());
             dummyTreeView = resultPane;
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     @FXML
     protected void onSearchByCriteriaClick() throws IOException {
+
         try {
             Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
             ViewRender.resetAllSelectView();
@@ -40,10 +45,12 @@ public class ResultController extends DataController {
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     @FXML
     protected void onHomeButtonClick() throws IOException {
+
         try {
             Main.STAGE.setScene(HomeView.getInstance(true).getScene());
             ViewRender.resetAllSelectView();
@@ -51,10 +58,14 @@ public class ResultController extends DataController {
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     public void update() throws BadResponseException {
+
         dummyTreeView.getRoot().getChildren().clear();
         ViewRender.treeViewFromProviders(dummyTreeView, QUERY.getValidProviders());
+
     }
+
 }

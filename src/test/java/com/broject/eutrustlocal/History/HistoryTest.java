@@ -14,7 +14,7 @@ class HistoryTest {
     @Test
     void binWriter() throws FileNotFoundException {
         History.binWriter("ABCDEF");
-        assertFalse(History.emptyFile());
+        assertFalse(History.isEmpty());
 
     }
 
@@ -28,9 +28,9 @@ class HistoryTest {
     }
 
     @Test
-    void emptyFile() throws FileNotFoundException {
+    void isEmpty() throws FileNotFoundException {
         History.clearHistory();
-        assertTrue(History.emptyFile());
+        assertTrue(History.isEmpty());
     }
 
 
@@ -38,6 +38,6 @@ class HistoryTest {
     void clearHistory() throws FileNotFoundException {
         History.binWriter("junit");
         History.clearHistory();
-        assertTrue(History.emptyFile());
+        assertTrue(History.isEmpty());
     }
 }

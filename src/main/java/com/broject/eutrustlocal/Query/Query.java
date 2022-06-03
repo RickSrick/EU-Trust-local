@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * Class Querym
+ *
  * @author Zanella Matteo
  */
 
@@ -122,13 +124,12 @@ public class Query {
 
         String[] countries = split(parameters[0]);
 
-        if (!fullCountriesArchive)
-            for (String country : countries)
-                if (!countriesArchive.contains(country)) {
-                    countriesArchive.add(country);
-                    addedCountries.add(country);
-                    if (!newRequestNeeded) newRequestNeeded = true;
-                }
+        if (!fullCountriesArchive) for (String country : countries)
+            if (!countriesArchive.contains(country)) {
+                countriesArchive.add(country);
+                addedCountries.add(country);
+                if (!newRequestNeeded) newRequestNeeded = true;
+            }
 
     }
 

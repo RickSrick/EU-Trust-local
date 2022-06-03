@@ -7,18 +7,26 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
+/**
+ * Class History
+ *
+ * @author Kabir Bertan
+ */
 public class History {
 
-    private static final String path = "src/main/java/com/broject/eutrustlocal/History/History.bin";
+    private static final String PATH = "src/main/java/com/broject/eutrustlocal/History/History.bin";
 
-
+    /**
+     * Method used to add a criteria to the History file
+     *
+     * @param criteria the criteria to be added
+     * @throws FileNotFoundException If there are problems with the History file
+     */
     public static void binWriter(String criteria) throws FileNotFoundException {
-        PrintWriter writer = new PrintWriter( new FileOutputStream(path, true));
+
+        PrintWriter writer = new PrintWriter(new FileOutputStream(PATH, true));
 
         byte[] criteriaBytes = criteria.getBytes();
-
 
         for (byte criteriaByte : criteriaBytes) {
             StringBuilder binary = new StringBuilder();
@@ -30,70 +38,80 @@ public class History {
                 binary.insert(0, change);
             }
             writer.print(binary + " ");
-
         }
+
         writer.println();
         writer.close();
+
     }
 
+    /**
+     * Method used to read from the History file
+     * Reads all the file and returns only the last 30 criteria sheets found
+     *
+     * @return an ArrayList containing the last 30 searches as criteria sheets
+     * @throws FileNotFoundException If there are problems with the History file
+     */
     public static ArrayList<String> binReader() throws FileNotFoundException {
 
         ArrayList<String> history = new ArrayList<>();
+        Scanner in = new Scanner(new FileReader(PATH));
+        String line;
 
-        Scanner in = new Scanner(new FileReader(path));
-        try {
-            while (in.hasNextLine()) {
-                String line = in.nextLine();
-                history.add(binaryConverter(line));
-
-            }
+        while (in.hasNextLine()) {
+            line = in.nextLine();
+            history.add(binaryConverter(line));
         }
-        catch (Exception e){
-            System.out.println(e.getClass());
-        }
-
 
         in.close();
 
-        if(history.size()>30){
+        if (history.size() > 30) return new ArrayList<>(history.subList(history.size() - 30, history.size()));
 
-            return new ArrayList<> (history.subList(history.size()-30, history.size()));
-
-        }
         return history;
-    }
-    public static boolean emptyFile() throws FileNotFoundException {
-        //return binReader().size()==0;
 
-        Scanner in = new Scanner(new FileReader(path));
-        return !in.hasNextLine();
     }
-    public static String binArrayAccess( int i) throws FileNotFoundException {
-        String out = binReader().get(i);
-        return out;
+
+    /**
+     * Method that checks if the history file is empty or not
+     *
+     * @return true/false if the history file is empty or not
+     * @throws FileNotFoundException If there are problems with the History file
+     */
+    public static boolean isEmpty() throws FileNotFoundException {
+
+        return !(new Scanner(new FileReader(PATH))).hasNextLine();
+
     }
-    private static String binaryConverter(String in){
+
+    /**
+     * Method used to clear the History file
+     *
+     * @throws FileNotFoundException If there are problems with the History file
+     */
+    public static void clearHistory() throws FileNotFoundException {
+
+        PrintWriter writer = new PrintWriter(new FileOutputStream(PATH, false));
+        writer.close();
+
+    }
+
+    //method that converts Binary to String
+    private static String binaryConverter(String in) {
+
         StringBuilder sb = new StringBuilder();
         String[] characters = in.split(" ");
 
-
-
-        for(String character : characters) {
+        for (String character : characters) {
             int num = 0;
             char[] bytes = character.toCharArray();
             for (int i = bytes.length - 1; i >= 0; i--) {
                 num += Integer.parseInt(bytes[i] + "") * Math.pow(2, bytes.length - i - 1);
             }
-            sb.append((char)num);
+            sb.append((char) num);
         }
-
 
         return sb.toString();
 
     }
 
-    public static void clearHistory() throws FileNotFoundException {
-        PrintWriter writer = new PrintWriter( new FileOutputStream(path, false));
-        writer.close();
-    }
 }

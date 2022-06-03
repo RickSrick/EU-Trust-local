@@ -18,32 +18,39 @@ public class TaskCountry extends Task<Void> {
 
     @Override
     protected Void call() throws Exception {
-        try{
+
+        try {
             DataArchive.newDataArchive().getCountries();
             Thread.sleep(1000);
-        }catch (BadResponseException e){
+        } catch (BadResponseException e) {
             failed();
         }
         return null;
+
     }
 
     @Override
     protected void succeeded() {
+
         super.succeeded();
         try {
             Main.STAGE.setScene(HomeView.getInstance(true).getScene());
         } catch (BadResponseException | IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     @Override
     protected void failed() {
+
         super.failed();
         try {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+
     }
+
 }

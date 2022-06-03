@@ -21,23 +21,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * Class HomeController
+ *
  * @author Biscaccia Carrara Francesco
  */
 public class HomeController extends DataController {
 
+    private static ImageView dummyImage;
     @FXML
     private GridPane countryGrid;
-
     @FXML
     private VBox serTypePane;
-
     @FXML
     private ImageView historyIcon;
 
-    private static ImageView dummyImage;
+    public static void update() throws FileNotFoundException {
+
+        if (!History.isEmpty()) dummyImage.setDisable(false);
+
+    }
 
     @FXML
     private void initialize() throws IOException {
+
         try {
             ArrayList<Label> labels = new ArrayList<>();
             DataParser.labelsFromCountries(DataArchive.newDataArchive().getCountries(), labels, QUERY, HomeView.IMG_SIZE);
@@ -46,32 +52,34 @@ public class HomeController extends DataController {
             for (String s : DataArchive.SERVICE_TYPES) {
                 serTypePane.getChildren().add(new Label("• " + s));
             }
-            if (History.emptyFile()) historyIcon.setDisable(true);
+            if (History.isEmpty()) historyIcon.setDisable(true);
             dummyImage = historyIcon;
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     @FXML
     protected void onSearchByCriteriaClick() throws IOException {
+
         try {
             Main.STAGE.setScene(SelectCountryView.getInstance().getScene());
         } catch (Exception e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
     @FXML
     protected void onHistoryClick() throws IOException {
+
         try {
             Main.STAGE.setScene(HistoryView.getInstance(true).getScene());
         } catch (Exception e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
     }
 
-    public static void update() throws FileNotFoundException {
-        if (!History.emptyFile()) dummyImage.setDisable(false);
-    }
 }

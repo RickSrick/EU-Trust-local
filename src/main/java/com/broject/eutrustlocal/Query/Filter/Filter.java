@@ -6,6 +6,8 @@ import com.broject.eutrustlocal.Creation.Data.Service;
 import java.util.ArrayList;
 
 /**
+ * Class Filter
+ *
  * @author Zanella Matteo
  */
 
@@ -31,17 +33,6 @@ public abstract class Filter {
     public ArrayList<String> getParameters() {
 
         return new ArrayList<>(parameters);
-
-    }
-
-    /**
-     * Checks if there are no parameters in the filter
-     *
-     * @return true/false based on the number of parameters
-     */
-    public boolean isEmpty() {
-
-        return parameters.isEmpty();
 
     }
 

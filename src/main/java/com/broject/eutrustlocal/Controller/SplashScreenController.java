@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 /**
+ * Class SplashScreenController
+ *
  * @author Biscaccia Carrara Francesco
  */
 public class SplashScreenController {
@@ -17,6 +19,7 @@ public class SplashScreenController {
 
     @FXML
     public void initialize() {
+
         RotateTransition transition = new RotateTransition(Duration.millis(750), loadingImage);
         transition.setByAngle(360);
         transition.setCycleCount(Transition.INDEFINITE);
@@ -24,5 +27,7 @@ public class SplashScreenController {
         Thread th = new Thread(new TaskCountry());
         th.setDaemon(true);
         th.start();
+
     }
+
 }

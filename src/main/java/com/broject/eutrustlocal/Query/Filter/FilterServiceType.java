@@ -2,12 +2,12 @@ package com.broject.eutrustlocal.Query.Filter;
 
 import com.broject.eutrustlocal.Creation.Data.Provider;
 import com.broject.eutrustlocal.Creation.Data.Service;
-import com.broject.eutrustlocal.Creation.DataArchive;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
+ * Class FilterServiceType
+ *
  * @author Zanella Matteo
  */
 

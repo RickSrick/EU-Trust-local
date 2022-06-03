@@ -41,6 +41,7 @@ public final class DataParser {
      * @param img_size    Image size for the flag, contained in the labels
      */
     public static void labelsFromCountries(ArrayList<Country> data, ArrayList<Label> arrayToFill, Query query, double img_size) {
+
         for (Country c : data) {
             ImageView flag = new ImageView(c.getFlag());
             flag.setFitHeight(img_size);
@@ -51,6 +52,7 @@ public final class DataParser {
             setListenerForLabel(label, query);
             arrayToFill.add(label);
         }
+
     }
 
     /**
@@ -65,6 +67,7 @@ public final class DataParser {
      * @param img_size    Image size for the flag, contained in the label
      */
     public static void checkBoxesFromCountries(ArrayList<Country> data, ArrayList<CheckBox> arrayToFill, Button btn, Query query, double img_size) {
+
         for (Country c : data) {
             CheckBox checkBox = new CheckBox(c.getName());
             ImageView flag = new ImageView(c.getFlag());
@@ -76,6 +79,7 @@ public final class DataParser {
             arrayToFill.add(checkBox);
         }
         addAllCheckBox(arrayToFill);
+
     }
 
     /**
@@ -90,6 +94,7 @@ public final class DataParser {
      * @param filter_type Filter type to modify
      */
     public static void checkBoxesFromStrings(ArrayList<String> data, ArrayList<CheckBox> arrayToFill, Button btn, Query query, int filter_type) {
+
         arrayToFill.clear();
         for (String s : data) {
             CheckBox checkBox = new CheckBox(s);
@@ -98,6 +103,7 @@ public final class DataParser {
             arrayToFill.add(checkBox);
         }
         addAllCheckBox(arrayToFill);
+
     }
 
     /**
@@ -113,6 +119,7 @@ public final class DataParser {
      * @param img_size    Image size for the flag, contained in the checkbox
      */
     public static void checkBoxesFromProviders(ArrayList<Provider> data, ArrayList<CheckBox> arrayToFill, Button btn, Query query, int filter_type, int img_size) throws BadResponseException {
+
         arrayToFill.clear();
         for (Provider s : data) {
             CheckBox checkBox = new CheckBox(s.getName());
@@ -125,6 +132,7 @@ public final class DataParser {
             arrayToFill.add(checkBox);
         }
         addAllCheckBox(arrayToFill);
+
     }
 
     /**
@@ -138,20 +146,23 @@ public final class DataParser {
      * @param img_size    Image size for the search icon, contained in the checkbox
      */
     public static void labelsFromCriteriaSheet(ArrayList<String> data, ArrayList<Label> arrayToFill, Query query, int img_size) {
+
         arrayToFill.clear();
         for (String s : data) {
             ImageView icon = new ImageView(new Image(String.valueOf(Main.class.getResource("img/search-history-icon.png"))));
             icon.setFitWidth(img_size);
             icon.setFitHeight(img_size);
-            Label label = new Label("Search: "+compressCriteriaSheet(s), icon);
+            Label label = new Label("Search: " + compressCriteriaSheet(s), icon);
             label.setId(s);
             setListenerForHistoryLabel(label, query);
             arrayToFill.add(label);
         }
+
     }
 
     //Method that set a EventListener for a Label.
     private static void setListenerForLabel(Label label, Query query) {
+
         label.onMouseClickedProperty().set(mouseEvent -> {
             query.editFilterParameter(Query.CRITERIA_FILTERS[0], label.getId());
             try {
@@ -171,10 +182,12 @@ public final class DataParser {
                 throw new RuntimeException(e);
             }
         });
+
     }
 
     //Method that set a EventListener for a CheckBox.
     private static void setListenerForCheckBox(ArrayList<CheckBox> checkBoxes, CheckBox checkBox, Query query, Button btn, int criteria_type) {
+
         checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             boolean disable = false;
             for (CheckBox el : checkBoxes) {
@@ -188,18 +201,19 @@ public final class DataParser {
 
     //Method that add the "all" checkBox as the last element in a CheckBox ArrayList.
     private static void addAllCheckBox(ArrayList<CheckBox> checkBoxes) {
+
         if (checkBoxes.size() != 1) {
             CheckBox allChecked = new CheckBox("All");
             allChecked.selectedProperty().addListener((observable, oldValue, newValue) -> {
-                        for (CheckBox checkBox : checkBoxes) {
-                            checkBox.setSelected(allChecked.isSelected());
-                            checkBox.setDisable(allChecked.isSelected());
-                        }
-                        allChecked.setDisable(false);
-                    }
-            );
+                for (CheckBox checkBox : checkBoxes) {
+                    checkBox.setSelected(allChecked.isSelected());
+                    checkBox.setDisable(allChecked.isSelected());
+                }
+                allChecked.setDisable(false);
+            });
             checkBoxes.add(allChecked);
         }
+
     }
 
     //Method that compress a multiple string text, into a single one.
@@ -212,24 +226,22 @@ public final class DataParser {
 
         for (int i = 0; i < 4; i++) {
 
+            tokenizer.nextLine();
             String line = tokenizer.nextLine();
-            line = tokenizer.nextLine();
 
             parameters.add(new StringBuilder());
 
             while (!line.equals(Query.CRITERIA_LINE)) {
                 parameters.get(i).append(line);
                 line = tokenizer.nextLine();
-                if (!line.equals(Query.CRITERIA_LINE))
-                    parameters.get(i).append("\\");
+                if (!line.equals(Query.CRITERIA_LINE)) parameters.get(i).append("\\");
             }
 
         }
 
         for (int i = 0; i < parameters.size(); i++) {
             compressedCriteria.append(parameters.get(i).toString());
-            if (i != 3 && parameters.get(i + 1).length() != 0)
-                compressedCriteria.append(" - ");
+            if (i != 3 && parameters.get(i + 1).length() != 0) compressedCriteria.append(" - ");
         }
 
         return compressedCriteria.toString();
@@ -238,6 +250,7 @@ public final class DataParser {
 
     //Method that set a EventListener for a Label.
     private static void setListenerForHistoryLabel(Label label, Query query) {
+
         label.onMouseClickedProperty().set(mouseEvent -> {
             query.setCriteria(label.getId());
             try {
@@ -256,5 +269,7 @@ public final class DataParser {
                 throw new RuntimeException(e);
             }
         });
+
     }
+
 }

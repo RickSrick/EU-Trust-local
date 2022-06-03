@@ -7,15 +7,18 @@ public class SplashScreenView extends View {
     private static SplashScreenView instance = null;
 
     private SplashScreenView() throws IOException {
+
         super(FXMLArchive.SPLASH_SCREEN_SCENE);
+
     }
 
     public static SplashScreenView getInstance() throws IOException {
 
-        if (instance == null)
-            instance = new SplashScreenView();
+        if (instance == null) instance = new SplashScreenView();
 
         return instance;
+
     }
+
 }
 

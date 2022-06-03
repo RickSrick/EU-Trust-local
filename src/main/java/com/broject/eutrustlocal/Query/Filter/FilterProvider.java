@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * Class FilterProvider
+ *
  * @author Zanella Matteo
  */
 

@@ -1,11 +1,12 @@
 package com.broject.eutrustlocal.Query.Filter;
 
 import com.broject.eutrustlocal.Creation.Data.Provider;
-import com.broject.eutrustlocal.Creation.DataArchive;
 
 import java.util.ArrayList;
 
 /**
+ * Class FilterCountry
+ *
  * @author Zanella Matteo
  */
 

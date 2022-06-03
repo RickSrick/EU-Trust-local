@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
+ * Class DataArchive
+ *
  * @author Zanella Matteo
  */
 
@@ -21,7 +23,6 @@ public class DataArchive {
     private static final ArrayList<Country> countries = new ArrayList<>();
     private static DataArchive instance = null;
     private static Bifrost connection;
-    //#endregion
 
     private DataArchive() throws BadResponseException {
 
@@ -49,12 +50,15 @@ public class DataArchive {
      * @return true/false due to the state of the connection
      */
     public static boolean checkOfflineStatus() {
+
         try {
             Bifrost.checkConnection();
         } catch (BadResponseException e) {
             return true;
         }
+
         return false;
+
     }
 
     /**
@@ -115,6 +119,8 @@ public class DataArchive {
      * @throws BadResponseException if there is a problem with the POST request
      */
     public ArrayList<Provider> getProviders(String[] _countries, String[] _serviceTypes) throws BadResponseException {
+
+        if (checkOfflineStatus()) throw new BadResponseException();
 
         StringBuilder jsonPOST = new StringBuilder();
 
@@ -193,6 +199,8 @@ public class DataArchive {
     //Method to update the DataArchive
     private void update() throws BadResponseException {
 
+        if (checkOfflineStatus()) throw new BadResponseException();
+
         connection = Bifrost.newBifrost();
         jsonToCountries(connection.getCountries());
 
@@ -226,6 +234,7 @@ public class DataArchive {
         JSONObject element = new JSONObject(_json);
         JSONArray data = new JSONArray();
         data.put(element);
+
         return data;
 
     }

@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
  * @author Biscaccia Carrara Francesco
  */
 public final class FXMLArchive {
+
     public static final FXMLLoader HOME_SCENE = new FXMLLoader(Main.class.getResource("xml_view/home-view.fxml"));
     public static final FXMLLoader ERROR_SCENE = new FXMLLoader(Main.class.getResource("xml_view/error-view.fxml"));
     public static final FXMLLoader COUNTRY_LIST_SCENE = new FXMLLoader(Main.class.getResource("xml_view/countryList-view.fxml"));
@@ -18,4 +19,5 @@ public final class FXMLArchive {
     public static final FXMLLoader RESULT_LIST_SCENE = new FXMLLoader(Main.class.getResource("xml_view/resultList-view.fxml"));
     public static final FXMLLoader SPLASH_SCREEN_SCENE = new FXMLLoader(Main.class.getResource("xml_view/splashScreen-view.fxml"));
     public static final FXMLLoader HISTORY_SCENE = new FXMLLoader(Main.class.getResource("xml_view/history-view.fxml"));
+
 }

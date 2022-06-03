@@ -3,6 +3,8 @@ package com.broject.eutrustlocal.Creation.Data;
 import javafx.scene.image.Image;
 
 /**
+ * Class Country
+ *
  * @author Zanella Matteo
  */
 
@@ -17,7 +19,7 @@ public class Country {
      *
      * @param _countryName the name of the country
      * @param _countryCode the code of the country
-     * @param _flagLink the url of the flag of the country
+     * @param _flagLink    the url of the flag of the country
      */
     public Country(String _countryName, String _countryCode, String _flagLink) {
 
