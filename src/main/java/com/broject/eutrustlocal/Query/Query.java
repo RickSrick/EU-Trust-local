@@ -85,7 +85,6 @@ public class Query {
         for (int i = 0; i < filters.size(); i++) {
 
             ArrayList<String> parameters = filters.get(i).getParameters();
-            if ((i == 0 || i == 2) && filters.get(i).isEmpty()) parameters.clear();
             criteria.append(CRITERIA_FILTERS[i]).append("\n");
             for (String parameter : parameters)
                 criteria.append(parameter).append("\n");
@@ -291,18 +290,13 @@ public class Query {
     //IF NEEDED creates a post request and IF NEEDED filters the response
     private void applyFilters() throws BadResponseException {
 
-        if (filters.get(0).isEmpty() || filters.get(2).isEmpty()) {
-
-            if (!fullCountriesArchive && (filters.get(0).isEmpty() || countriesArchive.size() == DataArchive.getCountryCodes().size())) {
-                countriesArchive.clear();
-                fullCountriesArchive = true;
-                newRequestNeeded = true;
-            }
-
+        if (!fullCountriesArchive && countriesArchive.size() == DataArchive.getCountryCodes().size()) {
+            countriesArchive.clear();
+            fullCountriesArchive = true;
+            newRequestNeeded = true;
         }
 
         if (newRequestNeeded) {
-            if (addedCountries.isEmpty()) addedCountries = filters.get(0).getParameters();
             ArrayList<Provider> newResponse = DataArchive.newDataArchive().getProviders(addedCountries.toArray(new String[0]), DataArchive.SERVICE_TYPES);
             response.addAll(newResponse);
             newRequestNeeded = false;

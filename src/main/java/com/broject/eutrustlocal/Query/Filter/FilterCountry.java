@@ -19,15 +19,6 @@ public class FilterCountry extends Filter {
     }
 
     @Override
-    public ArrayList<String> getParameters() {
-
-        if (parameters.isEmpty()) return DataArchive.getCountryCodes();
-
-        return parameters;
-
-    }
-
-    @Override
     public ArrayList<Provider> applyFilter(ArrayList<Provider> _response) {
 
         if (parameters.isEmpty()) return _response;

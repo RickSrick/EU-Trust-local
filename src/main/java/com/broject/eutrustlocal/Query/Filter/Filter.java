@@ -25,7 +25,6 @@ public abstract class Filter {
 
     /**
      * Returns all the parameters of the filter
-     * Could be overridden
      *
      * @return the parameters of the filter
      */
