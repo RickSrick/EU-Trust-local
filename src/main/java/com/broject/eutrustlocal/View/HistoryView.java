@@ -11,7 +11,7 @@ public class HistoryView extends View {
     private static HistoryView instance = null;
 
     private HistoryView() throws IOException {
-        super(XMLArchive.HISTORY_SCENE);
+        super(FXMLArchive.HISTORY_SCENE);
     }
 
     public static HistoryView getInstance(boolean reload) throws BadResponseException, IOException {
@@ -23,7 +23,7 @@ public class HistoryView extends View {
         return instance;
     }
 
-    public static void update() throws FileNotFoundException {
+    private static void update() throws FileNotFoundException {
         HistoryController.update();
     }
 }

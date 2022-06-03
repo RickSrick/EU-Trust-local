@@ -8,7 +8,7 @@ import com.broject.eutrustlocal.Query.Query;
 import com.broject.eutrustlocal.View.ErrorView;
 import com.broject.eutrustlocal.View.HomeView;
 import com.broject.eutrustlocal.View.SelectStatusesView;
-import com.broject.eutrustlocal.View.SelectTypeServiceView;
+import com.broject.eutrustlocal.View.SelectServiceTypeView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -60,7 +60,7 @@ public class SelectProviderController extends DataController {
     protected void onBackButtonClick() throws IOException {
         try {
             QUERY.clearFilter(Query.CRITERIA_FILTERS[FILTER_TYPE]);
-            Main.STAGE.setScene(SelectTypeServiceView.getInstance(false).getScene());
+            Main.STAGE.setScene(SelectServiceTypeView.getInstance(false).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }

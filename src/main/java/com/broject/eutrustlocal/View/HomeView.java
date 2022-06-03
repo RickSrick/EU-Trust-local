@@ -14,7 +14,7 @@ public class HomeView extends View {
     private static HomeView instance = null;
 
     private HomeView() throws IOException {
-        super(XMLArchive.HOME_SCENE);
+        super(FXMLArchive.HOME_SCENE);
     }
 
     public static HomeView getInstance(boolean reload) throws BadResponseException, IOException {

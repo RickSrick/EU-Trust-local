@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * @author Biscaccia Carrara Francesco
  */
-public class SelectTypeServiceController extends DataController {
+public class SelectServiceTypeController extends DataController {
 
     private static final int COLUMNS = 3;
     private static final int ROWS = 7;

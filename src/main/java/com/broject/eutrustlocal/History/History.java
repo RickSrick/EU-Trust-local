@@ -57,7 +57,7 @@ public class History {
 
         if(history.size()>30){
 
-            return new ArrayList<> (history.subList(history.size()-30, history.size()));
+            return new ArrayList<> (history.subList(history.size()-31, history.size()-1));
 
         }
         return history;

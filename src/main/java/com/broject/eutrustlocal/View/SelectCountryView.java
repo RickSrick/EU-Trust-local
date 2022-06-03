@@ -13,7 +13,7 @@ public class SelectCountryView extends View {
     private static SelectCountryView instance = null;
 
     private SelectCountryView() throws IOException {
-        super(XMLArchive.COUNTRY_LIST_SCENE);
+        super(FXMLArchive.COUNTRY_LIST_SCENE);
     }
 
     public static SelectCountryView getInstance() throws BadResponseException, IOException {

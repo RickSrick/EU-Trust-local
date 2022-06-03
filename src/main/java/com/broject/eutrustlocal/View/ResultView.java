@@ -10,7 +10,7 @@ public class ResultView extends View {
     private static ResultView instance = null;
 
     private ResultView() throws IOException {
-        super(XMLArchive.RESULT_LIST_SCENE);
+        super(FXMLArchive.RESULT_LIST_SCENE);
     }
 
     public static ResultView getInstance(boolean reload) throws BadResponseException, IOException {
@@ -22,7 +22,7 @@ public class ResultView extends View {
         return instance;
     }
 
-    public static void update() throws BadResponseException {
+    private static void update() throws BadResponseException {
         new ResultController().update();
     }
 }
