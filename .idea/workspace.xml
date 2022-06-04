@@ -1,52 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="EU-Trust-local:jar" />
+      <artifact name="Prova" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Little changes">
+    <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="History made Singleton">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/DataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/DataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/HistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/ResultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectCountryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectCountryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectProviderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectServiceTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectServiceTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectStatusesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SelectStatusesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SplashScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/SplashScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/BackgroundTasks/TaskCountry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/BackgroundTasks/TaskCountry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/BackgroundTasks/TaskData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/BackgroundTasks/TaskData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/DataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/DataParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/ViewRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Controller/Utility/ViewRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/BadResponseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/BadResponseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Data/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/DataArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/DataArchive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EU-Trust-local.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Prova/EU-Trust-local.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Prova/EU-Trust-local.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/History/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterCountry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterCountry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Filter/FilterServiceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Query.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ErrorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ErrorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/FXMLArchive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/FXMLArchive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HistoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/HomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ResultView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/ResultView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectCountryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectCountryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectProviderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectProviderView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectServiceTypeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectServiceTypeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectStatusesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SelectStatusesView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SplashScreenView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/SplashScreenView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/View/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/History/HistoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/History/HistoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/View/ErrorViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/View/ErrorViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +204,8 @@
       <workItem from="1654260689419" duration="2734000" />
       <workItem from="1654263469790" duration="288000" />
       <workItem from="1654263876666" duration="633000" />
-      <workItem from="1654281976143" duration="3538000" />
+      <workItem from="1654281976143" duration="6161000" />
+      <workItem from="1654340010837" duration="2691000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing warnings">
       <created>1653138493688</created>
@@ -424,7 +396,28 @@
       <option name="project" value="LOCAL" />
       <updated>1654263388093</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Aesthetic changes">
+      <created>1654285797232</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1654285797232</updated>
+    </task>
+    <task id="LOCAL-00029" summary="History made Singleton">
+      <created>1654343793384</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1654343793384</updated>
+    </task>
+    <task id="LOCAL-00030" summary="History made Singleton">
+      <created>1654343874773</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1654343874773</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +477,9 @@
     <MESSAGE value="Little Changes" />
     <MESSAGE value="Little changes and DataArchiveTest" />
     <MESSAGE value="Little changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Little changes" />
+    <MESSAGE value="Aesthetic changes" />
+    <MESSAGE value="History made Singleton" />
+    <option name="LAST_COMMIT_MESSAGE" value="History made Singleton" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

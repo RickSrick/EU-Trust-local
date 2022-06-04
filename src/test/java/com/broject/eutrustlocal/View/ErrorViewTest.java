@@ -12,8 +12,8 @@ class ErrorViewTest {
 
     @Test
     public void test() throws Exception {
-        JFXPanel fxPanel = new JFXPanel();
-    [.. Begin tests ..]
+        //JFXPanel fxPanel = new JFXPanel();
+        //[.. Begin tests ..]
     }
     @Test
     void getIstance() throws IOException {

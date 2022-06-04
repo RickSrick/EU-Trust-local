@@ -13,6 +13,8 @@ public class History {
 
     private static History instance = null;
 
+    private static final String PATH = "History.bin";
+
     private History() {
 
         try {
@@ -28,8 +30,6 @@ public class History {
         if (instance == null) instance = new History();
 
     }
-
-    private static final String PATH = "History.bin";
 
     /**
      * Takes criteria from query request and convert to binary code;
