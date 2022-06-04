@@ -1,9 +1,8 @@
 package com.broject.eutrustlocal.History;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.PrintWriter;
+import com.broject.eutrustlocal.Creation.DataArchive;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +13,28 @@ import java.util.Scanner;
  */
 public class History {
 
-    private static final String PATH = "src/main/java/com/broject/eutrustlocal/History/History.bin";
+    private static History instance = null;
+
+    private History() {
+
+        try {
+            (new File(PATH)).createNewFile();
+        } catch (IOException e) {
+            System.out.println(e.getMessage() + "\n" + e.getCause());
+        }
+
+    }
+
+    private static History newHistory() {
+
+        if (instance == null) instance = new History();
+
+        return instance;
+
+    }
+
+    private static final String PATH = "History.bin";
+
     /**
      * Takes criteria from query request and convert to binary code;
      * If History.bin doesn't exist, the file will be created automatically;
@@ -30,6 +50,8 @@ public class History {
      * @throws FileNotFoundException If there are problems with the History file
      */
     public static void binWriter(String criteria) throws FileNotFoundException {
+
+        newHistory();
 
         PrintWriter writer = new PrintWriter(new FileOutputStream(PATH, true));
 
@@ -67,6 +89,8 @@ public class History {
      */
     public static ArrayList<String> binReader() throws FileNotFoundException {
 
+        newHistory();
+
         ArrayList<String> history = new ArrayList<>();
         Scanner in = new Scanner(new FileReader(PATH));
         String line;
@@ -97,6 +121,8 @@ public class History {
      */
     public static boolean isEmpty() throws FileNotFoundException {
 
+        newHistory();
+
         return !(new Scanner(new FileReader(PATH))).hasNextLine();
 
     }
@@ -111,6 +137,8 @@ public class History {
      * @throws FileNotFoundException If there are problems with the History file
      */
     public static void clearHistory() throws FileNotFoundException {
+
+        newHistory();
 
         PrintWriter writer = new PrintWriter(new FileOutputStream(PATH, false));
         writer.close();
