@@ -7,4 +7,6 @@ project created by:
 - [Riccardo Modolo](mailto:riccardo.modolo.1@studenti.unipd.it)
 - [Kabir Bertan](mailto:kabir.bertan@studenti.unipd.it)
 
+---
+
 [Downlad al file](EU-Trust-local.jar)
