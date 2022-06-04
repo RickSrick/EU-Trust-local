@@ -17,11 +17,10 @@ import java.io.IOException;
 public class TaskCountry extends Task<Void> {
 
     @Override
-    protected Void call() throws Exception {
+    protected Void call() {
 
         try {
             DataArchive.newDataArchive().getCountries();
-            Thread.sleep(1000);
         } catch (BadResponseException e) {
             failed();
         }

@@ -25,7 +25,7 @@ public class Country {
 
         countryName = _countryName;
         countryCode = _countryCode;
-        flag = new Image(_flagLink, true);
+        flag = new Image(_flagLink, false);
 
     }
 

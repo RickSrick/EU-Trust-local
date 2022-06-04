@@ -1,5 +1,6 @@
 package com.broject.eutrustlocal;
 
+import com.broject.eutrustlocal.History.History;
 import com.broject.eutrustlocal.View.SplashScreenView;
 import javafx.application.Application;
 import javafx.scene.image.Image;
@@ -22,6 +23,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+        History.newHistory();
         boolean RESIZE_FLAG = false;
         STAGE = stage;
         stage.setResizable(RESIZE_FLAG);
