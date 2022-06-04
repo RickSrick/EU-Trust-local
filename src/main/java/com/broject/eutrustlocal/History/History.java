@@ -1,7 +1,5 @@
 package com.broject.eutrustlocal.History;
 
-import com.broject.eutrustlocal.Creation.DataArchive;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -25,11 +23,9 @@ public class History {
 
     }
 
-    private static History newHistory() {
+    private static void newHistory() {
 
         if (instance == null) instance = new History();
-
-        return instance;
 
     }
 
