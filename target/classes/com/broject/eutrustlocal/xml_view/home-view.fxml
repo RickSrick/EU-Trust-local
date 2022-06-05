@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="50.0" stylesheets="@../css/mainStyle.css" xmlns:fx="http://javafx.com/fxml" fx:controller="com.broject.eutrustlocal.Controller.HomeController">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+
+    <Label text="Local" textFill="#4a86e8">
+      <font>
+          <Font name="Arial Bold" size="48.0" />
+      </font>
+      <graphic>
+         <Label text="Trust Service">
+            <graphic>
+               <Label text="EU" textFill="#4a86e8">
+                  <font>
+                     <Font name="Arial Bold" size="48.0" />
+                  </font>
+               </Label>
+            </graphic>
+            <font>
+                <Font name="Arial Bold" size="48.0" />
+            </font>
+         </Label>
+      </graphic></Label>
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50">
+       <GridPane fx:id="countryGrid" hgap="20" style="-fx-font-family: Arial" vgap="20">
+           <cursor>
+               <Cursor fx:constant="HAND" />
+           </cursor>
+       </GridPane>
+       <VBox fx:id="serTypePane">
+           <Label style="-fx-font-weight: bold" text="Service type available:" />
+       </VBox>
+   </HBox>
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30">
+          <Button onAction="#onSearchByCriteriaClick" style="-fx-background-color: #4a86e8; " text="Search by criteria" textFill="white">
+              <font>
+                  <Font name="Arial Bold" size="20.0" />
+              </font>
+              <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                      <Image url="@../img/search-icon.png" />
+                  </ImageView>
+              </graphic>
+              <cursor>
+                  <Cursor fx:constant="HAND" />
+              </cursor>
+          </Button>
+         <ImageView fx:id="historyIcon" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onHistoryClick">
+            <Image url="@../img/history-icon.png" />
+             <cursor>
+                 <Cursor fx:constant="HAND" />
+             </cursor>
+         </ImageView>
+   </HBox>
+</VBox>

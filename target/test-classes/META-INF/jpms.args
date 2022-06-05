@@ -1,0 +1,4 @@
+--patch-module
+com.broject.eutrustlocal=_
+--add-reads
+com.broject.eutrustlocal=ALL-UNNAMED

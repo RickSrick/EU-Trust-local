@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.Cursor?>
+<VBox fx:id="countryListRoot" alignment="CENTER" spacing="45.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx" fx:controller="com.broject.eutrustlocal.Controller.SelectCountryController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Local" textFill="#4a86e8">
+      <font>
+          <Font name="Arial Bold" size="48.0" />
+      </font>
+      <graphic>
+         <Label text="Trust Service">
+            <graphic>
+               <Label text="EU" textFill="#4a86e8">
+                  <font>
+                     <Font name="Arial Bold" size="48.0" />
+                  </font>
+               </Label>
+            </graphic>
+            <font>
+                <Font name="Arial Bold" size="48.0" />
+            </font>
+         </Label>
+      </graphic></Label>
+    <Label text="Select one or more countries: ">
+                <font>
+                    <Font name="Arial" size="15.0" />
+                </font>
+            </Label>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50">
+        <GridPane fx:id="selCountryPane" hgap="20" style="-fx-font-family: Arial" vgap="20" />
+    </HBox>
+    <HBox alignment="CENTER" spacing="50">
+        <Button alignment="BOTTOM_LEFT" onAction="#onHomeButtonClick" style="-fx-background-color: #DBE7FA;" text="Go home" textFill="#4a86e8">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0">
+                    <Image url="@../img/home-icon.png" />
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <Button fx:id="btnCountryForward" alignment="BOTTOM_LEFT" disable="true" onAction="#onForwardButtonClick" style="-fx-background-color: #4a86e8; -fx-content-display: right;" text="Go forward" textFill="white">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0">
+                    <Image url="@../img/forward-icon.png" />
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+
+    </HBox>
+</VBox>
