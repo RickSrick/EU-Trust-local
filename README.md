@@ -8,5 +8,12 @@ project created by:
 - [Kabir Bertan](mailto:kabir.bertan@studenti.unipd.it)
 
 ---
+#### Documents
+- [System Design]()
+- [system and unit tests]()
+- [code explained]()
+- [Installation Guide]()
+- [Features Overview]()
 
-[Downlad al file](EU-Trust-local.jar)
+
+[Downlad Jar file](target/EU-Trust-local-1.0-SNAPSHOT.jar)
