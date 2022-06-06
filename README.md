@@ -16,4 +16,5 @@ project created by:
 - [Features Overview]()
 
 
+---
 [Downlad Jar file](target/EU-Trust-local-1.0-SNAPSHOT.jar)
