@@ -16,7 +16,6 @@ com\broject\eutrustlocal\View\ErrorView.class
 com\broject\eutrustlocal\View\SelectServiceTypeView.class
 com\broject\eutrustlocal\Creation\Data\Service.class
 com\broject\eutrustlocal\App.class
-com\broject\eutrustlocal\Query\Test1.class
 com\broject\eutrustlocal\Controller\SelectProviderController.class
 com\broject\eutrustlocal\Controller\Utility\ViewRender.class
 com\broject\eutrustlocal\Controller\HistoryController.class
