@@ -37,7 +37,7 @@ public class HomeController extends DataController {
 
     public static void update() throws FileNotFoundException {
 
-        if (!History.isEmpty()) dummyImage.setDisable(false);
+        dummyImage.setDisable(History.isEmpty());
 
     }
 
