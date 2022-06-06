@@ -9,12 +9,14 @@ project created by:
 
 ---
 #### Documents
-- [System Design]()
-- [system and unit tests]()
-- [code explained]()
-- [Installation Guide]()
-- [Features Overview]()
+- [System Design](files/PDF_Version/System Design.pdf)
+- [system and unit tests](files/PDF_Version/System and Unit Test.pdf)
+###### Manual
+- [code explained](files/PDF_Version/Manuale/Code.pdf)
+- [Installation Guide](files/PDF_Version/Manuale/Guida all'installazione.pdf)
+- [Features Overview](files/PDF_Version/Manuale/Panoramica Delle Funzionalità.pdf)
 
+all document are editable in files/GDoc_Version
 
 ---
 [Downlad Jar file](target/EU-Trust-local-1.0-SNAPSHOT.jar)
