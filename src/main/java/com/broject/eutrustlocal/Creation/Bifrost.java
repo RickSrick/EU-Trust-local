@@ -52,7 +52,7 @@ public class Bifrost {
             conn.connect();
         } catch (Exception e) {
             throw new BadResponseException();
-        }
+        }   
 
     }
 
@@ -82,7 +82,6 @@ public class Bifrost {
      * @return the link to the flag, if it exists
      */
     public String getFlagImageLink(String countryCode) {
-
         return "https://flagsapi.com/" + CheckISOStandard(countryCode) + "/flat/64.png";
 
     }

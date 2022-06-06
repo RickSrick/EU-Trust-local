@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class QueryTest {
+
+    //private Platform
 
     @Test
     void getCriteria() {
@@ -180,5 +180,4 @@ class QueryTest {
         Assertions.assertEquals(expectedCriteria, query.getCriteria());
 
     }
-
 }

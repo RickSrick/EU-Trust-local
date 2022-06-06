@@ -11,14 +11,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee224f70-5dca-41b0-88ca-2d9b37bfd761" name="Changes" comment="Last views added. Founded some bugs on navigation.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/EU_Trust_local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/EU_Trust_local_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20220320.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_result/Test Results - BifrostTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_result/Test Results - HistoryTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_aether_provider_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_core_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_builder_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_api_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_repository_metadata_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_settings_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_settings_builder_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_plugins_maven_shade_plugin_3_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_shared_maven_artifact_transfer_0_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_shared_maven_common_artifact_filters_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_shared_maven_dependency_tree_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_shared_maven_shared_utils_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_classworlds_2_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_component_annotations_2_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_interpolation_1_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_3_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_aether_aether_util_0_9_0_M2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom2_2_0_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_18_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_18_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_18_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_18_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_18_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_18_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_18_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_18_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_analysis_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_commons_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_tree_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_aether_aether_api_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_aether_aether_impl_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_aether_aether_spi_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_aether_aether_util_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_plexus_plexus_cipher_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_plexus_plexus_sec_dispatcher_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_vafer_jdependency_2_7_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EU-Trust-local.iml" beforeDir="false" afterPath="$PROJECT_DIR$/EU-Trust-local.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Prova/EU-Trust-local.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Creation/Bifrost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/broject/eutrustlocal/Query/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/Query/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/Query/QueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/broject/eutrustlocal/Query/QueryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/Controller/HistoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/Controller/HistoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/Controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/Controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/Creation/Bifrost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/Creation/Bifrost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/css/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/css/mainStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/xml_view/history-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/broject/eutrustlocal/xml_view/history-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/broject/eutrustlocal/Creation/BifrostTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/broject/eutrustlocal/History/HistoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/broject/eutrustlocal/Query/QueryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/broject/eutrustlocal/View/ErrorViewTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$/test_result" userTempatePath="" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -46,14 +115,19 @@
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="29QotQfDgS020OQtBcXjsVHYaUJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
@@ -80,19 +154,29 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.broject.eutrustlocal.Query" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.broject.eutrustlocal.Creation" />
       <recent name="com.broject.eutrustlocal.History" />
       <recent name="com.broject.eutrustlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.EU-Trust-local.jar">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Main" />
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn package" />
+      <command value="mvn compile" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.QueryTest">
+    <configuration name="com.broject.eutrustlocal.Query.QueryTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Query.QueryTest" />
       <module name="EU-Trust-local" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.broject.eutrustlocal.*" />
+          <option name="PATTERN" value="com.broject.eutrustlocal.Query.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,7 +184,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DataArchiveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BifrostTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EU-Trust-local" />
       <extension name="coverage">
         <pattern>
@@ -109,13 +193,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.broject.eutrustlocal.Creation" />
-      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Creation.DataArchiveTest" />
+      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Creation.BifrostTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DataArchiveTest.getProviders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BifrostTest.getCountries" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EU-Trust-local" />
       <extension name="coverage">
         <pattern>
@@ -124,14 +208,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.broject.eutrustlocal.Creation" />
-      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Creation.DataArchiveTest" />
-      <option name="METHOD_NAME" value="getProviders" />
+      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Creation.BifrostTest" />
+      <option name="METHOD_NAME" value="getCountries" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HistoryTest.clearHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HistoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EU-Trust-local" />
       <extension name="coverage">
         <pattern>
@@ -141,30 +225,40 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.broject.eutrustlocal.History" />
       <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.History.HistoryTest" />
-      <option name="METHOD_NAME" value="clearHistory" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EU-Trust-local.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/EU_Trust_local_jar/EU-Trust-local.jar" />
-      <method v="2" />
+    <configuration name="QueryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EU-Trust-local" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.broject.eutrustlocal.Query.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.broject.eutrustlocal.Query" />
+      <option name="MAIN_CLASS_NAME" value="com.broject.eutrustlocal.Query.QueryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JAR Application.EU-Trust-local.jar" />
-      <item itemvalue="JUnit.DataArchiveTest" />
-      <item itemvalue="JUnit.DataArchiveTest.getProviders" />
-      <item itemvalue="JUnit.HistoryTest.clearHistory" />
+      <item itemvalue="Application.com.broject.eutrustlocal.Query.QueryTest" />
+      <item itemvalue="JUnit.BifrostTest" />
+      <item itemvalue="JUnit.BifrostTest.getCountries" />
+      <item itemvalue="JUnit.HistoryTest" />
+      <item itemvalue="JUnit.QueryTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.EU-Trust-local.jar" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.DataArchiveTest.getProviders" />
-        <item itemvalue="JUnit.DataArchiveTest" />
-        <item itemvalue="JUnit.HistoryTest.clearHistory" />
+        <item itemvalue="JUnit.QueryTest" />
+        <item itemvalue="Application.com.broject.eutrustlocal.Query.QueryTest" />
+        <item itemvalue="JUnit.HistoryTest" />
+        <item itemvalue="JUnit.BifrostTest" />
+        <item itemvalue="JUnit.BifrostTest.getCountries" />
       </list>
     </recent_temporary>
   </component>
@@ -199,6 +293,9 @@
       <workItem from="1654263876666" duration="633000" />
       <workItem from="1654281976143" duration="6161000" />
       <workItem from="1654340010837" duration="2691000" />
+      <workItem from="1654496489194" duration="5594000" />
+      <workItem from="1654506720595" duration="1511000" />
+      <workItem from="1654518859295" duration="1709000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing warnings">
       <created>1653138493688</created>
@@ -410,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654343874773</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Last views added. Founded some bugs on navigation.">
+      <created>1654496557857</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1654496557857</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,6 +553,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Fixing warnings" />
     <MESSAGE value="Formatting files" />
     <MESSAGE value="Formatting files and Variables Name" />
@@ -460,7 +565,6 @@
     <MESSAGE value="Superclass SelectController added." />
     <MESSAGE value="Incremental POST request" />
     <MESSAGE value="ProviderView ProviderController added. &#10;Note: now back button take u home, i'll adjust." />
-    <MESSAGE value="Last views added. Founded some bugs on navigation." />
     <MESSAGE value="Navigation problems fixed." />
     <MESSAGE value="Added method to DataArchive to get a Country given it's countryCode.&#10;Added functionality that recognise two providers as differents even if they have the same name (same with services)&#10;TODO: recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
     <MESSAGE value="Recognise as different two providers with the same name when editing the query (editFilterParameter(String, String))." />
@@ -472,7 +576,8 @@
     <MESSAGE value="Little changes" />
     <MESSAGE value="Aesthetic changes" />
     <MESSAGE value="History made Singleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="History made Singleton" />
+    <MESSAGE value="Last views added. Founded some bugs on navigation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Last views added. Founded some bugs on navigation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
