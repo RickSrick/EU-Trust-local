@@ -55,10 +55,18 @@ public class HistoryController extends DataController {
     protected void onHomeButtonClick() throws IOException {
 
         try {
-            Main.STAGE.setScene(HomeView.getInstance(false).getScene());
+            Main.STAGE.setScene(HomeView.getInstance(true).getScene());
         } catch (BadResponseException e) {
             Main.STAGE.setScene(ErrorView.getInstance().getScene());
         }
+
+    }
+
+    @FXML
+    protected void onDeleteHistoryClick() throws FileNotFoundException {
+
+        historyPane.getChildren().clear();
+        History.clearHistory();
 
     }
 
